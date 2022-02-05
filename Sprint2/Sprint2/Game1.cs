@@ -40,6 +40,11 @@ namespace Sprint2
             Texture2D front_move = Content.Load<Texture2D>("front_move");
             Texture2D side = Content.Load<Texture2D>("side");
 
+            SpriteFactory.CreateSprite(front_still);
+            //back
+            SpriteFactory.CreateSprite(front_move);
+            SpriteFactory.CreateSprite(side);
+
         }
 
         protected override void Update(GameTime gameTime)
