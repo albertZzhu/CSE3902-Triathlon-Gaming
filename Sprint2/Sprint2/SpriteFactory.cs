@@ -7,6 +7,7 @@ namespace Sprint2
     public class SpriteFactory
     {
         //its a singleton!
+        //testing
         private static SpriteFactory uniqueFactory;
         private SpriteFactory()
         {
