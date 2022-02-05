@@ -8,8 +8,9 @@ namespace Sprint2
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Player player;
+        private Player _player;
         //singleton sprite factory here
+        //private SpriteFactory _spriteFactory; - should not be needed since its all static
 
         public Game1()
         {
@@ -21,7 +22,7 @@ namespace Sprint2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            SpriteFactory.GetFactory();
             base.Initialize();
         }
 
@@ -32,9 +33,10 @@ namespace Sprint2
             // TODO: use this.Content to load your game content here
             //player class should hold all sprites for it?
             //sprite factory????????
+            //_player.sprite = factory creates player sprite
+
             Texture2D front_still = Content.Load<Texture2D>("front_still");
-            player = new Player(front_still);
-            //???
+            //need backwards walk as well
             Texture2D front_move = Content.Load<Texture2D>("front_move");
             Texture2D side = Content.Load<Texture2D>("side");
 
@@ -46,7 +48,7 @@ namespace Sprint2
                 Exit();
 
             // TODO: Add your update logic here
-            player.Update(gameTime);
+            _player.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -55,7 +57,7 @@ namespace Sprint2
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            player.Draw(_spriteBatch);
+            _player.Draw(_spriteBatch);
             base.Draw(gameTime);
         }
     }

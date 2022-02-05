@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    class Frame
+    public class Frame
     {
         //rectangle and bitmap
     }
