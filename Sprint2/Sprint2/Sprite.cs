@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,30 +13,33 @@ namespace Sprint2
         //frame = bitmap, x, y, ht, width
         //frame = bitmap, sourceRectangle
         //could make frames into objects
+        private List<Frame> frames = new List<Frame>();
 
-        public Texture2D GetSprite()
+        public List<Frame> GetFrames()
         {
-            return sourceBitMap;
+            return frames;
         }
 
-        //params(sourcebitmap, srcRectangle) or equiv obj
-        //or load in frame collection
-        public void SetSprite(framecollection)
+        public void SetFrames(Texture2D bitMap, int columns, int rows, int totalFrames)
         {
-            sourceBitMap = spr;
+            for (int i = 0; i < totalFrames; i++)
+            {
+                int width = bitMap.Width / columns;
+                int height = bitMap.Height / rows;
+                int row = i / columns;
+                int column = i % columns;
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+                frames.Add(new Frame(bitMap, sourceRectangle));
+            }
+
+
         }
 
         //animation... could make an "animate" function? or should this be its own interface?
         //but there's so many variables...
-        private int rows
-        { get; set; }
-        private int columns
-        { get; set; }
         private int currentFrame
         { get; set; }
         private int buffer
-        { get; set; }
-        private int totalFrames
         { get; set; }
 
         //default constructor
@@ -52,7 +56,7 @@ namespace Sprint2
             if (buffer % 5 == 0)
             {
                 currentFrame++;
-                if (currentFrame == totalFrames)
+                if (currentFrame == frames.Count)
                     currentFrame = 0;
             }
         }
@@ -60,15 +64,7 @@ namespace Sprint2
         //update location with each call to draw? using a property here or...?
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            int width = sourceBitMap.Width / columns;
-            int height = sourceBitMap.Height / rows;
-            int row = currentFrame / columns;
-            int column = currentFrame % columns;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-            spriteBatch.Draw(sourceBitMap, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(frames[currentFrame].GetBitMap(), location, frames[currentFrame].GetSourceRect(), Color.White);
         }
 
 
