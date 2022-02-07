@@ -15,6 +15,12 @@ namespace Sprint2
         //could make frames into objects
         private List<Frame> frames = new List<Frame>();
 
+        //default constructor
+        public Sprite()
+        {
+            currentFrame = 0;
+        }
+
         public List<Frame> GetFrames()
         {
             return frames;
@@ -42,12 +48,6 @@ namespace Sprint2
         private int buffer
         { get; set; }
 
-        //default constructor
-        public Sprite()
-        {
-            currentFrame = 0;
-        }
-
         public void Update()
         {
             //animation
@@ -64,7 +64,9 @@ namespace Sprint2
         //update location with each call to draw? using a property here or...?
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            spriteBatch.Draw(frames[currentFrame].GetBitMap(), location, frames[currentFrame].GetSourceRect(), Color.White);
+
+            if(frames.Count > 0)
+                spriteBatch.Draw(frames[currentFrame].GetBitMap(), location, frames[currentFrame].GetSourceRect(), Color.White);
         }
 
 

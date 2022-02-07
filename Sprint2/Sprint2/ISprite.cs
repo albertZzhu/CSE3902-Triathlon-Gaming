@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint2
 {
-    interface ISprite
+    public interface ISprite
     {
 
         public void Update();

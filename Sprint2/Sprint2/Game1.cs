@@ -8,8 +8,9 @@ namespace Sprint2
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Player _player;
-        //singleton sprite factory here
+        //set a default sprite?
+        private Player _player = new Player();
+        //singleton sprite factory 
         //private SpriteFactory _spriteFactory; - should not be needed since its all static
 
         public Game1()
@@ -40,10 +41,11 @@ namespace Sprint2
             Texture2D front_move = Content.Load<Texture2D>("front_move");
             Texture2D side = Content.Load<Texture2D>("side");
 
-            SpriteFactory.CreateSprite(front_still);
+            SpriteFactory.CreateSprite(front_still, 1, 1, 1, "front_still");
+            _player.SetSprite(SpriteFactory.GetSprite("front_still"));
             //back
-            SpriteFactory.CreateSprite(front_move);
-            SpriteFactory.CreateSprite(side);
+            SpriteFactory.CreateSprite(front_move, 1, 2, 2, "front_move");
+            SpriteFactory.CreateSprite(side, 1 ,2, 2, "side");
 
         }
 
@@ -62,7 +64,9 @@ namespace Sprint2
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin();
             _player.Draw(_spriteBatch);
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }

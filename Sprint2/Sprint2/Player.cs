@@ -18,8 +18,19 @@ namespace Sprint2
             //how in the world does the sprite factory interact with this?
         }
 
+        public void SetSprite(ISprite spr)
+        {
+            sprite = spr;
+        }
+
+        public ISprite GetSprite()
+        {
+            return sprite;
+        }
+
         public void Update(GameTime gameTime)
         {
+            
             sprite.Update();
         }
 
