@@ -8,14 +8,31 @@ namespace Sprint2
 {
     class Player
 
-        //forwardsSprite
-        //sideSprite
     {
         private ISprite sprite = new Sprite();
-        private Vector2 location = new Vector2(400, 200);
+        private Vector2 location = new Vector2(50, 50);
         public Player()
         {
-            //how in the world does the sprite factory interact with this?
+            
+        }
+
+        //positive x, increment to the right. negative x, decrement to the left.
+        //positive y, increment down. negative y, decrement up. 
+        //x could be 1 for walking or 5 for sprinting 
+        public Vector2 Move(int x, int y)
+        {
+            location = new Vector2(location.X + x, location.Y + y);
+            return location;
+        }
+
+        public void SetLocation(Vector2 newLocation)
+        {
+            location = newLocation;
+        }
+
+        public Vector2 GetLocation()
+        {
+            return location;
         }
 
         public void SetSprite(ISprite spr)
@@ -30,7 +47,7 @@ namespace Sprint2
 
         public void Update(GameTime gameTime)
         {
-            
+            //get key presses here?
             sprite.Update();
         }
 
