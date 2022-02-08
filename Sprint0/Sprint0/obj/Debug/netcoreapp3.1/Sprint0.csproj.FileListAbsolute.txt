@@ -1,0 +1,5 @@
+C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache
+C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfoInputs.cache
+C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfo.cs
+C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csproj.CoreCompileInputs.cache
