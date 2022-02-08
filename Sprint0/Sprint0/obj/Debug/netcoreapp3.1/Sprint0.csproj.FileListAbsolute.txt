@@ -39,3 +39,4 @@ C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\n
 C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
+C:\Users\isaac\Source\Repos\CSE3902-Triathlon-Gaming\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache

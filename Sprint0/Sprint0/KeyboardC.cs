@@ -24,6 +24,20 @@ namespace Sprint0
 
         private NextItemCom nextItemCom = new NextItemCom();
 
+        private AttackCom attackCom = new AttackCom();
+
+        private DamageCom damageCom = new DamageCom();
+
+        private ResetCom resetCom = new ResetCom();
+
+        private PrevBlockCom prevBlockCom = new PrevBlockCom();
+
+        private NextBlockCom nextBlockCom = new NextBlockCom();
+
+        private PrevNPCCom prevNPCCom = new PrevNPCCom();
+
+        private NextNPCCom nextNPCCom = new NextNPCCom();
+
         private KeyboardState oldState;
 
         public KeyboardC()
@@ -48,13 +62,21 @@ namespace Sprint0
 
     public void InitializeController()
         {
-            keyboardD.Add(Keys.D0, quitCom);
+            keyboardD.Add(Keys.Q, quitCom);
             keyboardD.Add(Keys.D1, NMNACom);
             keyboardD.Add(Keys.D2, NMACom);
             keyboardD.Add(Keys.D3, MNACom);
             keyboardD.Add(Keys.D4, MACom);
             keyboardD.Add(Keys.U, prevItemCom);
             keyboardD.Add(Keys.I, nextItemCom);
+            keyboardD.Add(Keys.Z, attackCom);
+            keyboardD.Add(Keys.N, attackCom);
+            keyboardD.Add(Keys.E, damageCom);
+            keyboardD.Add(Keys.R, resetCom);
+            keyboardD.Add(Keys.T, prevBlockCom);
+            keyboardD.Add(Keys.Y, nextBlockCom);
+            keyboardD.Add(Keys.O, prevNPCCom);
+            keyboardD.Add(Keys.P, nextNPCCom);
             oldState = Keyboard.GetState();
         }
 
