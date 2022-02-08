@@ -20,6 +20,10 @@ namespace Sprint0
         //Moving, animated sprite command
         private MACom MACom = new MACom();
 
+        private PrevItemCom prevItemCom = new PrevItemCom();
+
+        private NextItemCom nextItemCom = new NextItemCom();
+
         private KeyboardState oldState;
 
         public KeyboardC()
@@ -49,6 +53,8 @@ namespace Sprint0
             keyboardD.Add(Keys.D2, NMACom);
             keyboardD.Add(Keys.D3, MNACom);
             keyboardD.Add(Keys.D4, MACom);
+            keyboardD.Add(Keys.U, prevItemCom);
+            keyboardD.Add(Keys.I, nextItemCom);
             oldState = Keyboard.GetState();
         }
 

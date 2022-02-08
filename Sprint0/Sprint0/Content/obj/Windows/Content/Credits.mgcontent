@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/isaac/source/repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/Credits.spritefont</SourceFile>
+  <SourceFile>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/Credits.spritefont</SourceFile>
   <SourceTime>2022-01-31T21:49:05.9500749-05:00</SourceTime>
-  <DestFile>C:/Users/isaac/source/repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/bin/Windows/Content/Credits.xnb</DestFile>
-  <DestTime>2022-02-08T16:44:16.1446206-05:00</DestTime>
+  <DestFile>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/bin/Windows/Content/Credits.xnb</DestFile>
+  <DestTime>2022-02-08T17:13:47.6021578-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
