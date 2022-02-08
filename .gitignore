@@ -1,4 +1,5 @@
-Sprint0/Sprint0/obj/Debug
-Sprint0/Sprint0/obj/Release
-.vs/ProjectSettings.json
-.vs/slnx.sqlite
+Sprint0/Sprint0/Content/obj/Debug
+Sprint0/Sprint0/Content/obj/Release
+.vs
+Sprint2/Sprint2/Content/obj/Debug
+Sprint2/Sprint2/Content/obj/Release
