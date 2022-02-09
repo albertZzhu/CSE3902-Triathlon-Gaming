@@ -12,6 +12,6 @@ namespace Sprint2
         //operates on a dictionary object? "data driven..."
         //only function is execute?
 
-        void Execute(ISprite player, ISprite item, ISprite block, ISprite enemy);
+        void Execute(Player player, ISprite item, ISprite block, ISprite enemy);
     }
 }

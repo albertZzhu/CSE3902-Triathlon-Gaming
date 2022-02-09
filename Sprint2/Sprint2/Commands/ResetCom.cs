@@ -7,7 +7,7 @@ namespace Sprint2
 {
     class ResetCom : ICommand
     {
-        public void Execute(ISprite player, ISprite item, ISprite block, ISprite enemy)
+        public void Execute(Player player, ISprite item, ISprite block, ISprite enemy)
         {
             System.Windows.Forms.Application.Exit();
         }

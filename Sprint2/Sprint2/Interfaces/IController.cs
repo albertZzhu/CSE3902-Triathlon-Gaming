@@ -14,7 +14,7 @@ namespace Sprint2
 
         //Updates inputs
         //called in update
-        void CompareStates(ISprite sprite, ISprite item, ISprite block, ISprite enemy);
+        void CompareStates(Player player, ISprite item, ISprite block, ISprite enemy);
 
 
     }

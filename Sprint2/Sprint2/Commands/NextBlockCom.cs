@@ -6,7 +6,7 @@ namespace Sprint2
 {
     class NextBlockCom : ICommand
     {
-        void ICommand.Execute(ISprite player, ISprite item, ISprite block, ISprite enemy)
+        void ICommand.Execute(Player player, ISprite item, ISprite block, ISprite enemy)
         {
             block.Update();
         }

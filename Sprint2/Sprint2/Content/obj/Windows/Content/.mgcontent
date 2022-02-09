@@ -4,13 +4,19 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
-    <File>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
-    <File>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/side.png</File>
+    <File>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
+    <File>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
+    <File>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/side.png</File>
+    <File>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing down.png</File>
+    <File>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing right.png</File>
+    <File>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing up.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Sword_Facing_down.png</File>
+    <File>Sword_Facing_right.png</File>
+    <File>Sword_Facing_up.png</File>
   </DestFiles>
 </SourceFileCollection>

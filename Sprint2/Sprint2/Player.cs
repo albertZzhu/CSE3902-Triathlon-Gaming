@@ -6,14 +6,15 @@ using System.Text;
 
 namespace Sprint2
 {
-    class Player
-
+    public class Player
     {
         private ISprite sprite = new Sprite();
         private Vector2 location = new Vector2(50, 50);
-        public Player()
-        {
-            
+        private PlayerStateMechine state;
+
+        public Player(){
+
+            state = new PlayerStateMechine(this);
         }
 
         //positive x, increment to the right. negative x, decrement to the left.
@@ -35,6 +36,7 @@ namespace Sprint2
             return location;
         }
 
+
         public void SetSprite(ISprite spr)
         {
             sprite = spr;
@@ -45,9 +47,20 @@ namespace Sprint2
             return sprite;
         }
 
+        public void GoAttack()
+		{
+            state.Attack();
+		}
+
+        public void GoDamaged()
+        {
+            state.Damaged();
+        }
+
         public void Update(GameTime gameTime)
         {
             //get key presses here?
+            state.Update(gameTime);
             sprite.Update();
         }
 

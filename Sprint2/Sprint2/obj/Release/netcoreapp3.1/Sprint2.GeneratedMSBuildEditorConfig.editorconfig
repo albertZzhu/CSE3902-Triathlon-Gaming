@@ -1,9 +1,3 @@
 is_global = true
-build_property.ApplicationManifest = app.manifest
-build_property.StartupObject = 
-build_property.ApplicationDefaultFont = 
-build_property.ApplicationHighDpiMode = 
-build_property.ApplicationUseCompatibleTextRendering = 
-build_property.ApplicationVisualStyles = 
 build_property.RootNamespace = Sprint2
-build_property.ProjectDir = C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\
+build_property.ProjectDir = C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\

@@ -6,9 +6,9 @@ namespace Sprint2
 {
     class AttackCom : ICommand
     {
-        void ICommand.Execute(ISprite player, ISprite item, ISprite block, ISprite enemy)
+        void ICommand.Execute(Player player, ISprite item, ISprite block, ISprite enemy)
         {
-            player.Update();
+            player.GoAttack();
         }
     }
 }

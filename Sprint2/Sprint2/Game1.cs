@@ -8,11 +8,12 @@ namespace Sprint2
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        public Player _player;
         //set a default sprite?
-        private Player _player = new Player();
         //singleton sprite factory 
         //private SpriteFactory _spriteFactory; - should not be needed since its all static
         private KeyboardC _keyboardCon = new KeyboardC();
+        private SpriteFactory factory;
 
         public Game1()
         {
@@ -24,7 +25,8 @@ namespace Sprint2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            SpriteFactory.GetFactory();
+            _player = new Player();
+            factory = SpriteFactory.GetFactory();
             _keyboardCon.InitializeController();
             base.Initialize();
         }
@@ -42,13 +44,20 @@ namespace Sprint2
             //need backwards walk as well
             Texture2D front_move = Content.Load<Texture2D>("front_move");
             Texture2D side = Content.Load<Texture2D>("side");
+            Texture2D attackRight = Content.Load<Texture2D>("Sword_Facing_right");
+            Texture2D attackDown = Content.Load<Texture2D>("Sword_Facing_down");
+            Texture2D attackUp = Content.Load<Texture2D>("Sword_Facing_up");
 
             SpriteFactory.CreateSprite(front_still, 1, 1, 1, "front_still");
-            _player.SetSprite(SpriteFactory.GetSprite("front_still"));
+            
             //back
             SpriteFactory.CreateSprite(front_move, 1, 2, 2, "front_move");
             SpriteFactory.CreateSprite(side, 1 ,2, 2, "side");
+            SpriteFactory.CreateSprite(attackRight, 4, 1, 4, "attackRight");
+            SpriteFactory.CreateSprite(attackDown, 4, 1, 4, "attackDown");
+            SpriteFactory.CreateSprite(attackUp, 4, 1, 4, "attackUp");
 
+            _player.SetSprite(SpriteFactory.GetSprite("front_still"));
         }
 
         protected override void Update(GameTime gameTime)
@@ -57,7 +66,7 @@ namespace Sprint2
                 Exit();
 
             // TODO: Add your update logic here
-            _keyboardCon.CompareStates(_player.GetSprite(), _player.GetSprite(), _player.GetSprite(), _player.GetSprite());
+            _keyboardCon.CompareStates(_player, _player.GetSprite(), _player.GetSprite(), _player.GetSprite());
             _player.Update(gameTime);
             base.Update(gameTime);
         }
