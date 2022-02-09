@@ -12,6 +12,7 @@ namespace Sprint2
         private Player _player = new Player();
         //singleton sprite factory 
         //private SpriteFactory _spriteFactory; - should not be needed since its all static
+        private KeyboardC _keyboardCon = new KeyboardC();
 
         public Game1()
         {
@@ -24,6 +25,7 @@ namespace Sprint2
         {
             // TODO: Add your initialization logic here
             SpriteFactory.GetFactory();
+            _keyboardCon.InitializeController();
             base.Initialize();
         }
 
@@ -55,6 +57,7 @@ namespace Sprint2
                 Exit();
 
             // TODO: Add your update logic here
+            _keyboardCon.CompareStates(_player.GetSprite(), _player.GetSprite(), _player.GetSprite(), _player.GetSprite());
             _player.Update(gameTime);
             base.Update(gameTime);
         }

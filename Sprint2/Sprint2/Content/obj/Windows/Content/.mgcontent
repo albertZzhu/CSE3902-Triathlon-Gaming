@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
-    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
-    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/side.png</File>
+    <File>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
+    <File>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
+    <File>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/side.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
