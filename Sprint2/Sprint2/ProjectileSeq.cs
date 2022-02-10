@@ -21,16 +21,16 @@ namespace Sprint2
 			switch (direction)
 			{
 				case 0:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("attackRight")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
 					break;
 				case 1:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("attackRight")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
 					break;
 				case 2:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("attackUp")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
 					break;
 				case 3:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("attackDown")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
 					break;
 				default:
 					break;

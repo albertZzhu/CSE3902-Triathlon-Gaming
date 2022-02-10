@@ -44,18 +44,34 @@ namespace Sprint2
             //need backwards walk as well
             Texture2D front_move = Content.Load<Texture2D>("front_move");
             Texture2D side = Content.Load<Texture2D>("side");
-            Texture2D attackRight = Content.Load<Texture2D>("Sword_Facing_right");
+
+            Texture2D attackRight = Content.Load<Texture2D>("KiritoAttactRight");
             Texture2D attackDown = Content.Load<Texture2D>("Sword_Facing_down");
             Texture2D attackUp = Content.Load<Texture2D>("Sword_Facing_up");
+
+            Texture2D movingRight = Content.Load<Texture2D>("KiritoMovingRight");
+            Texture2D movingLeft = Content.Load<Texture2D>("KiritoMovingLeft");
+            Texture2D movingUp = Content.Load<Texture2D>("KiritoMovingUp");
+            Texture2D movingDown = Content.Load<Texture2D>("KiritoMovingDown");
+
+            Texture2D distantAttackRight = Content.Load<Texture2D>("DistantAttackRight");
 
             SpriteFactory.CreateSprite(front_still, 1, 1, 1, "front_still");
             
             //back
             SpriteFactory.CreateSprite(front_move, 1, 2, 2, "front_move");
             SpriteFactory.CreateSprite(side, 1 ,2, 2, "side");
-            SpriteFactory.CreateSprite(attackRight, 4, 1, 4, "attackRight");
+
+            SpriteFactory.CreateSprite(attackRight, 6, 1, 6, "attackRight");
             SpriteFactory.CreateSprite(attackDown, 4, 1, 4, "attackDown");
             SpriteFactory.CreateSprite(attackUp, 4, 1, 4, "attackUp");
+
+            SpriteFactory.CreateSprite(movingRight, 3, 1, 3, "movingRight");
+            SpriteFactory.CreateSprite(movingLeft, 3, 1, 3, "movingLeft");
+            SpriteFactory.CreateSprite(movingUp, 3, 1, 3, "movingUp");
+            SpriteFactory.CreateSprite(movingDown, 3, 1, 3, "movingDown");
+
+            SpriteFactory.CreateSprite(distantAttackRight, 1, 1, 1, "distantAttackRight");
 
             _player.SetSprite(SpriteFactory.GetSprite("front_still"));
         }

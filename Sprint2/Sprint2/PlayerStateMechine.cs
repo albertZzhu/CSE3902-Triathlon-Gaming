@@ -66,7 +66,7 @@ namespace Sprint2
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("side"));
+						play.SetSprite(SpriteFactory.GetSprite("movingRight"));
 					}
 					break;
 				case 1:
@@ -86,7 +86,7 @@ namespace Sprint2
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("side"));
+						play.SetSprite(SpriteFactory.GetSprite("movingLeft"));
 					}
 					break;
 				case 2:
@@ -106,7 +106,7 @@ namespace Sprint2
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("side"));
+						play.SetSprite(SpriteFactory.GetSprite("movingUp"));
 					}
 					break;
 				case 3:
@@ -126,7 +126,7 @@ namespace Sprint2
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("side"));
+						play.SetSprite(SpriteFactory.GetSprite("movingDown"));
 					}
 					break;
 				default:

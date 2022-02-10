@@ -121,3 +121,9 @@ C:\Users\26413\Source\Repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\
 C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\Sword_Facing_down.xnb
 C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\Sword_Facing_right.xnb
 C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\Sword_Facing_up.xnb
+C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingDown.xnb
+C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingLeft.xnb
+C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingRight.xnb
+C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingUp.xnb
+C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoAttactRight.xnb
+C:\Users\26413\source\repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\DistantAttackRight.xnb
