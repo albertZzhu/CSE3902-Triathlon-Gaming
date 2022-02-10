@@ -22,10 +22,28 @@ namespace Sprint2
         //positive x, increment to the right. negative x, decrement to the left.
         //positive y, increment down. negative y, decrement up. 
         //x could be 1 for walking or 5 for sprinting 
-        public Vector2 Move(int x, int y)
+        public void Move(int facing)
         {
-            location = new Vector2(location.X + x, location.Y + y);
-            return location;
+            //location = new Vector2(location.X + x, location.Y + y);
+            //return location;
+            state.ChangeFacing(facing);
+            switch (facing)
+            {
+                case 0:
+                    location = new Vector2(location.X + 10, location.Y);
+                    break;
+                case 1:
+                    location = new Vector2(location.X - 10, location.Y);
+                    break;
+                case 2:
+                    location = new Vector2(location.X, location.Y - 10);
+                    break;
+                case 3:
+                    location = new Vector2(location.X, location.Y + 10);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void DistantAttack()
