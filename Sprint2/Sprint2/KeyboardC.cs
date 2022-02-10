@@ -46,6 +46,7 @@ namespace Sprint2
             keyboardD.Add(Keys.Y, new NextBlockCom());
             keyboardD.Add(Keys.O, new PrevNPCCom());
             keyboardD.Add(Keys.P, new NextNPCCom());
+            keyboardD.Add(Keys.Space, new ProjectileCom());
             oldState = Keyboard.GetState();
         }
 

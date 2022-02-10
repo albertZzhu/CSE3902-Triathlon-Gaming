@@ -13,10 +13,17 @@ namespace Sprint2
 		private bool damaged = false;
 		private double elapse = 0.0;
 		private Player play;
+		
 
 		public PlayerStateMechine(Player player)
 		{
 			this.play = player;
+			
+		}
+
+		public int FacingState()
+		{
+			return facing;
 		}
 
 		public void Attack()

@@ -11,10 +11,12 @@ namespace Sprint2
         private ISprite sprite = new Sprite();
         private Vector2 location = new Vector2(50, 50);
         private PlayerStateMechine state;
+        private ProjectileSeq proj;
 
-        public Player(){
-
+        public Player()
+        {
             state = new PlayerStateMechine(this);
+            this.proj = new ProjectileSeq();
         }
 
         //positive x, increment to the right. negative x, decrement to the left.
@@ -24,6 +26,11 @@ namespace Sprint2
         {
             location = new Vector2(location.X + x, location.Y + y);
             return location;
+        }
+
+        public void DistantAttack()
+        {
+            this.proj.NewProjectile(location, state.FacingState());
         }
 
         public void SetLocation(Vector2 newLocation)
@@ -62,12 +69,14 @@ namespace Sprint2
             //get key presses here?
             state.Update(gameTime);
             sprite.Update();
+            proj.Update();
         }
 
         //maybe get location here???
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
+            proj.Draw(spriteBatch);
         }
 
     }
