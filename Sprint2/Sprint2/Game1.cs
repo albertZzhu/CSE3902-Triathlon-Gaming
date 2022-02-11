@@ -15,6 +15,9 @@ namespace Sprint2
         private KeyboardC _keyboardCon = new KeyboardC();
         private SpriteFactory factory;
 
+        private int boundWidth;
+        private int boundHeight;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -25,7 +28,10 @@ namespace Sprint2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _player = new Player();
+            boundWidth = Window.ClientBounds.Width;
+            boundHeight = Window.ClientBounds.Height;
+
+            _player = new Player(boundWidth, boundHeight);
             factory = SpriteFactory.GetFactory();
             _keyboardCon.InitializeController();
             base.Initialize();

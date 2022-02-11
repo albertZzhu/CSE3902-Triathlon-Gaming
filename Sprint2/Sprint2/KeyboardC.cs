@@ -19,18 +19,15 @@ namespace Sprint2
 
         public void CompareStates(Player player, ISprite item, ISprite block, ISprite enemy)
         {
-            KeyboardState newState = Keyboard.GetState();
-
-            //PRESS
-            if (newState.GetPressedKeys().Length > 0) { 
-                if (keyboardD.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
+            Keys[] current = Keyboard.GetState().GetPressedKeys();
+            
+            foreach (Keys key in current)
+            {
+                if (keyboardD.ContainsKey(key))
                 {
-                    keyboardD[newState.GetPressedKeys()[0]].Execute(player, item, block, enemy);
+                    keyboardD[key].Execute(player, item, block, enemy);
                 }
-        } 
-
-            //UPDATE STATE
-            oldState = newState;
+            }
         }
 
     public void InitializeController()
@@ -53,6 +50,11 @@ namespace Sprint2
             keyboardD.Add(Keys.A, new MoveLeftCom());
             keyboardD.Add(Keys.S, new MoveDownCom());
             keyboardD.Add(Keys.D, new MoveRightCom());
+
+            keyboardD.Add(Keys.Up, new MoveUpCom());
+            keyboardD.Add(Keys.Left, new MoveLeftCom());
+            keyboardD.Add(Keys.Down, new MoveDownCom());
+            keyboardD.Add(Keys.Right, new MoveRightCom());
 
             oldState = Keyboard.GetState();
         }

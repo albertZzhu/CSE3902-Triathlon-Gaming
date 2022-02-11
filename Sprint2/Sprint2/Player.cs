@@ -12,11 +12,15 @@ namespace Sprint2
         private Vector2 location = new Vector2(50, 50);
         private PlayerStateMechine state;
         private ProjectileSeq proj;
+        private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
+        private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 
-        public Player()
+        public Player(int boundWidth, int boundHeight)
         {
             state = new PlayerStateMechine(this);
             this.proj = new ProjectileSeq();
+            this.boundWidth = boundWidth;
+            this.boundHeight = boundHeight;
         }
 
         //positive x, increment to the right. negative x, decrement to the left.
@@ -30,16 +34,27 @@ namespace Sprint2
             switch (facing)
             {
                 case 0:
-                    location = new Vector2(location.X + 10, location.Y);
+                    if(location.X + 10 < boundWidth-20) {
+                        location = new Vector2(location.X + 10, location.Y);
+                    }
                     break;
                 case 1:
-                    location = new Vector2(location.X - 10, location.Y);
+                    if (location.X - 10 > 0)
+                    {
+                        location = new Vector2(location.X - 10, location.Y);
+                    }
                     break;
                 case 2:
-                    location = new Vector2(location.X, location.Y - 10);
+                    if (location.Y - 10 > 0)
+                    {
+                        location = new Vector2(location.X, location.Y - 10);
+                    }
                     break;
                 case 3:
-                    location = new Vector2(location.X, location.Y + 10);
+                    if (location.Y + 10 < boundHeight-30)
+                    {
+                        location = new Vector2(location.X, location.Y + 10);
+                    }
                     break;
                 default:
                     break;
