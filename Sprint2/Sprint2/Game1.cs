@@ -62,8 +62,17 @@ namespace Sprint2
 
             Texture2D distantAttackRight = Content.Load<Texture2D>("DistantAttackRight");
 
-            SpriteFactory.CreateSprite(front_still, 1, 1, 1, "front_still");
-            
+            Texture2D standFacingRight = Content.Load<Texture2D>("StandFacingRight");
+            Texture2D standFacingLeft = Content.Load<Texture2D>("standFacingLeft");
+            Texture2D standFacingUp = Content.Load<Texture2D>("standFacingUp");
+            Texture2D standFacingDown = Content.Load<Texture2D>("standFacingDown");
+
+
+            SpriteFactory.CreateSprite(standFacingRight, 1, 1, 1, "standFacingRight");
+            SpriteFactory.CreateSprite(standFacingLeft, 1, 1, 1, "standFacingLeft");
+            SpriteFactory.CreateSprite(standFacingUp, 1, 1, 1, "standFacingUp");
+            SpriteFactory.CreateSprite(standFacingDown, 1, 1, 1, "standFacingDown");
+
             //back
             SpriteFactory.CreateSprite(front_move, 1, 2, 2, "front_move");
             SpriteFactory.CreateSprite(side, 1 ,2, 2, "side");
@@ -79,7 +88,6 @@ namespace Sprint2
 
             SpriteFactory.CreateSprite(distantAttackRight, 1, 1, 1, "distantAttackRight");
 
-            _player.SetSprite(SpriteFactory.GetSprite("front_still"));
         }
 
         protected override void Update(GameTime gameTime)

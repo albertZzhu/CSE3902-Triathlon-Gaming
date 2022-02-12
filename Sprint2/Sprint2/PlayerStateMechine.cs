@@ -12,6 +12,8 @@ namespace Sprint2
 		private bool attack = false;
 		private bool damaged = false;
 		private double elapse = 0.0;
+		private bool isMoving = false;
+
 		private Player play;
 		
 
@@ -26,20 +28,19 @@ namespace Sprint2
 			return facing;
 		}
 
+		public void changeMovingState(bool moving)
+		{
+			this.isMoving = moving;
+		}
+
 		public void Attack()
 		{
-			if(attack == false)
-			{
-				attack = true;
-			}
+			attack = true;
 		}
 
 		public void Damaged()
 		{
-			if (damaged == false)
-			{
-				damaged = true;
-			}
+			damaged = !damaged;
 		}
 
 		public void ChangeFacing(int facing)
@@ -56,17 +57,27 @@ namespace Sprint2
 					{
 						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
-					}else if (damaged)
-					{
+					}else if (damaged) {
+						if (isMoving)	//Damange and moving state, fill in the damange sprite to finish
+						{
 
+						}
+						else			//Damange stand state, fill in the sprite to finish
+						{
+
+						}
 					}else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
-					else
+					else if(isMoving)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("movingRight"));
+					}
+					else
+					{
+						play.SetSprite(SpriteFactory.GetSprite("standFacingRight"));
 					}
 					break;
 				case 1:
@@ -77,16 +88,27 @@ namespace Sprint2
 					}
 					else if (damaged)
 					{
+						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
+						{
 
+						}
+						else            //Damange stand state, fill in the sprite to finish
+						{
+
+						}
 					}
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
-					else
+					else if(isMoving)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("movingLeft"));
+					}
+					else
+					{
+						play.SetSprite(SpriteFactory.GetSprite("standFacingLeft"));
 					}
 					break;
 				case 2:
@@ -97,16 +119,27 @@ namespace Sprint2
 					}
 					else if (damaged)
 					{
+						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
+						{
 
+						}
+						else            //Damange stand state, fill in the sprite to finish
+						{
+
+						}
 					}
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("attackUp"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
-					else
+					else if (isMoving)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("movingUp"));
+					}
+					else
+					{
+						play.SetSprite(SpriteFactory.GetSprite("standFacingUp"));
 					}
 					break;
 				case 3:
@@ -117,16 +150,27 @@ namespace Sprint2
 					}
 					else if (damaged)
 					{
+						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
+						{
 
+						}
+						else            //Damange stand state, fill in the sprite to finish
+						{
+
+						}
 					}
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("attackDown"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
-					else
+					else if(isMoving)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("movingDown"));
+					}
+					else
+					{
+						play.SetSprite(SpriteFactory.GetSprite("standFacingDown"));
 					}
 					break;
 				default:

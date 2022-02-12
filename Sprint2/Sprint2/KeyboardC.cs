@@ -20,6 +20,19 @@ namespace Sprint2
         public void CompareStates(Player player, ISprite item, ISprite block, ISprite enemy)
         {
             Keys[] current = Keyboard.GetState().GetPressedKeys();
+
+            if (Array.IndexOf(current, Keys.W) == -1 &&
+                Array.IndexOf(current, Keys.A) == -1 &&
+                Array.IndexOf(current, Keys.S) == -1 &&
+                Array.IndexOf(current, Keys.D) == -1 &&
+                Array.IndexOf(current, Keys.Up) == -1 &&
+                Array.IndexOf(current, Keys.Down) == -1 &&
+                Array.IndexOf(current, Keys.Left) == -1 &&
+                Array.IndexOf(current, Keys.Right) == -1)
+            {
+                ICommand tempCom = new StandCom();
+                tempCom.Execute(player, item, block, enemy);
+            }
             
             foreach (Keys key in current)
             {

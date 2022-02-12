@@ -23,6 +23,11 @@ namespace Sprint2
             this.boundHeight = boundHeight;
         }
 
+        public void GoStand()
+		{
+            state.changeMovingState(false);
+        }
+
         //positive x, increment to the right. negative x, decrement to the left.
         //positive y, increment down. negative y, decrement up. 
         //x could be 1 for walking or 5 for sprinting 
@@ -31,6 +36,7 @@ namespace Sprint2
             //location = new Vector2(location.X + x, location.Y + y);
             //return location;
             state.ChangeFacing(facing);
+            state.changeMovingState(true);
             switch (facing)
             {
                 case 0:
