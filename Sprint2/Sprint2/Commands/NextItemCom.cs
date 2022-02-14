@@ -6,9 +6,16 @@ namespace Sprint2
 {
     class NextItemCom : ICommand
     {
-        void ICommand.Execute(Player player, ISprite item, ISprite block, ISprite enemy)
+        private static int i = 0;
+        void ICommand.Execute(Player player, Item item, ISprite block, ISprite enemy)
         {
-            item.Update();
+            i++;
+            if (i == item.index)
+            {
+                i = 0;
+            }
+            item.SetIndex(i);
+            item.SetI(0);
         }
     }
 }

@@ -6,9 +6,10 @@ namespace Sprint2
 {
     class PrevItemCom : ICommand
     {
-        void ICommand.Execute(Player player, ISprite item, ISprite block, ISprite enemy)
+        void ICommand.Execute(Player player, Item item, ISprite block, ISprite enemy)
         {
-            item.Update();
+            item.SetIndex(item.itemNum-1);
+            item.SetI(0);
         }
     }
 }
