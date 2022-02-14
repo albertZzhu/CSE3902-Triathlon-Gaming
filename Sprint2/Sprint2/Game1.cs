@@ -9,6 +9,7 @@ namespace Sprint2
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         public Player _player;
+        public Item _item;
         //set a default sprite?
         //singleton sprite factory 
         //private SpriteFactory _spriteFactory; - should not be needed since its all static
@@ -32,6 +33,7 @@ namespace Sprint2
             boundHeight = Window.ClientBounds.Height;
 
             _player = new Player(boundWidth, boundHeight);
+            _item = new Item(boundWidth, boundHeight);
             factory = SpriteFactory.GetFactory();
             _keyboardCon.InitializeController();
             base.Initialize();
@@ -98,6 +100,7 @@ namespace Sprint2
             // TODO: Add your update logic here
             _keyboardCon.CompareStates(_player, _player.GetSprite(), _player.GetSprite(), _player.GetSprite());
             _player.Update(gameTime);
+            _item.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -108,6 +111,7 @@ namespace Sprint2
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
             _player.Draw(_spriteBatch);
+            _item.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

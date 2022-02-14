@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/DistantAttackRight.png</SourceFile>
-  <SourceTime>2022-02-10T15:27:34.4683346-05:00</SourceTime>
-  <DestFile>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/bin/Windows/Content/DistantAttackRight.xnb</DestFile>
-  <DestTime>2022-02-10T15:31:41.3052095-05:00</DestTime>
+  <SourceFile>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/DistantAttackRight.png</SourceFile>
+  <SourceTime>2022-02-13T22:48:06.0961766-05:00</SourceTime>
+  <DestFile>C:/Users/isaac/AppData/Local/GitHubDesktop/app-2.9.6/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/bin/Windows/Content/DistantAttackRight.xnb</DestFile>
+  <DestTime>2022-02-13T22:48:59.9434774-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
