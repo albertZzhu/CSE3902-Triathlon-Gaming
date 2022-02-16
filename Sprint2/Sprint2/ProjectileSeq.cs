@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections;
 
 namespace Sprint2
 {
@@ -35,7 +33,7 @@ namespace Sprint2
 				default:
 					break;
 			}
-			
+
 		}
 
 		public void Update()

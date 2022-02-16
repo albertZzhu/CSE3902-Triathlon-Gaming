@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sprint2
+﻿namespace Sprint2
 {
 	class MoveLeftCom : ICommand
 	{
-		void ICommand.Execute(Player player, ISprite item, ISprite block, ISprite enemy)
+		void ICommand.Execute(Player player, ISprite item, ISprite block, NPC1 enemy)
 		{
 			player.Move(1);
 		}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing up.png</SourceFile>
-  <SourceTime>2022-02-09T01:31:05.1833476-05:00</SourceTime>
-  <DestFile>C:/Users/26413/source/repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/bin/Windows/Content/Sword_Facing_up.xnb</DestFile>
-  <DestTime>2022-02-09T10:48:53.7491307-05:00</DestTime>
+  <SourceFile>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing up.png</SourceFile>
+  <SourceTime>2022-02-12T20:26:52-05:00</SourceTime>
+  <DestFile>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/bin/Windows/Content/Sword_Facing_up.xnb</DestFile>
+  <DestTime>2022-02-16T14:24:23.9771596-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

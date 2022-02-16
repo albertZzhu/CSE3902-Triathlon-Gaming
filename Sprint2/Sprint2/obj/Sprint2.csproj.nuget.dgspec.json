@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\26413\\source\\repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj": {}
+    "C:\\Users\\26413\\Source\\Repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\26413\\source\\repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj": {
+    "C:\\Users\\26413\\Source\\Repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\26413\\source\\repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
+        "projectUniqueName": "C:\\Users\\26413\\Source\\Repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
         "projectName": "Sprint2",
-        "projectPath": "C:\\Users\\26413\\source\\repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
+        "projectPath": "C:\\Users\\26413\\Source\\Repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
         "packagesPath": "C:\\Users\\26413\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\26413\\source\\repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\obj\\",
+        "outputPath": "C:\\Users\\26413\\Source\\Repos\\albertZzhu\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
