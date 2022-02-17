@@ -9,7 +9,7 @@ namespace Sprint2
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
-		public Player _player;
+		private Player _player;
 		public NPC1 _npc;
 		//set a default sprite?
 		//singleton sprite factory 
@@ -24,6 +24,10 @@ namespace Sprint2
 		//enemy used varibles end.
 		private int boundWidth;
 		private int boundHeight;
+
+		private string[] blockTypeList;
+		Vector2[] blockLocations;
+		Block block;
 
 		public Game1()
 		{
@@ -50,6 +54,11 @@ namespace Sprint2
 			_player = new Player(boundWidth, boundHeight);
 			factory = SpriteFactory.GetFactory();
 			_keyboardCon.InitializeController();
+
+			blockLocations = new Vector2[] { new Vector2(200, 200), new Vector2(200, 400), new Vector2(400, 400)};
+			blockTypeList = new string[] { "mudBlock", "glassBlock", "ironBlock", "stoneBlock" };
+			block = new Block(blockLocations, blockTypeList, 4);
+
 			base.Initialize();
 		}
 
@@ -83,6 +92,11 @@ namespace Sprint2
 			Texture2D standFacingUp = Content.Load<Texture2D>("standFacingUp");
 			Texture2D standFacingDown = Content.Load<Texture2D>("standFacingDown");
 
+			Texture2D mudBlock = Content.Load<Texture2D>("mudBlock");
+			Texture2D glassBlock = Content.Load<Texture2D>("glassBlock");
+			Texture2D ironBlock = Content.Load<Texture2D>("ironBlock");
+			Texture2D stoneBlock = Content.Load<Texture2D>("stoneBlock");
+
 
 			SpriteFactory.CreateSprite(standFacingRight, 1, 1, 1, "standFacingRight");
 			SpriteFactory.CreateSprite(standFacingLeft, 1, 1, 1, "standFacingLeft");
@@ -104,6 +118,10 @@ namespace Sprint2
 
 			SpriteFactory.CreateSprite(distantAttackRight, 1, 1, 1, "distantAttackRight");
 
+			SpriteFactory.CreateSprite(mudBlock, 1, 1, 1, "mudBlock");
+			SpriteFactory.CreateSprite(glassBlock, 1, 1, 1, "glassBlock");
+			SpriteFactory.CreateSprite(ironBlock, 1, 1, 1, "ironBlock");
+			SpriteFactory.CreateSprite(stoneBlock, 1, 1, 1, "stoneBlock");
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -112,9 +130,11 @@ namespace Sprint2
 				Exit();
 
 			// TODO: Add your update logic here
-			_keyboardCon.CompareStates(_player, _player.GetSprite(), _player.GetSprite(), _npc);
+			_keyboardCon.CompareStates(_player, _player.GetSprite(), block, _npc);
 			_player.Update(gameTime);
 			_npc.Update(gameTime);
+			block.Update(gameTime);
+
 			base.Update(gameTime);
 		}
 
@@ -126,6 +146,7 @@ namespace Sprint2
 			_spriteBatch.Begin();
 			_player.Draw(_spriteBatch);
 			_npc.Draw(_spriteBatch);
+			block.Draw(_spriteBatch);
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}

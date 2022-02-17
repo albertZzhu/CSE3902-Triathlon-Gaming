@@ -6,6 +6,6 @@
 		//operates on a dictionary object? "data driven..."
 		//only function is execute?
 
-		void Execute(Player player, ISprite item, ISprite block, NPC1 enemy);
+		void Execute(Player player, ISprite item, Block block, NPC1 enemy);
 	}
 }

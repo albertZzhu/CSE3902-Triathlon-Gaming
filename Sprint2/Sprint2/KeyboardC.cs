@@ -14,7 +14,7 @@ namespace Sprint2
 		{
 		}
 
-		public void CompareStates(Player player, ISprite item, ISprite block, NPC1 enemy)
+		public void CompareStates(Player player, ISprite item, Block block, NPC1 enemy)
 		{
 			KeyboardState newState = Keyboard.GetState();
 			Keys[] current = newState.GetPressedKeys();
@@ -31,6 +31,7 @@ namespace Sprint2
 				ICommand tempCom = new StandCom();
 				tempCom.Execute(player, item, block, enemy);
 			}
+
 
 			foreach (Keys key in current)
 			{
@@ -68,6 +69,9 @@ namespace Sprint2
 			keyboardD.Add(Keys.Left, new MoveLeftCom());
 			keyboardD.Add(Keys.Down, new MoveDownCom());
 			keyboardD.Add(Keys.Right, new MoveRightCom());
+
+			//keyboardD.Add(Keys.T, new BlockBackwardCom());
+			//keyboardD.Add(Keys.Y, new BlockForwardCom());
 
 			oldState = Keyboard.GetState();
 		}

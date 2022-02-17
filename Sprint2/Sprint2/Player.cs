@@ -103,13 +103,11 @@ namespace Sprint2
 
 		public void Update(GameTime gameTime)
 		{
-			//get key presses here?
 			state.Update(gameTime);
 			sprite.Update();
 			proj.Update();
 		}
 
-		//maybe get location here???
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			sprite.Draw(spriteBatch, location);

@@ -184,3 +184,7 @@ C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\ob
 C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.dll
 C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.pdb
 C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.genruntimeconfig.cache
+C:\Users\26413\Source\Repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\glassBlock.xnb
+C:\Users\26413\Source\Repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\ironBlock.xnb
+C:\Users\26413\Source\Repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\mudBlock.xnb
+C:\Users\26413\Source\Repos\albertZzhu\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\stoneBlock.xnb

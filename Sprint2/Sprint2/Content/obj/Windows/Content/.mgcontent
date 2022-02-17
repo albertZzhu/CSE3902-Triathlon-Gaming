@@ -7,21 +7,29 @@
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/DistantAttackRight.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
+    <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/glassBlock.png</File>
+    <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/ironBlock.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoAttactRight.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingDown.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingLeft.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingRight.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingUp.png</File>
+    <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/mudBlock.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/side.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingDown.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingLeft.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingRight.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingUp.png</File>
+    <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/stoneBlock.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing down.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing right.png</File>
     <File>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing up.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

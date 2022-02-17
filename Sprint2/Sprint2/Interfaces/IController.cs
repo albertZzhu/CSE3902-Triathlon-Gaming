@@ -10,7 +10,7 @@
 
 		//Updates inputs
 		//called in update
-		void CompareStates(Player player, ISprite item, ISprite block, NPC1 enemy);
+		void CompareStates(Player player, ISprite item, Block block, NPC1 enemy);
 
 
 	}
