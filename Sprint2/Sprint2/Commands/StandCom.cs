@@ -6,7 +6,7 @@ namespace Sprint2
 {
 	class StandCom : ICommand
     {
-        void ICommand.Execute(Player player, Item item, ISprite block, ISprite enemy)
+        void ICommand.Execute(Player player, Item item, ISprite block, NPC1 enemy)
         {
             player.GoStand();
         }

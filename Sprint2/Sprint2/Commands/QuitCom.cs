@@ -7,7 +7,7 @@ namespace Sprint2
 {
     class QuitCom : ICommand
     {
-        public void Execute(Player player, Item item, ISprite block, ISprite enemy)
+        public void Execute(Player player, Item item, ISprite block, NPC1 enemy)
         {
             System.Windows.Forms.Application.Exit();
         }

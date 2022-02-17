@@ -6,7 +6,7 @@ namespace Sprint2
 {
     class ProjectileCom : ICommand
     {
-        void ICommand.Execute(Player player, Item item, ISprite block, ISprite enemy)
+        void ICommand.Execute(Player player, Item item, ISprite block, NPC1 enemy)
         {
             player.DistantAttack();
         }

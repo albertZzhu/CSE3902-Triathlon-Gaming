@@ -12,7 +12,7 @@ namespace Sprint2
         private Vector2 location = new Vector2(300, 100);
         private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
         private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
-        private int i = 0;
+        
         public int index;
         public int itemNum;
 
@@ -50,16 +50,6 @@ namespace Sprint2
         public int GetIndex()
         {
             return index;
-        }
-
-        public void SetI(int i)
-        {
-            this.i = i;
-        }
-
-        public int GetI()
-        {
-            return i;
         }
 
         public void Update(GameTime gameTime)

@@ -14,7 +14,7 @@ namespace Sprint2
 		{
 		}
 
-		public void CompareStates(Player player, ISprite item, ISprite block, NPC1 enemy)
+		public void CompareStates(Player player, Item item, ISprite block, NPC1 enemy)
 		{
 			KeyboardState newState = Keyboard.GetState();
 			Keys[] current = newState.GetPressedKeys();

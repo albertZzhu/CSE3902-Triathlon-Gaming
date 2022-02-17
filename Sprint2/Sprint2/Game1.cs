@@ -11,6 +11,7 @@ namespace Sprint2
 		private SpriteBatch _spriteBatch;
 		public Player _player;
 		public NPC1 _npc;
+		public Item _item;
 		//set a default sprite?
 		//singleton sprite factory 
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
@@ -112,7 +113,7 @@ namespace Sprint2
 				Exit();
 
 			// TODO: Add your update logic here
-			_keyboardCon.CompareStates(_player, _player.GetSprite(), _player.GetSprite(), _npc);
+			_keyboardCon.CompareStates(_player, _item, _player.GetSprite(), _npc);
 			_player.Update(gameTime);
 			_npc.Update(gameTime);
 			base.Update(gameTime);

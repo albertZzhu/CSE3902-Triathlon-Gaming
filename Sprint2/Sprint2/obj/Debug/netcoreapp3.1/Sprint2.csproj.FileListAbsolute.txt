@@ -184,3 +184,16 @@ C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\ob
 C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.dll
 C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.pdb
 C:\Users\26413\Downloads\CSE3902-Triathlon-Gaming-sprint2_NPC\Sprint2\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.genruntimeconfig.cache
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\DistantAttackRight.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoAttactRight.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingDown.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingLeft.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingRight.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\KiritoMovingUp.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\StandFacingDown.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\StandFacingLeft.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\StandFacingRight.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\StandFacingUp.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\Sword_Facing_down.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\Sword_Facing_right.xnb
+C:\Users\isaac\AppData\Local\GitHubDesktop\app-2.9.6\CSE3902-Triathlon-Gaming\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\Sword_Facing_up.xnb
