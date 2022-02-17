@@ -49,6 +49,7 @@ namespace Sprint2
 			//npc loaded over
 			_npc = new NPC1(movementHolder, boundWidth, boundHeight, npcHolder, enemynum, locations);
 			_player = new Player(boundWidth, boundHeight);
+			_item = new Item(boundWidth, boundHeight);
 			factory = SpriteFactory.GetFactory();
 			_keyboardCon.InitializeController();
 			base.Initialize();
@@ -116,6 +117,7 @@ namespace Sprint2
 			_keyboardCon.CompareStates(_player, _item, _player.GetSprite(), _npc);
 			_player.Update(gameTime);
 			_npc.Update(gameTime);
+			_item.Update(gameTime);
 			base.Update(gameTime);
 		}
 
@@ -127,6 +129,7 @@ namespace Sprint2
 			_spriteBatch.Begin();
 			_player.Draw(_spriteBatch);
 			_npc.Draw(_spriteBatch);
+			_item.Draw(_spriteBatch);
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}

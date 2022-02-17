@@ -13,13 +13,15 @@ namespace Sprint2
         private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
         private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
         
-        public int index;
-        public int itemNum;
+        private int index = 0;
+        private List<string> items = new List<string>();
 
         public Item(int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
+            InitializeItems();
+            items = GetItemList();
         }
 
         public void SetLocation(Vector2 newLocation)
@@ -51,10 +53,22 @@ namespace Sprint2
         {
             return index;
         }
+        public List<string> GetItemList()
+        {
+            return items;
+        }
+        public void InitializeItems()
+        {
+            items.Add("movingLeft");
+            items.Add("movingRight");
+            items.Add("movingUp");
+            items.Add("movingDown");
+        }
 
         public void Update(GameTime gameTime)
         {
             //get key presses here?
+            SetSprite(SpriteFactory.GetSprite(items[index]));
             item.Update();
         }
 

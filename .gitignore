@@ -4,3 +4,11 @@ Sprint0/Sprint0/obj
 .vs
 Sprint2/Sprint2/Content/obj/Debug
 Sprint2/Sprint2/Content/obj/Release
+.vs/slnx.sqlite
+Sprint2/.vs/Sprint2/v16/.suo
+*.mgcontent
+Sprint2/Sprint2/bin/Debug/netcoreapp3.1/Sprint2.dll
+Sprint2/Sprint2/bin/Debug/netcoreapp3.1/Sprint2.pdb
+Sprint2/Sprint2/Content/obj/Windows/Content/.mgstats
+Sprint2/Sprint2/obj/Debug/netcoreapp3.1/Sprint2.dll
+Sprint2/Sprint2/obj/Debug/netcoreapp3.1/Sprint2.pdb

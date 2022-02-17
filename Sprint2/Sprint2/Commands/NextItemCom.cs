@@ -4,7 +4,11 @@ namespace Sprint2
 	{
 		void ICommand.Execute(Player player, Item item, ISprite block, NPC1 enemy)
 		{
-			item.SetIndex(item.GetIndex()+1);
+			int i = item.GetIndex() + 1;
+			if (i < item.GetItemList().Count - 1)
+				item.SetIndex(i);
+			else
+				item.SetIndex(0);
 		}
 	}
 }
