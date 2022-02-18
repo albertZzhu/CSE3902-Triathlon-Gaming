@@ -33,11 +33,11 @@ namespace Sprint2
 			}
 
 
-			foreach (Keys key in current)
+			if (newState.GetPressedKeys().Length > 0)
 			{
-				if (keyboardD.ContainsKey(key))
+				if (keyboardD.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
 				{
-					keyboardD[key].Execute(player, item, block, enemy);
+					keyboardD[newState.GetPressedKeys()[0]].Execute(player, item, block, enemy);
 				}
 			}
 

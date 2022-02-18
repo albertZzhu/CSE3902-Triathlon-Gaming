@@ -132,8 +132,7 @@ namespace Sprint2
 				Exit();
 
 			// TODO: Add your update logic here
-			_keyboardCon.CompareStates(_player, _item, _player.GetSprite(), _npc);
-			_keyboardCon.CompareStates(_player, _player.GetSprite(), block, _npc);
+			_keyboardCon.CompareStates(_player, _item, block, _npc);
 			_player.Update(gameTime);
 			_npc.Update(gameTime);
 			block.Update(gameTime);
