@@ -13,24 +13,18 @@ namespace Sprint2
 			list = new ArrayList();
 		}
 
-		public void NewProjectile(Vector2 newLocation, int direction)
+		public void NewProjectile(Vector2 newLocation, int direction, int sprite)
 		{
-			//, SpriteFactory.GetSprite("attackRight")
-			switch (direction)
+			switch (sprite)
 			{
-				case 0:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
-					break;
 				case 1:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
 					break;
 				case 2:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("glassBlock")));
 					break;
 				case 3:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
-					break;
-				default:
 					break;
 			}
 

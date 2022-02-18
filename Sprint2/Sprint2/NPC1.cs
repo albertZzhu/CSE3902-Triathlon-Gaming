@@ -94,7 +94,7 @@ namespace Sprint2
 
 		private void DistantAttack()
 		{
-			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState());
+			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState(), 0);
 		}
 
 		public void SetLocation(Vector2 newLocation)

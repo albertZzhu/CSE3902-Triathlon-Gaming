@@ -65,9 +65,9 @@ namespace Sprint2
 			}
 		}
 
-		public void DistantAttack()
+		public void DistantAttack(int spriteNum)
 		{
-			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState());
+			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)
