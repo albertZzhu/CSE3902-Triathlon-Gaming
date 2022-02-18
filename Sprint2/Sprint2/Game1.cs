@@ -11,6 +11,7 @@ namespace Sprint2
 		private SpriteBatch _spriteBatch;
 		private Player _player;
 		public NPC1 _npc;
+		public Item _item;
 		//set a default sprite?
 		//singleton sprite factory 
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
@@ -52,6 +53,7 @@ namespace Sprint2
 			//npc loaded over
 			_npc = new NPC1(movementHolder, boundWidth, boundHeight, npcHolder, enemynum, locations);
 			_player = new Player(boundWidth, boundHeight);
+			_item = new Item(boundWidth, boundHeight);
 			factory = SpriteFactory.GetFactory();
 			_keyboardCon.InitializeController();
 
@@ -130,9 +132,13 @@ namespace Sprint2
 				Exit();
 
 			// TODO: Add your update logic here
+			_keyboardCon.CompareStates(_player, _item, _player.GetSprite(), _npc);
 			_keyboardCon.CompareStates(_player, _player.GetSprite(), block, _npc);
 			_player.Update(gameTime);
 			_npc.Update(gameTime);
+			block.Update(gameTime);
+			_item.Update(gameTime);
+			_item.Update(gameTime);
 			block.Update(gameTime);
 
 			base.Update(gameTime);
@@ -146,6 +152,9 @@ namespace Sprint2
 			_spriteBatch.Begin();
 			_player.Draw(_spriteBatch);
 			_npc.Draw(_spriteBatch);
+			_item.Draw(_spriteBatch);
+			block.Draw(_spriteBatch);
+			_item.Draw(_spriteBatch);
 			block.Draw(_spriteBatch);
 			_spriteBatch.End();
 			base.Draw(gameTime);

@@ -2,7 +2,7 @@
 {
 	class DamageCom : ICommand
 	{
-		void ICommand.Execute(Player player, ISprite item, Block block, NPC1 enemy)
+		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
 		{
 			player.GoDamaged();
 		}

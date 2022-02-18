@@ -3,7 +3,7 @@
 	class PrevNPCCom : ICommand
 	{
 		private static int i = 0;
-		void ICommand.Execute(Player player, ISprite item, Block block, NPC1 enemy)
+		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
 		{
 			i--;
 			if (i < 0)
