@@ -58,7 +58,9 @@ namespace Sprint2
 			keyboardD.Add(Keys.O, new PrevNPCCom());
 			keyboardD.Add(Keys.P, new NextNPCCom());
 
-			keyboardD.Add(Keys.Space, new ProjectileCom());
+			keyboardD.Add(Keys.D1, new ProjectileCom());
+			keyboardD.Add(Keys.D2, new Projectile2Com());
+			keyboardD.Add(Keys.D3, new Projectile3Com());
 
 			keyboardD.Add(Keys.W, new MoveUpCom());
 			keyboardD.Add(Keys.A, new MoveLeftCom());
