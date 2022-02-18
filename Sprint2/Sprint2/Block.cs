@@ -21,7 +21,10 @@ namespace Sprint2
 			this.blockTypeList = blockTypeList;
 			this.listlen = len;
 		}
-
+		public void Reset()
+        {
+			listPos = 0;
+        }
 		public void SwitchingForward()
 		{
 			listPos = (listPos < listlen-1 ? listPos+1 : 0);

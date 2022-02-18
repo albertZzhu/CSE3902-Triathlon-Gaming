@@ -65,6 +65,10 @@ namespace Sprint2
             items.Add("movingDown");
         }
 
+        public void Reset()
+        {
+            SetIndex(0);
+        }
         public void Update(GameTime gameTime)
         {
             //get key presses here?

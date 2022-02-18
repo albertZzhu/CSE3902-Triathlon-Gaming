@@ -101,6 +101,11 @@ namespace Sprint2
 			state.Damaged();
 		}
 
+		public void Reset()
+        {
+			SetLocation(new Vector2(50, 50));
+			state.ChangeFacing(0);
+        }
 		public void Update(GameTime gameTime)
 		{
 			state.Update(gameTime);
