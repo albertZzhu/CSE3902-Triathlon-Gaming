@@ -9,7 +9,7 @@ Updated:
     user can use <code>d</code> or <code>→</code> to move character move rightwards
     user can use <code>z</code> or <code>n</code> to attack
     user can use <code>e</code> to make the character damaged
-    user can use <code>space</space> to fire projectiles
+    user can use <code>space</code> to fire projectiles
   added NPC:
     NPC can fire projectiles
     NPC can move automatically
