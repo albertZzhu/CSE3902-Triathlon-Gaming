@@ -1,0 +1,14 @@
+Keyi Lu   
+
+2/18/22
+
+Sprint 2
+
+KeyboardC.cs
+
+Daniel
+
+Overall the quality is good, but with some coupling quality issues for example the big chunk of if condition 
+statements to determine if any key is pressed(if not then keep the sprite still). 
+Things need to be imporved: naming convention, coupling problem, CompareState and Execute function should not have parameters. 
+Command object constructors should include the receiver so that the command can be executed by anyone. 
