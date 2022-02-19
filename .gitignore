@@ -3,7 +3,6 @@ Sprint0/Sprint0/Content/obj/Release
 Sprint0/Sprint0/obj
 .vs
 Sprint2/Sprint2/Content/obj/Debug
-<<<<<<< HEAD
 Sprint2/Sprint2/Content/obj/Release
 .vs/slnx.sqlite
 Sprint2/.vs/Sprint2/v16/.suo
@@ -13,7 +12,6 @@ Sprint2/Sprint2/bin/Debug/netcoreapp3.1/Sprint2.pdb
 Sprint2/Sprint2/Content/obj/Windows/Content/.mgstats
 Sprint2/Sprint2/obj/Debug/netcoreapp3.1/Sprint2.dll
 Sprint2/Sprint2/obj/Debug/netcoreapp3.1/Sprint2.pdb
-=======
 Sprint2/Sprint2/Content/obj/Release
 .vs/slnx.sqlite
 Sprint2/.vs/Sprint2/v16/.suo
@@ -23,4 +21,3 @@ Sprint2/Sprint2/bin/Debug/netcoreapp3.1/Sprint2.pdb
 Sprint2/Sprint2/Content/obj/Windows/Content/.mgstats
 Sprint2/Sprint2/obj/Debug/netcoreapp3.1/Sprint2.dll
 Sprint2/Sprint2/obj/Debug/netcoreapp3.1/Sprint2.pdb
->>>>>>> 530d8ba8fc17ab99c76f1646ddfee3bc2cc78028
