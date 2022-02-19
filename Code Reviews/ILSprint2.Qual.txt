@@ -1,0 +1,21 @@
+Isaac Lieber
+
+2/18/21
+
+Sprint 2
+
+NPC1.cs
+
+Keyi
+
+The way that i and index work together with modFunc 
+might be able to be simplified to be able to meet the same goal.
+In the item class, i used a list of names for sprites with one index, and I
+believe that this could be a variable clump that could be shrunk down.
+I understand that Mod func returns the index you are on in the list of ints,
+but I wonder if there needs to be a seperate function for this or it could be done elsewhere.
+
+I believe that we will have to end up doing this eventually in order
+to make the game object manager work, with lists of npcs and 
+indexes being stored in there, so the current implementation might need
+some work in order to transfer this over into the manager.
