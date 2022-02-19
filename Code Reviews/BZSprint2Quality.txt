@@ -1,0 +1,13 @@
+Boru Zhu
+
+2/19/2022
+
+Sprint 2
+
+SpriteFactory.cs
+
+Leigh Lynch
+
+The overall code quality is good. According to the Professor Kirby's comment, maybe the SpriteFactory class can have the functionality of handling the unfied sprite
+sheet for the whole project. All the basic functionalities are satisfied as needed. All the methods remain static thus the SpriteFactory can be accessed from 
+everywhere of the whole project. Well done overall!
