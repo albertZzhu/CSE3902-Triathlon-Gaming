@@ -1,0 +1,13 @@
+Jianlin Dou
+
+2.19
+
+sprint2
+
+item.cs
+
+isaac
+
+the quality of his code follows the maintainability property, since all data packed in its own class. such design follows the design partten(cohesion).
+by since we have spritefactory to deal with the animation part of different item texture, the item class don't really care about the animation part. So 
+these two classes can work independently. such design lower the coupling issue. 
