@@ -3,6 +3,7 @@ Leigh Lynch
 Sprint2
 PlayerStateMachine.cs
 Boru Zhu
+12 minutes
 As Professor Kirby said in his code review, it would be best for facing to be an enum
 instead of a simple integer. It lacks context as it is currently. So, even though, for
 example, facing right is still equated to 0, it will be shown in the code as facingRight.
