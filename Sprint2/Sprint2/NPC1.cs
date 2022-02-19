@@ -9,107 +9,122 @@ namespace Sprint2
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 		private ISprite npc = new Sprite();
-		private Vector2[] location;
 		private NpcStatementMachine state;
-		private ProjectileSeq proj;
-		private List<List<int>> routeMap;
+		private NpcProjectileSeq proj;
 		private int i = 0;
 		private float timer;
+		public int index;
+		private int enemynum;
+		private float timespan;
 		private bool movingRight;
 		private bool movingUp;
+		private Vector2[] location;
+		private List<List<int>> routeMap;
 		public List<List<string>> npcHolder;
-		public int index;
-		public int enemynum;
-		public NPC1(List<List<int>> route, int boundWidth, int boundHeight, List<List<string>> npcHolder, int enemynum, Vector2[] locations)
+		private List<List<string>> fireballHolder;
+		private List<bool> fireHolder, moveHolder;
+
+		public NPC1(int boundWidth, int boundHeight)
 		{
-			this.npcHolder = npcHolder;
 			index = 0;
 			state = new NpcStatementMachine(this);
-			this.routeMap = route;
-			this.proj = new ProjectileSeq();
+			this.proj = new NpcProjectileSeq();
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
-			this.enemynum = enemynum;
-			this.location = locations;
+			this.initialize(3);
+		}
+
+		private void initialize(int enemynums)
+		{
+			this.setTimer(60f);
+			this.setEnemyNum(enemynums);
+			this.npcHolder = new List<List<string>>();
+			this.fireballHolder = new List<List<string>>();
+			this.routeMap = new List<List<int>>();
+			this.fireHolder = new List<bool>();
+			this.moveHolder = new List<bool>();
+			this.location = new Vector2[enemynum];
+			this.loadMap(this.routeMap);
+			this.loadNpc(this.npcHolder);
+			this.loadFireBall(this.fireballHolder);
+			this.loadLocations(this.location);
+			this.loadFireBool(this.fireHolder);
+			this.loadMoveBool(this.moveHolder);
 		}
 
 		public void Move(int facing)
 		{
 			state.ChangeFacing(facing);
-			switch (facing)
-			{
-				case 0:
-					if (movingRight)
-					{
-						state.ChangeFacing(0);
-						location[index] = new Vector2(location[index].X + 1, location[index].Y);
-						if (location[index].X + 10 > boundWidth - 20)
+			if(moveHolder[index]) {
+				switch (facing)
+				{
+					case 0:
+						if (movingRight)
 						{
-							movingRight = false;
-							state.ChangeFacing(1);
-							location[index] = new Vector2(location[index].X - 1, location[index].Y);
-						}
-					}
-					else
-					{
-						state.ChangeFacing(1);
-						location[index] = new Vector2(location[index].X - 1, location[index].Y);
-						if (location[index].X - 10 < 0)
-						{
-							movingRight = true;
 							state.ChangeFacing(0);
 							location[index] = new Vector2(location[index].X + 1, location[index].Y);
+							if (location[index].X + 10 > boundWidth - 20)
+							{
+								movingRight = false;
+								state.ChangeFacing(1);
+								location[index] = new Vector2(location[index].X - 1, location[index].Y);
+							}
 						}
-					}
-					break;
-				case 2:
-					if (movingUp)
-					{
-						state.ChangeFacing(2);
-						location[index] = new Vector2(location[index].X, location[index].Y - 1);
-						if (location[index].Y - 10 < 0)
+						else
 						{
-							movingUp = false;
-							state.ChangeFacing(3);
-							location[index] = new Vector2(location[index].X, location[index].Y + 1);
+							state.ChangeFacing(1);
+							location[index] = new Vector2(location[index].X - 1, location[index].Y);
+							if (location[index].X - 10 < 0)
+							{
+								movingRight = true;
+								state.ChangeFacing(0);
+								location[index] = new Vector2(location[index].X + 1, location[index].Y);
+							}
 						}
-					}
-					else
-					{
-						state.ChangeFacing(3);
-						location[index] = new Vector2(location[index].X, location[index].Y + 1);
-						if (location[index].Y + 10 > boundHeight - 30)
+						break;
+					case 2:
+						if (movingUp)
 						{
-							movingUp = true;
 							state.ChangeFacing(2);
 							location[index] = new Vector2(location[index].X, location[index].Y - 1);
+							if (location[index].Y - 10 < 0)
+							{
+								movingUp = false;
+								state.ChangeFacing(3);
+								location[index] = new Vector2(location[index].X, location[index].Y + 1);
+							}
 						}
-					}
-					break;
+						else
+						{
+							state.ChangeFacing(3);
+							location[index] = new Vector2(location[index].X, location[index].Y + 1);
+							if (location[index].Y + 10 > boundHeight - 30)
+							{
+								movingUp = true;
+								state.ChangeFacing(2);
+								location[index] = new Vector2(location[index].X, location[index].Y - 1);
+							}
+						}
+						break;
 
-				default:
-					break;
+					default:
+						break;
+				}
 			}
 		}
 
-		private void DistantAttack()
+		private void DistantAttack(int index)
 		{
+<<<<<<< HEAD
 			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState(), 1);
+=======
+			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState(), fireballHolder[index]);
+>>>>>>> sprint2_updated_sprites
 		}
 
 		public void SetLocation(Vector2 newLocation)
 		{
 			location[index] = newLocation;
-		}
-
-		public Vector2 GetLocation()
-		{
-			return location[index];
-		}
-
-		public ISprite GetNpc()
-		{
-			return npc;
 		}
 		public void SetIndx(int i)
 		{
@@ -119,11 +134,27 @@ namespace Sprint2
 		{
 			this.i = i;
 		}
+		public void setTimer(float i)
+		{
+			this.timespan = i;
+		}
 		public void SetNpc(ISprite npc)
 		{
 			this.npc = npc;
 		}
-
+		
+		public Vector2 GetLocation()
+		{
+			return location[index];
+		}
+		public ISprite GetNpc()
+		{
+			return npc;
+		}
+		public int GetEnemyNum()
+        {
+			return this.enemynum;
+        }
 		public void GoDamaged()
 		{
 			state.Damaged();
@@ -134,11 +165,13 @@ namespace Sprint2
 			Move(modFunc(routeMap[index]));
 			state.Update(gameTime);
 			npc.Update();
-			timer += 1f;
-			if (timer == 100f)
-			{
-				this.DistantAttack();
-				timer = 0f;
+			if (fireHolder[index]) {
+				timer += 1f;
+				if (timer == 100f)
+				{
+					this.DistantAttack(this.index);
+					timer = 0f;
+				}
 			}
 			proj.Update();
 		}
@@ -162,7 +195,7 @@ namespace Sprint2
 			return index;
 		}
 
-		public static List<List<int>> loadMap(List<List<int>> Map)
+		private void loadMap(List<List<int>> Map)
 		{
 			Map.Add(new List<int> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -173,26 +206,46 @@ namespace Sprint2
 				0, 0, 0, 0, 0, 0, 0});
 			Map.Add(new List<int> { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
 				2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-			return Map;
+			Map.Add(new List<int> { 2 });
 		}
 
-		public static List<List<string>> loadNpc(List<List<string>> npcHolder)
+		private void loadFireBall(List<List<string>> fireballHolder)
 		{
-			npcHolder.Add(new List<string> { "movingRight", "movingLeft", "movingUp", "movingDown" });
-			npcHolder.Add(new List<string> { "movingRight", "movingLeft", "movingUp", "movingDown" });
-			return npcHolder;
+			fireballHolder.Add(new List<string> { "fireballright", "fireballleft", "fireballup", "fireballdown" });
+			fireballHolder.Add(new List<string> { "fireballright", "fireballleft", "fireballup", "fireballdown" });
+			fireballHolder.Add(new List<string> { "fireballright", "fireballleft", "fireballup", "fireballdown" });
 		}
 
-		public static Vector2[] loadLocations(Vector2[] locations)
+		private void loadNpc(List<List<string>> npcHolder)
+		{
+			npcHolder.Add(new List<string> { "kirito_move_right", "kirito_move_left" , "kirito_back_move", "kirito_move_front" });
+			npcHolder.Add(new List<string> { "kirito_move_right", "kirito_move_left", "kirito_back_move", "kirito_move_front" });
+			npcHolder.Add(new List<string> { "kirito_right_still", "kirito_left_still", "kirito_back_still", "kirito_front_still" });
+		}
+
+		private void loadLocations(Vector2[] locations)
 		{
 			locations[0] = new Vector2(50, 50);
 			locations[1] = new Vector2(200, 200);
-			return locations;
+			locations[2] = new Vector2(100, 233);
 		}
 
-		public static int setEnemyNum(int i)
-		{
-			return i;
+		private void loadFireBool(List<bool> fireHolder)
+        {
+			fireHolder.Add(true);
+			fireHolder.Add(true);
+			fireHolder.Add(true);
 		}
+		private void loadMoveBool(List<bool> moveHolder)
+        {
+			moveHolder.Add(true);
+			moveHolder.Add(true);
+			moveHolder.Add(false);
+		}
+		private void setEnemyNum(int i)
+		{
+			this.enemynum = i;
+		}
+
 	}
 }

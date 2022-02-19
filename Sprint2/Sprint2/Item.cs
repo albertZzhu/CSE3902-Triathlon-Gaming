@@ -58,11 +58,11 @@ namespace Sprint2
             return items;
         }
         public void InitializeItems()
-        {
-            items.Add("movingLeft");
-            items.Add("movingRight");
-            items.Add("movingUp");
-            items.Add("movingDown");
+        {   //change these to items
+            items.Add("glassBlock");
+            items.Add("ironBlock");
+            items.Add("mudBlock");
+            items.Add("stoneBlock");
         }
 
         public void Reset()

@@ -1,0 +1,14 @@
+Leigh Lynch
+2-18-2022
+Sprint2
+PlayerStateMachine.cs
+Boru Zhu
+6 minutes
+Specific comments on what is readable and what is not
+Right off the bat - the instance variables are readable. I appreciate the comment on facing.
+Many of the methods are readable, but I get confused when I reach the update method.
+I would really appreciate comments explaining each case (or if more needs to be added).
+For example, why does attack && damage set the sprite to attacking? shouldnt there be some kind of
+damage sprite included?
+It's quite a long bit of code - maybe some class methods could be made to break up the update method
+for readability?

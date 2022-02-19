@@ -17,12 +17,6 @@ namespace Sprint2
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
 		private KeyboardC _keyboardCon = new KeyboardC();
 		private SpriteFactory factory;
-		//enemy used varibles start.
-		private List<List<int>> movementHolder;
-		private List<List<string>> npcHolder;
-		private int enemynum;
-		private Vector2[] locations;
-		//enemy used varibles end.
 		private int boundWidth;
 		private int boundHeight;
 
@@ -42,16 +36,7 @@ namespace Sprint2
 			// TODO: Add your initialization logic here
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
-			//enemy loading area
-			enemynum = NPC1.setEnemyNum(2);
-			npcHolder = new List<List<string>>();
-			movementHolder = new List<List<int>>();
-			locations = new Vector2[enemynum];
-			movementHolder = NPC1.loadMap(movementHolder);
-			npcHolder = NPC1.loadNpc(npcHolder);
-			locations = NPC1.loadLocations(locations);
-			//npc loaded over
-			_npc = new NPC1(movementHolder, boundWidth, boundHeight, npcHolder, enemynum, locations);
+			_npc = new NPC1(boundWidth, boundHeight);
 			_player = new Player(boundWidth, boundHeight);
 			_item = new Item(boundWidth, boundHeight);
 			factory = SpriteFactory.GetFactory();
@@ -73,52 +58,87 @@ namespace Sprint2
 			//sprite factory????????
 			//_player.sprite = factory creates player sprite
 
-			Texture2D front_still = Content.Load<Texture2D>("front_still");
-			//need backwards walk as well
-			Texture2D front_move = Content.Load<Texture2D>("front_move");
-			Texture2D side = Content.Load<Texture2D>("side");
+			Texture2D npcAttackRight = Content.Load<Texture2D>("kirito_right_attack");
+			Texture2D npcAttackFront = Content.Load<Texture2D>("kirito_front_attack");
+			Texture2D npcAttackBack = Content.Load<Texture2D>("kirito_back_attack");
 
-			Texture2D attackRight = Content.Load<Texture2D>("KiritoAttactRight");
-			Texture2D attackDown = Content.Load<Texture2D>("Sword_Facing_down");
-			Texture2D attackUp = Content.Load<Texture2D>("Sword_Facing_up");
+			SpriteFactory.CreateSprite(npcAttackRight, 6, 1, 6, "kirito_right_attack");
+			SpriteFactory.CreateSprite(npcAttackFront, 4, 1, 4, "kirito_front_attack");
+			SpriteFactory.CreateSprite(npcAttackBack, 4, 1, 4, "kirito_back_attack");
 
-			Texture2D movingRight = Content.Load<Texture2D>("KiritoMovingRight");
-			Texture2D movingLeft = Content.Load<Texture2D>("KiritoMovingLeft");
-			Texture2D movingUp = Content.Load<Texture2D>("KiritoMovingUp");
-			Texture2D movingDown = Content.Load<Texture2D>("KiritoMovingDown");
+			Texture2D npcMoveRight = Content.Load<Texture2D>("kirito_move_right");
+			Texture2D npcMoveLeft = Content.Load<Texture2D>("kirito_move_left");
+			Texture2D npcMoveBack = Content.Load<Texture2D>("kirito_back_move");
+			Texture2D npcMoveFront = Content.Load<Texture2D>("kirito_move_front");
 
-			Texture2D distantAttackRight = Content.Load<Texture2D>("DistantAttackRight");
+			SpriteFactory.CreateSprite(npcMoveRight, 3, 1, 3, "kirito_move_right");
+			SpriteFactory.CreateSprite(npcMoveLeft, 3, 1, 3, "kirito_move_left");
+			SpriteFactory.CreateSprite(npcMoveBack, 3, 1, 3, "kirito_back_move");
+			SpriteFactory.CreateSprite(npcMoveFront, 3, 1, 3, "kirito_move_front");
 
-			Texture2D standFacingRight = Content.Load<Texture2D>("StandFacingRight");
-			Texture2D standFacingLeft = Content.Load<Texture2D>("standFacingLeft");
-			Texture2D standFacingUp = Content.Load<Texture2D>("standFacingUp");
-			Texture2D standFacingDown = Content.Load<Texture2D>("standFacingDown");
+			//can rotate this in draw
+			Texture2D projectileRight = Content.Load<Texture2D>("right_projectile");
+			Texture2D projectileUp = Content.Load<Texture2D>("up_projectile");
+			Texture2D projectileLeft = Content.Load<Texture2D>("left_projectile");
+			Texture2D projectileDown = Content.Load<Texture2D>("down_projectile");
+			Texture2D fireballright = Content.Load<Texture2D>("fireball_right");
+			Texture2D fireballleft = Content.Load<Texture2D>("fireball_Left");
+			Texture2D fireballup = Content.Load<Texture2D>("fireball_up");
+			Texture2D fireballdown = Content.Load<Texture2D>("fireball_down");
+
+			Texture2D npcStillRight = Content.Load<Texture2D>("kirito_right_still");
+			Texture2D npcStillLeft = Content.Load<Texture2D>("kirito_left_still");
+			Texture2D npcStillBack = Content.Load<Texture2D>("kirito_back_still");
+			Texture2D npcStillFront = Content.Load<Texture2D>("kirito_front_still");
+
+			SpriteFactory.CreateSprite(npcStillRight, 1, 1, 1, "kirito_right_still");
+			SpriteFactory.CreateSprite(npcStillLeft, 1, 1, 1, "kirito_left_still");
+			SpriteFactory.CreateSprite(npcStillBack, 1, 1, 1, "kirito_back_still");
+			SpriteFactory.CreateSprite(npcStillFront, 1, 1, 1, "kirito_front_still");
+
+			Texture2D attackRight = Content.Load<Texture2D>("right_throw");
+			Texture2D attackLeft = Content.Load<Texture2D>("left_throw");
+			Texture2D attackFront = Content.Load<Texture2D>("front_throw");
+			Texture2D attackBack = Content.Load<Texture2D>("back_throw");
+
+			SpriteFactory.CreateSprite(attackRight, 2, 3, 6, "right_throw");
+			SpriteFactory.CreateSprite(attackLeft, 2, 3, 6, "left_throw");
+			SpriteFactory.CreateSprite(attackFront, 2, 3, 5, "front_throw");
+			SpriteFactory.CreateSprite(attackBack, 3, 2, 6, "back_throw");
+
+			Texture2D moveRight = Content.Load<Texture2D>("right_move");
+			Texture2D moveLeft = Content.Load<Texture2D>("left_move");
+			Texture2D moveBack = Content.Load<Texture2D>("back_move");
+			Texture2D moveFront = Content.Load<Texture2D>("front_move");
+
+			SpriteFactory.CreateSprite(moveRight, 3, 3, 8, "right_move");
+			SpriteFactory.CreateSprite(moveLeft, 3, 3, 8, "left_move");
+			SpriteFactory.CreateSprite(moveFront, 3, 2, 4, "back_move");
+			SpriteFactory.CreateSprite(moveBack, 4, 2, 6, "front_move");
+
+			Texture2D stillRight = Content.Load<Texture2D>("right_still");
+			Texture2D stillLeft = Content.Load<Texture2D>("left_still");
+			Texture2D stillBack = Content.Load<Texture2D>("back_still");
+			Texture2D stillFront = Content.Load<Texture2D>("front_still");
+
+			SpriteFactory.CreateSprite(stillRight, 1, 1, 1, "right_still");
+			SpriteFactory.CreateSprite(stillLeft, 1, 1, 1, "left_still");
+			SpriteFactory.CreateSprite(stillFront, 1, 1, 1, "back_still");
+			SpriteFactory.CreateSprite(stillBack, 1, 1, 1, "front_still");
 
 			Texture2D mudBlock = Content.Load<Texture2D>("mudBlock");
 			Texture2D glassBlock = Content.Load<Texture2D>("glassBlock");
 			Texture2D ironBlock = Content.Load<Texture2D>("ironBlock");
 			Texture2D stoneBlock = Content.Load<Texture2D>("stoneBlock");
 
-
-			SpriteFactory.CreateSprite(standFacingRight, 1, 1, 1, "standFacingRight");
-			SpriteFactory.CreateSprite(standFacingLeft, 1, 1, 1, "standFacingLeft");
-			SpriteFactory.CreateSprite(standFacingUp, 1, 1, 1, "standFacingUp");
-			SpriteFactory.CreateSprite(standFacingDown, 1, 1, 1, "standFacingDown");
-
-			//back
-			SpriteFactory.CreateSprite(front_move, 1, 2, 2, "front_move");
-			SpriteFactory.CreateSprite(side, 1, 2, 2, "side");
-
-			SpriteFactory.CreateSprite(attackRight, 6, 1, 6, "attackRight");
-			SpriteFactory.CreateSprite(attackDown, 4, 1, 4, "attackDown");
-			SpriteFactory.CreateSprite(attackUp, 4, 1, 4, "attackUp");
-
-			SpriteFactory.CreateSprite(movingRight, 3, 1, 3, "movingRight");
-			SpriteFactory.CreateSprite(movingLeft, 3, 1, 3, "movingLeft");
-			SpriteFactory.CreateSprite(movingUp, 3, 1, 3, "movingUp");
-			SpriteFactory.CreateSprite(movingDown, 3, 1, 3, "movingDown");
-
-			SpriteFactory.CreateSprite(distantAttackRight, 1, 1, 1, "distantAttackRight");
+			SpriteFactory.CreateSprite(projectileRight, 2, 2, 1, "projectileRight");
+			SpriteFactory.CreateSprite(projectileLeft, 2, 2, 1, "projectileLeft");
+			SpriteFactory.CreateSprite(projectileUp, 2, 2, 1, "projectileUp");
+			SpriteFactory.CreateSprite(projectileDown, 2, 2, 1, "projectileDown");
+			SpriteFactory.CreateSprite(fireballright, 8, 1, 1, "fireballright");
+			SpriteFactory.CreateSprite(fireballleft, 8, 1, 1, "fireballleft");
+			SpriteFactory.CreateSprite(fireballup, 8, 1, 1, "fireballup");
+			SpriteFactory.CreateSprite(fireballdown, 8, 1, 1, "fireballdown");
 
 			SpriteFactory.CreateSprite(mudBlock, 1, 1, 1, "mudBlock");
 			SpriteFactory.CreateSprite(glassBlock, 1, 1, 1, "glassBlock");

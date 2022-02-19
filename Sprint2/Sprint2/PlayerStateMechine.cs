@@ -51,7 +51,7 @@ namespace Sprint2
 				case 0:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
+						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
@@ -67,53 +67,53 @@ namespace Sprint2
 					}
 					else if (attack)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
+						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("movingRight"));
+						play.SetSprite(SpriteFactory.GetSprite("right_move"));
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("standFacingRight"));
+						play.SetSprite(SpriteFactory.GetSprite("right_still"));
 					}
 					break;
 				case 1:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
+						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
-						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
+						if (isMoving)   //TODO: Damange and moving state, fill in the damange sprite to finish
 						{
 
 						}
-						else            //Damange stand state, fill in the sprite to finish
+						else            //TODO: Damange stand state, fill in the sprite to finish
 						{
 
 						}
 					}
 					else if (attack)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackRight"));
+						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("movingLeft"));
+						play.SetSprite(SpriteFactory.GetSprite("left_move"));
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("standFacingLeft"));
+						play.SetSprite(SpriteFactory.GetSprite("left_still"));
 					}
 					break;
 				case 2:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackUp"));
+						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
@@ -129,22 +129,22 @@ namespace Sprint2
 					}
 					else if (attack)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackUp"));
+						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("movingUp"));
+						play.SetSprite(SpriteFactory.GetSprite("front_move"));
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("standFacingUp"));
+						play.SetSprite(SpriteFactory.GetSprite("front_still"));
 					}
 					break;
 				case 3:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackDown"));
+						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
@@ -160,16 +160,16 @@ namespace Sprint2
 					}
 					else if (attack)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("attackDown"));
+						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("movingDown"));
+						play.SetSprite(SpriteFactory.GetSprite("back_move"));
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("standFacingDown"));
+						play.SetSprite(SpriteFactory.GetSprite("back_still"));
 					}
 					break;
 				default:

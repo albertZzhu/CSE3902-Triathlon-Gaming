@@ -6,7 +6,7 @@
 		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
 		{
 			i++;
-			if (i == enemy.enemynum)
+			if (i == enemy.GetEnemyNum())
 			{
 				i = 0;
 			}

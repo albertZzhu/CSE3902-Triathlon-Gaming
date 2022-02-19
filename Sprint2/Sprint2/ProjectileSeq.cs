@@ -16,15 +16,15 @@ namespace Sprint2
 		public void NewProjectile(Vector2 newLocation, int direction, int sprite)
 		{
 			switch (sprite)
-			{
+			{ //add more
 				case 1:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
 					break;
 				case 2:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("glassBlock")));
 					break;
 				case 3:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("distantAttackRight")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
 					break;
 			}
 
