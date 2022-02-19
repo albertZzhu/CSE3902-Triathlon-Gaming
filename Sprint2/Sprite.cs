@@ -64,6 +64,8 @@ namespace Sprint2
 
 			if (frames.Count > 0)
 				spriteBatch.Draw(frames[currentFrame].GetBitMap(), location, frames[currentFrame].GetSourceRect(), Color.White);
+			//it would be nice to implement the damage sprite by changing color.white to color.red... much simpler. 
+			//its just tough to implement since this draw function is buried
 		}
 
 

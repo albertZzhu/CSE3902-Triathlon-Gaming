@@ -58,12 +58,12 @@ namespace Sprint2
 					{
 						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("animatedDamage"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_right_move"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 						else            //Damange stand state, fill in the sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("resized heart"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_right"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 					}
@@ -91,12 +91,12 @@ namespace Sprint2
 					{
 						if (isMoving)   //TODO: Damange and moving state, fill in the damange sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("animatedDamage"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_left_move"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 						else            //TODO: Damange stand state, fill in the sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("resized heart"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_left"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 					}
@@ -124,12 +124,12 @@ namespace Sprint2
 					{
 						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("animatedDamage"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_back_move"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 						else            //Damange stand state, fill in the sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("resized heart"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_back"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 					}
@@ -157,12 +157,12 @@ namespace Sprint2
 					{
 						if (isMoving)   //Damange and moving state, fill in the damange sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("animatedDamage"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_front_move"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 						else            //Damange stand state, fill in the sprite to finish
 						{
-							play.SetSprite(SpriteFactory.GetSprite("resized heart"));
+							play.SetSprite(SpriteFactory.GetSprite("damage_front"));
 							elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						}
 					}

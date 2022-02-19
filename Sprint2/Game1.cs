@@ -81,6 +81,7 @@ namespace Sprint2
 			Texture2D projectileUp = Content.Load<Texture2D>("up_projectile");
 			Texture2D projectileLeft = Content.Load<Texture2D>("left_projectile");
 			Texture2D projectileDown = Content.Load<Texture2D>("down_projectile");
+
 			Texture2D fireballright = Content.Load<Texture2D>("fireball_right");
 			Texture2D fireballleft = Content.Load<Texture2D>("fireball_Left");
 			Texture2D fireballup = Content.Load<Texture2D>("fireball_up");
@@ -96,6 +97,7 @@ namespace Sprint2
 			SpriteFactory.CreateSprite(npcStillBack, 1, 1, 1, "kirito_back_still");
 			SpriteFactory.CreateSprite(npcStillFront, 1, 1, 1, "kirito_front_still");
 
+			//pc sprites
 			Texture2D attackRight = Content.Load<Texture2D>("right_throw");
 			Texture2D attackLeft = Content.Load<Texture2D>("left_throw");
 			Texture2D attackFront = Content.Load<Texture2D>("front_throw");
@@ -126,13 +128,42 @@ namespace Sprint2
 			SpriteFactory.CreateSprite(stillFront, 1, 1, 1, "back_still");
 			SpriteFactory.CreateSprite(stillBack, 1, 1, 1, "front_still");
 
+			//damaged player sprites
+			//hERE
+			Texture2D damage_right = Content.Load<Texture2D>("damage_right");
+			Texture2D damage_left = Content.Load<Texture2D>("damage_left");
+			Texture2D damage_back = Content.Load<Texture2D>("damage_back");
+			Texture2D damage_front = Content.Load<Texture2D>("damage_front");
+
+			SpriteFactory.CreateSprite(damage_right, 2, 1, 2, "damage_right");
+			SpriteFactory.CreateSprite(damage_left, 2, 1, 2, "damage_left");
+			SpriteFactory.CreateSprite(damage_back, 2, 1, 2, "damage_back");
+			SpriteFactory.CreateSprite(damage_front, 2, 1, 2, "damage_front");
+
+			Texture2D damage_right_move = Content.Load<Texture2D>("damage_right_move");
+			Texture2D damage_left_move = Content.Load<Texture2D>("damage_left_move");
+			Texture2D damage_back_move = Content.Load<Texture2D>("damage_back_move");
+			Texture2D damage_front_move = Content.Load<Texture2D>("damage_front_move");
+
+			SpriteFactory.CreateSprite(damage_right_move, 3, 3, 8, "damage_right_move");
+			SpriteFactory.CreateSprite(damage_left_move, 3, 3, 8, "damage_left_move");
+			SpriteFactory.CreateSprite(damage_back_move, 4, 2, 6, "damage_back_move");
+			SpriteFactory.CreateSprite(damage_front_move, 3, 2, 4, "damage_front_move");
+
+			//hm....
+			//Texture2D stillBrokenHeart = Content.Load<Texture2D>("resized heart");
+			//Texture2D animatedDamage = Content.Load<Texture2D>("animatedDamage");
+
+			//hmmmmm
+			//SpriteFactory.CreateSprite(animatedDamage, 5, 4, 17, "animatedDamage");
+			//SpriteFactory.CreateSprite(stillBrokenHeart, 1, 1, 1, "resized heart");
+
 			Texture2D mudBlock = Content.Load<Texture2D>("mudBlock");
 			Texture2D glassBlock = Content.Load<Texture2D>("glassBlock");
 			Texture2D ironBlock = Content.Load<Texture2D>("ironBlock");
 			Texture2D stoneBlock = Content.Load<Texture2D>("stoneBlock");
 
-			Texture2D stillBrokenHeart = Content.Load<Texture2D>("resized heart");
-			Texture2D animatedDamage = Content.Load<Texture2D>("animatedDamage");
+			Texture2D heart = Content.Load<Texture2D>("heart");
 			Texture2D magicPortion = Content.Load<Texture2D>("magic_portion");
 			Texture2D sword = Content.Load<Texture2D>("sword");
 			Texture2D skeletonRight = Content.Load<Texture2D>("skeletonRight");
@@ -140,16 +171,15 @@ namespace Sprint2
 			Texture2D skeletonFront = Content.Load<Texture2D>("skeletonFront");
 			Texture2D skeletonBack = Content.Load<Texture2D>("skeletonBack");
 
-
 			SpriteFactory.CreateSprite(skeletonRight, 4, 1, 4, "skeletonRight");
 			SpriteFactory.CreateSprite(skeletonLeft, 4, 1, 4, "skeletonLeft");
 			SpriteFactory.CreateSprite(skeletonFront, 4, 1, 4, "skeletonFront");
 			SpriteFactory.CreateSprite(skeletonBack, 4, 1, 4, "skeletonBack");
 
+			SpriteFactory.CreateSprite(heart, 2, 3, 5, "heart");
 			SpriteFactory.CreateSprite(magicPortion, 1, 1, 1, "magicPortion");
 			SpriteFactory.CreateSprite(sword, 1, 1, 1,"sword");
-			SpriteFactory.CreateSprite(animatedDamage, 5, 4, 17, "animatedDamage");
-			SpriteFactory.CreateSprite(stillBrokenHeart, 1, 1, 1, "resized heart");
+
 			SpriteFactory.CreateSprite(projectileRight, 2, 2, 1, "projectileRight");
 			SpriteFactory.CreateSprite(projectileLeft, 2, 2, 1, "projectileLeft");
 			SpriteFactory.CreateSprite(projectileUp, 2, 2, 1, "projectileUp");
@@ -167,6 +197,7 @@ namespace Sprint2
 
 		protected override void Update(GameTime gameTime)
 		{
+			//not necessary
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 

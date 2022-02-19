@@ -60,9 +60,8 @@ namespace Sprint2
         public void InitializeItems()
         {   //change these to items
             items.Add("magicPortion");
+            items.Add("heart");
             items.Add("sword");
-            items.Add("glassBlock");
-            items.Add("ironBlock");
           
         }
 
@@ -80,7 +79,8 @@ namespace Sprint2
         //maybe get location here???
         public void Draw(SpriteBatch spriteBatch)
         {
-            item.Draw(spriteBatch, location);
+                item.Draw(spriteBatch, location);
+            
         }
 
     }
