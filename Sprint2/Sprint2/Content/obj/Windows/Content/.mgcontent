@@ -4,26 +4,37 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/DistantAttackRight.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/glassBlock.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/ironBlock.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoAttactRight.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingDown.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingLeft.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingRight.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/KiritoMovingUp.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/mudBlock.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/side.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingDown.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingLeft.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingRight.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/StandFacingUp.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/stoneBlock.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing down.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing right.png</File>
-    <File>C:/Users/isaac/Source/Repos/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/Sword Facing up.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/back_move.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/back_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/back_throw.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/down_projectile.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_move.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/front_throw.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/glassBlock.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/ironBlock.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_back_attack.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_back_move.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_back_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_front_attack.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_front_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_left_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_move_front.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_move_left.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_move_right.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_right_attack.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/kirito_right_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/left_move.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/left_projectile.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/left_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/left_throw.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/mudBlock.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/right_move.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/right_projectile.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/right_still.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/right_throw.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/stoneBlock.png</File>
+    <File>C:/Users/sclyn/Documents/GitHub/CSE3902-Triathlon-Gaming/Sprint2/Sprint2/Content/up_projectile.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -43,8 +54,19 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File>Sword_Facing_down.png</File>
-    <File>Sword_Facing_right.png</File>
-    <File>Sword_Facing_up.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

@@ -7373,25 +7373,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\isaac\\.nuget\\packages\\": {},
+    "C:\\Users\\sclyn\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isaac\\Source\\Repos\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
+      "projectUniqueName": "C:\\Users\\sclyn\\Documents\\GitHub\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
       "projectName": "Sprint2",
-      "projectPath": "C:\\Users\\isaac\\Source\\Repos\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
-      "packagesPath": "C:\\Users\\isaac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isaac\\Source\\Repos\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\obj\\",
+      "projectPath": "C:\\Users\\sclyn\\Documents\\GitHub\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\Sprint2.csproj",
+      "packagesPath": "C:\\Users\\sclyn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sclyn\\Documents\\GitHub\\CSE3902-Triathlon-Gaming\\Sprint2\\Sprint2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\isaac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sclyn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -7446,7 +7446,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

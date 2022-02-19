@@ -178,8 +178,8 @@ namespace Sprint2
 
 		public static List<List<string>> loadNpc(List<List<string>> npcHolder)
 		{
-			npcHolder.Add(new List<string> { "movingRight", "movingLeft", "movingUp", "movingDown" });
-			npcHolder.Add(new List<string> { "movingRight", "movingLeft", "movingUp", "movingDown" });
+			npcHolder.Add(new List<string> { "kirito_move_right", "kirito_move_left", "kirito_back_move", "kirito_move_front" });
+			npcHolder.Add(new List<string> { "kirito_move_right", "kirito_move_left", "kirito_back_move", "kirito_move_front" });
 			return npcHolder;
 		}
 
