@@ -115,11 +115,7 @@ namespace Sprint2
 
 		private void DistantAttack(int index)
 		{
-<<<<<<< HEAD
-			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState(), 1);
-=======
 			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState(), fireballHolder[index]);
->>>>>>> sprint2_updated_sprites
 		}
 
 		public void SetLocation(Vector2 newLocation)
