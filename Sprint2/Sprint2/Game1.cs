@@ -81,6 +81,10 @@ namespace Sprint2
 			Texture2D projectileUp = Content.Load<Texture2D>("up_projectile");
 			Texture2D projectileLeft = Content.Load<Texture2D>("left_projectile");
 			Texture2D projectileDown = Content.Load<Texture2D>("down_projectile");
+			Texture2D fireballright = Content.Load<Texture2D>("fireball_right");
+			Texture2D fireballleft = Content.Load<Texture2D>("fireball_Left");
+			Texture2D fireballup = Content.Load<Texture2D>("fireball_up");
+			Texture2D fireballdown = Content.Load<Texture2D>("fireball_down");
 
 			Texture2D npcStillRight = Content.Load<Texture2D>("kirito_right_still");
 			Texture2D npcStillLeft = Content.Load<Texture2D>("kirito_left_still");
@@ -127,10 +131,14 @@ namespace Sprint2
 			Texture2D ironBlock = Content.Load<Texture2D>("ironBlock");
 			Texture2D stoneBlock = Content.Load<Texture2D>("stoneBlock");
 
-			SpriteFactory.CreateSprite(projectileRight, 2, 2, 4, "projectileRight");
-			SpriteFactory.CreateSprite(projectileLeft, 2, 2, 4, "projectileLeft");
-			SpriteFactory.CreateSprite(projectileUp, 2, 2, 4, "projectileUp");
-			SpriteFactory.CreateSprite(projectileDown, 2, 2, 4, "projectileDown");
+			SpriteFactory.CreateSprite(projectileRight, 2, 2, 1, "projectileRight");
+			SpriteFactory.CreateSprite(projectileLeft, 2, 2, 1, "projectileLeft");
+			SpriteFactory.CreateSprite(projectileUp, 2, 2, 1, "projectileUp");
+			SpriteFactory.CreateSprite(projectileDown, 2, 2, 1, "projectileDown");
+			SpriteFactory.CreateSprite(fireballright, 8, 1, 1, "fireballright");
+			SpriteFactory.CreateSprite(fireballleft, 8, 1, 1, "fireballleft");
+			SpriteFactory.CreateSprite(fireballup, 8, 1, 1, "fireballup");
+			SpriteFactory.CreateSprite(fireballdown, 8, 1, 1, "fireballdown");
 
 			SpriteFactory.CreateSprite(mudBlock, 1, 1, 1, "mudBlock");
 			SpriteFactory.CreateSprite(glassBlock, 1, 1, 1, "glassBlock");

@@ -207,9 +207,9 @@ namespace Sprint2
 
 		private void loadFireBall(List<List<string>> fireballHolder)
 		{
-			fireballHolder.Add(new List<string> { "projectileRight", "projectileLeft", "projectileUp", "projectileDown" });
-			fireballHolder.Add(new List<string> { "projectileRight", "projectileLeft", "projectileUp", "projectileDown" });
-			fireballHolder.Add(new List<string> { "projectileRight", "projectileLeft", "projectileUp", "projectileDown" });
+			fireballHolder.Add(new List<string> { "fireballright", "fireballleft", "fireballup", "fireballdown" });
+			fireballHolder.Add(new List<string> { "fireballright", "fireballleft", "fireballup", "fireballdown" });
+			fireballHolder.Add(new List<string> { "fireballright", "fireballleft", "fireballup", "fireballdown" });
 		}
 
 		private void loadNpc(List<List<string>> npcHolder)
