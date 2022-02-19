@@ -1,0 +1,15 @@
+Keyi Lu
+
+2/18/22
+
+Sprint 2
+
+KeyboardC.cs
+
+Daniel 
+
+5 minutes
+
+The structure of this controller class is prettt easy to read, I can go through the codes quickly 
+and understand what each part is doing. The part that confused me a bit was the parameters in the
+Execute and CompareStates functions.
