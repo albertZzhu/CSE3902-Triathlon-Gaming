@@ -1,0 +1,16 @@
+Isaac Lieber
+
+2/18/21
+
+Sprint 2
+
+NPC1.cs
+
+Keyi
+
+8 minutes
+
+Most of the code is fairly readable, but a comment about what 0 and 2 signify in the code may be useful.
+The most confusing part from a straightfoward readability point was probably the logic
+in the switch case, which is to be expected. The lists of lists also confused me for a
+little bit before I read deeper into it.
