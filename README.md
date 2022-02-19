@@ -8,7 +8,7 @@
 * user can use <code>d</code> or <code>→</code> to move character move rightwards
 * user can use <code>z</code> or <code>n</code> to attack
 * user can use <code>e</code> to make the character damaged
-* user can use <code>space</code> to fire projectiles
+* user can use <code>1</code>, <code>2</code>, or <code>3</code> to fire different projectiles
 ##### added NPC:
 * NPC can fire projectiles
 * NPC can move automatically
@@ -16,3 +16,6 @@
 * by hitting <code>t</code> or <code>y</code>, user can switch between different block type
 ##### added Items:
 * by hitting <code>u</code> or <code>i</code>, user can switch between different item type
+
+##### KNOWN ISSUES:
+* projectiles that player fires right now has no direction associated with them
