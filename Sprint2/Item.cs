@@ -65,6 +65,15 @@ namespace Sprint2
           
         }
 
+        public void SwitchingForward()
+        {
+            index = (index < items.Count - 1 ? index + 1 : 0);
+        }
+
+        public void SwitchingBackward()
+        {
+            index = index > 0 ? index - 1 : items.Count - 1;
+        }
         public void Reset()
         {
             SetIndex(0);
