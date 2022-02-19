@@ -1,0 +1,22 @@
+Leigh Lynch
+2-18-2022
+Sprint2
+PlayerStateMachine.cs
+Boru Zhu
+As Professor Kirby said in his code review, it would be best for facing to be an enum
+instead of a simple integer. It lacks context as it is currently. So, even though, for
+example, facing right is still equated to 0, it will be shown in the code as facingRight.
+I'm curious as to why the Damage() method simply reverses the damage boolean - if the player gets 
+hit twice, won't he be healthy again?
+As of now - our team doesn't have damage implemented very well (or really
+at all) - this shows in the code.
+The getSprite() methods called in Update could be much more optimized - right now, to update any
+sprite, you must scroll to the appropriate spots and change each string. It would
+be much better if there was a structure these were stored in, so the code was more maintainable. 
+It's quite long - this might be my ADHD - but I just get visually overwhelmed while looking at it 
+and as a result, it's hard to understand.
+
+As for a theoretical change - let's say we wanted to add another player state. We would have to apply 
+the state for each of the player's facings, and would have to greatly increase the length
+of the switch case as a result. If we could somehow streamline this process, I think it
+would benefit the code's fucntionality, quality and readability.
