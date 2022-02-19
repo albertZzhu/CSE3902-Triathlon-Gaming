@@ -8,7 +8,7 @@ namespace Sprint2
 	{
 		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
 		{
-			player.DistantAttack(1);
+			player.setFireball(0);
 		}
 	}
 }

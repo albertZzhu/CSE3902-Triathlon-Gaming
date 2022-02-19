@@ -8,6 +8,7 @@ namespace Sprint2
 	{
 		private ArrayList list;
 		float bias = 30;
+		float biasfireball = 16;
 		public ProjectileSeq()
 		{
 			list = new ArrayList();
@@ -17,17 +18,62 @@ namespace Sprint2
 		{
 			switch (sprite)
 			{ //add more
-				case 0:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
-					break;
-				case 1:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballright")));
-					break;
 				case 2:
-					list.Add(new Projectile(new Vector2(newLocation.X - bias,newLocation.Y), direction, SpriteFactory.GetSprite("sword")));
+					{
+						switch (direction)
+						{
+							case 0:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
+								break;
+							case 1:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileLeft")));
+								break;
+							case 2:
+								list.Add(new Projectile(new Vector2(newLocation.X -bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
+								break;
+							case 3:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileDown")));
+								break;
+						}
+					}
 					break;
-				case 3:
-					list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileRight")));
+				case 0:
+					{
+						switch (direction)
+						{
+							case 0:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballright")));
+								break;
+							case 1:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballleft")));
+								break;
+							case 2:
+								list.Add(new Projectile(new Vector2(newLocation.X - biasfireball, newLocation.Y), direction, SpriteFactory.GetSprite("fireballup")));
+								break;
+							case 3:
+								list.Add(new Projectile(new Vector2(newLocation.X - biasfireball, newLocation.Y), direction, SpriteFactory.GetSprite("fireballdown")));
+								break;
+						}
+					}
+					break;
+                case 1:
+					{
+						switch (direction)
+						{
+							case 0:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("heart")));
+								break;
+							case 1:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("heart")));
+								break;
+							case 2:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("heart")));
+								break;
+							case 3:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("heart")));
+								break;
+						}
+					}
 					break;
 				default:
 					break;

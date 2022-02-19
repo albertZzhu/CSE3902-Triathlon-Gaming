@@ -11,6 +11,7 @@ namespace Sprint2
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
+		private int spriteNum;
 
 		public Player(int boundWidth, int boundHeight)
 		{
@@ -65,9 +66,9 @@ namespace Sprint2
 			}
 		}
 
-		public void DistantAttack(int spriteNum)
+		public void DistantAttack()
 		{
-			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), spriteNum);
+			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), this.spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)
@@ -119,5 +120,9 @@ namespace Sprint2
 			proj.Draw(spriteBatch);
 		}
 
+		public void setFireball(int i)
+        {
+			this.spriteNum = i;
+        }
 	}
 }
