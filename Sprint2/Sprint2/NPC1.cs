@@ -10,7 +10,7 @@ namespace Sprint2
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 		private ISprite npc = new Sprite();
 		private NpcStatementMachine state;
-		private ProjectileSeq proj;
+		private NpcProjectileSeq proj;
 		private int i = 0;
 		private float timer;
 		public int index;
@@ -202,7 +202,7 @@ namespace Sprint2
 				0, 0, 0, 0, 0, 0, 0});
 			Map.Add(new List<int> { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
 				2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-			Map.Add(new List<int> {2})
+			Map.Add(new List<int> { 2 });
 		}
 
 		private void loadFireBall(List<List<string>> fireballHolder)
