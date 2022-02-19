@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/isaac/AppData/Local/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/Credits.spritefont</File>
-    <File>C:/Users/isaac/AppData/Local/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat.png</File>
-    <File>C:/Users/isaac/AppData/Local/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat-1.png</File>
+    <File>C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/Credits.spritefont</File>
+    <File>C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat.png</File>
+    <File>C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat-1.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
