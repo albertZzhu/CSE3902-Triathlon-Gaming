@@ -8,7 +8,7 @@
 			i--;
 			if (i < 0)
 			{
-				i = enemy.enemynum - 1;
+				i = enemy.GetEnemyNum() - 1;
 			}
 			enemy.SetIndx(i);
 			enemy.SetI(0);

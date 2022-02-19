@@ -17,12 +17,6 @@ namespace Sprint2
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
 		private KeyboardC _keyboardCon = new KeyboardC();
 		private SpriteFactory factory;
-		//enemy used varibles start.
-		private List<List<int>> movementHolder;
-		private List<List<string>> npcHolder;
-		private int enemynum;
-		private Vector2[] locations;
-		//enemy used varibles end.
 		private int boundWidth;
 		private int boundHeight;
 
@@ -42,16 +36,7 @@ namespace Sprint2
 			// TODO: Add your initialization logic here
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
-			//enemy loading area
-			enemynum = NPC1.setEnemyNum(2);
-			npcHolder = new List<List<string>>();
-			movementHolder = new List<List<int>>();
-			locations = new Vector2[enemynum];
-			movementHolder = NPC1.loadMap(movementHolder);
-			npcHolder = NPC1.loadNpc(npcHolder);
-			locations = NPC1.loadLocations(locations);
-			//npc loaded over
-			_npc = new NPC1(movementHolder, boundWidth, boundHeight, npcHolder, enemynum, locations);
+			_npc = new NPC1(boundWidth, boundHeight);
 			_player = new Player(boundWidth, boundHeight);
 			_item = new Item(boundWidth, boundHeight);
 			factory = SpriteFactory.GetFactory();
@@ -93,6 +78,9 @@ namespace Sprint2
 
 			//can rotate this in draw
 			Texture2D projectileRight = Content.Load<Texture2D>("right_projectile");
+			Texture2D projectileUp = Content.Load<Texture2D>("up_projectile");
+			Texture2D projectileLeft = Content.Load<Texture2D>("left_projectile");
+			Texture2D projectileDown = Content.Load<Texture2D>("down_projectile");
 
 			Texture2D npcStillRight = Content.Load<Texture2D>("kirito_right_still");
 			Texture2D npcStillLeft = Content.Load<Texture2D>("kirito_left_still");
@@ -139,7 +127,10 @@ namespace Sprint2
 			Texture2D ironBlock = Content.Load<Texture2D>("ironBlock");
 			Texture2D stoneBlock = Content.Load<Texture2D>("stoneBlock");
 
-			SpriteFactory.CreateSprite(projectileRight, 1, 1, 1, "projectileRight");
+			SpriteFactory.CreateSprite(projectileRight, 2, 2, 4, "projectileRight");
+			SpriteFactory.CreateSprite(projectileLeft, 2, 2, 4, "projectileLeft");
+			SpriteFactory.CreateSprite(projectileUp, 2, 2, 4, "projectileUp");
+			SpriteFactory.CreateSprite(projectileDown, 2, 2, 4, "projectileDown");
 
 			SpriteFactory.CreateSprite(mudBlock, 1, 1, 1, "mudBlock");
 			SpriteFactory.CreateSprite(glassBlock, 1, 1, 1, "glassBlock");
