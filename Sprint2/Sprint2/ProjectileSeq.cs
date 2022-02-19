@@ -18,13 +18,13 @@ namespace Sprint2
 			switch (sprite)
 			{ //add more
 				case 1:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
 					break;
 				case 2:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("glassBlock")));
 					break;
 				case 3:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
 					break;
 			}
 
