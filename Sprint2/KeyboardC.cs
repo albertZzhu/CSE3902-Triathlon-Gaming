@@ -8,6 +8,8 @@ namespace Sprint2
 	{
 		private Dictionary<Keys, ICommand> keyboardD = new Dictionary<Keys, ICommand>();
 
+		private Dictionary<Keys, ICommand> playerMove = new Dictionary<Keys, ICommand>();
+
 		private KeyboardState oldState;
 
 		public KeyboardC()
@@ -32,6 +34,13 @@ namespace Sprint2
 				tempCom.Execute(player, item, block, enemy);
 			}
 
+			foreach (Keys key in current)
+			{
+				if (playerMove.ContainsKey(key))
+				{
+					playerMove[key].Execute(player, item, block, enemy);
+				}
+			}
 
 			if (newState.GetPressedKeys().Length > 0)
 			{
@@ -64,15 +73,15 @@ namespace Sprint2
 
 			keyboardD.Add(Keys.Space, new ProjectileCom());
 
-			keyboardD.Add(Keys.W, new MoveUpCom());
-			keyboardD.Add(Keys.A, new MoveLeftCom());
-			keyboardD.Add(Keys.S, new MoveDownCom());
-			keyboardD.Add(Keys.D, new MoveRightCom());
+			playerMove.Add(Keys.W, new MoveUpCom());
+			playerMove.Add(Keys.A, new MoveLeftCom());
+			playerMove.Add(Keys.S, new MoveDownCom());
+			playerMove.Add(Keys.D, new MoveRightCom());
 
-			keyboardD.Add(Keys.Up, new MoveUpCom());
-			keyboardD.Add(Keys.Left, new MoveLeftCom());
-			keyboardD.Add(Keys.Down, new MoveDownCom());
-			keyboardD.Add(Keys.Right, new MoveRightCom());
+			playerMove.Add(Keys.Up, new MoveUpCom());
+			playerMove.Add(Keys.Left, new MoveLeftCom());
+			playerMove.Add(Keys.Down, new MoveDownCom());
+			playerMove.Add(Keys.Right, new MoveRightCom());
 
 			//keyboardD.Add(Keys.T, new BlockBackwardCom());
 			//keyboardD.Add(Keys.Y, new BlockForwardCom());
