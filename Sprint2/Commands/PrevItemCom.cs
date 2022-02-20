@@ -8,11 +8,7 @@ namespace Sprint2
     {
         void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
         {
-            int i = item.GetIndex() - 1;
-            if (i > 0)
-                item.SetIndex(i);
-            else
-                item.SetIndex(item.GetItemList().Count - 1);
+            item.SwitchingBackward();
         }
     }
 }

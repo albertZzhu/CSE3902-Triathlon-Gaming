@@ -15,19 +15,19 @@ namespace Sprint2
 
 		public void NewProjectile(Vector2 newLocation, int direction, int sprite)
 		{
-			switch (direction)
+			switch (sprite)
 			{ //add more
 				case 0:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
 					break;
 				case 1:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileLeft")));
+					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballright")));
 					break;
 				case 2:
-					list.Add(new Projectile(new Vector2(newLocation.X - bias,newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
+					list.Add(new Projectile(new Vector2(newLocation.X - bias,newLocation.Y), direction, SpriteFactory.GetSprite("sword")));
 					break;
 				case 3:
-					list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileDown")));
+					list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileRight")));
 					break;
 				default:
 					break;
