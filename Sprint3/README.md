@@ -18,4 +18,3 @@
 * by hitting <code>u</code> or <code>i</code>, user can switch between different item type
 
 ##### KNOWN ISSUES:
-* projectiles that player fires right now has no direction associated with them
