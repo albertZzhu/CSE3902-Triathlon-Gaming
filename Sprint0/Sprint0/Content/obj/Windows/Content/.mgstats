@@ -1,4 +1,1 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/Credits.spritefont","C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/bin/Windows/Content/Credits.xnb","FontDescriptionProcessor","SpriteFontContent",2068,70690,0.831289
-"C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat.png","C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/bin/Windows/Content/snow-cat.xnb","TextureProcessor","Texture2DContent",78162,7200085,0.6969013
-"C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat-1.png","C:/Users/Administrator/Source/Repos/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/bin/Windows/Content/snow-cat-1.xnb","TextureProcessor","Texture2DContent",1965,40085,0.0166467

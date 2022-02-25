@@ -106,6 +106,7 @@ namespace Sprint3
         {
 			SetLocation(new Vector2(50, 50));
 			state.ChangeFacing(0);
+			spriteNum = 0;
         }
 		public void Update(GameTime gameTime)
 		{
