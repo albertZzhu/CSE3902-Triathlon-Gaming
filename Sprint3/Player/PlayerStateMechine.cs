@@ -1,33 +1,44 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Sprint3.Player;
 
 namespace Sprint3
 {
 	class PlayerStateMechine
 	{
-		private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		private static Sprint3.Player.Facing currentFacing = Sprint3.Player.Facing.RIGHT;
+
+		//should these be their own classes?
 		private bool attack = false;
 		private bool damaged = false;
 		private double elapse = 0.0;
 		private bool isMoving = false;
 
-		private Player play;
+		private Player player;
 
 
-		public PlayerStateMechine(Player player)
+		public PlayerStateMechine(Player play)
 		{
-			this.play = player;
+			this.player = play;
 
 		}
 
-		public int FacingState()
+		public Player GetPlayer()
+        {
+			return player;
+        }
+
+		//other things shouldnt be able to access the facing and know what it is, right?
+		//should the facing enum be public...?
+		public Sprint3.Player.Facing FacingState()
 		{
-			return facing;
+			return currentFacing;
 		}
 
-		public void changeMovingState(bool moving)
+		public void ChangeMovingState(bool moving)
 		{
 			this.isMoving = moving;
+			//key hold here and move?
 		}
 
 		public void Attack()
@@ -40,9 +51,17 @@ namespace Sprint3
 			damaged = !damaged;
 		}
 
-		public void ChangeFacing(int facing)
+		//not right
+		public void ChangeFacing(string facing)
 		{
-			this.facing = facing;
+			if (facing.ToUpper().Equals("RIGHT"))
+				currentFacing = Sprint3.Player.Facing.RIGHT;
+			if (facing.ToUpper().Equals("LEFT"))
+				currentFacing = Sprint3.Player.Facing.LEFT;
+			if (facing.ToUpper().Equals("UP"))
+				currentFacing = Sprint3.Player.Facing.UP;
+			if (facing.ToUpper().Equals("DOWN"))
+				currentFacing = Sprint3.Player.Facing.DOWN;
 		}
 
 		public void Update(GameTime gameTime)
@@ -52,7 +71,7 @@ namespace Sprint3
 				case 0:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
+						player.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
