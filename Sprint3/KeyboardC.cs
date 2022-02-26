@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using Sprint3.Commands;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -7,7 +8,7 @@ namespace Sprint3
 {
 	public class KeyboardC : IController
 	{
-		private Dictionary<Keys, ConstructorInfo[]> keyboardD = new Dictionary<Keys, ConstructorInfo[]>();
+		private Dictionary<Keys, ConstructorInfo> dict = new Dictionary<Keys, ConstructorInfo>();
 
 		private KeyboardState oldState;
 
@@ -39,9 +40,9 @@ namespace Sprint3
 			objects[3] = enemy;
 			if (newState.GetPressedKeys().Length > 0)
 			{
-				if (keyboardD.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
+				if (dict.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
 				{
-					keyboardD[newState.GetPressedKeys()[0]][0].Invoke(objects);
+					dict[newState.GetPressedKeys()[0]].Invoke(objects);
 				}
 			}
 
@@ -50,51 +51,35 @@ namespace Sprint3
 
 		public void InitializeController()
 		{
-			Type q = typeof(QuitCom);
-			keyboardD.Add(Keys.Q, q.GetConstructors());
-			Type pI = typeof(PrevItemCom);
-			keyboardD.Add(Keys.U, pI.GetConstructors());
-			Type nI = typeof(NextItemCom);
-			keyboardD.Add(Keys.I, nI.GetConstructors());
-			Type a = typeof(AttackCom);
-			keyboardD.Add(Keys.Z, a.GetConstructors());
-			keyboardD.Add(Keys.N, a.GetConstructors());
-			Type d = typeof(DamageCom);
-			keyboardD.Add(Keys.E, d.GetConstructors());
-			Type r = typeof(ResetCom);
-			keyboardD.Add(Keys.R, r.GetConstructors());
-			Type pB = typeof(PrevBlockCom);
-			keyboardD.Add(Keys.T, pB.GetConstructors());
-			Type nB = typeof(NextBlockCom);
-			keyboardD.Add(Keys.Y, nB.GetConstructors());
-			Type pN = typeof(PrevNPCCom);
-			keyboardD.Add(Keys.O, nB.GetConstructors());
-			Type nN = typeof(NextNPCCom);
-			keyboardD.Add(Keys.P, nN.GetConstructors());
+			CommandManager manager = new CommandManager();
+			//Can i put the keybinds somewhere that makes this method more simple...?
+			//perhaps a keybind class that the user can interact with
+			dict.Add(Keys.Q, manager.GetConstructor("QuitCom"));
+			dict.Add(Keys.U, manager.GetConstructor("PrevItemCom"));
+			dict.Add(Keys.I, manager.GetConstructor("NextItemCom"));
+			dict.Add(Keys.Z, manager.GetConstructor("AttackCom"));
+			dict.Add(Keys.N, manager.GetConstructor("AttackCom"));
+			dict.Add(Keys.E, manager.GetConstructor("DamageCom"));
+			dict.Add(Keys.R, manager.GetConstructor("ResetCom"));
+			dict.Add(Keys.T, manager.GetConstructor("PrevBlockCom"));
+			dict.Add(Keys.Y, manager.GetConstructor("NextBlockCom"));
+			dict.Add(Keys.O, manager.GetConstructor("PrevNPCCom"));
+			dict.Add(Keys.P, manager.GetConstructor("NextNPCCom"));
 
-			Type p1 = typeof(ProjectileCom);
-			keyboardD.Add(Keys.D1, p1.GetConstructors());
-			Type p2 = typeof(Projectile2Com);
-			keyboardD.Add(Keys.D2, p2.GetConstructors());
-			Type p3 = typeof(Projectile3Com);
-			keyboardD.Add(Keys.D3, p3.GetConstructors());
+			dict.Add(Keys.D1, manager.GetConstructor("ProjectileCom"));
+			dict.Add(Keys.D2, manager.GetConstructor("Projectile2Com"));
+			dict.Add(Keys.D3, manager.GetConstructor("Projectile3Com"));
+			dict.Add(Keys.Space, manager.GetConstructor("FireProjectileCom"));
 
-			Type fP = typeof(FireProjectileCom);
-			keyboardD.Add(Keys.Space, fP.GetConstructors());
+			dict.Add(Keys.W, manager.GetConstructor("MoveUpCom"));
+			dict.Add(Keys.A, manager.GetConstructor("MoveLeftCom"));
+			dict.Add(Keys.S, manager.GetConstructor("MoveDownCom"));
+			dict.Add(Keys.D, manager.GetConstructor("MoveRightCom"));
 
-			Type mU = typeof(MoveUpCom);
-			keyboardD.Add(Keys.W, mU.GetConstructors());
-			Type mL = typeof(MoveLeftCom);
-			keyboardD.Add(Keys.A, mL.GetConstructors());
-			Type mD = typeof(MoveDownCom);
-			keyboardD.Add(Keys.S, mD.GetConstructors());
-			Type mR = typeof(MoveRightCom);
-			keyboardD.Add(Keys.D, mR.GetConstructors());
-
-			keyboardD.Add(Keys.Up, mU.GetConstructors());
-			keyboardD.Add(Keys.Left, mL.GetConstructors());
-			keyboardD.Add(Keys.Down, mD.GetConstructors());
-			keyboardD.Add(Keys.Right, mR.GetConstructors());
+			dict.Add(Keys.Up, manager.GetConstructor("MoveUpCom"));
+			dict.Add(Keys.Left, manager.GetConstructor("MoveLeftCom"));
+			dict.Add(Keys.Down, manager.GetConstructor("MoveDownCom"));
+			dict.Add(Keys.Right, manager.GetConstructor("MoveRightCom"));
 
 			oldState = Keyboard.GetState();
 		}

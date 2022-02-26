@@ -13,12 +13,17 @@ namespace Sprint3.Commands
         public CommandManager()
         {
             commandConstructors = new Dictionary<string, ConstructorInfo>();
-            String[] commandsStrings = File.ReadAllLines("Data/Commands.txt");
+            String[] commandsStrings = File.ReadAllLines("Content\\Commands.txt");
             foreach (String commandName in commandsStrings) {
                 Type type = Type.GetType(commandName);
                 //thinking ahead: i might have to change all the params in the command classes to IGameObject...
                 commandConstructors.Add(commandName, type.GetConstructors()[0]);
             }
+        }
+
+        public ConstructorInfo GetConstructor(String commandName)
+        {
+            return commandConstructors[commandName];
         }
     }
 }
