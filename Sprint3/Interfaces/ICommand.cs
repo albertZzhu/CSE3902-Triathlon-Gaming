@@ -6,6 +6,7 @@
 		//operates on a dictionary object? "data driven..."
 		//only function is execute?
 
-		void Execute(Player player, Item item, Block block, NPC1 enemy);
+		//old params: Player player, Item item, Block block, NPC1 enemy
+		void Execute();
 	}
 }

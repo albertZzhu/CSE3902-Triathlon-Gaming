@@ -2,7 +2,13 @@
 {
 	class MoveUpCom : ICommand
 	{
-		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+		Player player;
+
+		public MoveUpCom(Player p)
+        {
+			player = p;
+        }
+		void ICommand.Execute()
 		{
 			player.Move(2);
 		}

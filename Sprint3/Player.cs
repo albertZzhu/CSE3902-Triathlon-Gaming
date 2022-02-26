@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	public class Player
+	public class Player : IGameObject
 	{
 		private ISprite sprite = new Sprite();
 		private Vector2 location = new Vector2(50, 50);

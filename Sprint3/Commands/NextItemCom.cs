@@ -2,7 +2,12 @@ namespace Sprint3
 {
 	class NextItemCom : ICommand
 	{
-		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+		Item item;
+		public NextItemCom(Item i)
+        {
+			item = i;
+        }
+		void ICommand.Execute()
 		{
 			item.SwitchingForward();
 		}

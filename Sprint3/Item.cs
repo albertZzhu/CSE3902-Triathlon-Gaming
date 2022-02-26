@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint3
 {
-    public class Item
+    public class Item : IGameObject
     {
         private ISprite item = new Sprite();
         private Vector2 location = new Vector2(300, 100);

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	public class Block
+	public class Block : IGameObject
 	{
 		private Vector2[] locations;
 		private ISprite blockSprite;

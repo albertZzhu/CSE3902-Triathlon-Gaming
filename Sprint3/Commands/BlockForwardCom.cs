@@ -6,9 +6,15 @@ namespace Sprint3
 {
 	class BlockForwardCom : ICommand
 	{
-		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+		Block block;
+		void ICommand.Execute()
 		{
 			block.SwitchingForward();
 		}
+
+		public BlockForwardCom(Block b)
+        {
+			block = b;
+        }
 	}
 }

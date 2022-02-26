@@ -6,7 +6,12 @@ namespace Sprint3
 {
     class PrevItemCom : ICommand
     {
-        void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+        Item item;
+        public PrevItemCom(Item i)
+        {
+            item = i;
+        }
+        void ICommand.Execute()
         {
             item.SwitchingBackward();
         }

@@ -1,10 +1,16 @@
 ﻿namespace Sprint3
 {
-	class AttackCom : ICommand
-	{
-		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
-		{
-			player.GoAttack();
-		}
-	}
+    class AttackCom : ICommand
+    {
+        Player player;
+        public void Execute()
+        {
+            player.GoAttack();
+        }
+
+        public AttackCom(Player p)
+        {
+            player = p;
+        }
+    }
 }

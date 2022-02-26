@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Sprint3
 {
 	public class KeyboardC : IController
 	{
-		private Dictionary<Keys, ICommand> keyboardD = new Dictionary<Keys, ICommand>();
+		private Dictionary<Keys, ConstructorInfo[]> keyboardD = new Dictionary<Keys, ConstructorInfo[]>();
 
 		private KeyboardState oldState;
 
@@ -28,16 +29,19 @@ namespace Sprint3
 				Array.IndexOf(current, Keys.Left) == -1 &&
 				Array.IndexOf(current, Keys.Right) == -1)
 			{
-				ICommand tempCom = new StandCom();
-				tempCom.Execute(player, item, block, enemy);
+				ICommand tempCom = new StandCom(player);
+				tempCom.Execute();
 			}
-
-
+			IGameObject[] objects = new IGameObject[4];
+			objects[0] = player;
+			objects[1] = item;
+			objects[2] = block;
+			objects[3] = enemy;
 			if (newState.GetPressedKeys().Length > 0)
 			{
 				if (keyboardD.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
 				{
-					keyboardD[newState.GetPressedKeys()[0]].Execute(player, item, block, enemy);
+					keyboardD[newState.GetPressedKeys()[0]][0].Invoke(objects);
 				}
 			}
 
@@ -46,36 +50,51 @@ namespace Sprint3
 
 		public void InitializeController()
 		{
-			keyboardD.Add(Keys.Q, new QuitCom());
-			keyboardD.Add(Keys.U, new PrevItemCom());
-			keyboardD.Add(Keys.I, new NextItemCom());
-			keyboardD.Add(Keys.Z, new AttackCom());
-			keyboardD.Add(Keys.N, new AttackCom());
-			keyboardD.Add(Keys.E, new DamageCom());
-			keyboardD.Add(Keys.R, new ResetCom());
-			keyboardD.Add(Keys.T, new PrevBlockCom());
-			keyboardD.Add(Keys.Y, new NextBlockCom());
-			keyboardD.Add(Keys.O, new PrevNPCCom());
-			keyboardD.Add(Keys.P, new NextNPCCom());
+			Type q = typeof(QuitCom);
+			keyboardD.Add(Keys.Q, q.GetConstructors());
+			Type pI = typeof(PrevItemCom);
+			keyboardD.Add(Keys.U, pI.GetConstructors());
+			Type nI = typeof(NextItemCom);
+			keyboardD.Add(Keys.I, nI.GetConstructors());
+			Type a = typeof(AttackCom);
+			keyboardD.Add(Keys.Z, a.GetConstructors());
+			keyboardD.Add(Keys.N, a.GetConstructors());
+			Type d = typeof(DamageCom);
+			keyboardD.Add(Keys.E, d.GetConstructors());
+			Type r = typeof(ResetCom);
+			keyboardD.Add(Keys.R, r.GetConstructors());
+			Type pB = typeof(PrevBlockCom);
+			keyboardD.Add(Keys.T, pB.GetConstructors());
+			Type nB = typeof(NextBlockCom);
+			keyboardD.Add(Keys.Y, nB.GetConstructors());
+			Type pN = typeof(PrevNPCCom);
+			keyboardD.Add(Keys.O, nB.GetConstructors());
+			Type nN = typeof(NextNPCCom);
+			keyboardD.Add(Keys.P, nN.GetConstructors());
 
-			keyboardD.Add(Keys.D1, new ProjectileCom());
-			keyboardD.Add(Keys.D2, new Projectile2Com());
-			keyboardD.Add(Keys.D3, new Projectile3Com());
+			Type p1 = typeof(ProjectileCom);
+			keyboardD.Add(Keys.D1, p1.GetConstructors());
+			Type p2 = typeof(Projectile2Com);
+			keyboardD.Add(Keys.D2, p2.GetConstructors());
+			Type p3 = typeof(Projectile3Com);
+			keyboardD.Add(Keys.D3, p3.GetConstructors());
 
-			keyboardD.Add(Keys.Space, new FireProjectileCom());
+			Type fP = typeof(FireProjectileCom);
+			keyboardD.Add(Keys.Space, fP.GetConstructors());
 
-			keyboardD.Add(Keys.W, new MoveUpCom());
-			keyboardD.Add(Keys.A, new MoveLeftCom());
-			keyboardD.Add(Keys.S, new MoveDownCom());
-			keyboardD.Add(Keys.D, new MoveRightCom());
+			Type mU = typeof(MoveUpCom);
+			keyboardD.Add(Keys.W, mU.GetConstructors());
+			Type mL = typeof(MoveLeftCom);
+			keyboardD.Add(Keys.A, mL.GetConstructors());
+			Type mD = typeof(MoveDownCom);
+			keyboardD.Add(Keys.S, mD.GetConstructors());
+			Type mR = typeof(MoveRightCom);
+			keyboardD.Add(Keys.D, mR.GetConstructors());
 
-			keyboardD.Add(Keys.Up, new MoveUpCom());
-			keyboardD.Add(Keys.Left, new MoveLeftCom());
-			keyboardD.Add(Keys.Down, new MoveDownCom());
-			keyboardD.Add(Keys.Right, new MoveRightCom());
-
-			//keyboardD.Add(Keys.T, new BlockBackwardCom());
-			//keyboardD.Add(Keys.Y, new BlockForwardCom());
+			keyboardD.Add(Keys.Up, mU.GetConstructors());
+			keyboardD.Add(Keys.Left, mL.GetConstructors());
+			keyboardD.Add(Keys.Down, mD.GetConstructors());
+			keyboardD.Add(Keys.Right, mR.GetConstructors());
 
 			oldState = Keyboard.GetState();
 		}

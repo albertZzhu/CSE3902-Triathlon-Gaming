@@ -6,7 +6,19 @@ namespace Sprint3
 {
 	class ResetCom : ICommand
 	{
-		public void Execute(Player player, Item item, Block block, NPC1 enemy)
+		Player player;
+		Item item;
+		Block block;
+		NPC1 enemy;
+
+		public ResetCom(Player p, Item i, Block b, NPC1 e)
+        {
+			player = p;
+			item = i;
+			block = b;
+			enemy = e;
+        }
+		public void Execute()
 		{
 			player.Reset();
 			item.Reset();
