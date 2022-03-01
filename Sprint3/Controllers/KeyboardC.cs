@@ -11,6 +11,7 @@ namespace Sprint3
 		private Dictionary<Keys, ICommand> playerMove = new Dictionary<Keys, ICommand>();
 
 		private KeyboardState oldState;
+		private KeyboardState newState;
 
 		public KeyboardC()
 		{
@@ -18,17 +19,10 @@ namespace Sprint3
 
 		public void CompareStates(Player player, Item item, Block block, NPC1 enemy)
 		{
-			KeyboardState newState = Keyboard.GetState();
+			newState = Keyboard.GetState();
 			Keys[] current = newState.GetPressedKeys();
 
-			if (Array.IndexOf(current, Keys.W) == -1 &&
-				Array.IndexOf(current, Keys.A) == -1 &&
-				Array.IndexOf(current, Keys.S) == -1 &&
-				Array.IndexOf(current, Keys.D) == -1 &&
-				Array.IndexOf(current, Keys.Up) == -1 &&
-				Array.IndexOf(current, Keys.Down) == -1 &&
-				Array.IndexOf(current, Keys.Left) == -1 &&
-				Array.IndexOf(current, Keys.Right) == -1)
+			if (oldState != newState)
 			{
 				ICommand tempCom = new StandCom();
 				tempCom.Execute(player, item, block, enemy);
@@ -40,6 +34,10 @@ namespace Sprint3
 				{
 					playerMove[key].Execute(player, item, block, enemy);
 				}
+				if(Array.IndexOf(current, Keys.Space) != 1)
+                {
+					break;
+                }
 			}
 
 			if (newState.GetPressedKeys().Length > 0)
