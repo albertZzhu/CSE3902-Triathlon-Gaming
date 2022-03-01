@@ -6,7 +6,7 @@ namespace Sprint3
 {
 	public class KeyboardC : IController
 	{
-		private Dictionary<Keys, ICommand> keyboardD = new Dictionary<Keys, ICommand>();
+		private Dictionary<Keys, ICommand> keydict = new Dictionary<Keys, ICommand>();
 
 		private Dictionary<Keys, ICommand> playerMove = new Dictionary<Keys, ICommand>();
 
@@ -44,9 +44,9 @@ namespace Sprint3
 
 			if (newState.GetPressedKeys().Length > 0)
 			{
-				if (keyboardD.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
+				if (keydict.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
 				{
-					keyboardD[newState.GetPressedKeys()[0]].Execute(player, item, block, enemy);
+					keydict[newState.GetPressedKeys()[0]].Execute(player, item, block, enemy);
 				}
 			}
 
@@ -55,23 +55,23 @@ namespace Sprint3
 
 		public void InitializeController()
 		{
-			keyboardD.Add(Keys.Q, new QuitCom());
-			keyboardD.Add(Keys.U, new PrevItemCom());
-			keyboardD.Add(Keys.I, new NextItemCom());
-			keyboardD.Add(Keys.Z, new AttackCom());
-			keyboardD.Add(Keys.N, new AttackCom());
-			keyboardD.Add(Keys.E, new DamageCom());
-			keyboardD.Add(Keys.R, new ResetCom());
-			keyboardD.Add(Keys.T, new PrevBlockCom());
-			keyboardD.Add(Keys.Y, new NextBlockCom());
-			keyboardD.Add(Keys.O, new PrevNPCCom());
-			keyboardD.Add(Keys.P, new NextNPCCom());
+			keydict.Add(Keys.Q, new QuitCom());
+			keydict.Add(Keys.U, new PrevItemCom());
+			keydict.Add(Keys.I, new NextItemCom());
+			keydict.Add(Keys.Z, new AttackCom());
+			keydict.Add(Keys.N, new AttackCom());
+			keydict.Add(Keys.E, new DamageCom());
+			keydict.Add(Keys.R, new ResetCom());
+			keydict.Add(Keys.T, new PrevBlockCom());
+			keydict.Add(Keys.Y, new NextBlockCom());
+			keydict.Add(Keys.O, new PrevNPCCom());
+			keydict.Add(Keys.P, new NextNPCCom());
 
-			keyboardD.Add(Keys.D1, new ProjectileCom());
-			keyboardD.Add(Keys.D2, new Projectile2Com());
-			keyboardD.Add(Keys.D3, new Projectile3Com());
+			keydict.Add(Keys.D1, new ProjectileCom());
+			keydict.Add(Keys.D2, new Projectile2Com());
+			keydict.Add(Keys.D3, new Projectile3Com());
 
-			keyboardD.Add(Keys.Space, new ProjectileCom());
+			keydict.Add(Keys.Space, new FireProjectileCom());
 
 			playerMove.Add(Keys.W, new MoveUpCom());
 			playerMove.Add(Keys.A, new MoveLeftCom());
@@ -83,8 +83,8 @@ namespace Sprint3
 			playerMove.Add(Keys.Down, new MoveDownCom());
 			playerMove.Add(Keys.Right, new MoveRightCom());
 
-			//keyboardD.Add(Keys.T, new BlockBackwardCom());
-			//keyboardD.Add(Keys.Y, new BlockForwardCom());
+			//keydict.Add(Keys.T, new BlockBackwardCom());
+			//keydict.Add(Keys.Y, new BlockForwardCom());
 
 			oldState = Keyboard.GetState();
 		}
