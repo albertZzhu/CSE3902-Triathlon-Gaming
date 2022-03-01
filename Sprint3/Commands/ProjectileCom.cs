@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprint3.PlayerFiles;
 
 namespace Sprint3
 {
@@ -8,7 +9,7 @@ namespace Sprint3
 	{
 		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
 		{
-			player.setFireball(0);
+			//player.setFireball(0);
 		}
 	}
 }

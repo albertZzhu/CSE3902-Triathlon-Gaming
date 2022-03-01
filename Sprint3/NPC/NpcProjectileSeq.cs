@@ -16,22 +16,22 @@ namespace Sprint3
 			list = new ArrayList();
 		}
 
-		public void NewProjectile(Vector2 newLocation, int direction, List<string> fireballHolder)
+		public void NewProjectile(Vector2 newLocation, Facing facing, List<string> fireballHolder)
 		{
 			//, SpriteFactory.GetSprite("attackRight")
-			switch (direction)
+			switch (facing)
 			{
-				case 0:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[0])));
+				case Facing.RIGHT:
+					list.Add(new Projectile(newLocation, facing, SpriteFactory.GetSprite(fireballHolder[0])));
 					break;
-				case 1:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[1])));
+				case Facing.LEFT:
+					list.Add(new Projectile(newLocation, facing, SpriteFactory.GetSprite(fireballHolder[1])));
 					break;
-				case 2:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[2])));
+				case Facing.UP:
+					list.Add(new Projectile(newLocation, facing, SpriteFactory.GetSprite(fireballHolder[2])));
 					break;
-				case 3:
-					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[3])));
+				case Facing.DOWN:
+					list.Add(new Projectile(newLocation, facing, SpriteFactory.GetSprite(fireballHolder[3])));
 					break;
 				default:
 					break;

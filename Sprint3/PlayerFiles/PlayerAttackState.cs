@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint3.Player
+namespace Sprint3.PlayerFiles
 {
     class PlayerAttackState : IState
     {
-        PlayerStateMechine machine;
+        PlayerStateMachine machine;
         Facing facing;
         Player player;
-        public PlayerAttackState(PlayerStateMechine mach)
+        public PlayerAttackState(PlayerStateMachine mach)
         {
             machine = mach;
-            facing = machine.FacingState();
+            //facing = machine.FacingState();
             player = machine.GetPlayer();
-            
         }
         public void Attack()
         {
-            if (facing.Equals(Facing.RIGHT))
+            /*if (facing.Equals(Facing.RIGHT))
             {
                 player.SetSprite(SpriteFactory.GetSprite("right_throw"));
             }
@@ -35,7 +34,7 @@ namespace Sprint3.Player
                 player.SetSprite(SpriteFactory.GetSprite("down_throw"));
             }
             int animationLength = player.getSprite().GetFrames().size(); //time????
-            //1 time animation then change state
+            //1 time animation then change state*/
         }
 
         public void Damage()

@@ -4,7 +4,7 @@ namespace Sprint3
 {
 	class NpcStatementMachine
 	{
-		private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		private Facing facing = Facing.RIGHT;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
 									//private bool attack = false;
 		private bool damaged = false;
 		private NPC1 npc;
@@ -14,7 +14,7 @@ namespace Sprint3
 			this.npc = npc;
 		}
 
-		public int FacingState()
+		public Facing FacingState()
 		{
 			return facing;
 		}
@@ -27,7 +27,7 @@ namespace Sprint3
 			}
 		}
 
-		public void ChangeFacing(int facing)
+		public void ChangeFacing(Facing facing)
 		{
 			this.facing = facing;
 		}
@@ -36,19 +36,19 @@ namespace Sprint3
 		{
 			switch (facing)
 			{
-				case 0:
+				case Facing.RIGHT:
 					if (damaged) { }
 					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[0]));
 					break;
-				case 1:
+				case Facing.LEFT:
 					if (damaged) { }
 					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[1]));
 					break;
-				case 2:
+				case Facing.UP:
 					if (damaged) { }
 					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[2]));
 					break;
-				case 3:
+				case Facing.DOWN:
 					if (damaged) { }
 					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[3]));
 					break;

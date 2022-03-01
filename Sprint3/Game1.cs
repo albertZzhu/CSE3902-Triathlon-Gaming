@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Sprint3.PlayerFiles;
 using System.Collections.Generic;
 
 namespace Sprint3
@@ -17,8 +18,7 @@ namespace Sprint3
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
 		private KeyboardC _keyboardCon = new KeyboardC();
 		private SpriteFactory factory;
-		private int boundWidth;
-		private int boundHeight;
+		private Vector2 bounds;
 
 		private string[] blockTypeList;
 		Vector2[] blockLocations;
@@ -33,12 +33,10 @@ namespace Sprint3
 
 		protected override void Initialize()
 		{
-			// TODO: Add your initialization logic here
-			boundWidth = Window.ClientBounds.Width;
-			boundHeight = Window.ClientBounds.Height;
-			_npc = new NPC1(boundWidth, boundHeight);
-			_player = new Player(boundWidth, boundHeight);
-			_item = new Item(boundWidth, boundHeight);
+			bounds = new Vector2(Window.ClientBounds.Width, Window.ClientBounds.Height);
+			_npc = new NPC1((int)bounds.X, (int)bounds.Y);
+			_player = new Player(bounds);
+			_item = new Item((int)bounds.X, (int)bounds.Y);
 			factory = SpriteFactory.GetFactory();
 			_keyboardCon.InitializeController();
 

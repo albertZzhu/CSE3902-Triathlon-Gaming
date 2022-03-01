@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint3.Player
+namespace Sprint3
 {
-		enum Facing
+		public enum Facing
 		{
 			RIGHT = 0,
 			LEFT = 1,

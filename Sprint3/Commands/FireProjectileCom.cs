@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Sprint3.PlayerFiles;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +10,7 @@ namespace Sprint3
     {
         void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
         {
-            player.DistantAttack();
+            //player.DistantAttack();
         }
     }
 }

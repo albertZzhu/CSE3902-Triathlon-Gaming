@@ -1,4 +1,6 @@
-﻿namespace Sprint3
+﻿using Sprint3.PlayerFiles;
+
+namespace Sprint3
 {
 	interface IController
 	{

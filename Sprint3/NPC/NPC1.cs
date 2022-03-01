@@ -52,13 +52,13 @@ namespace Sprint3
 			this.loadMoveBool(this.moveHolder);
 		}
 
-		public void Move(int facing)
+		public void Move(Facing facing)
 		{
 			state.ChangeFacing(facing);
 			if(moveHolder[index]) {
 				switch (facing)
 				{
-					case 0:
+					case Facing.RIGHT:
 						if (movingRight)
 						{
 							state.ChangeFacing(0);
@@ -66,13 +66,13 @@ namespace Sprint3
 							if (location[index].X + 10 > boundWidth - 20)
 							{
 								movingRight = false;
-								state.ChangeFacing(1);
+								state.ChangeFacing(Facing.LEFT);
 								location[index] = new Vector2(location[index].X - 1, location[index].Y);
 							}
 						}
 						else
 						{
-							state.ChangeFacing(1);
+							state.ChangeFacing(Facing.LEFT);
 							location[index] = new Vector2(location[index].X - 1, location[index].Y);
 							if (location[index].X - 10 < 0)
 							{
@@ -82,26 +82,26 @@ namespace Sprint3
 							}
 						}
 						break;
-					case 2:
+					case Facing.UP:
 						if (movingUp)
 						{
-							state.ChangeFacing(2);
+							state.ChangeFacing(Facing.UP);
 							location[index] = new Vector2(location[index].X, location[index].Y - 1);
 							if (location[index].Y - 10 < 0)
 							{
 								movingUp = false;
-								state.ChangeFacing(3);
+								state.ChangeFacing(Facing.DOWN);
 								location[index] = new Vector2(location[index].X, location[index].Y + 1);
 							}
 						}
 						else
 						{
-							state.ChangeFacing(3);
+							state.ChangeFacing(Facing.DOWN);
 							location[index] = new Vector2(location[index].X, location[index].Y + 1);
 							if (location[index].Y + 10 > boundHeight - 30)
 							{
 								movingUp = true;
-								state.ChangeFacing(2);
+								state.ChangeFacing(Facing.UP);
 								location[index] = new Vector2(location[index].X, location[index].Y - 1);
 							}
 						}
@@ -162,7 +162,7 @@ namespace Sprint3
 
 		public void Update(GameTime gameTime)
 		{
-			Move(modFunc(routeMap[index]));
+			//Move(modFunc(routeMap[index]));
 			state.Update(gameTime);
 			npc.Update();
 			if (fireHolder[index]) {

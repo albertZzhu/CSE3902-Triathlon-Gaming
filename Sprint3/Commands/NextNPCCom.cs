@@ -1,4 +1,5 @@
-﻿namespace Sprint3
+﻿using Sprint3.PlayerFiles;
+namespace Sprint3
 {
 	class NextNPCCom : ICommand
 	{
