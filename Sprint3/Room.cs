@@ -116,7 +116,7 @@ namespace Sprint3
                         }
                         i++;
                     }
-                    this.npc = new NPC1(loc, this.npcTexture, this.fireballTexture, this.route, this.moveornot, this.fireornot, this.timer, i);
+                    this.npc = new NPC1(this.boundWidth, this.boundHeight);
 
                 }
 
