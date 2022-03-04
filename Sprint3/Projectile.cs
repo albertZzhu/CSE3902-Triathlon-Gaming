@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	class Projectile
+	class Projectile : IProjectile
 	{
 		private ISprite sprite;
 		private Vector2 location;

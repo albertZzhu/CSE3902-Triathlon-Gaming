@@ -115,11 +115,7 @@ namespace Sprint3
 
 		private void DistantAttack(int index)
 		{
-
-	
-
 			this.proj.NewProjectile(new Vector2(location[index].X + 15, location[index].Y + 15), state.FacingState(), fireballHolder[index]);
-
 		}
 
 		public void SetLocation(Vector2 newLocation)

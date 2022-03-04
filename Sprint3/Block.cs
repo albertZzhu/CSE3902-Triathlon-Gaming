@@ -27,7 +27,7 @@ namespace Sprint3
         }
 		public void SwitchingForward()
 		{
-			listPos = (listPos < listlen-1 ? listPos+1 : 0);
+			listPos = listPos < listlen-1 ? listPos+1 : 0;
 		}
 
 		public void SwitchingBackward()

@@ -10,6 +10,9 @@ namespace Sprint3
 		//frame = bitmap, x, y, ht, width
 		//frame = bitmap, sourceRectangle
 		//could make frames into objects
+		private int width;
+		private int height;
+
 		private List<Frame> frames = new List<Frame>();
 
 		//default constructor
@@ -36,6 +39,12 @@ namespace Sprint3
 			}
 
 
+		}
+
+		public Vector2 getSize()
+		{
+			Vector2 opt = new Vector2();
+			return opt;
 		}
 
 		//animation... could make an "animate" function? or should this be its own interface?
