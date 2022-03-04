@@ -34,29 +34,7 @@ namespace Sprint3
 
 		public void Update(GameTime gameTime)
 		{
-			switch (facing)
-			{
-				case 0:
-					if (damaged) { }
-					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[0]));
-					break;
-				case 1:
-					if (damaged) { }
-					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[1]));
-					break;
-				case 2:
-					if (damaged) { }
-					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[2]));
-					break;
-				case 3:
-					if (damaged) { }
-					npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[3]));
-					break;
-				default:
-					break;
-
-			}
-
+			npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder[npc.index])[facing]));
 		}
 	}
 }
