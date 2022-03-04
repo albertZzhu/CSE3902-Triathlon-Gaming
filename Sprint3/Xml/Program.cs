@@ -18,6 +18,7 @@ namespace Xml
             xmlWriter.Formatting = Formatting.Indented;
             XmlDocument xmlDoc = new XmlDocument();
        
+
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("Level1");
             //create number of rooms 
