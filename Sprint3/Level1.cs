@@ -40,6 +40,10 @@ namespace Sprint3
             this.room = new Room(this.rooms[i], boundWidth, boundHeight);
         }
 
+        public Room GetRoom()
+        {
+            return this.room;
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             this.room.Draw(spriteBatch);
