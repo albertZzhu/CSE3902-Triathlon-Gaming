@@ -10,21 +10,19 @@ namespace Sprint3
 {
     class Room : IRoom
     {   
-        //block and item variables
-        private Block block;
-        private Item item;
-        private Vector2[] loc;
-        private String[] Texture;
-        //npc variables
-        private NPC1 npc;
-        private int[] npcTexture;
-        private int[] fireballTexture;
-        private int[] route;
-        private float[] timer;
-        private bool[] moveornot;
-        private bool[] fireornot;
+        //block obj holder variables
+        private Block[] block;
+        //item obj holder variables
+        private Item[] item;
+        //used by both block and item variables
+        private Vector2 loc;
+        private String Texture;
+        //npc obj holder variables
+        private NPC1[] npc;
+        private List<String> Textureholder;
         //player variables
         private Player player;
+        //game window edges
         private int boundWidth;
         private int boundHeight;
         public Room(String room, int boundWidth, int boundHeight)
@@ -41,104 +39,165 @@ namespace Sprint3
             XmlNode root = xml.SelectSingleNode(room);
             if (root != null)
             {
-                XmlNodeList Rinfo = root.ChildNodes;
-                //loading blocks into the Block class.
-                XmlNode block = Rinfo[0];
-                if (block != null)
+                XmlNode type = root.SelectSingleNode("types");
+                if (type != null)
                 {
-                    int i = 0;
-                    int num = int.Parse(block.Attributes["num"].Value);
-                    this.loc = new Vector2[num];
-                    this.Texture = new string[num];
-                    XmlNodeList list = block.ChildNodes;
-                    foreach (XmlNode element in list)
+                    //loading blocks into the block obj holder.
+                    XmlNode block = type.SelectSingleNode("blocks");
+                    if (block != null)
                     {
-                        if (element != null) {
-                            XmlNodeList Binfo = element.ChildNodes;
-                            loc[i] = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
-                            this.Texture[i] = Binfo[1].InnerText;
-                        }
-                        i++;
-                    }
-                    this.block = new Block(loc, this.Texture, i);
-
-                }
-
-                //loading items into the item class.
-                XmlNode item = Rinfo[1];
-                if (item != null)
-                {
-                    int i = 0;
-                    int num = int.Parse(item.Attributes["num"].Value);
-                    this.loc = new Vector2[num];
-                    this.Texture = new string[num];
-                    XmlNodeList list = item.ChildNodes;
-                    foreach (XmlNode element in list)
-                    {
-                        if (element != null)
+                        int i = 0;
+                        int num = int.Parse(block.Attributes["num"].Value);
+                        this.block = new Block[num];
+                        XmlNodeList list = block.ChildNodes;
+                        foreach(XmlNode element in list)
                         {
-                            XmlNodeList Binfo = element.ChildNodes;
-                            loc[i] = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
-                            this.Texture[i] = Binfo[1].InnerText;
+                            if (element != null)
+                            {
+                                XmlNodeList Binfo = element.ChildNodes;
+                                loc = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
+                                this.Texture = Binfo[1].InnerText;
+                                this.block[i] = new Block(this.boundWidth, this.boundHeight);
+                                this.block[i].SetLocation(loc);
+                                this.block[i].SetBlock(this.Texture);
+                                i++;
+                            }
                         }
-                        i++;
                     }
-                    this.item = new Item(loc, this.Texture, i);
-
-                }
-
-                //loading enemys into the npc class.
-                XmlNode enemy = Rinfo[2];
-                if (enemy != null)
-                {
-                    int i = 0;
-                    int num = int.Parse(enemy.Attributes["num"].Value);
-                    this.loc = new Vector2[num];
-                    this.npcTexture = new int[num];
-                    this.fireballTexture = new int[num];
-                    this.route = new int[num];
-                    this.moveornot = new bool[num];
-                    this.fireornot = new bool[num];
-                    this.timer = new float[num];
-                    XmlNodeList list = enemy.ChildNodes;
-                    foreach (XmlNode element in list)
+                    //loading items into the item obj holder.
+                    XmlNode item = type.SelectSingleNode("items");
+                    if (item != null)
                     {
-                        if (element != null)
+                        int i = 0;
+                        int num = int.Parse(item.Attributes["num"].Value);
+                        this.item = new Item[num];
+                        XmlNodeList list = item.ChildNodes;
+                        foreach (XmlNode element in list)
                         {
-                            this.moveornot[i] = Convert.ToBoolean(enemy.Attributes["move"].Value);
-                            XmlNodeList Binfo = element.ChildNodes;
-                            loc[i] = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
-                            this.npcTexture[i] = int.Parse(Binfo[1].InnerText);
-                            this.fireornot[i] = Convert.ToBoolean(Binfo[2].Attributes["fire"].Value);
-                            this.fireballTexture[i] = int.Parse(Binfo[2].InnerText);
-                            this.route[i] = int.Parse(Binfo[3].InnerText);
-                            this.timer[i] = float.Parse(Binfo[4].InnerText);
+                            if (element != null)
+                            {
+                                XmlNodeList Iinfo = element.ChildNodes;
+                                loc = new Vector2(int.Parse((Iinfo[0].FirstChild).InnerText), int.Parse((Iinfo[0].LastChild).InnerText));
+                                this.Texture = Iinfo[1].InnerText;
+                                this.item[i] = new Item(this.boundWidth, this.boundHeight);
+                                this.item[i].SetLocation(loc);
+                                this.item[i].SetItem(this.Texture);
+                                i++;
+                            }
                         }
-                        i++;
                     }
-                    this.npc = new NPC1(this.boundWidth, this.boundHeight);
+                    //loading npcs into the npc obj holder.
+                    XmlNode enemy = type.SelectSingleNode("enemys");
+                    if (enemy != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(enemy.Attributes["num"].Value);
+                        this.npc = new NPC1[num];
+                        XmlNodeList list = enemy.ChildNodes;
+                        foreach (XmlNode element in list)
+                        {
+                            if (element != null)
+                            {
+                                XmlNodeList Einfo = element.ChildNodes;
+                                this.npc[i] = new NPC1(this.boundWidth, this.boundHeight);
+                                this.npc[i].SetMoveBool(Convert.ToBoolean(enemy.Attributes["move"].Value));
+                                this.npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
+                                this.npc[i].SetDirection(int.Parse(Einfo[1].InnerText));
+                                XmlNodeList npctextures = Einfo[2].ChildNodes;
+                                this.Textureholder = new List<string>();
+                                this.Textureholder.Add(npctextures[2].InnerText);
+                                this.Textureholder.Add(npctextures[3].InnerText);
+                                this.Textureholder.Add(npctextures[0].InnerText);
+                                this.Textureholder.Add(npctextures[1].InnerText);
+                                this.npc[i].SetNpcList(this.Textureholder);
+                                this.npc[i].SetFireBool(Convert.ToBoolean(Einfo[3].Attributes["fire"].Value));
+                                XmlNodeList firetextures = Einfo[3].ChildNodes;
+                                this.Textureholder = new List<string>();
+                                this.Textureholder.Add(firetextures[2].InnerText);
+                                this.Textureholder.Add(firetextures[3].InnerText);
+                                this.Textureholder.Add(firetextures[0].InnerText);
+                                this.Textureholder.Add(firetextures[1].InnerText);
+                                this.npc[i].SetFireBallList(this.Textureholder);
+                                if (Einfo[4] != null)
+                                {
+                                    Dictionary<Vector2, int> routes = new Dictionary<Vector2, int>();
+                                    XmlNodeList route = Einfo[4].ChildNodes;
+                                    foreach(XmlNode r in route)
+                                    {
+                                        routes.Add(new Vector2 (int.Parse((r.FirstChild.FirstChild).InnerText), int.Parse((r.FirstChild.LastChild).InnerText)), int.Parse((r.LastChild).InnerText));
+
+                                    }
+                                    this.npc[i].SetRoute(routes);
+                                }
+                                else this.npc[i].SetRoute(null);
+                                this.npc[i].setTimer(float.Parse(Einfo[5].InnerText));
+                                i++;
+                            }
+                        }
+                    }
+
+                    //loading player into the player class.
+                    player = new Player(this.boundWidth, this.boundHeight);
 
                 }
 
-                //loading player into the player class.
-                player = new Player(this.boundWidth, this.boundHeight);
             }
+
 
         }
         public void Update(GameTime gameTime)
         {
-            this.block.Update(gameTime);
-            this.item.Update(gameTime);
-            this.npc.Update(gameTime);
+            foreach(Block block in this.block)
+            {
+                block.Update(gameTime);
+            }
+            foreach (Item item in this.item)
+            {
+                item.Update(gameTime);
+            }
+            foreach (NPC1 npc in this.npc)
+            {
+                npc.Update(gameTime);
+            }
             this.player.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            this.block.Draw( spriteBatch);
-            this.item.Draw( spriteBatch);
-            this.npc.Draw( spriteBatch);
-            this.player.Draw( spriteBatch);
+            foreach (Block block in this.block)
+            {
+                block.Draw(spriteBatch);
+            }
+            foreach (Item item in this.item)
+            {
+                item.Draw(spriteBatch);
+            }
+            foreach (NPC1 npc in this.npc)
+            {
+                npc.Draw(spriteBatch);
+            }
+            this.player.Draw(spriteBatch);
+        }
+
+        //collision will need these func to check objects interactions.(boru might use these funcs)
+        public Block[] GetBlockObj()
+        {
+            return this.block;
+        }
+
+        public Item[] GetItemObj()
+        {
+            return this.item;
+        }
+
+        public NPC1[] GetNpcObj()
+        {
+            return this.npc;
+        }
+
+        public Player GetPlayerObj()
+        {
+            return this.player;
         }
     }
 }

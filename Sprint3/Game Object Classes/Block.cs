@@ -9,45 +9,50 @@ namespace Sprint3
 {
 	public class Block
 	{
-		private Vector2[] locations;
-		private ISprite blockSprite;
-		private string[] blockTypeList;
-		private int listPos = 0;
-		private int listlen;
+		private Vector2 location;
+		private ISprite blockSprite = new Sprite();
+		private String blockTexture;
+        private int boundWidth;
+        private int boundHeight;
 
-		public Block(Vector2[] locations, string[] blockTypeList, int len)
+        public Block(int boundWidth, int boundHeight)
 		{
-			this.locations = locations;
-			this.blockTypeList = blockTypeList;
-			this.listlen = len;
+			this.boundWidth = boundWidth;
+			this.boundHeight = boundHeight;
 		}
-		public void Reset()
-        {
-			listPos = 0;
-        }
-		public void SwitchingForward()
+		public void SetLocation(Vector2 newLocation)
 		{
-			listPos = (listPos < listlen-1 ? listPos+1 : 0);
+			location = newLocation;
 		}
 
-		public void SwitchingBackward()
+		public Vector2 GetLocation()
 		{
-			listPos = listPos > 0 ? listPos - 1 : listlen - 1;
+			return location;
+		}
+
+		public void SetSprite(ISprite spr)
+		{
+			this.blockSprite = spr;
+		}
+
+		public ISprite GetItem()
+		{
+			return this.blockSprite;
+		}
+		public void SetBlock(String blockTexture)
+		{
+			this.blockTexture = blockTexture;
 		}
 
 		public void Update(GameTime gameTime)
 		{
-			this.blockSprite = SpriteFactory.GetSprite(blockTypeList[listPos]);
+			SetSprite(SpriteFactory.GetSprite(this.blockTexture));
 			blockSprite.Update();
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			this.blockSprite = SpriteFactory.GetSprite(blockTypeList[listPos]);
-			foreach (Vector2 location in locations)
-			{
-				blockSprite.Draw(spriteBatch, location);
-			}
+			blockSprite.Draw(spriteBatch, location);
 		}
 	}
 }
