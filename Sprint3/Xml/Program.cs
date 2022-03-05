@@ -163,6 +163,7 @@ namespace Xml
                                     xmlWriter.WriteEndElement();
                                     //asking for every single facing direction under the current step
                                     Console.WriteLine("What is the enemy's " + a + 2 + "'s facing direction:");
+                                    xmlWriter.WriteElementString("dir", Console.ReadLine());
                                     //end R
                                     xmlWriter.WriteEndElement();
                                 }
