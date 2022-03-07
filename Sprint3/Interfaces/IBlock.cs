@@ -4,13 +4,16 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
 namespace Sprint3
 {
-	interface IProjectile
+	interface IBlock
 	{
-		void Update();
+		void Reset();
+
+		void Update(GameTime gameTime);
 
 		void Draw(SpriteBatch spriteBatch);
+
+		Rectangle GetRect();
 	}
 }

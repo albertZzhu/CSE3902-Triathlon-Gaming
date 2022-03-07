@@ -12,6 +12,6 @@ namespace Sprint3
 
 		void GoDamaged();
 
-		public Vector2 GetLocation();
+		Rectangle GetRect();
 	}
 }

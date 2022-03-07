@@ -31,8 +31,6 @@ namespace Sprint3
 		//x could be 1 for walking or 5 for sprinting 
 		public void Move(int facing)
 		{
-			//location = new Vector2(location.X + x, location.Y + y);
-			//return location;
 			state.ChangeFacing(facing);
 			state.changeMovingState(true);
 			switch (facing)
@@ -76,9 +74,10 @@ namespace Sprint3
 			location = newLocation;
 		}
 
-		public Vector2 GetLocation()
+		public Rectangle GetRect()
 		{
-			return location;
+			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.sprite.getSize().X, (int)this.sprite.getSize().Y);
+			return opt;
 		}
 
 

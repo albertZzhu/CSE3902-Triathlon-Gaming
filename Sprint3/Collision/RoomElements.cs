@@ -4,14 +4,15 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint3
+
+namespace Sprint3.Collision
 {
-	interface IBlock
+	class RoomElements
 	{
-		void Reset();
 
-		void Update(GameTime gameTime);
+		public RoomElements()
+		{
 
-		void Draw(SpriteBatch spriteBatch);
+		}
 	}
 }

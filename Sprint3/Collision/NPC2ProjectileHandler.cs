@@ -7,7 +7,7 @@ namespace Sprint3.Collision
 	class NPC2ProjectileHandler : ICollisionHandler<INPC, IProjectile>
 	{
 
-		public void Handle(INPC enemy, IProjectile projectile, Side side)
+		public void Handle(INPC enemy, IProjectile projectile, Side.side side)
 		{
 			enemy.GoDamaged();
 			projectile = null;

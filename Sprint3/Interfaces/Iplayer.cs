@@ -10,7 +10,7 @@ namespace Sprint3
 	{
 		void Move(int facing);
 
-		Vector2 GetLocation();
+		Rectangle GetRect();
 
 		ISprite GetSprite();
 

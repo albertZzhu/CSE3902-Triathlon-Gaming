@@ -126,6 +126,13 @@ namespace Sprint3
 		{
 			this.index = i;
 		}
+
+		public Rectangle GetRect()
+		{
+			Rectangle opt = new Rectangle((int)this.location[index].X, (int)this.location[index].Y, (int)this.npc.getSize().X, (int)this.npc.getSize().Y);
+			return opt;
+		}
+
 		public void SetI(int i)
 		{
 			this.i = i;

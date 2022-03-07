@@ -9,15 +9,15 @@ namespace Sprint3
 {
 	public class Block
 	{
-		private Vector2[] locations;
+		private Vector2 location;
 		private ISprite blockSprite;
 		private string[] blockTypeList;
 		private int listPos = 0;
 		private int listlen;
 
-		public Block(Vector2[] locations, string[] blockTypeList, int len)
+		public Block(Vector2 locations, string[] blockTypeList, int len)
 		{
-			this.locations = locations;
+			this.location = locations;
 			this.blockTypeList = blockTypeList;
 			this.listlen = len;
 		}
@@ -35,6 +35,12 @@ namespace Sprint3
 			listPos = listPos > 0 ? listPos - 1 : listlen - 1;
 		}
 
+		public Rectangle GetRect()
+		{
+			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.blockSprite.getSize().X, (int)this.blockSprite.getSize().Y);
+			return opt;
+		}
+
 		public void Update(GameTime gameTime)
 		{
 			this.blockSprite = SpriteFactory.GetSprite(blockTypeList[listPos]);
@@ -44,10 +50,7 @@ namespace Sprint3
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			this.blockSprite = SpriteFactory.GetSprite(blockTypeList[listPos]);
-			foreach (Vector2 location in locations)
-			{
-				blockSprite.Draw(spriteBatch, location);
-			}
+			blockSprite.Draw(spriteBatch, location);
 		}
 	}
 }
