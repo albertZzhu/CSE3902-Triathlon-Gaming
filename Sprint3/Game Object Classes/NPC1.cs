@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 
 namespace Sprint3
@@ -18,8 +19,10 @@ namespace Sprint3
 		private float timer, timespan;
 		public List<string> npcHolder;
 		private List<string> fireballHolder;
-		private Dictionary<Vector2, int> route;
-
+		private List<KeyValuePair<Vector2, int>> route;
+		private Vector2 nextpos;
+		private int nextface;
+		private int routesCounter;
 		//constructor
 		public NPC1(int boundWidth, int boundHeight)
 		{
@@ -27,6 +30,7 @@ namespace Sprint3
 			this.proj = new NpcProjectileSeq();
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
+			this.routesCounter = 0;
 		}
 
 		
@@ -86,6 +90,7 @@ namespace Sprint3
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
+			this.nextpos = newLocation;
 		}
 		//client used
 		public Vector2 GetLocation()
@@ -116,6 +121,7 @@ namespace Sprint3
 		public void SetDirection(int i)
         {
 			this.direction = i;
+			this.nextface = i;
         }
 		//client used
 		public int GetDirection()
@@ -163,12 +169,15 @@ namespace Sprint3
 			return this.movebool;
 		}
 		//room class used(optional loaded in xml)
-		public void SetRoute(Dictionary<Vector2, int> route)
+		public void SetRoute(List<KeyValuePair<Vector2,int>> route)
 		{
 			this.route = route;
+			this.route.Add(new KeyValuePair<Vector2, int>(location, direction));
+			
 		}
-		//client used(may obtain null if not loaded in the respective xml block)
-		public Dictionary<Vector2, int> GetRoute()
+
+        //client used(may obtain null if not loaded in the respective xml block)
+        public List<KeyValuePair<Vector2, int>> GetRoute()
 		{
 			return this.route;
 		}
@@ -201,7 +210,11 @@ namespace Sprint3
 		//update func
 		public void Update(GameTime gameTime)
 		{
-			if (route != null && route.ContainsKey(location)) SetDirection(route[location]);
+			if (route != null && (this.location.Equals(this.nextpos)))
+			{
+				this.direction = this.nextface;
+				this.next();
+			}
 			Move(direction);
 			state.Update(gameTime);
 			npc.Update();
@@ -222,6 +235,16 @@ namespace Sprint3
 			proj.Draw(spriteBatch);
 		}
 
-		
+		private void next()
+		{
+			this.nextpos = this.route[routesCounter].Key;
+			this.nextface = this.route[routesCounter].Value;
+			routesCounter++;
+			if (routesCounter == this.route.Count)
+			{
+				routesCounter = 0;
+			}
+		}
+
 	}
 }

@@ -130,11 +130,11 @@ namespace Sprint3
                                     this.npc[i].SetFireBallList(this.Textureholder);
                                     if (Einfo[4].InnerXml != null)
                                     {
-                                        Dictionary<Vector2, int> routes = new Dictionary<Vector2, int>();
+                                        var routes = new List<KeyValuePair<Vector2, int>>();
                                         XmlNodeList route = Einfo[4].ChildNodes;
                                         foreach (XmlNode r in route)
                                         {
-                                            routes.Add(new Vector2(int.Parse((r.FirstChild.FirstChild).InnerText), int.Parse((r.FirstChild.LastChild).InnerText)), int.Parse((r.LastChild).InnerText));
+                                            routes.Add(new KeyValuePair<Vector2, int>(new Vector2(int.Parse((r.FirstChild.FirstChild).InnerText), int.Parse((r.FirstChild.LastChild).InnerText)), int.Parse((r.LastChild).InnerText)));
 
                                         }
                                         this.npc[i].SetRoute(routes);

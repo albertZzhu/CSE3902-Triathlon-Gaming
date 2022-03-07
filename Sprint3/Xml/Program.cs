@@ -119,14 +119,14 @@ namespace Xml
                             xmlWriter.WriteAttributeString("move", Console.ReadLine());
                             //asking for the orginal loc
                             xmlWriter.WriteStartElement("loc");
-                            Console.WriteLine("What is the  enemy's first X position:");
+                            Console.WriteLine("What is the  enemy's X position{1}:");
                             xmlWriter.WriteElementString("x", Console.ReadLine());
-                            Console.WriteLine("What is the enemy's first Y position:");
+                            Console.WriteLine("What is the enemy's Y position{1}:");
                             xmlWriter.WriteElementString("y", Console.ReadLine());
                             //end loc
                             xmlWriter.WriteEndElement();
                             //asking for the orginal facing direction
-                            Console.WriteLine("What is the enemy's first facing direction:");
+                            Console.WriteLine("What is the enemy's facing direction{1}:");
                             xmlWriter.WriteElementString("dir", Console.ReadLine());
                             //asking for different facing textures
                             xmlWriter.WriteStartElement("E_texture");
