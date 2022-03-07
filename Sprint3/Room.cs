@@ -35,7 +35,7 @@ namespace Sprint3
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("some directory of this xml file");
+            xml.Load("E:\\levelData.xml");
             XmlNode root = xml.SelectSingleNode(room);
             if (root != null)
             {
