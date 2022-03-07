@@ -27,18 +27,20 @@ namespace Xml
             //*loop to generate data for the rooms
             for (int i = 1; i <= numR; i++)
             {
-                xmlWriter.WriteStartElement("room" + XmlConvert.ToString(i));
-                xmlWriter.WriteStartElement("type");
-                    //start blocks
-                    Console.WriteLine("how many number of blocks :");
-                    int numB = int.Parse(Console.ReadLine());
-                    xmlWriter.WriteStartElement("blocks");
-                    xmlWriter.WriteAttributeString("num", XmlConvert.ToString(numB));
+               Console.WriteLine("Start loading the room " + i.ToString() + "!!!");
+               xmlWriter.WriteStartElement("room" + XmlConvert.ToString(i));
+                    xmlWriter.WriteStartElement("type");
+                        //start blocks
+                        Console.WriteLine("how many number of blocks :");
+                        int numB = int.Parse(Console.ReadLine());
+                        xmlWriter.WriteStartElement("blocks");
+                        xmlWriter.WriteAttributeString("num", XmlConvert.ToString(numB));
                     if (numB > 0)
                     {
                         //generating Bs
                         for (int j = 0; j < numB; j++)
                         {
+                            Console.WriteLine("Start loading the block " + (j + 1).ToString() + "!!!");
                             //start a new B
                             xmlWriter.WriteStartElement("B");
                             //asking for loc
@@ -55,7 +57,12 @@ namespace Xml
                             //end B
                             xmlWriter.WriteEndElement();
                         }
-                    } else xmlWriter.WriteString(null);
+                    }
+                    else
+                    {
+                        Console.WriteLine("no block added!!!");
+                        xmlWriter.WriteString(null);
+                    }
                     //end blocks
                     xmlWriter.WriteEndElement();
                     
@@ -69,6 +76,7 @@ namespace Xml
                         //generating Is
                         for (int j = 0; j < numI; j++)
                         {
+                            Console.WriteLine("Start loading the item " + (j + 1).ToString() + "!!!");
                             //start a new I
                             xmlWriter.WriteStartElement("I");
                             //asking for loc
@@ -85,9 +93,14 @@ namespace Xml
                             //end I
                             xmlWriter.WriteEndElement();
                         }
-                    } else xmlWriter.WriteString(null);
-                    //end items
-                    xmlWriter.WriteEndElement();
+                    }
+                    else
+                    {
+                        Console.WriteLine("no item added!!!");
+                        xmlWriter.WriteString(null);
+                    }
+                //end items
+                xmlWriter.WriteEndElement();
 
                     //start enemy
                     Console.WriteLine("how many number of enemies :");
@@ -99,20 +112,21 @@ namespace Xml
                         //generating Es
                         for (int k = 0; k < numE; k++)
                         {
+                            Console.WriteLine("Start loading the enemy " + (k + 1).ToString() + "!!!");
                             //start a new E
                             xmlWriter.WriteStartElement("E");
                             Console.WriteLine("do you prefer this enemy movable? (true/false)");
                             xmlWriter.WriteAttributeString("move", Console.ReadLine());
                             //asking for the orginal loc
                             xmlWriter.WriteStartElement("loc");
-                            Console.WriteLine("What is the  enemy's 1's X position:");
+                            Console.WriteLine("What is the  enemy's first X position:");
                             xmlWriter.WriteElementString("x", Console.ReadLine());
-                            Console.WriteLine("What is the enemy's 1's Y position:");
+                            Console.WriteLine("What is the enemy's first Y position:");
                             xmlWriter.WriteElementString("y", Console.ReadLine());
                             //end loc
                             xmlWriter.WriteEndElement();
                             //asking for the orginal facing direction
-                            Console.WriteLine("What is the enemy's 1's facing direction:");
+                            Console.WriteLine("What is the enemy's first facing direction:");
                             xmlWriter.WriteElementString("dir", Console.ReadLine());
                             //asking for different facing textures
                             xmlWriter.WriteStartElement("E_texture");
@@ -151,18 +165,19 @@ namespace Xml
                                 //generating the individual route
                                 for (int a = 0; a < numL; a++)
                                 {
+                                    Console.WriteLine("Start loading the position & facing direction {" + (a + 2).ToString() + "}!!!");
                                     //start a new R
                                     xmlWriter.WriteStartElement("R");
                                     //asking for every single step in this route's loc
                                     xmlWriter.WriteStartElement("loc");
-                                    Console.WriteLine("What is the enemy's " + a + 2 + "'s position:");
+                                    Console.WriteLine("What is the enemy's X position{" + a + 2 + "}:");
                                     xmlWriter.WriteElementString("x", Console.ReadLine());
-                                    Console.WriteLine("What is the enemy's " + a + 2 + "'s Y position:");
+                                    Console.WriteLine("What is the enemy's Y position{" + a + 2 + "}:");
                                     xmlWriter.WriteElementString("y", Console.ReadLine());
                                     //end loc
                                     xmlWriter.WriteEndElement();
                                     //asking for every single facing direction under the current step
-                                    Console.WriteLine("What is the enemy's " + a + 2 + "'s facing direction:");
+                                    Console.WriteLine("What is the enemy's facing position{" + a + 2 + "}:");
                                     xmlWriter.WriteElementString("dir", Console.ReadLine());
                                     //end R
                                     xmlWriter.WriteEndElement();
@@ -172,6 +187,7 @@ namespace Xml
                             }
                             else
                             {
+                                Console.WriteLine("no routes set!!!");
                                 //if no routes setted for this enemy, just create an empty route tag
                                 xmlWriter.WriteElementString("routes", null);
                             }
@@ -181,7 +197,11 @@ namespace Xml
                             //end E
                             xmlWriter.WriteEndElement();
                         }
-                    } else xmlWriter.WriteString(null);
+                    }
+                    else {
+                        Console.WriteLine("no enemy loaded!!!");
+                        xmlWriter.WriteString(null); 
+                    }
                     //end enemy
                     xmlWriter.WriteEndElement();
 
