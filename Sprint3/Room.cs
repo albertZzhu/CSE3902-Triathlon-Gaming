@@ -36,7 +36,8 @@ namespace Sprint3
         {
             XmlDocument xml = new XmlDocument();
             xml.Load("E:\\levelData.xml");
-            XmlNode root = xml.SelectSingleNode(room);
+            XmlNode level1 = xml.SelectSingleNode("Level1");
+            XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
             {
                 XmlNode type = root.SelectSingleNode("type");
@@ -110,7 +111,7 @@ namespace Sprint3
                                 {
                                     XmlNodeList Einfo = element.ChildNodes;
                                     this.npc[i] = new NPC1(this.boundWidth, this.boundHeight);
-                                    this.npc[i].SetMoveBool(Convert.ToBoolean(enemy.Attributes["move"].Value));
+                                    this.npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
                                     this.npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
                                     this.npc[i].SetDirection(int.Parse(Einfo[1].InnerText));
                                     XmlNodeList npctextures = Einfo[2].ChildNodes;
@@ -128,7 +129,7 @@ namespace Sprint3
                                     this.Textureholder.Add(firetextures[0].InnerText);
                                     this.Textureholder.Add(firetextures[1].InnerText);
                                     this.npc[i].SetFireBallList(this.Textureholder);
-                                    if (Einfo[4].InnerXml != null)
+                                    if (Einfo[4].ChildNodes.Count != 0)
                                     {
                                         var routes = new List<KeyValuePair<Vector2, int>>();
                                         XmlNodeList route = Einfo[4].ChildNodes;
