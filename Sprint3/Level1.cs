@@ -12,6 +12,7 @@ namespace Sprint3
         private Room room;
         private int boundWidth;
         private int boundHeight;
+        private int i = 1;
         public Level1(int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
@@ -35,9 +36,9 @@ namespace Sprint3
             rooms.Add(17, "room17");
         }
         //mouse pressed might need to call this func to initiate different room classes.
-        public void loadRoom(int i)
+        public void loadRoom()
         {
-            this.room = new Room(this.rooms[i], boundWidth, boundHeight);
+            this.room = new Room(this.rooms[this.i], boundWidth, boundHeight);
         }
 
         public Room GetRoom()
@@ -52,6 +53,24 @@ namespace Sprint3
         public void Update(GameTime gameTime)
         {
             this.room.Update(gameTime);
+        }
+
+        public void switchPre()
+        {
+            this.i--;
+            if (this.i < 1)
+            {
+                this.i = 17;
+            }
+        }
+
+        public void switchNext()
+        {
+            this.i++;
+            if (this.i > 17)
+            {
+                this.i = 1;
+            }
         }
     }
 }

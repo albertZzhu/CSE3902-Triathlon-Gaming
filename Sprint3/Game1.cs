@@ -35,7 +35,7 @@ namespace Sprint3
 			factory = SpriteFactory.GetFactory(Content);
 			level1 = new Level1(boundWidth, boundHeight);
 			//_keyboardCon.InitializeController();
-			level1.loadRoom(1);
+			level1.loadRoom();
 			base.Initialize();
 		}
 
@@ -46,12 +46,24 @@ namespace Sprint3
 			//player class should hold all sprites for it?
 			//sprite factory????????
 			//_player.sprite = factory creates player sprite
+			
+			
 
 		}
 
 		protected override void Update(GameTime gameTime)
 		{
 			//_keyboardCon.CompareStates(_player, _item, block, _npc);
+			if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+			{
+				level1.switchPre();
+				level1.loadRoom();
+            }
+			else if (Mouse.GetState().RightButton == ButtonState.Pressed)
+            {
+				level1.switchNext();
+				level1.loadRoom();
+			}
 			level1.Update((gameTime));
 			base.Update(gameTime);
 		}

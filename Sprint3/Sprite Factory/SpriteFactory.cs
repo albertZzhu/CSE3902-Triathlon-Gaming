@@ -148,6 +148,75 @@ namespace Sprint3
 			CreateSprite(glassBlock, 1, 1, 1, "glassBlock");
 			CreateSprite(ironBlock, 1, 1, 1, "ironBlock");
 			CreateSprite(stoneBlock, 1, 1, 1, "stoneBlock");
+
+			Texture2D block = Content.Load<Texture2D>("block");
+			CreateSprite(block, 1, 1, 1, "block");
+			Texture2D block110 = Content.Load<Texture2D>("block110");
+			CreateSprite(block110, 1, 1, 1, "block110");
+			Texture2D block12 = Content.Load<Texture2D>("block12");
+			CreateSprite(block12, 1, 1, 1, "block12");
+			Texture2D block13 = Content.Load<Texture2D>("block13");
+			CreateSprite(block13, 1, 1, 1, "block13");
+			Texture2D block15 = Content.Load<Texture2D>("block15");
+			CreateSprite(block15, 1, 1, 1, "block15");
+			Texture2D block32 = Content.Load<Texture2D>("block32");
+			CreateSprite(block32, 1, 1, 1, "block32");
+			Texture2D block41 = Content.Load<Texture2D>("block41");
+			CreateSprite(block41, 1, 1, 1, "block41");
+			Texture2D blueSand = Content.Load<Texture2D>("blueSand");
+			CreateSprite(blueSand, 1, 1, 1, "blueSand");
+			Texture2D blueSand12 = Content.Load<Texture2D>("blueSand12");
+			CreateSprite(blueSand12, 1, 1, 1, "blueSand12");
+			Texture2D blueSand32 = Content.Load<Texture2D>("blueSand32");
+			CreateSprite(blueSand32, 1, 1, 1, "blueSand32");
+			Texture2D bottomarch = Content.Load<Texture2D>("bottomarch");
+			CreateSprite(bottomarch, 1, 1, 1, "bottomarch");
+			Texture2D bottomgate = Content.Load<Texture2D>("bottomgate");
+			CreateSprite(bottomgate, 1, 1, 1, "bottomgate");
+			Texture2D bottomwall = Content.Load<Texture2D>("bottomwall");
+			CreateSprite(bottomwall, 1, 1, 1, "bottomwall");
+			Texture2D bottomwall11 = Content.Load<Texture2D>("bottomwall11");
+			CreateSprite(bottomwall11, 1, 1, 1, "bottomwall11");
+			Texture2D floor = Content.Load<Texture2D>("floor");
+			CreateSprite(floor, 1, 1, 1, "floor");
+			Texture2D leftgate = Content.Load<Texture2D>("leftgate");
+			CreateSprite(leftgate, 1, 1, 1, "leftgate");
+			Texture2D leftStatue = Content.Load<Texture2D>("leftStatue");
+			CreateSprite(leftStatue, 1, 1, 1, "leftStatue");
+			Texture2D leftwall = Content.Load<Texture2D>("leftwall");
+			CreateSprite(leftwall, 1, 1, 1, "leftwall");
+			Texture2D leftwall11 = Content.Load<Texture2D>("leftwall11");
+			CreateSprite(leftwall11, 1, 1, 1, "leftwall11");
+			Texture2D rightgate = Content.Load<Texture2D>("rightgate");
+			CreateSprite(rightgate, 1, 1, 1, "rightgate");
+			Texture2D rightStatue = Content.Load<Texture2D>("rightStatue");
+			CreateSprite(rightStatue, 1, 1, 1, "rightStatue");
+			Texture2D rightwall = Content.Load<Texture2D>("rightwall");
+			CreateSprite(rightwall, 1, 1, 1, "rightwall");
+			Texture2D rightwall11 = Content.Load<Texture2D>("rightwall11");
+			CreateSprite(rightwall11, 1, 1, 1, "rightwall11");
+			Texture2D stairs = Content.Load<Texture2D>("stairs");
+			CreateSprite(stairs, 1, 1, 1, "stairs");
+			Texture2D toparch = Content.Load<Texture2D>("toparch");
+			CreateSprite(toparch, 1, 1, 1, "toparch");
+			Texture2D topgate11 = Content.Load<Texture2D>("topgate11");
+			CreateSprite(topgate11, 1, 1, 1, "topgate11");
+			Texture2D topwall = Content.Load<Texture2D>("topwall");
+			CreateSprite(topwall, 1, 1, 1, "topwall");
+			Texture2D topwall11 = Content.Load<Texture2D>("topwall11");
+			CreateSprite(topwall11, 1, 1, 1, "topwall11");
+			Texture2D water11 = Content.Load<Texture2D>("water11");
+			CreateSprite(water11, 1, 1, 1, "water11");
+			Texture2D water12 = Content.Load<Texture2D>("water12");
+			CreateSprite(water12, 1, 1, 1, "water12");
+			Texture2D water13 = Content.Load<Texture2D>("water13");
+			CreateSprite(water13, 1, 1, 1, "water13");
+			Texture2D water31 = Content.Load<Texture2D>("water31");
+			CreateSprite(water31, 1, 1, 1, "water31");
+			Texture2D water51 = Content.Load<Texture2D>("water51");
+			CreateSprite(water51, 1, 1, 1, "water51");
+
+
 		}
 
 		public static SpriteFactory GetFactory(Microsoft.Xna.Framework.Content.ContentManager Content)
