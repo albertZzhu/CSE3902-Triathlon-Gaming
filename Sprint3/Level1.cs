@@ -60,14 +60,14 @@ namespace Sprint3
             this.i--;
             if (this.i < 1)
             {
-                this.i = 17;
+                this.i = 2;
             }
         }
 
         public void switchNext()
         {
             this.i++;
-            if (this.i > 17)
+            if (this.i > 2)
             {
                 this.i = 1;
             }

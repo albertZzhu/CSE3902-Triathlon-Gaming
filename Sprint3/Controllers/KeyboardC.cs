@@ -57,7 +57,7 @@ namespace Sprint3
 			keydict.Add(Keys.Z, new AttackCom());
 			keydict.Add(Keys.N, new AttackCom());
 			keydict.Add(Keys.E, new DamageCom());
-			keydict.Add(Keys.R, new ResetCom());
+			//keydict.Add(Keys.R, new ResetCom());
 
 			keydict.Add(Keys.D1, new ProjectileCom());
 			keydict.Add(Keys.D2, new Projectile2Com());

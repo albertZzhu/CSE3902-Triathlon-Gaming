@@ -35,7 +35,7 @@ namespace Sprint3
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("E:\\levelData.xml");
+            xml.Load("C:\\Users\\Administrator\\Source\\Repos\\CSE3902-Triathlon-Gaming\\Sprint3\\State Machines\\levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -159,35 +159,54 @@ namespace Sprint3
 
         }
         public void Update(GameTime gameTime)
-        {
-            foreach(Block block in this.block)
+        {   
+            if(this.block != null)
             {
-                block.Update(gameTime);
+                foreach (Block block in this.block)
+                {
+                    block.Update(gameTime);
+                }
             }
-            foreach (Item item in this.item)
+            if (this.item != null)
             {
-                item.Update(gameTime);
+                foreach (Item item in this.item)
+                {
+                    item.Update(gameTime);
+                }
             }
-            foreach (NPC1 npc in this.npc)
+            if (this.npc != null)
             {
-                npc.Update(gameTime);
+                foreach (NPC1 npc in this.npc)
+                {
+                    npc.Update(gameTime);
+                }
             }
+            
             this.player.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Block block in this.block)
+            if (this.block != null)
             {
-                block.Draw(spriteBatch);
+                foreach (Block block in this.block)
+                {
+                    block.Draw(spriteBatch);
+                }
             }
-            foreach (Item item in this.item)
+            if (this.item != null)
             {
-                item.Draw(spriteBatch);
+                foreach (Item item in this.item)
+                {
+                    item.Draw(spriteBatch);
+                }
             }
-            foreach (NPC1 npc in this.npc)
+            if (this.npc != null)
             {
-                npc.Draw(spriteBatch);
+                foreach (NPC1 npc in this.npc)
+                {
+                    npc.Draw(spriteBatch);
+                }
             }
             this.player.Draw(spriteBatch);
         }
