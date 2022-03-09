@@ -9,19 +9,15 @@ namespace Sprint3
     public class Item
     {
         private ISprite item = new Sprite();
-        private Vector2 location = new Vector2(300, 100);
+        private String itemTexture;
+        private Vector2 location;
         private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
         private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
-        
-        private int index = 0;
-        private List<string> items = new List<string>();
 
         public Item(int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
-            InitializeItems();
-            items = GetItemList();
         }
 
         public void SetLocation(Vector2 newLocation)
@@ -39,49 +35,18 @@ namespace Sprint3
             item = spr;
         }
 
-        public ISprite GetSprite()
+        public ISprite GetItem()
         {
             return item;
         }
-
-        public void SetIndex(int i)
+        public void SetItem(String itemTexture)
         {
-            index = i;
-        }
-
-        public int GetIndex()
-        {
-            return index;
-        }
-        public List<string> GetItemList()
-        {
-            return items;
-        }
-        public void InitializeItems()
-        {   //change these to items
-            items.Add("magicPortion");
-            items.Add("heart");
-            items.Add("sword");
-          
-        }
-
-        public void SwitchingForward()
-        {
-            index = (index < items.Count - 1 ? index + 1 : 0);
-        }
-
-        public void SwitchingBackward()
-        {
-            index = index > 0 ? index - 1 : items.Count - 1;
-        }
-        public void Reset()
-        {
-            SetIndex(0);
+            this.itemTexture = itemTexture;
         }
         public void Update(GameTime gameTime)
         {
             //get key presses here?
-            SetSprite(SpriteFactory.GetSprite(items[index]));
+            SetSprite(SpriteFactory.GetSprite(this.itemTexture));
             item.Update();
         }
 
