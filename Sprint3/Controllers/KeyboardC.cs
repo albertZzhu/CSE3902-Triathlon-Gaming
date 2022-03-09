@@ -54,10 +54,16 @@ namespace Sprint3
 		public void InitializeController()
 		{
 			keydict.Add(Keys.Q, new QuitCom());
+			keydict.Add(Keys.U, new PrevItemCom());
+			keydict.Add(Keys.I, new NextItemCom());
 			keydict.Add(Keys.Z, new AttackCom());
 			keydict.Add(Keys.N, new AttackCom());
 			keydict.Add(Keys.E, new DamageCom());
 			keydict.Add(Keys.R, new ResetCom());
+			keydict.Add(Keys.T, new PrevBlockCom());
+			keydict.Add(Keys.Y, new NextBlockCom());
+			keydict.Add(Keys.O, new PrevNPCCom());
+			keydict.Add(Keys.P, new NextNPCCom());
 
 			keydict.Add(Keys.D1, new ProjectileCom());
 			keydict.Add(Keys.D2, new Projectile2Com());
