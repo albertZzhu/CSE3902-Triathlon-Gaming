@@ -21,7 +21,7 @@ namespace Sprint3
 		private int boundHeight;
 
 		private string[] blockTypeList;
-		Vector2[] blockLocations;
+		Vector2 blockLocation;
 		Block block;
 
 		public Game1()
@@ -41,9 +41,9 @@ namespace Sprint3
 			factory = SpriteFactory.GetFactory(Content);
 			_keyboardCon.InitializeController();
 
-			blockLocations = new Vector2[] { new Vector2(200, 200), new Vector2(200, 400), new Vector2(400, 400)};
+			blockLocation = new Vector2(200, 200);
 			blockTypeList = new string[] { "mudBlock", "glassBlock", "ironBlock", "stoneBlock" };
-			block = new Block(blockLocations, blockTypeList, 4);
+			block = new Block(blockLocation, blockTypeList, 4);
 
 			base.Initialize();
 		}

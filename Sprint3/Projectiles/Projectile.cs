@@ -16,6 +16,11 @@ namespace Sprint3
 			this.sprite = sprite;
 		}
 
+		public Rectangle GetRect()
+		{
+			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.sprite.getSize().X, (int)this.sprite.getSize().Y);
+			return opt;
+		}
 		public void Update()
 		{
 			switch (direction)

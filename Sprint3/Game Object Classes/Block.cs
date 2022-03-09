@@ -15,9 +15,9 @@ namespace Sprint3
 		private int listPos = 0;
 		private int listlen;
 
-		public Block(Vector2 locations, string[] blockTypeList, int len)
+		public Block(Vector2 location, string[] blockTypeList, int len)
 		{
-			this.location = locations;
+			this.location = location;
 			this.blockTypeList = blockTypeList;
 			this.listlen = len;
 		}
