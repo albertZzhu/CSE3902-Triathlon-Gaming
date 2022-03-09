@@ -27,6 +27,9 @@ namespace Sprint3
 
 		protected override void Initialize()
 		{
+			_graphics.PreferredBackBufferWidth = 800;
+			_graphics.PreferredBackBufferHeight = 550;
+			_graphics.ApplyChanges();
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
 			factory = SpriteFactory.GetFactory(Content);
