@@ -354,8 +354,152 @@
           <B_texture>water13</B_texture>
         </B>
       </blocks>
-      <items num="0" />
-      <enemies num="0" />
+      <items num="1">
+		  <I>
+			  <loc>
+				  <x>400</x>
+				  <y>153</y>
+			  </loc>
+			  <I_texture>key</I_texture>
+		  </I>
+	   </items>
+		<enemies num="3">
+			<E move="true">
+				<loc>
+					<x>450</x>
+					<y>90</y>
+				</loc>
+				<dir>1</dir>
+				<E_texture>
+					<up>redGoriyaBack</up>
+					<down>redGoriyaFront</down>
+					<right>redGoriyaRight</right>
+					<left>redGoriyaLeft</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>300</x>
+							<y>90</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>300</x>
+							<y>190</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>450</x>
+							<y>190</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>450</x>
+					<y>190</y>
+				</loc>
+				<dir>1</dir>
+				<E_texture>
+					<up>redGoriyaBack</up>
+					<down>redGoriyaFront</down>
+					<right>redGoriyaRight</right>
+					<left>redGoriyaLeft</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>200</x>
+							<y>190</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>200</x>
+							<y>290</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>290</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>190</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>500</x>
+					<y>290</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>redGoriyaBack</up>
+					<down>redGoriyaFront</down>
+					<right>redGoriyaRight</right>
+					<left>redGoriyaLeft</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>290</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>190</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+					<R>
+						<loc>
+							<x>400</x>
+							<y>190</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>190</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>290</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+		</enemies>
     </type>
   </room2>
   <room3>
@@ -537,8 +681,131 @@
           <B_texture>water31</B_texture>
         </B>
       </blocks>
-      <items num="0" />
-      <enemies num="0" />
+		<items num="1">
+			<I>
+				<loc>
+					<x>600</x>
+					<y>144</y>
+				</loc>
+				<I_texture>key</I_texture>
+			</I>
+		</items>
+		<enemies num="3">
+			<E move="true">
+				<loc>
+					<x>152</x>
+					<y>138</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>245</x>
+							<y>138</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>245</x>
+							<y>335</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>395</x>
+							<y>335</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+					<R>
+						<loc>
+							<x>245</x>
+							<y>335</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>245</x>
+							<y>138</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>598</x>
+					<y>173</y>
+				</loc>
+				<dir>3</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>598</x>
+							<y>336</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>348</x>
+					<y>136</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>497</x>
+							<y>136</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>497</x>
+							<y>336</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>497</x>
+							<y>136</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+		</enemies>
     </type>
   </room3>
   <room4>
@@ -1668,8 +1935,105 @@
           <B_texture>bottomwall11</B_texture>
         </B>
       </blocks>
-      <items num="0" />
-      <enemies num="0" />
+		<items num="1">
+			<I>
+				<loc>
+					<x>100</x>
+					<y>400</y>
+				</loc>
+				<I_texture>key</I_texture>
+			</I>
+		</items>
+		<enemies num="3">
+			<E move="true">
+				<loc>
+					<x>150</x>
+					<y>150</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>blueBat</up>
+					<down>blueBat</down>
+					<right>blueBat</right>
+					<left>blueBat</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>150</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>250</x>
+					<y>200</y>
+				</loc>
+				<dir>3</dir>
+				<E_texture>
+					<up>blueBat</up>
+					<down>blueBat</down>
+					<right>blueBat</right>
+					<left>blueBat</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>250</x>
+							<y>300</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>300</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>200</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>150</x>
+					<y>350</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>blueBat</up>
+					<down>blueBat</down>
+					<right>blueBat</right>
+					<left>blueBat</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>350</y>
+						</loc>
+						<dir>
+							1
+						</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+		</enemies>
     </type>
   </room14>
   <room15>
@@ -1858,8 +2222,8 @@
           <B_texture>blueSand</B_texture>
         </B>
       </blocks>
-      <items num="0" />
-      <enemies num="0" />
+		<items num="0" />
+		<enemies num="0" />
     </type>
   </room15>
   <room16>
@@ -1943,8 +2307,193 @@
           <B_texture>block32</B_texture>
         </B>
       </blocks>
-      <items num="0" />
-      <enemies num="0" />
+		<items num="1">
+			<I>
+				<loc>
+					<x>375</x>
+					<y>275</y>
+				</loc>
+				<I_texture>key</I_texture>
+			</I>
+		</items>
+		<enemies num="5">
+			<E move="true">
+				<loc>
+					<x>625</x>
+					<y>130</y>
+				</loc>
+				<dir>1</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>325</x>
+							<y>130</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>325</x>
+							<y>320</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>625</x>
+							<y>320</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>625</x>
+					<y>330</y>
+				</loc>
+				<dir>2</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>625</x>
+							<y>80</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+					<R>
+						<loc>
+							<x>80</x>
+							<y>80</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>80</x>
+							<y>330</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>250</x>
+					<y>350</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>625</x>
+							<y>350</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+					<R>
+						<loc>
+							<x>250</x>
+							<y>350</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+					<R>
+						<loc>
+							<x>250</x>
+							<y>380</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+					<R>
+						<loc>
+							<x>80</x>
+							<y>380</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>80</x>
+							<y>350</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>400</x>
+					<y>150</y>
+				</loc>
+				<dir>3</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>400</x>
+							<y>380</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>425</x>
+					<y>280</y>
+				</loc>
+				<dir>1</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>290</x>
+							<y>280</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+		</enemies>
     </type>
   </room16>
 </Level1>

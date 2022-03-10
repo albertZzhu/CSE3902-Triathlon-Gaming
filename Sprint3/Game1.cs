@@ -56,12 +56,12 @@ namespace Sprint3
 		protected override void Update(GameTime gameTime)
 		{
 			//_keyboardCon.CompareStates(_player, _item, block, _npc);
-			if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+			if (Keyboard.GetState().IsKeyDown(Keys.NumPad4))
 			{
 				level1.switchPre();
 				level1.loadRoom();
             }
-			else if (Mouse.GetState().RightButton == ButtonState.Pressed)
+			else if (Keyboard.GetState().IsKeyDown(Keys.NumPad6))
             {
 				level1.switchNext();
 				level1.loadRoom();
