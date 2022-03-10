@@ -728,6 +728,11 @@
 /processorParam:TextureFormat=Color
 /build:leftwall11.png
 
+#begin levelData.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:levelData.xml
+
 #begin magic_portion.png
 /importer:TextureImporter
 /processor:TextureProcessor

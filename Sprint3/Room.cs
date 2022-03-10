@@ -35,7 +35,7 @@ namespace Sprint3
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("C:\\Users\\Administrator\\Source\\Repos\\CSE3902-Triathlon-Gaming\\Sprint3\\State Machines\\levelData.xml");
+            xml.Load("../levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
