@@ -6,7 +6,7 @@ namespace Sprint3
 	public class Player : Iplayer
 	{
 		private ISprite sprite = new Sprite();
-		private Vector2 location = new Vector2(50, 50);
+		private Vector2 location = new Vector2(150, 150);
 		private PlayerStateMechine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
@@ -111,7 +111,7 @@ namespace Sprint3
 		{
 			state.Update(gameTime);
 			sprite.Update();
-			proj.Update();
+			proj.Update(gameTime);
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

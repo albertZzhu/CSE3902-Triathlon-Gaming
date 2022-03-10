@@ -39,11 +39,11 @@ namespace Sprint3
 
 		}
 
-		public void Update()
+		public void Update(GameTime gameTime)
 		{
 			foreach (Projectile p in list)
 			{
-				p.Update();
+				p.Update(gameTime);
 			}
 		}
 

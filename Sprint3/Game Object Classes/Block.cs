@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	public class Block
+	public class Block : IBlock
 	{
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
@@ -23,6 +23,16 @@ namespace Sprint3
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
+		}
+
+		public Rectangle GetRect()
+		{
+			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.blockSprite.getSize().X, (int)this.blockSprite.getSize().Y);
+			return opt;
+		}
+
+		public void Reset()
+		{
 		}
 
 		public Vector2 GetLocation()

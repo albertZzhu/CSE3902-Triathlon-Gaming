@@ -4,11 +4,10 @@ using System.Collections.Generic;
 
 namespace Sprint3
 {
-	interface INPC
+	interface INPC : IGameObject
 	{
 		void Move(int facing);
 
-		void Update();
 
 		void GoDamaged();
 

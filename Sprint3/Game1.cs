@@ -13,12 +13,12 @@ namespace Sprint3
 		//set a default sprite?
 		//singleton sprite factory 
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
-		//private KeyboardC _keyboardCon = new KeyboardC();
+		private KeyboardC _keyboardCon = new KeyboardC();
 		private SpriteFactory factory;
 		private int boundWidth;
 		private int boundHeight;
-		private int x;
-		private int y;
+		//private int x;
+		//private int y;
 		private SpriteFont font;
 		public Game1()
 		{
@@ -36,7 +36,7 @@ namespace Sprint3
 			boundHeight = Window.ClientBounds.Height;
 			factory = SpriteFactory.GetFactory(Content);
 			level1 = new Level1(boundWidth, boundHeight);
-			//_keyboardCon.InitializeController();
+			_keyboardCon.InitializeController();
 			level1.loadRoom();
 			base.Initialize();
 		}
@@ -55,7 +55,7 @@ namespace Sprint3
 
 		protected override void Update(GameTime gameTime)
 		{
-			//_keyboardCon.CompareStates(_player, _item, block, _npc);
+			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
 			if (Keyboard.GetState().IsKeyDown(Keys.D0))
 			{
 				level1.switchPre();
@@ -67,8 +67,8 @@ namespace Sprint3
 				level1.loadRoom();
 			}
 			level1.Update((gameTime));
-			x = Mouse.GetState().X;
-			y = Mouse.GetState().Y;
+			//x = Mouse.GetState().X;
+			//y = Mouse.GetState().Y;
 			base.Update(gameTime);
 		}
 
@@ -78,7 +78,7 @@ namespace Sprint3
 
 			_spriteBatch.Begin();
 			level1.Draw(_spriteBatch);
-			_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
+			//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}

@@ -17,7 +17,7 @@ namespace Sprint3
 		{
 		}
 
-		public void CompareStates(Player player, Item item, Block block, NPC1 enemy)
+		public void CompareStates(Player player)
 		{
 			newState = Keyboard.GetState();
 			Keys[] current = newState.GetPressedKeys();
@@ -25,14 +25,14 @@ namespace Sprint3
 			if (oldState != newState)
 			{
 				ICommand tempCom = new StandCom();
-				tempCom.Execute(player, item, block, enemy);
+				tempCom.Execute(player);
 			}
 
 			foreach (Keys key in current)
 			{
 				if (playerMove.ContainsKey(key))
 				{
-					playerMove[key].Execute(player, item, block, enemy);
+					playerMove[key].Execute(player);
 				}
 				if(Array.IndexOf(current, Keys.Space) != 1)
                 {
@@ -44,7 +44,7 @@ namespace Sprint3
 			{
 				if (keydict.ContainsKey(newState.GetPressedKeys()[0]) && !newState.Equals(oldState))
 				{
-					keydict[newState.GetPressedKeys()[0]].Execute(player, item, block, enemy);
+					keydict[newState.GetPressedKeys()[0]].Execute(player);
 				}
 			}
 

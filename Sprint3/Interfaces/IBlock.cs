@@ -6,13 +6,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	interface IBlock
+	interface IBlock : IGameObject
 	{
 		void Reset();
-
-		void Update(GameTime gameTime);
-
-		void Draw(SpriteBatch spriteBatch);
 
 		Rectangle GetRect();
 	}

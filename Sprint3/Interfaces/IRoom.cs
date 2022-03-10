@@ -6,10 +6,8 @@ using System.Text;
 
 namespace Sprint3.Interfaces
 {
-    interface IRoom
+    interface IRoom : IGameObject
     {
-        public void Update(GameTime gameTime);
-
-        public void Draw(SpriteBatch spriteBatch);
+     
     }
 }

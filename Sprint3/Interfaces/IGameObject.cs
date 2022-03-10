@@ -6,7 +6,7 @@ namespace Sprint3
 	public interface IGameObject
 	{
 
-		public void Update(GameTime gameTime);
+		void Update(GameTime gameTime);
 
 		public void Draw(SpriteBatch spriteBatch);
 	}

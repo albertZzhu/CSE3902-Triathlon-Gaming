@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint3
 {
-    public class Item
+    public class Item : Iitem
     {
         private ISprite item = new Sprite();
         private String itemTexture;
