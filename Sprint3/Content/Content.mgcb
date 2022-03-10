@@ -925,7 +925,7 @@
 /processorParam:TextureFormat=Color
 /build:toparch.png
 
-#begin topgate11.png
+#begin topgate.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -935,7 +935,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:topgate11.png
+/build:topgate.png
 
 #begin topwall.png
 /importer:TextureImporter

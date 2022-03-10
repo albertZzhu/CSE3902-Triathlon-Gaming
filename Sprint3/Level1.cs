@@ -12,9 +12,10 @@ namespace Sprint3
         private Room room;
         private int boundWidth;
         private int boundHeight;
-        private int i = 1;
+        private int i;
         public Level1(int boundWidth, int boundHeight)
         {
+            this.i = 1;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.rooms = new Dictionary<int, String>();
@@ -28,6 +29,7 @@ namespace Sprint3
             rooms.Add(8, "room8");
             rooms.Add(9, "room9");
             rooms.Add(10, "room10");
+            rooms.Add(11, "room11");
             rooms.Add(12, "room12");
             rooms.Add(13, "room13");
             rooms.Add(14, "room14");
@@ -60,14 +62,14 @@ namespace Sprint3
             this.i--;
             if (this.i < 1)
             {
-                this.i = 2;
+                this.i = 16;
             }
         }
 
         public void switchNext()
         {
             this.i++;
-            if (this.i > 2)
+            if (this.i > 16)
             {
                 this.i = 1;
             }

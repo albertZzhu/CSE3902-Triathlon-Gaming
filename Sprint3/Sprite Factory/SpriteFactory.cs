@@ -199,8 +199,8 @@ namespace Sprint3
 			CreateSprite(stairs, 1, 1, 1, "stairs");
 			Texture2D toparch = Content.Load<Texture2D>("toparch");
 			CreateSprite(toparch, 1, 1, 1, "toparch");
-			Texture2D topgate11 = Content.Load<Texture2D>("topgate11");
-			CreateSprite(topgate11, 1, 1, 1, "topgate11");
+			Texture2D topgate = Content.Load<Texture2D>("topgate");
+			CreateSprite(topgate, 1, 1, 1, "topgate");
 			Texture2D topwall = Content.Load<Texture2D>("topwall");
 			CreateSprite(topwall, 1, 1, 1, "topwall");
 			Texture2D topwall11 = Content.Load<Texture2D>("topwall11");
