@@ -1865,7 +1865,96 @@
         </B>
       </blocks>
       <items num="0" />
-      <enemies num="0" />
+		<enemies num="3">
+			<E move="true">
+				<loc>
+					<x>150</x>
+					<y>125</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>125</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>250</x>
+					<y>100</y>
+				</loc>
+				<dir>3</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>250</x>
+							<y>350</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>350</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+					<R>
+						<loc>
+							<x>550</x>
+							<y>100</y>
+						</loc>
+						<dir>1</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>150</x>
+					<y>400</y>
+				</loc>
+				<dir>0</dir>
+				<E_texture>
+					<up>stalfos</up>
+					<down>stalfos</down>
+					<right>stalfos</right>
+					<left>stalfos</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>400</y>
+						</loc>
+						<dir>
+							1
+						</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+		</enemies>
     </type>
   </room13>
   <room14>
