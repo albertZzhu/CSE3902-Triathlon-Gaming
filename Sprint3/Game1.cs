@@ -17,7 +17,9 @@ namespace Sprint3
 		private SpriteFactory factory;
 		private int boundWidth;
 		private int boundHeight;
-
+		private int x;
+		private int y;
+		private SpriteFont font;
 		public Game1()
 		{
 			_graphics = new GraphicsDeviceManager(this);
@@ -46,8 +48,8 @@ namespace Sprint3
 			//player class should hold all sprites for it?
 			//sprite factory????????
 			//_player.sprite = factory creates player sprite
-			
-			
+			font = Content.Load<SpriteFont>("coortest");
+
 
 		}
 
@@ -65,6 +67,8 @@ namespace Sprint3
 				level1.loadRoom();
 			}
 			level1.Update((gameTime));
+			x = Mouse.GetState().X;
+			y = Mouse.GetState().Y;
 			base.Update(gameTime);
 		}
 
@@ -74,6 +78,7 @@ namespace Sprint3
 
 			_spriteBatch.Begin();
 			level1.Draw(_spriteBatch);
+			_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}

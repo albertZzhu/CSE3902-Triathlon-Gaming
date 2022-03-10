@@ -131,7 +131,104 @@
         </B>
       </blocks>
       <items num="0" />
-      <enemies num="0" />
+		<enemies num="4">
+			<E move="true">
+				<loc>
+					<x>100</x>
+					<y>100</y>
+				</loc>
+				<dir>3</dir>
+				<E_texture>
+					<up>bladetrap</up>
+					<down>bladetrap</down>
+					<right>bladetrap</right>
+					<left>bladetrap</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>100</x>
+							<y>400</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>100</x>
+					<y>400</y>
+				</loc>
+				<dir>2</dir>
+				<E_texture>
+					<up>bladetrap</up>
+					<down>bladetrap</down>
+					<right>bladetrap</right>
+					<left>bladetrap</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>100</x>
+							<y>100</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>650</x>
+					<y>100</y>
+				</loc>
+				<dir>3</dir>
+				<E_texture>
+					<up>bladetrap</up>
+					<down>bladetrap</down>
+					<right>bladetrap</right>
+					<left>bladetrap</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>400</y>
+						</loc>
+						<dir>2</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+			<E move="true">
+				<loc>
+					<x>650</x>
+					<y>400</y>
+				</loc>
+				<dir>2</dir>
+				<E_texture>
+					<up>bladetrap</up>
+					<down>bladetrap</down>
+					<right>bladetrap</right>
+					<left>bladetrap</left>
+				</E_texture>
+				<projectile fire="false"/>
+				<routes>
+					<R>
+						<loc>
+							<x>650</x>
+							<y>100</y>
+						</loc>
+						<dir>3</dir>
+					</R>
+				</routes>
+				<timer/>
+			</E>
+		</enemies>
     </type>
   </room1>
   <room2>

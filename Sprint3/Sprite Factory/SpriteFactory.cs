@@ -216,6 +216,11 @@ namespace Sprint3
 			Texture2D water51 = Content.Load<Texture2D>("water51");
 			CreateSprite(water51, 1, 1, 1, "water51");
 
+			Texture2D bladetrap = Content.Load<Texture2D>("bladetrap");
+			CreateSprite(bladetrap, 1, 1, 1, "bladetrap");
+			Texture2D dragonFireball = Content.Load<Texture2D>("dragonFireball");
+			CreateSprite(dragonFireball, 1, 1, 1, "dragonFireball");
+
 
 		}
 

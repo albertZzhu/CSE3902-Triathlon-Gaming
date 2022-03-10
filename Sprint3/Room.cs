@@ -122,13 +122,16 @@ namespace Sprint3
                                     this.Textureholder.Add(npctextures[1].InnerText);
                                     this.npc[i].SetNpcList(this.Textureholder);
                                     this.npc[i].SetFireBool(Convert.ToBoolean(Einfo[3].Attributes["fire"].Value));
-                                    XmlNodeList firetextures = Einfo[3].ChildNodes;
-                                    this.Textureholder = new List<string>();
-                                    this.Textureholder.Add(firetextures[2].InnerText);
-                                    this.Textureholder.Add(firetextures[3].InnerText);
-                                    this.Textureholder.Add(firetextures[0].InnerText);
-                                    this.Textureholder.Add(firetextures[1].InnerText);
-                                    this.npc[i].SetFireBallList(this.Textureholder);
+                                    bool fire = Convert.ToBoolean(Einfo[3].Attributes["fire"].Value);
+                                    if (fire) {
+                                        XmlNodeList firetextures = Einfo[3].ChildNodes;
+                                        this.Textureholder = new List<string>();
+                                        this.Textureholder.Add(firetextures[2].InnerText);
+                                        this.Textureholder.Add(firetextures[3].InnerText);
+                                        this.Textureholder.Add(firetextures[0].InnerText);
+                                        this.Textureholder.Add(firetextures[1].InnerText);
+                                        this.npc[i].SetFireBallList(this.Textureholder);
+                                    }
                                     if (Einfo[4].ChildNodes.Count != 0)
                                     {
                                         var routes = new List<KeyValuePair<Vector2, int>>();
@@ -141,7 +144,9 @@ namespace Sprint3
                                         this.npc[i].SetRoute(routes);
                                     }
                                     else this.npc[i].SetRoute(null);
-                                    this.npc[i].setTimer(float.Parse(Einfo[5].InnerText));
+                                    if (fire) {
+                                        this.npc[i].setTimer(float.Parse(Einfo[5].InnerText));
+                                    }
                                     i++;
                                 }
                             }

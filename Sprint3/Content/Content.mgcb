@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:back_throw.png
 
+#begin bladetrap.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bladetrap.png
+
 #begin block.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -229,6 +241,13 @@
 /processorParam:TextureFormat=Color
 /build:bottomwall11.png
 
+#begin coortest.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:coortest.spritefont
+
 #begin damage_back.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -336,6 +355,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:down_projectile.png
+
+#begin dragonFireball.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:dragonFireball.png
 
 #begin fireball_down.png
 /importer:TextureImporter
