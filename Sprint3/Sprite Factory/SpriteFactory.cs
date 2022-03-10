@@ -218,8 +218,22 @@ namespace Sprint3
 
 			Texture2D bladetrap = Content.Load<Texture2D>("bladetrap");
 			CreateSprite(bladetrap, 1, 1, 1, "bladetrap");
+			Texture2D redGoriyaRight = Content.Load<Texture2D>("redGoriyaRight");
+			CreateSprite(redGoriyaRight, 1, 2, 2, "redGoriyaRight");
+			Texture2D redGoriyaLeft = Content.Load<Texture2D>("redGoriyaLeft");
+			CreateSprite(redGoriyaLeft, 1, 2, 2, "redGoriyaLeft");
+			Texture2D redGoriyaFront = Content.Load<Texture2D>("redGoriyaFront");
+			CreateSprite(redGoriyaFront, 1, 2, 2, "redGoriyaFront");
+			Texture2D redGoriyaBack = Content.Load<Texture2D>("redGoriyaBack");
+			CreateSprite(redGoriyaBack, 1, 2, 2, "redGoriyaBack");
+			Texture2D stalfos = Content.Load<Texture2D>("stalfos");
+			CreateSprite(stalfos, 1, 2, 2, "stalfos");
+			Texture2D key = Content.Load<Texture2D>("key");
+			CreateSprite(key, 1, 1, 1, "key");
 			Texture2D dragonFireball = Content.Load<Texture2D>("dragonFireball");
 			CreateSprite(dragonFireball, 1, 1, 1, "dragonFireball");
+			Texture2D blueBat = Content.Load<Texture2D>("blueBat");
+			CreateSprite(blueBat, 2, 1, 2, "blueBat");
 
 
 		}
