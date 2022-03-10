@@ -13,5 +13,7 @@ namespace Sprint3
 		void Update(GameTime gameTime);
 
 		void Draw(SpriteBatch spriteBatch);
+
+		Rectangle GetRect();
 	}
 }

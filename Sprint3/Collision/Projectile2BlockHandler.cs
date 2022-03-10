@@ -6,8 +6,8 @@ namespace Sprint3.Collision
 {
 	class Projectile2BlockHandler : ICollisionHandler<IProjectile, IBlock>
 	{
-		
-		public void Handle(IProjectile projectile, IBlock block, Side side)
+
+		public void Handle(IProjectile projectile, IBlock block, Side.side side)
 		{
 			projectile = null;
 		}

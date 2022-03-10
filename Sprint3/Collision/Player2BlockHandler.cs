@@ -6,8 +6,8 @@ namespace Sprint3.Collision
 {
 	class Player2BlockHandler : ICollisionHandler<Iplayer, IBlock>
 	{
-		
-		public void Handle(Iplayer player, IBlock block, Side side)
+
+		public void Handle(Iplayer player, IBlock block, Side.side side)
 		{
 			player.GoStand();
 		}

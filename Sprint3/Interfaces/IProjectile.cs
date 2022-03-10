@@ -4,25 +4,15 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace Sprint3
 {
-	interface Iplayer
+	interface IProjectile
 	{
-		void Move(int facing);
-
-		Vector2 GetLocation();
-
-		ISprite GetSprite();
-
-		void GoDamaged();
-
-		void GoStand();
-
-		void Reset();
-
-		void Update(GameTime gameTime);
+		void Update();
 
 		void Draw(SpriteBatch spriteBatch);
 
+		Rectangle GetRect();
 	}
 }

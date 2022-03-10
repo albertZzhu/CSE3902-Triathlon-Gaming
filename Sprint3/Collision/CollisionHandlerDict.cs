@@ -15,7 +15,7 @@ namespace Sprint3.Collision
 
 		public CollisionHandlerDict()
 		{
-			
+
 		}
 
 		public static void Initialize()

@@ -6,9 +6,9 @@ namespace Sprint3.Collision
 {
 	class NPC2BlockHandler : ICollisionHandler<INPC, IBlock>
 	{
-		public void Handle(INPC enemy, IBlock block, Side side)
+		public void Handle(INPC enemy, IBlock block, Side.side side)
 		{
-			
+
 		}
 	}
 }

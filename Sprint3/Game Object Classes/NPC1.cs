@@ -176,8 +176,14 @@ namespace Sprint3
 			
 		}
 
-        //client used(may obtain null if not loaded in the respective xml block)
-        public List<KeyValuePair<Vector2, int>> GetRoute()
+		public Rectangle GetRect()
+		{
+			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.npc.getSize().X, (int)this.npc.getSize().Y);
+			return opt;
+		}
+
+		//client used(may obtain null if not loaded in the respective xml block)
+		public List<KeyValuePair<Vector2, int>> GetRoute()
 		{
 			return this.route;
 		}

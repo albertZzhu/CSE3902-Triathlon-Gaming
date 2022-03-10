@@ -7,8 +7,8 @@ using System.Text;
 
 namespace Sprint3
 {
-    class NpcProjectileSeq
-    {
+	class NpcProjectileSeq
+	{
 		private ArrayList list;
 
 		public NpcProjectileSeq()

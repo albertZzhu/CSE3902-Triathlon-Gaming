@@ -10,6 +10,9 @@ namespace Sprint3
 		//frame = bitmap, x, y, ht, width
 		//frame = bitmap, sourceRectangle
 		//could make frames into objects
+		private int width;
+		private int height;
+
 		private List<Frame> frames = new List<Frame>();
 
 		//default constructor
@@ -25,10 +28,10 @@ namespace Sprint3
 
 		public void SetFrames(Texture2D bitMap, int columns, int rows, int totalFrames)
 		{
+			width = bitMap.Width / columns;
+			height = bitMap.Height / rows;
 			for (int i = 0; i < totalFrames; i++)
 			{
-				int width = bitMap.Width / columns;
-				int height = bitMap.Height / rows;
 				int row = i / columns;
 				int column = i % columns;
 				Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
@@ -36,6 +39,12 @@ namespace Sprint3
 			}
 
 
+		}
+
+		public Vector2 getSize()
+		{
+			Vector2 opt = new Vector2(width, height);
+			return opt;
 		}
 
 		//animation... could make an "animate" function? or should this be its own interface?

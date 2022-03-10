@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	public class Player
+	public class Player : Iplayer
 	{
 		private ISprite sprite = new Sprite();
 		private Vector2 location = new Vector2(50, 50);
@@ -31,8 +31,6 @@ namespace Sprint3
 		//x could be 1 for walking or 5 for sprinting 
 		public void Move(int facing)
 		{
-			//location = new Vector2(location.X + x, location.Y + y);
-			//return location;
 			state.ChangeFacing(facing);
 			state.changeMovingState(true);
 			switch (facing)
@@ -76,9 +74,10 @@ namespace Sprint3
 			location = newLocation;
 		}
 
-		public Vector2 GetLocation()
+		public Rectangle GetRect()
 		{
-			return location;
+			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.sprite.getSize().X, (int)this.sprite.getSize().Y);
+			return opt;
 		}
 
 
@@ -103,11 +102,11 @@ namespace Sprint3
 		}
 
 		public void Reset()
-        {
+		{
 			SetLocation(new Vector2(50, 50));
 			state.ChangeFacing(0);
 			spriteNum = 0;
-        }
+		}
 		public void Update(GameTime gameTime)
 		{
 			state.Update(gameTime);
@@ -122,8 +121,8 @@ namespace Sprint3
 		}
 
 		public void setFireball(int i)
-        {
+		{
 			this.spriteNum = i;
-        }
+		}
 	}
 }

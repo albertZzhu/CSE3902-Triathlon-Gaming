@@ -29,7 +29,7 @@ namespace Sprint3
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileLeft")));
 								break;
 							case 2:
-								list.Add(new Projectile(new Vector2(newLocation.X -bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
 								break;
 							case 3:
 								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileDown")));
@@ -56,7 +56,7 @@ namespace Sprint3
 						}
 					}
 					break;
-                case 1:
+				case 1:
 					{
 						switch (direction)
 						{
