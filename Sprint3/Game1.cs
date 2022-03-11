@@ -10,11 +10,11 @@ namespace Sprint3
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
-		private Level1 level1;
+		public Level1 level1;
 		//set a default sprite?
 		//singleton sprite factory 
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
-		private KeyboardC _keyboardCon = new KeyboardC();
+		private KeyboardC _keyboardCon;
 		private SpriteFactory factory;
 		private int boundWidth;
 		private int boundHeight;
@@ -64,6 +64,7 @@ namespace Sprint3
 			boundHeight = Window.ClientBounds.Height;
 			factory = SpriteFactory.GetFactory(Content);
 			level1 = new Level1(boundWidth, boundHeight);
+			_keyboardCon = new KeyboardC(level1);
 			_keyboardCon.InitializeController();
 			level1.loadRoom();
 
@@ -105,16 +106,7 @@ namespace Sprint3
 		protected override void Update(GameTime gameTime)
 		{
 			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
-			if (Keyboard.GetState().IsKeyDown(Keys.D0))
-			{
-				level1.switchPre();
-				level1.loadRoom();
-            }
-			else if (Keyboard.GetState().IsKeyDown(Keys.D1))
-            {
-				level1.switchNext();
-				level1.loadRoom();
-			}
+			
 			level1.Update((gameTime));
 			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetPlayerObj().GetSeqList().ToArray(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj());
 

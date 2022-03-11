@@ -11,7 +11,5 @@
 		//Updates inputs
 		//called in update
 		void CompareStates(Player player);
-
-
-	}
+    }
 }

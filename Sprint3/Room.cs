@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Sprint3
 {
-    class Room : IRoom
+    public class Room : IRoom
     {   
         //block obj holder variables
         private Block[] block;
@@ -35,7 +35,7 @@ namespace Sprint3
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("../levelData.xml");
+            xml.Load("C:\\Users\\isaac\\AppData\\Local\\CSE3902-Triathlon-Gaming\\Sprint3\\Content\\levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)

@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Sprint3
 {
-    class Level1 : Level
+    public class Level1 : Level
     {
         private Dictionary<int, String> rooms;
-        private Room room;
+        public Room room;
         private int boundWidth;
         private int boundHeight;
         private int i;
