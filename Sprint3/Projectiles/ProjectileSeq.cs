@@ -1,17 +1,18 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Sprint3
 {
 	class ProjectileSeq
 	{
-		private ArrayList list;
+		private List<Projectile> list;
 		float bias = 30;
 		float biasfireball = 16;
 		public ProjectileSeq()
 		{
-			list = new ArrayList();
+			list = new List<Projectile>();
 		}
 
 		public void NewProjectile(Vector2 newLocation, int direction, int sprite)
@@ -96,6 +97,10 @@ namespace Sprint3
 			{
 				p.Draw(spriteBatch);
 			}
+		}
+		public List<Projectile> GetProjList()
+		{
+			return this.list;
 		}
 	}
 }

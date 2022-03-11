@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Sprint3
@@ -23,6 +24,7 @@ namespace Sprint3
 		private Vector2 nextpos;
 		private int nextface;
 		private int routesCounter;
+		private bool dead;
 		//constructor
 		public NPC1(int boundWidth, int boundHeight)
 		{
@@ -31,9 +33,19 @@ namespace Sprint3
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
 			this.routesCounter = 0;
+			this.dead = false;
 		}
 
-		
+		public bool isDead()
+		{
+			return dead;
+		}
+
+		public void die()
+		{
+			dead = true;
+		}
+
 		//check direction and update location.
 		public void Move(int facing)
 		{
@@ -213,32 +225,47 @@ namespace Sprint3
 			}
 
         }
+		internal List<Projectile> GetSeqList()
+		{
+			if (this.firebool)
+			{
+				return this.proj.GetProjList();
+			}
+			else return new List<Projectile>();
+		}
 		//update func
 		public void Update(GameTime gameTime)
 		{
-			if (route != null && (this.location.Equals(this.nextpos)))
+			if (!this.dead)
 			{
-				this.direction = this.nextface;
-				this.next();
-			}
-			Move(direction);
-			state.Update(gameTime);
-			npc.Update();
-			if (firebool) {
-				timer += 1f;
-				if (timer == this.timespan)
+				if (route != null && (this.location.Equals(this.nextpos)))
 				{
-					this.DistantAttack();
-					timer = 0f;
+					this.direction = this.nextface;
+					this.next();
 				}
+				Move(direction);
+				state.Update(gameTime);
+				npc.Update();
+				if (firebool)
+				{
+					timer += 1f;
+					if (timer == this.timespan)
+					{
+						this.DistantAttack();
+						timer = 0f;
+					}
+				}
+				proj.Update(gameTime);
 			}
-			proj.Update(gameTime);
 		}
 		//draw func
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			npc.Draw(spriteBatch, location);
-			proj.Draw(spriteBatch);
+			if (!this.dead) {
+				npc.Draw(spriteBatch, location);
+				proj.Draw(spriteBatch);
+			}
+			
 		}
 
 		private void next()

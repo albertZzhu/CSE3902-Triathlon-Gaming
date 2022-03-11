@@ -67,7 +67,10 @@ namespace Sprint3
                                 }
                             }
                         }
-                        else this.block = null;
+                        else {
+                            this.block = new Block[0];
+                        }
+
                     }
                     //loading items into the item obj holder.
                     XmlNode item = type.SelectSingleNode("items");
@@ -93,7 +96,9 @@ namespace Sprint3
                                 }
                             }
                         }
-                        else this.item = null;
+                        else { 
+                            this.item = new Item[0];
+                        }
                     }
                     //loading npcs into the npc obj holder.
                     XmlNode enemy = type.SelectSingleNode("enemies");
@@ -123,7 +128,8 @@ namespace Sprint3
                                     this.npc[i].SetNpcList(this.Textureholder);
                                     this.npc[i].SetFireBool(Convert.ToBoolean(Einfo[3].Attributes["fire"].Value));
                                     bool fire = Convert.ToBoolean(Einfo[3].Attributes["fire"].Value);
-                                    if (fire) {
+                                    if (fire)
+                                    {
                                         XmlNodeList firetextures = Einfo[3].ChildNodes;
                                         this.Textureholder = new List<string>();
                                         this.Textureholder.Add(firetextures[2].InnerText);
@@ -144,14 +150,18 @@ namespace Sprint3
                                         this.npc[i].SetRoute(routes);
                                     }
                                     else this.npc[i].SetRoute(null);
-                                    if (fire) {
+                                    if (fire)
+                                    {
                                         this.npc[i].setTimer(float.Parse(Einfo[5].InnerText));
                                     }
                                     i++;
                                 }
                             }
                         }
-                        else this.npc = null;
+                        else
+                        {
+                            this.npc = new NPC1[0];
+                        }
                     }
 
                     //loading player into the player class.
@@ -165,25 +175,34 @@ namespace Sprint3
         }
         public void Update(GameTime gameTime)
         {   
-            if(this.block != null)
+            if(this.block.Length != 0)
             {
                 foreach (Block block in this.block)
                 {
-                    block.Update(gameTime);
+                    if (item != null)
+                    {
+                        block.Update(gameTime);
+                    }
                 }
             }
-            if (this.item != null)
+            if (this.item.Length != 0)
             {
                 foreach (Item item in this.item)
                 {
-                    item.Update(gameTime);
+                    if (item != null)
+                    {
+                        item.Update(gameTime);
+                    }
                 }
             }
-            if (this.npc != null)
+            if (this.npc.Length != 0)
             {
                 foreach (NPC1 npc in this.npc)
                 {
-                    npc.Update(gameTime);
+                    if (npc != null)
+                    {
+                        npc.Update(gameTime);
+                    }
                 }
             }
             
@@ -192,25 +211,34 @@ namespace Sprint3
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (this.block != null)
+            if (this.block.Length != 0)
             {
                 foreach (Block block in this.block)
                 {
-                    block.Draw(spriteBatch);
+                    if (block != null) 
+                    {
+                        block.Draw(spriteBatch);
+                    }
                 }
             }
-            if (this.item != null)
+            if (this.item.Length != 0)
             {
                 foreach (Item item in this.item)
                 {
-                    item.Draw(spriteBatch);
+                    if (item != null)
+                    {
+                        item.Draw(spriteBatch);
+                    }
                 }
             }
-            if (this.npc != null)
+            if (this.npc.Length != 0)
             {
                 foreach (NPC1 npc in this.npc)
                 {
-                    npc.Draw(spriteBatch);
+                    if (npc != null)
+                    {
+                        npc.Draw(spriteBatch);
+                    }
                 }
             }
             this.player.Draw(spriteBatch);
@@ -236,5 +264,7 @@ namespace Sprint3
         {
             return this.player;
         }
+
+       
     }
 }

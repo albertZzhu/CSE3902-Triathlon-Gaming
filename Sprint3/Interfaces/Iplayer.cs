@@ -20,5 +20,8 @@ namespace Sprint3
 
 		void Reset();
 
+		void moveLock(int direction);
+
+		void moveunLock(int direction);
 	}
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Sprint3
 {
@@ -12,6 +14,12 @@ namespace Sprint3
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 		private int spriteNum;
+		private int velocity = 10;
+
+		private bool canMoveUp = true;
+		private bool canMoveDown = true;
+		private bool canMoveRight = true;
+		private bool canMoveLeft = true;
 
 		public Player(int boundWidth, int boundHeight)
 		{
@@ -21,11 +29,53 @@ namespace Sprint3
 			this.boundHeight = boundHeight;
 		}
 
+		public void moveLock(int direction)
+		{
+			switch (direction)
+			{
+				case 0:
+					this.canMoveRight = false;
+					break;
+				case 1:
+					this.canMoveLeft = false;
+					break;
+				case 2:
+					this.canMoveUp = false;
+					break;
+				case 3:
+					this.canMoveDown = false;
+					break;
+			}
+		}
+
+		public void moveunLock(int direction)
+		{
+			switch (direction)
+			{
+				case 0:
+					this.canMoveRight = true;
+					break;
+				case 1:
+					this.canMoveLeft = true;
+					break;
+				case 2:
+					this.canMoveUp = true;
+					break;
+				case 3:
+					this.canMoveDown = true;
+					break;
+			}
+		}
+
 		public void GoStand()
 		{
 			state.changeMovingState(false);
 		}
-
+		internal List<Projectile> GetSeqList()
+		{
+			
+				return this.proj.GetProjList();
+		}
 		//positive x, increment to the right. negative x, decrement to the left.
 		//positive y, increment down. negative y, decrement up. 
 		//x could be 1 for walking or 5 for sprinting 
@@ -36,25 +86,25 @@ namespace Sprint3
 			switch (facing)
 			{
 				case 0:
-					if (location.X + 10 < boundWidth - 20)
+					if (location.X + velocity < boundWidth - 20&&canMoveRight)
 					{
 						location = new Vector2(location.X + 10, location.Y);
 					}
 					break;
 				case 1:
-					if (location.X - 10 > 0)
+					if (location.X - velocity > 0&&canMoveLeft)
 					{
 						location = new Vector2(location.X - 10, location.Y);
 					}
 					break;
 				case 2:
-					if (location.Y - 10 > 0)
+					if (location.Y - velocity > 0&&canMoveUp)
 					{
 						location = new Vector2(location.X, location.Y - 10);
 					}
 					break;
 				case 3:
-					if (location.Y + 10 < boundHeight - 30)
+					if (location.Y + velocity < boundHeight - 30&&canMoveDown)
 					{
 						location = new Vector2(location.X, location.Y + 10);
 					}

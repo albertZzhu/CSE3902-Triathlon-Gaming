@@ -9,11 +9,11 @@ namespace Sprint3
 {
 	class NpcProjectileSeq
 	{
-		private ArrayList list;
+		public List<Projectile> list;
 
 		public NpcProjectileSeq()
 		{
-			list = new ArrayList();
+			list = new List<Projectile>();
 		}
 
 		public void NewProjectile(Vector2 newLocation, int direction, List<string> fireballHolder)
@@ -38,7 +38,10 @@ namespace Sprint3
 			}
 
 		}
-
+		public List<Projectile> GetProjList()
+		{
+			return this.list;
+		}
 		public void Update(GameTime gameTime)
 		{
 			foreach (Projectile p in list)

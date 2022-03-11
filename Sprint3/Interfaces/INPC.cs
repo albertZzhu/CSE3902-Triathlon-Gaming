@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 namespace Sprint3
 {
+
 	interface INPC : IGameObject
 	{
+		bool isDead();
+
 		void Move(int facing);
 
 
