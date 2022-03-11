@@ -7,7 +7,11 @@ namespace Sprint3
 		{
 			this.level1 = level;
 		}
-		void ICommand.Execute(Player player)
+		void ICommand.ChangePlayer(Player player)
+		{
+			
+		}
+		void ICommand.Execute()
 		{
 			level1.switchNext();
 			level1.loadRoom();

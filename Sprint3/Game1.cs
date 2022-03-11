@@ -64,12 +64,13 @@ namespace Sprint3
 			boundHeight = Window.ClientBounds.Height;
 			factory = SpriteFactory.GetFactory(Content);
 			level1 = new Level1(boundWidth, boundHeight);
-			_keyboardCon = new KeyboardC(level1);
-			_keyboardCon.InitializeController();
+			
 			level1.loadRoom();
 
-			dict.Initialize();
+			_keyboardCon = new KeyboardC(level1, level1.GetRoom().GetPlayerObj());
+			_keyboardCon.InitializeController();
 
+			dict.Initialize();
 
 			dict.AddHandler("player1", player2Block);
 			dict.AddHandler("player1", player2Enemy);
@@ -80,11 +81,8 @@ namespace Sprint3
 
 			dict.AddHandler("Projectile1", proj2Blcok);
 
-
 			playerDetect = new PlayerCollisionDetection("player1", dict);
-
 			npcDetect = new NPCCollisionDetection("NPC1", dict);
-
 			projDetect = new ProjectileCollisionDetection("Projectile1", dict);
 
 
@@ -105,9 +103,9 @@ namespace Sprint3
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
 			
 			level1.Update((gameTime));
+			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetPlayerObj().GetSeqList().ToArray(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj());
 
 			foreach (NPC1 npc in this.level1.GetRoom().GetNpcObj())

@@ -6,7 +6,16 @@ namespace Sprint3
 {
 	class ResetCom : ICommand
 	{
-		public void Execute(Player player)
+		private Player player;
+		public ResetCom(Player player)
+		{
+			this.player = player;
+		}
+		void ICommand.ChangePlayer(Player player)
+		{
+			this.player = player;
+		}
+		public void Execute()
 		{
 			/*player.Reset();
 			item.Reset();
