@@ -25,7 +25,7 @@
 /processorParam:TextureFormat=Color
 /build:animatedDamage.png
 
-#begin back_move.png
+#begin back_Move.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,7 +35,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:back_move.png
+/build:back_Move.png;back_move.png
 
 #begin back_still.png
 /importer:TextureImporter

@@ -9,6 +9,9 @@ namespace Sprint3
 {
 	interface IProjectile : IGameObject
 	{
+		bool isDead();
+
+		void die();
 
 		Rectangle GetRect();
 	}

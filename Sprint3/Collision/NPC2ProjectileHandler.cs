@@ -13,8 +13,11 @@ namespace Sprint3.Collision
 
 		public void Handle(INPC enemy, IProjectile projectile, Side.side side)
 		{
-			enemy.GoDamaged();
-			projectile = null;
+			if (!enemy.isDead())
+			{
+				enemy.die();
+				projectile.die();
+			}
 		}
 	}
 }

@@ -11,6 +11,8 @@ namespace Sprint3
 
 		void Move(int facing);
 
+		void die();
+
 
 		void GoDamaged();
 

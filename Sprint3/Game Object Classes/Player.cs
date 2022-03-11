@@ -8,13 +8,13 @@ namespace Sprint3
 	public class Player : Iplayer
 	{
 		private ISprite sprite = new Sprite();
-		private Vector2 location = new Vector2(150, 150);
+		private Vector2 location = new Vector2(100, 280);
 		private PlayerStateMechine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 		private int spriteNum;
-		private int velocity = 10;
+		private int velocity = 5;
 
 		private bool canMoveUp = true;
 		private bool canMoveDown = true;
@@ -86,27 +86,27 @@ namespace Sprint3
 			switch (facing)
 			{
 				case 0:
-					if (location.X + velocity < boundWidth - 20&&canMoveRight)
+					if (location.X + 10 < boundWidth - 20&&canMoveRight)
 					{
-						location = new Vector2(location.X + 10, location.Y);
+						location = new Vector2(location.X + velocity, location.Y);
 					}
 					break;
 				case 1:
-					if (location.X - velocity > 0&&canMoveLeft)
+					if (location.X - 10 > 0&&canMoveLeft)
 					{
-						location = new Vector2(location.X - 10, location.Y);
+						location = new Vector2(location.X - velocity, location.Y);
 					}
 					break;
 				case 2:
-					if (location.Y - velocity > 0&&canMoveUp)
+					if (location.Y - 10 > 0&&canMoveUp)
 					{
-						location = new Vector2(location.X, location.Y - 10);
+						location = new Vector2(location.X, location.Y - velocity);
 					}
 					break;
 				case 3:
-					if (location.Y + velocity < boundHeight - 30&&canMoveDown)
+					if (location.Y + 10 < boundHeight - 30&&canMoveDown)
 					{
-						location = new Vector2(location.X, location.Y + 10);
+						location = new Vector2(location.X, location.Y + velocity);
 					}
 					break;
 				default:

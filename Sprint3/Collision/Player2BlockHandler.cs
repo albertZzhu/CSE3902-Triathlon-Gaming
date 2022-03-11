@@ -17,17 +17,21 @@ namespace Sprint3.Collision
 			if (side == Side.side.left)
 			{
 				player.moveLock(1);
+				//player.Move(0);
 			}else if (side == Side.side.right)
 			{
 				player.moveLock(0);
+				//player.Move(1);
 			}
 			else if (side == Side.side.up)
 			{
 				player.moveLock(2);
+				//player.Move(3);
 			}
 			else if (side == Side.side.down)
 			{
 				player.moveLock(3);
+				//player.Move(2);
 			}
 		}
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
+
 
 namespace Sprint3.Collision
 {
@@ -23,9 +25,10 @@ namespace Sprint3.Collision
 
 		public void Detect(IProjectile projectile, IBlock[] blockInRange)
 		{
+			IBlock[] blockInRangeModified = blockInRange.Skip(1).ToArray();
 			this.blockInRange = blockInRange;
 
-			foreach (IBlock b in blockInRange)
+			foreach (IBlock b in blockInRangeModified)
 			{
 				if (projectile.GetRect().Intersects(b.GetRect()))
 				{

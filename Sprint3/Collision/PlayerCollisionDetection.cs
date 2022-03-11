@@ -10,9 +10,6 @@ namespace Sprint3.Collision
 	class PlayerCollisionDetection
 	{
 		private string playerName;
-		private INPC[] npcInRange;
-		private IProjectile[] projectileInRange;
-		private IBlock[] blockInRange;
 
 		private Player2BlockHandler blockHandle;
 		private Player2EnemyHandler enemyHandle;
@@ -58,51 +55,51 @@ namespace Sprint3.Collision
 					{
 						this.blockHandle.Handle(player, b, Side.side.right);
 					}
-					else
+					/*else
 					{
 						this.blockHandle.unHandle(player, b, Side.side.right);
-					}
+					}*/
 					if (player.GetRect().Left <= b.GetRect().Right)
 					{
 						this.blockHandle.Handle(player, b, Side.side.left);
 					}
-					else
+					/*else
 					{
 						this.blockHandle.unHandle(player, b, Side.side.left);
-					}
+					}*/
 					if (player.GetRect().Top <= b.GetRect().Bottom)
 					{
 						this.blockHandle.Handle(player, b, Side.side.up);
 					}
-					else
+					/*else
 					{
 						this.blockHandle.unHandle(player, b, Side.side.up);
-					}
+					}*/
 					if (player.GetRect().Bottom >= b.GetRect().Top)
 					{
 						this.blockHandle.Handle(player, b, Side.side.down);
 					}
-					else
+					/*else
 					{
 						this.blockHandle.unHandle(player, b, Side.side.down);
-					}
+					}*/
 
 				}
 				else
 				{
-					if (!(player.GetRect().Right >= b.GetRect().Left))
+					if (!(player.GetRect().Right > b.GetRect().Left))
 					{
 						this.blockHandle.unHandle(player, b, Side.side.right);
 					}
-					if (!(player.GetRect().Left <= b.GetRect().Right))
+					if (!(player.GetRect().Left < b.GetRect().Right))
 					{
 						this.blockHandle.unHandle(player, b, Side.side.left);
 					}
-					if (!(player.GetRect().Top <= b.GetRect().Bottom))
+					if (!(player.GetRect().Top < b.GetRect().Bottom))
 					{
 						this.blockHandle.unHandle(player, b, Side.side.up);
 					}
-					if (!(player.GetRect().Bottom >= b.GetRect().Top))
+					if (!(player.GetRect().Bottom > b.GetRect().Top))
 					{
 						this.blockHandle.unHandle(player, b, Side.side.down);
 					}

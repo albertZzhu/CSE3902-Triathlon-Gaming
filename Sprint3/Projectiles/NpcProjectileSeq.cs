@@ -44,9 +44,16 @@ namespace Sprint3
 		}
 		public void Update(GameTime gameTime)
 		{
-			foreach (Projectile p in list)
+			for (int i = 0; i < list.Count; i++)
 			{
-				p.Update(gameTime);
+				if (!list[i].isDead())
+				{
+					list[i].Update(gameTime);
+				}
+				else
+				{
+					list.Remove(list[i]);
+				}
 			}
 		}
 

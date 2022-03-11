@@ -8,12 +8,24 @@ namespace Sprint3
 		private ISprite sprite;
 		private Vector2 location;
 		private int direction;  //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		private bool dead;
 
 		public Projectile(Vector2 newLocation, int direction, ISprite sprite)
 		{
 			this.location = newLocation;
 			this.direction = direction;
 			this.sprite = sprite;
+			this.dead = false;
+		}
+
+		public bool isDead()
+		{
+			return this.dead;
+		}
+
+		public void die()
+		{
+			this.dead = true;
 		}
 
 		public Rectangle GetRect()
@@ -23,29 +35,35 @@ namespace Sprint3
 		}
 		public void Update(GameTime gameTime)
 		{
-			switch (direction)
+			if (!dead)
 			{
-				case 0:
-					location = new Vector2(location.X + 5, location.Y);
-					break;
-				case 1:
-					location = new Vector2(location.X - 5, location.Y);
-					break;
-				case 2:
-					location = new Vector2(location.X, location.Y - 5);
-					break;
-				case 3:
-					location = new Vector2(location.X, location.Y + 5);
-					break;
-				default:
-					break;
+				switch (direction)
+				{
+					case 0:
+						location = new Vector2(location.X + 5, location.Y);
+						break;
+					case 1:
+						location = new Vector2(location.X - 5, location.Y);
+						break;
+					case 2:
+						location = new Vector2(location.X, location.Y - 5);
+						break;
+					case 3:
+						location = new Vector2(location.X, location.Y + 5);
+						break;
+					default:
+						break;
+				}
+				sprite.Update();
 			}
-			sprite.Update();
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			sprite.Draw(spriteBatch, location);
+			if (!dead)
+			{
+				sprite.Draw(spriteBatch, location);
+			}
 		}
 	}
 }
