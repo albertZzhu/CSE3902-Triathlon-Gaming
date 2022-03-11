@@ -917,8 +917,46 @@
           <B_texture>block15</B_texture>
         </B>
       </blocks>
-      <items num="0" />
-      <enemies num="0" />
+		<items num="1">
+			<I>
+				<loc>
+					<x>600</x>
+					<y>250</y>
+				</loc>
+				<I_texture>itemHeart</I_texture>
+			</I>
+		</items>
+		<enemies num="1">
+			<E move="true">
+				<loc>
+					<x>439</x>
+					<y>201</y>
+				</loc>
+				<dir>1</dir>
+				<E_texture>
+					<up>dragon</up>
+					<down>dragon</down>
+					<right>dragon</right>
+					<left>dragon</left>
+				</E_texture>
+				<projectile fire="true">
+					<up>dragonFireball</up>
+					<down>dragonFireball</down>
+					<right>dragonFireball</right>
+					<left>dragonFireball</left>
+				</projectile>
+				<routes>
+					<R>
+						<loc>
+							<x>352</x>
+							<y>201</y>
+						</loc>
+						<dir>0</dir>
+					</R>
+				</routes>
+				<timer>70</timer>
+			</E>
+		</enemies>
     </type>
   </room4>
   <room5>
