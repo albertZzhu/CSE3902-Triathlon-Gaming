@@ -234,6 +234,10 @@ namespace Sprint3
 			CreateSprite(dragonFireball, 1, 1, 1, "dragonFireball");
 			Texture2D blueBat = Content.Load<Texture2D>("blueBat");
 			CreateSprite(blueBat, 2, 1, 2, "blueBat");
+			Texture2D dragon = Content.Load<Texture2D>("dragon");
+			CreateSprite(dragon, 4, 1, 4, "dragon");
+			Texture2D itemHeart = Content.Load<Texture2D>("itemHeart");
+			CreateSprite(itemHeart, 1, 1, 1, "itemHeart");
 
 
 		}

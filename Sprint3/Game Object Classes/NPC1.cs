@@ -96,7 +96,13 @@ namespace Sprint3
 		//npc projectile used
 		private void DistantAttack()
 		{
-			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
+			
+			if(((Sprite)npc).GetFrames()[0].GetBitMap().Name == "dragon") {
+				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), 1, fireballHolder);
+			} else
+            {
+				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
+			}
 		}
 		//room class used
 		public void SetLocation(Vector2 newLocation)
