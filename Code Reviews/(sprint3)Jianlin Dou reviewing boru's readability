@@ -1,4 +1,15 @@
-the structure in different collision class has higher corhesion.
+Jianlin Dou
+
+3/12/22
+
+Sprint 3
+
+collision folder
+
+boru
+
+shalf a day to understand the code
+The structure in different collision class has higher corhesion.
 varibles in these classes are all private.
 need a brief comments right before different
 functions to increase the reader's understandability.
