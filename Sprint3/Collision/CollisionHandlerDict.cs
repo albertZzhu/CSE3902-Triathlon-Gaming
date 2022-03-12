@@ -6,23 +6,25 @@ namespace Sprint3.Collision
 {
 	class CollisionHandlerDict
 	{
-		private static Dictionary<string, Player2EnemyHandler> player2NPCList;
-		private static Dictionary<string, Player2BlockHandler> player2BlockList;
-		private static Dictionary<string, Player2ProjectileHandler> player2ProjectileList;
-		private static Dictionary<string, NPC2BlockHandler> NPC2BlockList;
-		private static Dictionary<string, NPC2ProjectileHandler> NPC2ProjectileList;
-		private static Dictionary<string, Projectile2BlockHandler> projectile2BlockList;
+		private Dictionary<string, Player2EnemyHandler> player2NPCList;
+		private Dictionary<string, Player2BlockHandler> player2BlockList;
+		private Dictionary<string, Player2ProjectileHandler> player2ProjectileList;
+		private Dictionary<string, Player2ItemHandler> player2ItemList;
+		private Dictionary<string, NPC2BlockHandler> NPC2BlockList;
+		private Dictionary<string, NPC2ProjectileHandler> NPC2ProjectileList;
+		private Dictionary<string, Projectile2BlockHandler> projectile2BlockList;
 
 		public CollisionHandlerDict()
 		{
-			
+
 		}
 
-		public static void Initialize()
+		public void Initialize()
 		{
 			player2NPCList = new Dictionary<string, Player2EnemyHandler>();
 			player2BlockList = new Dictionary<string, Player2BlockHandler>();
 			player2ProjectileList = new Dictionary<string, Player2ProjectileHandler>();
+			player2ItemList = new Dictionary<string, Player2ItemHandler>();
 			NPC2BlockList = new Dictionary<string, NPC2BlockHandler>();
 			NPC2ProjectileList = new Dictionary<string, NPC2ProjectileHandler>();
 			projectile2BlockList = new Dictionary<string, Projectile2BlockHandler>();
@@ -36,6 +38,11 @@ namespace Sprint3.Collision
 		public void AddHandler(string playerName, Player2BlockHandler handler)
 		{
 			player2BlockList.Add(playerName, handler);
+		}
+
+		public void AddHandler(string playerName, Player2ItemHandler handler)
+		{
+			player2ItemList.Add(playerName, handler);
 		}
 
 		public void AddHandler(string playerName, Player2ProjectileHandler handler)
@@ -58,32 +65,38 @@ namespace Sprint3.Collision
 			projectile2BlockList.Add(Projectilename, handler);
 		}
 
-		public static Player2EnemyHandler GetPlayer2NPC(string name)
+
+		public Player2EnemyHandler GetPlayer2NPC(string name)
 		{
 			return player2NPCList[name];
 		}
 
-		public static Player2BlockHandler GetPlayer2Block(string name)
+		public Player2BlockHandler GetPlayer2Block(string name)
 		{
 			return player2BlockList[name];
 		}
 
-		public static Player2ProjectileHandler GetPlayer2Projectile(string name)
+		public Player2ProjectileHandler GetPlayer2Projectile(string name)
 		{
 			return player2ProjectileList[name];
 		}
 
-		public static NPC2BlockHandler GetNPC2Block(string name)
+		public Player2ItemHandler GetPlayer2Item(string name)
+		{
+			return player2ItemList[name];
+		}
+
+		public NPC2BlockHandler GetNPC2Block(string name)
 		{
 			return NPC2BlockList[name];
 		}
 
-		public static NPC2ProjectileHandler GetNPC2Projectile(string name)
+		public NPC2ProjectileHandler GetNPC2Projectile(string name)
 		{
 			return NPC2ProjectileList[name];
 		}
 
-		public static Projectile2BlockHandler GetProjectile2Block(string name)
+		public Projectile2BlockHandler GetProjectile2Block(string name)
 		{
 			return projectile2BlockList[name];
 		}

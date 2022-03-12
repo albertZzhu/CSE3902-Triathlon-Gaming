@@ -6,13 +6,22 @@ namespace Sprint3
 {
 	class ResetCom : ICommand
 	{
-		public void Execute(Player player, Item item, Block block, NPC1 enemy)
+		private Player player;
+		public ResetCom(Player player)
 		{
-			player.Reset();
+			this.player = player;
+		}
+		void ICommand.ChangePlayer(Player player)
+		{
+			this.player = player;
+		}
+		public void Execute()
+		{
+			/*player.Reset();
 			item.Reset();
 			block.Reset();
 			enemy.SetIndx(0);
-			enemy.SetLocation(new Vector2(50, 50));
+			enemy.SetLocation(new Vector2(50, 50));*/
 		}
 	}
 }

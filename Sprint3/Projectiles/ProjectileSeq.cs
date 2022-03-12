@@ -1,17 +1,18 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Sprint3
 {
 	class ProjectileSeq
 	{
-		private ArrayList list;
+		private List<Projectile> list;
 		float bias = 30;
 		float biasfireball = 16;
 		public ProjectileSeq()
 		{
-			list = new ArrayList();
+			list = new List<Projectile>();
 		}
 
 		public void NewProjectile(Vector2 newLocation, int direction, int sprite)
@@ -29,7 +30,7 @@ namespace Sprint3
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileLeft")));
 								break;
 							case 2:
-								list.Add(new Projectile(new Vector2(newLocation.X -bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
 								break;
 							case 3:
 								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileDown")));
@@ -56,7 +57,7 @@ namespace Sprint3
 						}
 					}
 					break;
-                case 1:
+				case 1:
 					{
 						switch (direction)
 						{
@@ -82,11 +83,18 @@ namespace Sprint3
 
 		}
 
-		public void Update()
+		public void Update(GameTime gametime)
 		{
-			foreach (Projectile p in list)
+			for(int i=0;i<list.Count;i++)
 			{
-				p.Update();
+				if (!list[i].isDead())
+				{
+					list[i].Update(gametime);
+				}
+				else
+				{
+					list.Remove(list[i]);
+				}
 			}
 		}
 
@@ -96,6 +104,10 @@ namespace Sprint3
 			{
 				p.Draw(spriteBatch);
 			}
+		}
+		public List<Projectile> GetProjList()
+		{
+			return this.list;
 		}
 	}
 }

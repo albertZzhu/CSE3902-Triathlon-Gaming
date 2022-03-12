@@ -2,7 +2,17 @@
 {
 	class MoveDownCom : ICommand
 	{
-		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+		private Player player;
+		public MoveDownCom(Player player)
+		{
+			this.player = player;
+		}
+
+		void ICommand.ChangePlayer(Player player)
+		{
+			this.player = player;
+		}
+		void ICommand.Execute()
 		{
 			player.Move(3);
 		}

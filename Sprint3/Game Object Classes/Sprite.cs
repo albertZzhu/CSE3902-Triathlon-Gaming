@@ -59,7 +59,7 @@ namespace Sprint3
 			//animation
 			//if statement for if totalframes > 1 ?
 			buffer++;
-			if (buffer % 5 == 0)
+			if (buffer % 20 == 0)
 			{
 				currentFrame++;
 				if (currentFrame == frames.Count)

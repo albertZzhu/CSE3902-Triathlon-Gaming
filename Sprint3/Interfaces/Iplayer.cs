@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	interface Iplayer
+	interface Iplayer : IGameObject
 	{
 		void Move(int facing);
 
@@ -20,9 +20,8 @@ namespace Sprint3
 
 		void Reset();
 
-		void Update(GameTime gameTime);
+		void moveLock(int direction);
 
-		void Draw(SpriteBatch spriteBatch);
-
+		void moveunLock(int direction);
 	}
 }

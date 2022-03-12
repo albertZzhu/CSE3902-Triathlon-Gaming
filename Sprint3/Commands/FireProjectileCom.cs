@@ -4,9 +4,20 @@ using System.Text;
 
 namespace Sprint3
 {
+    
     class FireProjectileCom : ICommand
     {
-        void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+        private Player player;
+		public FireProjectileCom(Player player)
+		{
+			this.player = player;
+		}
+
+        void ICommand.ChangePlayer(Player player)
+        {
+            this.player = player;
+        }
+        void ICommand.Execute()
         {
             player.DistantAttack();
         }

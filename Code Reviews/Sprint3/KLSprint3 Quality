@@ -1,0 +1,13 @@
+ Keyi Lu
+ 
+ 3/12/2022
+ 
+ Sprint 3
+ 
+ CommandManager.cs
+ 
+ Leigh
+ 
+ The overall quality is good. But because it involves relatively significant structural changes to our codes, we have not implemented this part into 
+ our final version for this sprint. By looking at this code content, the structure seems maintainable and could help us to simplify our controller 
+ classes when we integrate it in the future sprint. 

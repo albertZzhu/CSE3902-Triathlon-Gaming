@@ -3,35 +3,36 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
+
 
 namespace Sprint3.Collision
 {
 	class ProjectileCollisionDetection
 	{
 		private string projectileName;
-		private IProjectile projectile;
 		private IBlock[] blockInRange;
 
 		private Projectile2BlockHandler blockHandle;
 
-		public ProjectileCollisionDetection(string projectileName, IProjectile p)
+		public ProjectileCollisionDetection(string projectileName, CollisionHandlerDict dict)
 		{
 			this.projectileName = projectileName;
-			this.projectile = p;
 
 
-			this.blockHandle = CollisionHandlerDict.GetProjectile2Block(projectileName);
+			this.blockHandle = dict.GetProjectile2Block(projectileName);
 		}
 
-		public void Detect(IBlock[] blockInRange)
+		public void Detect(IProjectile projectile, IBlock[] blockInRange)
 		{
+			IBlock[] blockInRangeModified = blockInRange.Skip(1).ToArray();
 			this.blockInRange = blockInRange;
 
-			foreach (IBlock b in blockInRange)
+			foreach (IBlock b in blockInRangeModified)
 			{
-				if (this.projectile.GetRect().Intersects(b.GetRect()))
+				if (projectile.GetRect().Intersects(b.GetRect()))
 				{
-					this.blockHandle.Handle(this.projectile, b, Side.side.right);
+					this.blockHandle.Handle(projectile, b, Side.side.right);
 				}
 			}
 		}

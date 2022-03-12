@@ -10,8 +10,6 @@
 
 		//Updates inputs
 		//called in update
-		void CompareStates(Player player, Item item, Block block, NPC1 enemy);
-
-
-	}
+		void CompareStates(Player player);
+    }
 }

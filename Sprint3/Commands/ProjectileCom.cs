@@ -6,7 +6,17 @@ namespace Sprint3
 {
 	class ProjectileCom : ICommand
 	{
-		void ICommand.Execute(Player player, Item item, Block block, NPC1 enemy)
+		private Player player;
+
+		public ProjectileCom(Player player)
+		{
+			this.player = player;
+		}
+		void ICommand.ChangePlayer(Player player)
+		{
+			this.player = player;
+		}
+		void ICommand.Execute()
 		{
 			player.setFireball(0);
 		}

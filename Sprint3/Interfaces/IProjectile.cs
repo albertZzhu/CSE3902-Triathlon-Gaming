@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	interface IProjectile
+	public interface IProjectile : IGameObject
 	{
-		void Update();
+		bool isDead();
 
-		void Draw(SpriteBatch spriteBatch);
+		void die();
 
 		Rectangle GetRect();
 	}

@@ -25,6 +25,10 @@ namespace Sprint3
 			{
 				damaged = true;
 			}
+			else
+			{
+				npc.die();
+			}
 		}
 
 		public void ChangeFacing(int facing)

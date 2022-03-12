@@ -10,6 +10,7 @@ namespace Sprint3
 		private bool damaged = false;
 		private double elapse = 0.0;
 		private bool isMoving = false;
+		
 
 		private Player play;
 
@@ -24,6 +25,7 @@ namespace Sprint3
 		{
 			return facing;
 		}
+
 
 		public void changeMovingState(bool moving)
 		{
