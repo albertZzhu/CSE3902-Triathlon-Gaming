@@ -238,7 +238,20 @@ namespace Sprint3
 			CreateSprite(dragon, 4, 1, 4, "dragon");
 			Texture2D itemHeart = Content.Load<Texture2D>("itemHeart");
 			CreateSprite(itemHeart, 1, 1, 1, "itemHeart");
-
+			Texture2D triforce = Content.Load<Texture2D>("triforce");
+			CreateSprite(triforce, 1, 1, 1, "triforce");
+			Texture2D map = Content.Load<Texture2D>("map");
+			CreateSprite(map, 1, 1, 1, "map");
+			Texture2D boomerang = Content.Load<Texture2D>("boomerang");
+			CreateSprite(boomerang, 1, 1, 1, "boomerang");
+			Texture2D blueGem = Content.Load<Texture2D>("blueGem");
+			CreateSprite(blueGem, 1, 2, 2, "blueGem");
+			Texture2D wallMasterLeft = Content.Load<Texture2D>("wallMasterLeft");
+			CreateSprite(wallMasterLeft, 1, 2, 2, "wallMasterLeft");
+			Texture2D wallMasterRight = Content.Load<Texture2D>("wallMasterRight");
+			CreateSprite(wallMasterRight, 1, 2, 2, "wallMasterRight");
+			Texture2D compass = Content.Load<Texture2D>("compass");
+			CreateSprite(compass, 1, 1, 1, "compass");
 
 		}
 

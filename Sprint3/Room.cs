@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint3.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml;
 
@@ -25,10 +26,12 @@ namespace Sprint3
         //game window edges
         private int boundWidth;
         private int boundHeight;
+        private List<IProjectile> list;
         public Room(String room, int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
+            this.list = new List<IProjectile>();
             loadRoom(room);
         }
 
@@ -249,6 +252,14 @@ namespace Sprint3
         {
             return this.block;
         }
+
+        public IProjectile[] GetNPCProjObj()
+		{   
+            foreach (NPC1 element in this.npc) {
+                list.AddRange(element.GetSeqList());
+            }
+            return list.ToArray();
+		}
 
         public Item[] GetItemObj()
         {

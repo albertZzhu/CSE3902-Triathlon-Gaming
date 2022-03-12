@@ -23,6 +23,7 @@ namespace Sprint3
 		private List<KeyValuePair<Vector2, int>> route;
 		private Vector2 nextpos;
 		private int nextface;
+		private int dragonuse;
 		private int routesCounter;
 		private bool dead;
 		//constructor
@@ -96,11 +97,15 @@ namespace Sprint3
 		//npc projectile used
 		private void DistantAttack()
 		{
-			
-			if(((Sprite)npc).GetFrames()[0].GetBitMap().Name == "dragon") {
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), 1, fireballHolder);
-			} else
-            {
+
+			if (((Sprite)npc).GetFrames()[0].GetBitMap().Name == "dragon")
+			{
+				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse, fireballHolder);
+				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse + 10, fireballHolder);
+				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse - 10, fireballHolder);
+			}
+			else
+			{
 				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
 			}
 		}
@@ -140,7 +145,8 @@ namespace Sprint3
         {
 			this.direction = i;
 			this.nextface = i;
-        }
+			this.dragonuse = i;
+		}
 		//client used
 		public int GetDirection()
         {
@@ -190,7 +196,11 @@ namespace Sprint3
 		public void SetRoute(List<KeyValuePair<Vector2,int>> route)
 		{
 			this.route = route;
-			this.route.Add(new KeyValuePair<Vector2, int>(location, direction));
+			if (this.route != null)
+			{
+				this.route.Add(new KeyValuePair<Vector2, int>(location, direction));
+			}
+			
 			
 		}
 
@@ -231,13 +241,13 @@ namespace Sprint3
 			}
 
         }
-		internal List<Projectile> GetSeqList()
+		internal List<IProjectile> GetSeqList()
 		{
 			if (this.firebool)
 			{
 				return this.proj.GetProjList();
 			}
-			else return new List<Projectile>();
+			else return new List<IProjectile>();
 		}
 		//update func
 		public void Update(GameTime gameTime)

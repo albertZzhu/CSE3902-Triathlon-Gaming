@@ -27,6 +27,7 @@ namespace Sprint3
 		private Player2BlockHandler player2Block;
 		private Player2EnemyHandler player2Enemy;
 		private Player2ProjectileHandler player2Proj;
+		private Player2ItemHandler player2item;
 
 		private NPC2BlockHandler enemy2Block;
 		private NPC2ProjectileHandler enemy2Proj;
@@ -53,6 +54,7 @@ namespace Sprint3
 			player2Block = new Player2BlockHandler();
 			player2Enemy = new Player2EnemyHandler();
 			player2Proj = new Player2ProjectileHandler();
+			player2item = new Player2ItemHandler();
 
 			enemy2Block = new NPC2BlockHandler();
 			enemy2Proj = new NPC2ProjectileHandler();
@@ -73,6 +75,7 @@ namespace Sprint3
 			dict.AddHandler("player1", player2Block);
 			dict.AddHandler("player1", player2Enemy);
 			dict.AddHandler("player1", player2Proj);
+			dict.AddHandler("player1", player2item);
 
 			dict.AddHandler("NPC1", enemy2Block);
 			dict.AddHandler("NPC1", enemy2Proj);
@@ -104,19 +107,10 @@ namespace Sprint3
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
-			if (Keyboard.GetState().IsKeyDown(Keys.D0))
-			{
-				level1.switchPre();
-				level1.loadRoom();
-            }
-			else if (Keyboard.GetState().IsKeyDown(Keys.D1))
-            {
-				level1.switchNext();
-				level1.loadRoom();
-			}
+			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj(), this.level1);
+			
 			level1.Update((gameTime));
-			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetPlayerObj().GetSeqList().ToArray(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj());
+			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetNPCProjObj(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj(), this.level1.GetRoom().GetItemObj());
 
 			foreach (NPC1 npc in this.level1.GetRoom().GetNpcObj())
 			{
@@ -125,6 +119,9 @@ namespace Sprint3
 
 			foreach (IProjectile p in this.level1.GetRoom().GetPlayerObj().GetSeqList().ToArray())
 			{
+				projDetect.Detect(p, this.level1.GetRoom().GetBlockObj());
+			}
+			foreach(IProjectile p in this.level1.GetRoom().GetNPCProjObj()) {
 				projDetect.Detect(p, this.level1.GetRoom().GetBlockObj());
 			}
 
