@@ -1,0 +1,13 @@
+Boru Zhu
+
+3/12/2022
+
+Sprint3
+
+gameObjectManager
+
+Issac Lieber
+
+I can see the quality of the code is good. The code divide the game into several instances, the players, NPCs, items, blocks. I do not think this class need any reusebility since 
+the whole game only needs one object manager to manage all the variables in the game. The functionality of the code is unknown since even if the class is created and implemented
+it hasn't being used in the sprint 3 stage.
