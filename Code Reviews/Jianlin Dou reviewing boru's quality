@@ -1,0 +1,10 @@
+Jianlin Dou reviewing boru's quality
+structure in each collsion detection and handler class maintains higher conhersion. 
+the bug found in playercollsiondetection class is if, for example, player slide into the rectangle texture of a block 
+from the right-up vertex, the player will first check whether itself collide with the block from the right edge. if the 
+overlaping situation happened, the if-else block will confine the player continue overlapping the block texture comming 
+from right. then the player will check whether itself collide with the block from the top edge. if collision happened, 
+player will then be moved upward to avoid the steady increasing overlapped area. the plan works very well even the code 
+are pretty make sense here. but when running the game, if player move into the coner the collison detection part will begin to
+mess up all things. because all 4 directions has been locked. i think that may somehow due to the speed of character. since our 
+speed of character moving so fast, the detection class cannot have enough time to detect collision given the current character's situation.
