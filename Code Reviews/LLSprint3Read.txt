@@ -1,0 +1,7 @@
+Giving the code a once-over, I was able to glean the functionality somewhat easily, but I think 
+comments would help, especially in long if statements and such. This might just be my ADHD, but 
+it's difficult for me to understand a method when it's longer than a page, and even a page is long.
+(see: System I's 10 line limit)
+
+Encapsulating more behavior in general, I think, would help a lot with readability. Splitting up 
+long blocks of code into smaller methods is the first way I could think of doing this.
