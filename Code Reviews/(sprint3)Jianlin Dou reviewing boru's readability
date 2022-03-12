@@ -1,0 +1,19 @@
+Jianlin Dou
+
+3/12/22
+
+Sprint 3
+
+collision folder
+
+boru
+
+shalf a day to understand the code
+The structure in different collision class has higher corhesion.
+varibles in these classes are all private.
+need a brief comments right before different
+functions to increase the reader's understandability.
+less enumberic values, differernt function call can all 
+project onto a real world meaning, which means increase 
+the readability. try simplify the logical connections 
+inside the if-else blocks. 

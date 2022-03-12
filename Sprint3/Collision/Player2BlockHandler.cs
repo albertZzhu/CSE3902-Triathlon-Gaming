@@ -4,50 +4,27 @@ using System.Text;
 
 namespace Sprint3.Collision
 {
-	class Player2BlockHandler : ICollisionHandler<Iplayer, IBlock>
+	class Player2BlockHandler
 	{
 		public Player2BlockHandler()
 		{
-
+			
 		}
 
 
-		public void Handle(Iplayer player, IBlock block, Side.side side)
+		public void Handle(Iplayer player, int[] handleList)
 		{
-			if (side == Side.side.left)
+			for(int i=0;i<handleList.Length;i++)
 			{
-				player.moveLock(1);
-			}else if (side == Side.side.right)
-			{
-				player.moveLock(0);
-			}
-			else if (side == Side.side.up)
-			{
-				player.moveLock(2);
-			}
-			else if (side == Side.side.down)
-			{
-				player.moveLock(3);
-			}
-		}
-
-		public void unHandle(Iplayer player, IBlock block, Side.side side)
-		{
-			if (side == Side.side.left)
-			{
-				player.moveunLock(1);
-			}
-			else if (side == Side.side.right)
-			{
-				player.moveunLock(0);
-			}
-			else if (side == Side.side.up)
-			{
-				player.moveunLock(2);
-			}
-			else if (side == Side.side.down)
-			{
-				player.moveunLock(3);
+				if (handleList[i] == 0)
+				{
+					player.moveLock(i);
+					//*player.Move(i % 2 == 0 ? i + 1 : i - 1);
+				}
+				else
+				{
+					player.moveunLock(i);
+				}
 			}
 		}
 	}

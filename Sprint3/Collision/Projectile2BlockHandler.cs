@@ -13,7 +13,7 @@ namespace Sprint3.Collision
 
 		public void Handle(IProjectile projectile, IBlock block, Side.side side)
 		{
-			projectile = null;
+			projectile.die();
 		}
 	}
 }

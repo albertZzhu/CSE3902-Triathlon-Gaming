@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Sprint3
 {
-	public class KeyboardC : IController
+	class KeyboardC : IController
 	{
 		private Dictionary<Keys, ICommand> keydict = new Dictionary<Keys, ICommand>();
 
@@ -37,15 +37,14 @@ namespace Sprint3
             foreach (Keys key in current)
             {
                 if (playerMove.ContainsKey(key))
-                {
-                    playerMove[key].ChangePlayer(player);
-                    playerMove[key].Execute();
-                }
-                if (Array.IndexOf(current, Keys.Space) != 1)
-                {
-                    break;
-                }
-            }
+				{
+					if(Array.IndexOf(current, Keys.Space) != 1)
+            		{
+                    	playerMove[key].ChangePlayer(player);
+                    	playerMove[key].Execute();
+                	}
+				}
+			}
 
             if (newState.GetPressedKeys().Length > 0)
             {
@@ -88,6 +87,7 @@ namespace Sprint3
 			//keydict.Add(Keys.Y, new BlockForwardCom());
 
 			oldState = Keyboard.GetState();
+			oldMouseState = Mouse.GetState();
 		}
 
 	}

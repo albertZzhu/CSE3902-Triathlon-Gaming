@@ -14,7 +14,7 @@ namespace Sprint3.Collision
 		public void Handle(Iplayer player, IProjectile projectile, Side.side side)
 		{
 			player.GoDamaged();
-			projectile = null;
+			//projectile.die();
 		}
 	}
 }

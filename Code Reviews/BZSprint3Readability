@@ -1,0 +1,13 @@
+Boru Zhu
+
+3/12/2022
+
+Sprint3
+
+gameObjectManager
+
+Issac Lieber
+
+The readabilty of this file need to be divided into two parts. On the one side, the logic behind the code is easy to understand and all the functions and fields are arranged in 
+place. The readability is great under such perspective. On the other side, there is no any comment throughout the whole file. On such perspective, the readability of this file is
+not that good.

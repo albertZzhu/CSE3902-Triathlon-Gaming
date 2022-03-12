@@ -1,0 +1,18 @@
+Isaac Lieber
+
+3/11/22
+
+Sprint 3
+
+Room.cs
+
+Keyi
+
+The way Room has lists of all the objects in the room might make it much easier to use the GameObjectManager. This
+could be a case of duplicated code since the ObjectManager has Lists of each, while this class has arrays. The update, draw, and get 
+methods (for collision) are very simple and clean. I haven't worked much with the xml files, and so I can't say too much about loadRoom,
+but it looks fairly clean as well. I think the refactoring of this class using GOM will make it much simpler and less repeated.
+
+Another issue with this code is that it requires the xml file to be either placed in the Debug folder or the path to be changed depending
+on the machine. Once we figure out the best way to manage this, this will be a simple fix, but for now, it can make the project difficult
+to manage working in this team environment.
