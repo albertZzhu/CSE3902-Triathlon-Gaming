@@ -106,7 +106,7 @@ namespace Sprint3
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj(), this.level1);
+			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
 			
 			level1.Update((gameTime));
 			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetNPCProjObj(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj(), this.level1.GetRoom().GetItemObj());

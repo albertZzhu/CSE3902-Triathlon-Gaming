@@ -87,7 +87,6 @@ namespace Sprint3
 			//keydict.Add(Keys.Y, new BlockForwardCom());
 
 			oldState = Keyboard.GetState();
-			oldMouseState = Mouse.GetState();
 		}
 
 	}
