@@ -8,7 +8,7 @@ namespace Sprint3
 	public class Player : Iplayer
 	{
 		private ISprite sprite = new Sprite();
-		private Vector2 location = new Vector2(100, 280);
+		private Vector2 location = new Vector2(100, 250);
 		private PlayerStateMechine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
