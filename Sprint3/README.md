@@ -17,25 +17,22 @@ This sprint, we knew we had to implement collision and create the rooms of the f
 * user can use <code>1</code>, <code>2</code>, or <code>3</code> to switch different projectiles
 * user can use <code>space</code> to fire projectiles
 
-##### added NPC:
+##### Added NPC:
 * NPC can fire projectiles
 * NPC can move automatically
 * dragon can fire three fireballs at the same time
 
-##### added room switching:
+##### Added Room Switching:
 * user can use <code>0</code> to switch to the next room
 * user can use <code>9</code> to switch to the previous room
 
-##### added collision:
+##### Added Collision:
 * player can detect interaction with NPC's projectiles, blocks and items
 
 ##### KNOWN ISSUES:
-* the player maybe be stucked at up-left corner
+* the player may be stuck on blocks and walls slightly by its toes / head
 * no damage caused via player doing melee attacks
-* no HP attribute, one time fire can remove the enemy out of the room 
-* The room flickers when the room changes from one to another.
 * The player's damage sprite is larger than is correct.
 * When facing left, the player's projectiles collide with the player's hitbox, causing damage.
 * The player's melee attack animations do not play properly.
-* Sometimes, the player will get stuck inside blocks. 
 
