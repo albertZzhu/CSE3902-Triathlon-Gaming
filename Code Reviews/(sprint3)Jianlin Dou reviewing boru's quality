@@ -1,4 +1,12 @@
-Jianlin Dou reviewing boru's quality
+Jianlin Dou
+
+3/12/22
+
+Sprint 3
+
+collision folder
+
+boru
 structure in each collsion detection and handler class maintains higher conhersion. 
 the bug found in playercollsiondetection class is if, for example, player slide into the rectangle texture of a block 
 from the right-up vertex, the player will first check whether itself collide with the block from the right edge. if the 
