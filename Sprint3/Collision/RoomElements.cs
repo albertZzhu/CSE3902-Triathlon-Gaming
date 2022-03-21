@@ -5,14 +5,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Sprint3
+namespace Sprint3.Collision
 {
-	public interface IProjectile : IGameObject
+	class RoomElements
 	{
-		bool isDead();
 
-		void die();
+		public RoomElements()
+		{
 
-		Rectangle GetRect();
+		}
 	}
 }

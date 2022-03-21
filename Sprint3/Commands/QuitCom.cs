@@ -7,7 +7,11 @@ namespace Sprint3
 {
 	class QuitCom : ICommand
 	{
-		public void Execute(Player player)
+		void ICommand.ChangePlayer(Player player)
+		{
+
+		}
+		public void Execute()
 		{
 			System.Windows.Forms.Application.Exit();
 		}
