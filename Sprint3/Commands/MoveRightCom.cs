@@ -2,16 +2,7 @@
 {
 	class MoveRightCom : ICommand
 	{
-		private Player player;
-		public MoveRightCom(Player player)
-		{
-			this.player = player;
-		}
-		void ICommand.ChangePlayer(Player player)
-		{
-			this.player = player;
-		}
-		void ICommand.Execute()
+		void ICommand.Execute(Player player)
 		{
 			player.Move(0);
 		}

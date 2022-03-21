@@ -5,7 +5,7 @@
 	{
 		//operates on a dictionary object? "data driven..."
 		//only function is execute?
-		void ChangePlayer(Player player);
-		void Execute();
+
+		void Execute(Player player);
 	}
 }

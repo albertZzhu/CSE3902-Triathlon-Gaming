@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint3
 {
-	public interface IProjectile : IGameObject
+	interface IProjectile : IGameObject
 	{
 		bool isDead();
 

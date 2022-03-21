@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace Sprint3
 {
-    public class Room : IRoom
+    class Room : IRoom
     {   
         //block obj holder variables
         private Block[] block;
