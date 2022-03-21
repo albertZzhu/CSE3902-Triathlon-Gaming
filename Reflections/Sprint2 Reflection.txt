@@ -1,0 +1,24 @@
+﻿Developing Log of sprint2: 
+Current known bugs: 
+1. When the main character is moving in the same direction as the NPC does, the frames of the NPC are updated faster than the original speed. 
+2. Holding the {w, a, s, d} keys cannot move the main character continuously.
+3. The frames of moving upward and downward projectiles sprite sheets are updated gradually faster following the change of gametime. 
+4. The attack animations do not all play once per key press. Some play 1.5 times, etc.
+        5. Left and right Moving damage sprite sheet cannot work properly. 
+        6. The projectiles only face one direction right now, instead of the same way the player faces.（solved on 2/20/2022: 14: 41PM）
+
+
+Suggestions on future update: 
+1. Once the projectiles move outside the game window’s edge, we should dequeue the projectile object in the projectile typed list to stop updating the position and frames of these invisible projectile objects. That’s a waste of our computer’s memory. 
+2. We should change the update functions to include a GameTime object.
+3. Using enum to give those{0, 1, 2, 3} variables in stateMachine class a real meaning. 
+        4. Scale down the size of each class. 
+        5. Data encapsulation is the most important. Variables in each class should be defined private and use set or get functions to revise or access these variables. 
+                6. Instead of using only 2 conditions to control the NPC moving horizontally and vertically and then bounced back once it hit the edge of game window, it might be convincible to setup four conditions {moving left, right, up, down} and then setup the route map for each specific NPC.
+
+
+Team based summarization:
+Our team made a great start at the beginning of Sprint 2. We successfully set up our repository and added everyone into the repository. We also made an agreement on who’s sprint 0 we wanted to use as the template for our sprint. Additionally, we also made a strong plan through a spreadsheet. However, we did not track how many hours we thought tasks would take, and we did not mark down when we finished tasks very often. We did well at completing each of our own tasks.
+
+
+We definitely finished a fair bit of the sprint closer to the deadline than we had planned. This was partially due to several exams our teammates had. In the future, we would like to finish the functionality of the sprint earlier, and spend more time polishing the code, and do a better job documenting our timeline.
