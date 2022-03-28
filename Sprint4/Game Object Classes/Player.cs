@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.State_Machines;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,7 +10,7 @@ namespace Sprint4
 	{
 		private ISprite sprite = new Sprite();
 		private Vector2 location = new Vector2(100, 250);
-		private PlayerStateMechine state;
+		private PlayerStateMachine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
@@ -23,45 +24,45 @@ namespace Sprint4
 
 		public Player(int boundWidth, int boundHeight)
 		{
-			state = new PlayerStateMechine(this);
+			state = new PlayerStateMachine(this);
 			this.proj = new ProjectileSeq();
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
 		}
 
-		public void moveLock(int direction)
+		public void moveLock(Facing direction)
 		{
 			switch (direction)
 			{
-				case 0:
+				case Facing.RIGHT:
 					this.canMoveRight = false;
 					break;
-				case 1:
+				case Facing.LEFT:
 					this.canMoveLeft = false;
 					break;
-				case 2:
+				case Facing.UP:
 					this.canMoveUp = false;
 					break;
-				case 3:
+				case Facing.DOWN:
 					this.canMoveDown = false;
 					break;
 			}
 		}
 
-		public void moveunLock(int direction)
+		public void moveunLock(Facing direction)
 		{
 			switch (direction)
 			{
-				case 0:
+				case Facing.RIGHT:
 					this.canMoveRight = true;
 					break;
-				case 1:
+				case Facing.LEFT:
 					this.canMoveLeft = true;
 					break;
-				case 2:
+				case Facing.UP:
 					this.canMoveUp = true;
 					break;
-				case 3:
+				case Facing.DOWN:
 					this.canMoveDown = true;
 					break;
 			}
@@ -79,31 +80,31 @@ namespace Sprint4
 		//positive x, increment to the right. negative x, decrement to the left.
 		//positive y, increment down. negative y, decrement up. 
 		//x could be 1 for walking or 5 for sprinting 
-		public void Move(int facing)
+		public void Move(Facing facing)
 		{
 			state.ChangeFacing(facing);
 			state.changeMovingState(true);
 			switch (facing)
 			{
-				case 0:
+				case Facing.RIGHT:
 					if (location.X + 10 < boundWidth - 20&&canMoveRight)
 					{
 						location = new Vector2(location.X + velocity, location.Y);
 					}
 					break;
-				case 1:
+				case Facing.LEFT:
 					if (location.X - 10 > 0&&canMoveLeft)
 					{
 						location = new Vector2(location.X - velocity, location.Y);
 					}
 					break;
-				case 2:
+				case Facing.UP:
 					if (location.Y - 10 > 0&&canMoveUp)
 					{
 						location = new Vector2(location.X, location.Y - velocity);
 					}
 					break;
-				case 3:
+				case Facing.DOWN:
 					if (location.Y + 10 < boundHeight - 30&&canMoveDown)
 					{
 						location = new Vector2(location.X, location.Y + velocity);

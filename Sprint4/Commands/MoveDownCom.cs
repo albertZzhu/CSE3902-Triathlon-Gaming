@@ -14,7 +14,7 @@
 		}
 		void ICommand.Execute()
 		{
-			player.Move(3);
+			player.Move(State_Machines.Facing.DOWN);
 		}
 	}
 }

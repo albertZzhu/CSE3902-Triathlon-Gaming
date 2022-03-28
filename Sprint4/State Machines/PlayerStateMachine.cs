@@ -1,11 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Sprint4.State_Machines;
 
 namespace Sprint4
 {
-	class PlayerStateMechine
+	class PlayerStateMachine
 	{
-		private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		//should replace with facing enum 
+		//private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		Facing facing;
 		private bool attack = false;
 		private bool damaged = false;
 		private double elapse = 0.0;
@@ -15,13 +18,13 @@ namespace Sprint4
 		private Player play;
 
 
-		public PlayerStateMechine(Player player)
+		public PlayerStateMachine(Player player)
 		{
 			this.play = player;
 
 		}
 
-		public int FacingState()
+		public Facing FacingState()
 		{
 			return facing;
 		}
@@ -42,7 +45,7 @@ namespace Sprint4
 			damaged = !damaged;
 		}
 
-		public void ChangeFacing(int facing)
+		public void ChangeFacing(Facing facing)
 		{
 			this.facing = facing;
 		}
@@ -51,7 +54,7 @@ namespace Sprint4
 		{
 			switch (facing)
 			{
-				case 0:
+				case Facing.RIGHT:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
@@ -84,7 +87,7 @@ namespace Sprint4
 						play.SetSprite(SpriteFactory.GetSprite("right_still"));
 					}
 					break;
-				case 1:
+				case Facing.LEFT:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("left_throw"));
@@ -117,7 +120,7 @@ namespace Sprint4
 						play.SetSprite(SpriteFactory.GetSprite("left_still"));
 					}
 					break;
-				case 2:
+				case Facing.UP:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
@@ -150,7 +153,7 @@ namespace Sprint4
 						play.SetSprite(SpriteFactory.GetSprite("front_still"));
 					}
 					break;
-				case 3:
+				case Facing.DOWN:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("back_throw"));

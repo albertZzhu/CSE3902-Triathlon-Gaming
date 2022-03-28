@@ -1,4 +1,6 @@
-﻿namespace Sprint4
+﻿using Sprint4.State_Machines;
+
+namespace Sprint4
 {
 	class MoveLeftCom : ICommand
 	{
@@ -14,7 +16,7 @@
 		}
 		void ICommand.Execute()
 		{
-			player.Move(1);
+			player.Move(Facing.LEFT);
 		}
 	}
 }

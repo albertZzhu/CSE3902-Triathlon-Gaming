@@ -1,18 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Sprint3",
-<<<<<<< HEAD
-    "\\Sprint3\\Commands",
     "\\Sprint4",
-    "\\Sprint4\\Commands"
+    "\\Sprint4\\State Machines"
   ],
-  "SelectedNode": "\\Sprint4\\Sprint4.sln",
-=======
-    "\\Sprint3\\Game Object Classes",
-    "\\Sprint3\\Interfaces"
-  ],
-  "SelectedNode": "\\Sprint3\\Sprint3.sln",
->>>>>>> Sprint3
+  "SelectedNode": "\\Sprint4\\State Machines\\PlayerStateMachine.cs",
   "PreviewInSolutionExplorer": false
 }

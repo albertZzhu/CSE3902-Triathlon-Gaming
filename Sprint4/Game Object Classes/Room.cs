@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint4.Interfaces;
+using Sprint4.State_Machines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Sprint4
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("../levelData.xml");
+            xml.Load("C:\\Users\\sclyn\\Documents\\GitHub\\CSE3902-Triathlon-Gaming\\Sprint4\\Content\\levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -121,7 +122,8 @@ namespace Sprint4
                                     this.npc[i] = new NPC1(this.boundWidth, this.boundHeight);
                                     this.npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
                                     this.npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
-                                    this.npc[i].SetDirection(int.Parse(Einfo[1].InnerText));
+                                    //cast here......
+                                    this.npc[i].SetDirection((Facing)int.Parse(Einfo[1].InnerText));
                                     XmlNodeList npctextures = Einfo[2].ChildNodes;
                                     this.Textureholder = new List<string>();
                                     this.Textureholder.Add(npctextures[2].InnerText);

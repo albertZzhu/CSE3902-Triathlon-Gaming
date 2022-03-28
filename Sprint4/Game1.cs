@@ -10,19 +10,19 @@ namespace Sprint4
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
+		//not used
+		//private SpriteFactory factory;
+		//private SpriteFont font;
+
 		public Level1 level1;
-		//set a default sprite?
-		//singleton sprite factory 
-		//private SpriteFactory _spriteFactory; - should not be needed since its all static
+
 		private KeyboardC _keyboardCon;
-		private SpriteFactory factory;
+
 		private int boundWidth;
 		private int boundHeight;
-		//private int x;
-		//private int y;
-		private SpriteFont font;
 
-		private CollisionHandlerDict dict;
+		//collision
+		private CollisionHandlerDict collisionDict;
 
 		private Player2BlockHandler player2Block;
 		private Player2EnemyHandler player2Enemy;
@@ -43,14 +43,16 @@ namespace Sprint4
 			_graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			IsMouseVisible = true;
-			dict = new CollisionHandlerDict();
+			collisionDict = new CollisionHandlerDict();
 		}
 
 		protected override void Initialize()
 		{
+			//setting  game window
 			_graphics.PreferredBackBufferWidth = 800;
 			_graphics.PreferredBackBufferHeight = 550;
 
+			//collison items : this should be handled by something... game obj manager?
 			player2Block = new Player2BlockHandler();
 			player2Enemy = new Player2EnemyHandler();
 			player2Proj = new Player2ProjectileHandler();
@@ -62,9 +64,13 @@ namespace Sprint4
 			proj2Blcok = new Projectile2BlockHandler();
 
 			_graphics.ApplyChanges();
+
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
-			factory = SpriteFactory.GetFactory(Content);
+
+			//factory is never used anywhere
+			/*factory = */SpriteFactory.GetFactory(Content);
+
 			level1 = new Level1(boundWidth, boundHeight);
 			
 			level1.loadRoom();
@@ -72,22 +78,22 @@ namespace Sprint4
 			_keyboardCon = new KeyboardC(level1, level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
 
-			dict.Initialize();
+			//this should be encapsulated
+			collisionDict.Initialize();
 
-			dict.AddHandler("player1", player2Block);
-			dict.AddHandler("player1", player2Enemy);
-			dict.AddHandler("player1", player2Proj);
-			dict.AddHandler("player1", player2item);
+			collisionDict.AddHandler("player1", player2Block);
+			collisionDict.AddHandler("player1", player2Enemy);
+			collisionDict.AddHandler("player1", player2Proj);
+			collisionDict.AddHandler("player1", player2item);
 
-			dict.AddHandler("NPC1", enemy2Block);
-			dict.AddHandler("NPC1", enemy2Proj);
+			collisionDict.AddHandler("NPC1", enemy2Block);
+			collisionDict.AddHandler("NPC1", enemy2Proj);
 
-			dict.AddHandler("Projectile1", proj2Blcok);
+			collisionDict.AddHandler("Projectile1", proj2Blcok);
 
-			playerDetect = new PlayerCollisionDetection("player1", dict);
-			npcDetect = new NPCCollisionDetection("NPC1", dict);
-			projDetect = new ProjectileCollisionDetection("Projectile1", dict);
-
+			playerDetect = new PlayerCollisionDetection("player1", collisionDict);
+			npcDetect = new NPCCollisionDetection("NPC1", collisionDict);
+			projDetect = new ProjectileCollisionDetection("Projectile1", collisionDict);
 
 			base.Initialize();
 		}
@@ -95,11 +101,10 @@ namespace Sprint4
 		protected override void LoadContent()
 		{
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
-			//how should we implement this?
-			//player class should hold all sprites for it?
-			//sprite factory????????
-			//_player.sprite = factory creates player sprite
-			font = Content.Load<SpriteFont>("coortest");
+			//nothing needs to be done here...?
+
+			//font is not used
+			//font = Content.Load<SpriteFont>("coortest");
 
 
 		}
@@ -109,6 +114,8 @@ namespace Sprint4
 			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
 			
 			level1.Update((gameTime));
+
+			//again, a lot of lines for collision
 			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetNPCProjObj(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj(), this.level1.GetRoom().GetItemObj());
 
 			foreach (NPC1 npc in this.level1.GetRoom().GetNpcObj())
@@ -131,6 +138,7 @@ namespace Sprint4
 
 		protected override void Draw(GameTime gameTime)
 		{
+			//change this to black...?
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			_spriteBatch.Begin();
