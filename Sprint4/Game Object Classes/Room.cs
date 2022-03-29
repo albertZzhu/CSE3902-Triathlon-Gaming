@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint4.Interfaces;
 using Sprint4.State_Machines;
 using System;
 using System.Collections.Generic;
