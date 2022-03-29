@@ -10,14 +10,16 @@ namespace Sprint4
     {
         private Dictionary<int, String> rooms;
         public Room room;
+        public GameObjectManager gom;
         private int boundWidth;
         private int boundHeight;
         private int index;
-        public Level1(int boundWidth, int boundHeight)
+        public Level1(GameObjectManager gom, int boundWidth, int boundHeight)
         {
             this.index = 1;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
+            this.gom = gom;
             this.rooms = new Dictionary<int, String>();
             rooms.Add(1, "room1");
             rooms.Add(2, "room2");
@@ -40,7 +42,7 @@ namespace Sprint4
         //mouse pressed might need to call this func to initiate different room classes.
         public void loadRoom()
         {
-            this.room = new Room(this.rooms[this.index], boundWidth, boundHeight);
+            this.room = new Room(this.rooms[this.index], gom, boundWidth, boundHeight);
         }
 
         public Room GetRoom()
@@ -49,12 +51,12 @@ namespace Sprint4
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            this.room.Draw(spriteBatch);
+            //this.room.Draw(spriteBatch);
         }
 
         public void Update(GameTime gameTime)
         {
-            this.room.Update(gameTime);
+            //this.room.Update(gameTime);
         }
 
         public void switchPre()

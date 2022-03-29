@@ -28,10 +28,12 @@ namespace Sprint4
         private int boundWidth;
         private int boundHeight;
         private List<IProjectile> list;
-        public Room(String room, int boundWidth, int boundHeight)
+        private GameObjectManager gom;
+        public Room(String room, GameObjectManager gom,  int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
+            this.gom = gom;
             this.list = new List<IProjectile>();
             loadRoom(room);
         }
@@ -175,12 +177,17 @@ namespace Sprint4
                 }
 
             }
-
+            gom.ClearLists();
+            gom.PopulatePlayers(player);
+            gom.PopulateBlocks(block);
+            gom.PopulateItems(item);
+            gom.PopulateEnemies(npc);
+            gom.AddLists();
 
         }
         public void Update(GameTime gameTime)
         {   
-            if(this.block.Length != 0)
+            /*if(this.block.Length != 0)
             {
                 foreach (Block block in this.block)
                 {
@@ -211,12 +218,12 @@ namespace Sprint4
                 }
             }
             
-            this.player.Update(gameTime);
+            this.player.Update(gameTime);*/
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (this.block.Length != 0)
+            /*if (this.block.Length != 0)
             {
                 foreach (Block block in this.block)
                 {
@@ -246,7 +253,7 @@ namespace Sprint4
                     }
                 }
             }
-            this.player.Draw(spriteBatch);
+            this.player.Draw(spriteBatch);*/
         }
 
         //collision will need these func to check objects interactions.(boru might use these funcs)

@@ -74,7 +74,9 @@ namespace Sprint4
 			//factory is never used anywhere
 			/*factory = */SpriteFactory.GetFactory(Content);
 
-			level1 = new Level1(boundWidth, boundHeight);
+			gameObjectManager = new GameObjectManager();
+
+			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			
 			level1.loadRoom();
 
@@ -120,7 +122,7 @@ namespace Sprint4
 			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			
-			level1.Update((gameTime));
+			gameObjectManager.Update((gameTime));
 			
 
 			//again, a lot of lines for collision
@@ -147,10 +149,10 @@ namespace Sprint4
 		protected override void Draw(GameTime gameTime)
 		{
 			//change this to black...?
-			GraphicsDevice.Clear(Color.CornflowerBlue);
+			GraphicsDevice.Clear(Color.Black);
 
 			_spriteBatch.Begin();
-			level1.Draw(_spriteBatch);
+			gameObjectManager.Draw(_spriteBatch);
 			//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
 			_spriteBatch.End();
 			base.Draw(gameTime);

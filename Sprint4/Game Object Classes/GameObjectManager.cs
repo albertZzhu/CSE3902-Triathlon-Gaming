@@ -28,27 +28,29 @@ namespace Sprint4
 			players.Add(player);
 		}
 
-		public void PopulateItems(Item item)
+		public void PopulateItems(Item[] itemArr)
 		{
-			items.Add(item);
+			foreach(Item item in itemArr)
+				items.Add(item);
 		}
 
-		public void PopulateBlocks(Block block)
+		public void PopulateBlocks(Block[] blockArr)
 		{
-			blocks.Add(block);
+			foreach (Block block in blockArr)
+				blocks.Add(block);
 		}
 
-		public void PopulateEnemies(NPC1 enemy)
+		public void PopulateEnemies(NPC1[] enemyArr)
 		{
-			enemies.Add(enemy);
+			foreach (NPC1 enemy in enemyArr)
+				enemies.Add(enemy);
 		}
 
 		public void ClearLists()
         {
-			players.Clear();
-			items.Clear();
-			blocks.Clear();
-			enemies.Clear();
+			foreach (List<IGameObject> list in lists)
+				list.Clear();
+			lists.Clear();
         }
 
 		public void Update(GameTime gameTime)
