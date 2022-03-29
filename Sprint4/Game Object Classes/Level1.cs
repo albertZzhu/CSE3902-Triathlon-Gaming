@@ -12,10 +12,10 @@ namespace Sprint4
         public Room room;
         private int boundWidth;
         private int boundHeight;
-        private int i;
+        private int index;
         public Level1(int boundWidth, int boundHeight)
         {
-            this.i = 1;
+            this.index = 1;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.rooms = new Dictionary<int, String>();
@@ -40,7 +40,7 @@ namespace Sprint4
         //mouse pressed might need to call this func to initiate different room classes.
         public void loadRoom()
         {
-            this.room = new Room(this.rooms[this.i], boundWidth, boundHeight);
+            this.room = new Room(this.rooms[this.index], boundWidth, boundHeight);
         }
 
         public Room GetRoom()
@@ -59,19 +59,19 @@ namespace Sprint4
 
         public void switchPre()
         {
-            this.i--;
-            if (this.i < 1)
+            this.index--;
+            if (this.index < 1)
             {
-                this.i = 16;
+                this.index = 16;
             }
         }
 
         public void switchNext()
         {
-            this.i++;
-            if (this.i > 16)
+            this.index++;
+            if (this.index > 16)
             {
-                this.i = 1;
+                this.index = 1;
             }
         }
     }
