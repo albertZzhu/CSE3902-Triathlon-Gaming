@@ -20,7 +20,7 @@ namespace Sprint4
 
 		public PlayerStateMachine(Player player)
 		{
-			this.play = player;
+			play = player;
 
 		}
 
@@ -32,7 +32,7 @@ namespace Sprint4
 
 		public void changeMovingState(bool moving)
 		{
-			this.isMoving = moving;
+			isMoving = moving;
 		}
 
 		public void Attack()

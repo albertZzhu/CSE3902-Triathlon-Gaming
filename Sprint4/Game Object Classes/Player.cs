@@ -25,7 +25,7 @@ namespace Sprint4
 		public Player(int boundWidth, int boundHeight)
 		{
 			state = new PlayerStateMachine(this);
-			this.proj = new ProjectileSeq();
+			proj = new ProjectileSeq();
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
 		}
@@ -35,16 +35,16 @@ namespace Sprint4
 			switch (direction)
 			{
 				case Facing.RIGHT:
-					this.canMoveRight = false;
+					canMoveRight = false;
 					break;
 				case Facing.LEFT:
-					this.canMoveLeft = false;
+					canMoveLeft = false;
 					break;
 				case Facing.UP:
-					this.canMoveUp = false;
+					canMoveUp = false;
 					break;
 				case Facing.DOWN:
-					this.canMoveDown = false;
+					canMoveDown = false;
 					break;
 			}
 		}
@@ -54,16 +54,16 @@ namespace Sprint4
 			switch (direction)
 			{
 				case Facing.RIGHT:
-					this.canMoveRight = true;
+					canMoveRight = true;
 					break;
 				case Facing.LEFT:
-					this.canMoveLeft = true;
+					canMoveLeft = true;
 					break;
 				case Facing.UP:
-					this.canMoveUp = true;
+					canMoveUp = true;
 					break;
 				case Facing.DOWN:
-					this.canMoveDown = true;
+					canMoveDown = true;
 					break;
 			}
 		}
@@ -75,7 +75,7 @@ namespace Sprint4
 		internal List<Projectile> GetSeqList()
 		{
 			
-				return this.proj.GetProjList();
+				return proj.GetProjList();
 		}
 		//positive x, increment to the right. negative x, decrement to the left.
 		//positive y, increment down. negative y, decrement up. 
@@ -117,7 +117,7 @@ namespace Sprint4
 
 		public void DistantAttack()
 		{
-			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), this.spriteNum);
+			proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)
@@ -127,7 +127,7 @@ namespace Sprint4
 
 		public Rectangle GetRect()
 		{
-			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.sprite.getSize().X, (int)this.sprite.getSize().Y);
+			Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)sprite.getSize().X, (int)sprite.getSize().Y);
 			return opt;
 		}
 
@@ -173,7 +173,7 @@ namespace Sprint4
 
 		public void setFireball(int i)
 		{
-			this.spriteNum = i;
+			spriteNum = i;
 		}
 	}
 }

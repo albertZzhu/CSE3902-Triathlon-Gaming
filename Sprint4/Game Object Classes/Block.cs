@@ -27,7 +27,7 @@ namespace Sprint4
 
 		public Rectangle GetRect()
 		{
-			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.blockSprite.getSize().X, (int)this.blockSprite.getSize().Y);
+			Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)blockSprite.getSize().X, (int)blockSprite.getSize().Y);
 			return opt;
 		}
 
@@ -42,12 +42,12 @@ namespace Sprint4
 
 		public void SetSprite(ISprite spr)
 		{
-			this.blockSprite = spr;
+			blockSprite = spr;
 		}
 
 		public ISprite GetItem()
 		{
-			return this.blockSprite;
+			return blockSprite;
 		}
 		public void SetBlock(String blockTexture)
 		{
@@ -56,7 +56,7 @@ namespace Sprint4
 
 		public void Update(GameTime gameTime)
 		{
-			SetSprite(SpriteFactory.GetSprite(this.blockTexture));
+			SetSprite(SpriteFactory.GetSprite(blockTexture));
 			blockSprite.Update();
 		}
 

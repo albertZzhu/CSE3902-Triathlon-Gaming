@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace Sprint4
 {
-    public class Room : IRoom
+    public class Room
     {   
         //block obj holder variables
         private Block[] block;
@@ -34,7 +34,7 @@ namespace Sprint4
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
-            this.list = new List<IProjectile>();
+            list = new List<IProjectile>();
             loadRoom(room);
         }
 
@@ -185,81 +185,11 @@ namespace Sprint4
             gom.AddLists();
 
         }
-        public void Update(GameTime gameTime)
-        {   
-            /*if(this.block.Length != 0)
-            {
-                foreach (Block block in this.block)
-                {
-                    if (item != null)
-                    {
-                        block.Update(gameTime);
-                    }
-                }
-            }
-            if (this.item.Length != 0)
-            {
-                foreach (Item item in this.item)
-                {
-                    if (item != null)
-                    {
-                        item.Update(gameTime);
-                    }
-                }
-            }
-            if (this.npc.Length != 0)
-            {
-                foreach (NPC1 npc in this.npc)
-                {
-                    if (npc != null)
-                    {
-                        npc.Update(gameTime);
-                    }
-                }
-            }
-            
-            this.player.Update(gameTime);*/
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            /*if (this.block.Length != 0)
-            {
-                foreach (Block block in this.block)
-                {
-                    if (block != null) 
-                    {
-                        block.Draw(spriteBatch);
-                    }
-                }
-            }
-            if (this.item.Length != 0)
-            {
-                foreach (Item item in this.item)
-                {
-                    if (item != null)
-                    {
-                        item.Draw(spriteBatch);
-                    }
-                }
-            }
-            if (this.npc.Length != 0)
-            {
-                foreach (NPC1 npc in this.npc)
-                {
-                    if (npc != null)
-                    {
-                        npc.Draw(spriteBatch);
-                    }
-                }
-            }
-            this.player.Draw(spriteBatch);*/
-        }
 
         //collision will need these func to check objects interactions.(boru might use these funcs)
         public Block[] GetBlockObj()
         {
-            return this.block;
+            return block;
         }
 
         public IProjectile[] GetNPCProjObj()
@@ -272,17 +202,17 @@ namespace Sprint4
 
         public Item[] GetItemObj()
         {
-            return this.item;
+            return item;
         }
 
         public NPC1[] GetNpcObj()
         {
-            return this.npc;
+            return npc;
         }
 
         public Player GetPlayerObj()
         {
-            return this.player;
+            return player;
         }
 
        

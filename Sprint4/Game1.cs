@@ -126,19 +126,19 @@ namespace Sprint4
 			
 
 			//again, a lot of lines for collision
-			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetNPCProjObj(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj(), this.level1.GetRoom().GetItemObj());
+			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), level1.GetRoom().GetNPCProjObj(), level1.GetRoom().GetNpcObj(), level1.GetRoom().GetBlockObj(), level1.GetRoom().GetItemObj());
 
-			foreach (NPC1 npc in this.level1.GetRoom().GetNpcObj())
+			foreach (NPC1 npc in level1.GetRoom().GetNpcObj())
 			{
-				npcDetect.Detect(npc, this.level1.GetRoom().GetPlayerObj().GetSeqList().ToArray(), this.level1.GetRoom().GetBlockObj());
+				npcDetect.Detect(npc, level1.GetRoom().GetPlayerObj().GetSeqList().ToArray(), level1.GetRoom().GetBlockObj());
 			}
 
-			foreach (IProjectile p in this.level1.GetRoom().GetPlayerObj().GetSeqList().ToArray())
+			foreach (IProjectile p in level1.GetRoom().GetPlayerObj().GetSeqList().ToArray())
 			{
-				projDetect.Detect(p, this.level1.GetRoom().GetBlockObj());
+				projDetect.Detect(p, level1.GetRoom().GetBlockObj());
 			}
-			foreach(IProjectile p in this.level1.GetRoom().GetNPCProjObj()) {
-				projDetect.Detect(p, this.level1.GetRoom().GetBlockObj());
+			foreach(IProjectile p in level1.GetRoom().GetNPCProjObj()) {
+				projDetect.Detect(p, level1.GetRoom().GetBlockObj());
 			}
 
 			//x = Mouse.GetState().X;

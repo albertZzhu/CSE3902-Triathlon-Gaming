@@ -66,7 +66,7 @@ namespace Sprint4
 		}
 		public List<IProjectile> GetProjList()
 		{
-			return this.list;
+			return list;
 		}
 		public void Update(GameTime gameTime)
 		{

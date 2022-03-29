@@ -29,7 +29,7 @@ namespace Sprint4
 
         public Rectangle GetRect()
         {
-            Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.item.getSize().X, (int)this.item.getSize().Y);
+            Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)item.getSize().X, (int)item.getSize().Y);
             return opt;
         }
 
@@ -66,7 +66,7 @@ namespace Sprint4
             if (!disappear)
             {
                 //get key presses here?
-                SetSprite(SpriteFactory.GetSprite(this.itemTexture));
+                SetSprite(SpriteFactory.GetSprite(itemTexture));
                 item.Update();
             }
         }

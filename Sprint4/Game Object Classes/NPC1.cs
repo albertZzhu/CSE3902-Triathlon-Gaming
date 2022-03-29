@@ -101,20 +101,20 @@ namespace Sprint4
 
 			if (((Sprite)npc).GetFrames()[0].GetBitMap().Name == "dragon")
 			{
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse, fireballHolder);
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse + 10, fireballHolder);
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse - 10, fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse, fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse + 10, fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse - 10, fireballHolder);
 			}
 			else
 			{
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
 			}
 		}
 		//room class used
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
-			this.nextpos = newLocation;
+			nextpos = newLocation;
 		}
 		//client used
 		public Vector2 GetLocation()
@@ -124,12 +124,12 @@ namespace Sprint4
 		//room class used
 		public void setTimer(float i)
 		{
-			this.timespan = i;
+			timespan = i;
 		}
 		//client used
 		public float GetTimer()
         {
-			return this.timespan;
+			return timespan;
         }
 		//state machine used
 		public void SetNpc(ISprite npc)
@@ -144,14 +144,14 @@ namespace Sprint4
 		//room class used
 		public void SetDirection(Facing f)
         {
-			this.direction = f;
-			this.nextface = f;
-			this.dragonuse = f;
+			direction = f;
+			nextface = f;
+			dragonuse = f;
 		}
 		//client used
 		public Facing GetDirection()
         {
-			return this.direction;
+			return direction;
         }
 		//room class used
 		public void SetFireBallList(List<string> fireballHolder)
@@ -161,7 +161,7 @@ namespace Sprint4
 		//client used
 		public List<string> GetFireBallList()
         {
-			return this.fireballHolder;
+			return fireballHolder;
         }
 		//room class used
 		public void SetNpcList(List<string> npcHolder)
@@ -171,7 +171,7 @@ namespace Sprint4
 		//client used
 		public List<string> GetNpcList()
 		{
-			return this.npcHolder;
+			return npcHolder;
 		}
 		//room class used
 		public void SetFireBool(bool firebool)
@@ -181,7 +181,7 @@ namespace Sprint4
 		//client used
 		public bool GetFireBool()
 		{
-			return this.firebool;
+			return firebool;
 		}
 		//room class used
 		public void SetMoveBool(bool movebool)
@@ -191,7 +191,7 @@ namespace Sprint4
 		//client used
 		public bool GetMoveBool()
 		{
-			return this.movebool;
+			return movebool;
 		}
 		//room class used(optional loaded in xml)
 		public void SetRoute(List<KeyValuePair<Vector2,int>> route)

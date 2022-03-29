@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint4
 {
-    public class Level1 : ILevel
+    public class Level1
     {
         private Dictionary<int, String> rooms;
         public Room room;
@@ -16,11 +16,12 @@ namespace Sprint4
         private int index;
         public Level1(GameObjectManager gom, int boundWidth, int boundHeight)
         {
-            this.index = 1;
+            index = 1;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
-            this.rooms = new Dictionary<int, String>();
+            rooms = new Dictionary<int, String>();
+
             rooms.Add(1, "room1");
             rooms.Add(2, "room2");
             rooms.Add(3, "room3");
@@ -42,38 +43,29 @@ namespace Sprint4
         //mouse pressed might need to call this func to initiate different room classes.
         public void loadRoom()
         {
-            this.room = new Room(this.rooms[this.index], gom, boundWidth, boundHeight);
+            room = new Room(rooms[index], gom, boundWidth, boundHeight);
         }
 
         public Room GetRoom()
         {
-            return this.room;
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            //this.room.Draw(spriteBatch);
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            //this.room.Update(gameTime);
+            return room;
         }
 
         public void switchPre()
         {
-            this.index--;
-            if (this.index < 1)
+            index--;
+            if (index < 1)
             {
-                this.index = 16;
+                index = 16;
             }
         }
 
         public void switchNext()
         {
-            this.index++;
-            if (this.index > 16)
+            index++;
+            if (index > 16)
             {
-                this.index = 1;
+                index = 1;
             }
         }
     }

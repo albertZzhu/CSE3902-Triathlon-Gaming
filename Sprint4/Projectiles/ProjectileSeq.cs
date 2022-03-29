@@ -108,7 +108,7 @@ namespace Sprint4
 		}
 		public List<Projectile> GetProjList()
 		{
-			return this.list;
+			return list;
 		}
 	}
 }
