@@ -43,6 +43,14 @@ namespace Sprint4
 			enemies.Add(enemy);
 		}
 
+		public void ClearLists()
+        {
+			players.Clear();
+			items.Clear();
+			blocks.Clear();
+			enemies.Clear();
+        }
+
 		public void Update(GameTime gameTime)
 		{
 			foreach (List<IGameObject> list in lists)

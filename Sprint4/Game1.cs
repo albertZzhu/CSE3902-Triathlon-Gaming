@@ -17,9 +17,12 @@ namespace Sprint4
 		public Level1 level1;
 
 		private KeyboardC _keyboardCon;
+		private MouseC mouseCon;
 
 		private int boundWidth;
 		private int boundHeight;
+
+		private GameObjectManager gameObjectManager;
 
 		//collision
 		private CollisionHandlerDict collisionDict;
@@ -75,8 +78,11 @@ namespace Sprint4
 			
 			level1.loadRoom();
 
-			_keyboardCon = new KeyboardC(level1, level1.GetRoom().GetPlayerObj());
+			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
+
+			mouseCon = new MouseC(level1);
+			mouseCon.InitializeController();
 
 			//this should be encapsulated
 			collisionDict.Initialize();
@@ -111,9 +117,11 @@ namespace Sprint4
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
+			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			
 			level1.Update((gameTime));
+			
 
 			//again, a lot of lines for collision
 			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetNPCProjObj(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj(), this.level1.GetRoom().GetItemObj());

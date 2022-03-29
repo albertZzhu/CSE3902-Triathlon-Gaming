@@ -39,7 +39,7 @@ namespace Sprint4
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("C:\\Users\\sclyn\\Documents\\GitHub\\CSE3902-Triathlon-Gaming\\Sprint4\\Content\\levelData.xml");
+            xml.Load("../levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
