@@ -17,10 +17,10 @@ namespace Sprint4
 
 		public void AddLists()
 		{
-			lists.Add(items);
 			lists.Add(blocks);
 			lists.Add(players);
 			lists.Add(enemies);
+			lists.Add(items);
 		}
 
 		public void PopulatePlayers(Player player)
