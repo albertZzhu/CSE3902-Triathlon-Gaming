@@ -31,11 +31,11 @@ namespace Sprint4
 		public NPC1(int boundWidth, int boundHeight)
 		{
 			state = new NpcStatementMachine(this);
-			this.proj = new NpcProjectileSeq();
+			proj = new NpcProjectileSeq();
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
-			this.routesCounter = 0;
-			this.dead = false;
+			routesCounter = 0;
+			dead = false;
 		}
 
 		public bool isDead()
@@ -227,16 +227,16 @@ namespace Sprint4
         {
             switch (direction) {
 				case Facing.RIGHT:
-					this.direction = Facing.LEFT;
+					direction = Facing.LEFT;
 					break;
 				case Facing.LEFT:
-					this.direction = Facing.RIGHT;
+					direction = Facing.RIGHT;
 					break;
 				case Facing.UP:
-					this.direction = Facing.DOWN;
+					direction = Facing.DOWN;
 					break;
 				case Facing.DOWN:
-					this.direction = Facing.UP;
+					direction = Facing.UP;
 					break;
 				default:
 					break;
@@ -245,21 +245,21 @@ namespace Sprint4
         }
 		internal List<IProjectile> GetSeqList()
 		{
-			if (this.firebool)
+			if (firebool)
 			{
-				return this.proj.GetProjList();
+				return proj.GetProjList();
 			}
 			else return new List<IProjectile>();
 		}
 		//update func
 		public void Update(GameTime gameTime)
 		{
-			if (!this.dead)
+			if (!dead)
 			{
-				if (route != null && (this.location.Equals(this.nextpos)))
+				if (route != null && (location.Equals(nextpos)))
 				{
-					this.direction = this.nextface;
-					this.next();
+					direction = nextface;
+					next();
 				}
 				Move(direction);
 				state.Update(gameTime);
@@ -267,9 +267,9 @@ namespace Sprint4
 				if (firebool)
 				{
 					timer += 1f;
-					if (timer == this.timespan)
+					if (timer == timespan)
 					{
-						this.DistantAttack();
+						DistantAttack();
 						timer = 0f;
 					}
 				}
@@ -279,7 +279,7 @@ namespace Sprint4
 		//draw func
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			if (!this.dead) {
+			if (!dead) {
 				npc.Draw(spriteBatch, location);
 				proj.Draw(spriteBatch);
 			}
@@ -288,10 +288,10 @@ namespace Sprint4
 
 		private void next()
 		{
-			this.nextpos = this.route[routesCounter].Key;
-			this.nextface = (Facing)this.route[routesCounter].Value;
+			nextpos = route[routesCounter].Key;
+			nextface = (Facing)route[routesCounter].Value;
 			routesCounter++;
-			if (routesCounter == this.route.Count)
+			if (routesCounter == route.Count)
 			{
 				routesCounter = 0;
 			}

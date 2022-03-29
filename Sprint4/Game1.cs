@@ -11,7 +11,6 @@ namespace Sprint4
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
 		//not used
-		//private SpriteFactory factory;
 		//private SpriteFont font;
 
 		public Level1 level1;
@@ -71,18 +70,14 @@ namespace Sprint4
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
 
-			//factory is never used anywhere
-			/*factory = */SpriteFactory.GetFactory(Content);
-
+			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
-			
 			level1.loadRoom();
 
 			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
-
 			mouseCon = new MouseC(level1);
 			mouseCon.InitializeController();
 

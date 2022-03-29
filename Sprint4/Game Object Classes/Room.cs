@@ -65,7 +65,7 @@ namespace Sprint4
                                     XmlNodeList Binfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
                                     this.Texture = Binfo[1].InnerText;
-                                    this.block[i] = new Block(this.boundWidth, this.boundHeight);
+                                    this.block[i] = new Block();
                                     this.block[i].SetLocation(loc);
                                     this.block[i].SetBlock(this.Texture);
                                     i++;
@@ -94,7 +94,7 @@ namespace Sprint4
                                     XmlNodeList Iinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Iinfo[0].FirstChild).InnerText), int.Parse((Iinfo[0].LastChild).InnerText));
                                     this.Texture = Iinfo[1].InnerText;
-                                    this.item[i] = new Item(this.boundWidth, this.boundHeight);
+                                    this.item[i] = new Item();
                                     this.item[i].SetLocation(loc);
                                     this.item[i].SetItem(this.Texture);
                                     i++;

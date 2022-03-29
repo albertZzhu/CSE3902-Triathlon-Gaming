@@ -12,14 +12,7 @@ namespace Sprint4
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
 		private String blockTexture;
-        private int boundWidth;
-        private int boundHeight;
 
-        public Block(int boundWidth, int boundHeight)
-		{
-			this.boundWidth = boundWidth;
-			this.boundHeight = boundHeight;
-		}
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;

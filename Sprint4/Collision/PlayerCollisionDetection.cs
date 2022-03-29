@@ -9,7 +9,6 @@ namespace Sprint4.Collision
 {
 	class PlayerCollisionDetection
 	{
-		private string playerName;
 
 		private Player2BlockHandler blockHandle;
 		private Player2EnemyHandler enemyHandle;
@@ -18,13 +17,10 @@ namespace Sprint4.Collision
 
 		public PlayerCollisionDetection(string playerName, CollisionHandlerDict dict)
 		{
-			this.playerName = playerName;
-
-
-			this.blockHandle = dict.GetPlayer2Block(playerName);
-			this.enemyHandle = dict.GetPlayer2NPC(playerName);
-			this.projectileHandle = dict.GetPlayer2Projectile(playerName);
-			this.itemHandle = dict.GetPlayer2Item(playerName);
+			blockHandle = dict.GetPlayer2Block(playerName);
+			enemyHandle = dict.GetPlayer2NPC(playerName);
+			projectileHandle = dict.GetPlayer2Projectile(playerName);
+			itemHandle = dict.GetPlayer2Item(playerName);
 		}
 
 		public void Detect(Iplayer player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
@@ -38,7 +34,7 @@ namespace Sprint4.Collision
 				if (player.GetRect().Intersects(i.GetRect()))
 				{
 					
-					this.enemyHandle.Handle(player, i, Side.side.right);
+					enemyHandle.Handle(player, i, Side.side.right);
 				}
 			}
 
@@ -103,7 +99,7 @@ namespace Sprint4.Collision
 				}
 				
 			}
-			this.blockHandle.Handle(player, handleList);
+			blockHandle.Handle(player, handleList);
 
 			foreach (Iitem i in itemInRange)
 			{
