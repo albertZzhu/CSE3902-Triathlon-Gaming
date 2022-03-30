@@ -24,9 +24,9 @@ namespace Sprint4
 
 		}
 
-		public Facing FacingState()
+		public int FacingState()
 		{
-			return facing;
+			return (int)facing;
 		}
 
 

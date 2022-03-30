@@ -41,6 +41,7 @@ namespace Sprint4
             		{
                     	playerMove[key].ChangePlayer(player);
                     	playerMove[key].Execute();
+						break;
                 	}
 				}
 			}

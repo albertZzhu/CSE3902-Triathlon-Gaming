@@ -47,6 +47,10 @@ namespace Sprint4
 					canMoveDown = false;
 					break;
 			}
+			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
+			{
+				Move((Facing)(this.state.FacingState() % 2 == 0 ? this.state.FacingState() + 1 : this.state.FacingState() - 1));
+			}
 		}
 
 		public void moveunLock(Facing direction)
@@ -117,7 +121,7 @@ namespace Sprint4
 
 		public void DistantAttack()
 		{
-			proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), spriteNum);
+			proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), (Facing)state.FacingState(), spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)
