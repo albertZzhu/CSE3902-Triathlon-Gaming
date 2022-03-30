@@ -42,6 +42,7 @@ namespace Sprint3
             		{
                     	playerMove[key].ChangePlayer(player);
                     	playerMove[key].Execute();
+						break;
                 	}
 				}
 			}
