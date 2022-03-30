@@ -13,7 +13,9 @@ namespace Sprint4
 		private bool damaged = false;
 		private double elapse = 0.0;
 		private bool isMoving = false;
-		
+		private int health = 6;
+
+
 
 		private Player play;
 
@@ -42,7 +44,25 @@ namespace Sprint4
 
 		public void Damaged()
 		{
-			damaged = !damaged;
+			if (health == 1)
+			{
+				die();
+			}
+			else
+			{
+				damaged = true;
+				health--;
+			}
+		}
+
+		public int playerHealth()
+		{
+			return health;
+		}
+
+		public void die()
+		{
+
 		}
 
 		public void ChangeFacing(Facing facing)
