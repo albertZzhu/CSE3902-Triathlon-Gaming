@@ -38,7 +38,7 @@ namespace Sprint3
 
 		public void Update(GameTime gameTime)
 		{
-			npc.SetNpc(SpriteFactory.GetSprite((npc.npcHolder)[facing]));
+			npc.SetNpc(SpriteFactory.GetSprite(npc.npcHolder[facing]));
 		}
 	}
 }

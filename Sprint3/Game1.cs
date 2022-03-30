@@ -10,11 +10,11 @@ namespace Sprint3
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
-		private Level1 level1;
+		public Level1 level1;
 		//set a default sprite?
 		//singleton sprite factory 
 		//private SpriteFactory _spriteFactory; - should not be needed since its all static
-		private KeyboardC _keyboardCon = new KeyboardC();
+		private KeyboardC _keyboardCon;
 		private SpriteFactory factory;
 		private int boundWidth;
 		private int boundHeight;
@@ -66,11 +66,13 @@ namespace Sprint3
 			boundHeight = Window.ClientBounds.Height;
 			factory = SpriteFactory.GetFactory(Content);
 			level1 = new Level1(boundWidth, boundHeight);
-			_keyboardCon.InitializeController();
+			
 			level1.loadRoom();
 
-			dict.Initialize();
+			_keyboardCon = new KeyboardC(level1, level1.GetRoom().GetPlayerObj());
+			_keyboardCon.InitializeController();
 
+			dict.Initialize();
 
 			dict.AddHandler("player1", player2Block);
 			dict.AddHandler("player1", player2Enemy);
@@ -82,11 +84,8 @@ namespace Sprint3
 
 			dict.AddHandler("Projectile1", proj2Blcok);
 
-
 			playerDetect = new PlayerCollisionDetection("player1", dict);
-
 			npcDetect = new NPCCollisionDetection("NPC1", dict);
-
 			projDetect = new ProjectileCollisionDetection("Projectile1", dict);
 
 
@@ -107,7 +106,7 @@ namespace Sprint3
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj(), this.level1);
+			_keyboardCon.CompareStates(this.level1.GetRoom().GetPlayerObj());
 			
 			level1.Update((gameTime));
 			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), this.level1.GetRoom().GetNPCProjObj(), this.level1.GetRoom().GetNpcObj(), this.level1.GetRoom().GetBlockObj(), this.level1.GetRoom().GetItemObj());
