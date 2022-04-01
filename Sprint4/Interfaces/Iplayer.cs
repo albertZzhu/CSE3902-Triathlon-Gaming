@@ -24,5 +24,8 @@ namespace Sprint4
 		void moveLock(Facing direction);
 
 		void moveunLock(Facing direction);
+
+		bool IfAttacking();
+
 	}
 }

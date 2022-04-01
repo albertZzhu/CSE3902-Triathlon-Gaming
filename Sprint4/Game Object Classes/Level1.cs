@@ -68,5 +68,10 @@ namespace Sprint4
                 index = 1;
             }
         }
+
+        public void resetRoom()
+		{
+            index = 1;
+		}
     }
 }

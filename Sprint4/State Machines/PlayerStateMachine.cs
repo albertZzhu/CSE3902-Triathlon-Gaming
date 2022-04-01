@@ -42,6 +42,11 @@ namespace Sprint4
 			attack = true;
 		}
 
+		public bool IsAttacking()
+		{
+			return attack;
+		}
+
 		public void Damaged()
 		{
 			if (health == 1)
@@ -58,6 +63,11 @@ namespace Sprint4
 		public int playerHealth()
 		{
 			return health;
+		}
+
+		public void addHealth()
+		{
+			health++;
 		}
 
 		public void die()

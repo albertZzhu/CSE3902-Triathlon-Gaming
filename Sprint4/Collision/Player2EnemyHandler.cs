@@ -15,7 +15,14 @@ namespace Sprint4.Collision
 		{
 			if (!enemy.isDead())
 			{
-				player.GoDamaged();
+				if (player.IfAttacking())
+				{
+					enemy.die();
+				}
+				else
+				{
+					player.GoDamaged();
+				}
 			}
 		}
 	}

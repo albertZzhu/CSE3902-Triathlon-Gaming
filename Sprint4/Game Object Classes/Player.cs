@@ -72,6 +72,11 @@ namespace Sprint4
 			}
 		}
 
+		public bool IfAttacking()
+		{
+			return state.IsAttacking();
+		}
+
 		public void GoStand()
 		{
 			state.changeMovingState(false);
