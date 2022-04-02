@@ -58,6 +58,7 @@ namespace Sprint4
             {
                 index = 16;
             }
+            loadRoom();
         }
 
         public void switchNext()
@@ -67,11 +68,13 @@ namespace Sprint4
             {
                 index = 1;
             }
+            loadRoom();
         }
 
         public void resetRoom()
 		{
             index = 1;
+            loadRoom();
 		}
     }
 }

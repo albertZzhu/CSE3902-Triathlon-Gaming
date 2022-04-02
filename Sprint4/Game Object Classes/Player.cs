@@ -26,6 +26,9 @@ namespace Sprint4
 		{
 			state = new PlayerStateMachine(this);
 			proj = new ProjectileSeq();
+
+			//this.level = level;
+
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
 		}
@@ -76,7 +79,10 @@ namespace Sprint4
 		{
 			return state.IsAttacking();
 		}
-
+		public bool IfDie()
+		{
+			return state.IfDie();
+		}
 		public void GoStand()
 		{
 			state.changeMovingState(false);
@@ -163,7 +169,7 @@ namespace Sprint4
 
 		public void Reset()
 		{
-			SetLocation(new Vector2(50, 50));
+			SetLocation(new Vector2(100, 250));
 			state.ChangeFacing(0);
 			spriteNum = 0;
 		}

@@ -15,6 +15,7 @@ namespace Sprint4.Collision
 		private Player2ProjectileHandler projectileHandle;
 		private Player2ItemHandler itemHandle;
 
+
 		public PlayerCollisionDetection(string playerName, CollisionHandlerDict dict)
 		{
 			blockHandle = dict.GetPlayer2Block(playerName);
@@ -23,7 +24,7 @@ namespace Sprint4.Collision
 			itemHandle = dict.GetPlayer2Item(playerName);
 		}
 
-		public void Detect(Iplayer player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
+		public void Detect(Player player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
 		{
 			IBlock[] blockInRangeModified = blockInRange.Skip(1).ToArray();
 			//this.projectileInRange = projectileInRange;
@@ -79,23 +80,6 @@ namespace Sprint4.Collision
 							handleList[3] = 0;
 						}
 					}
-
-					/*if (player.GetRect().Right >= b.GetRect().Left && player.GetRect().Left < b.GetRect().Right)
-					{
-						handleList[0] = 0;
-					}
-					if (player.GetRect().Left <= b.GetRect().Right && player.GetRect().Right > b.GetRect().Left)
-					{
-						handleList[1] = 0;
-					}
-					if (player.GetRect().Top <= b.GetRect().Bottom && player.GetRect().Bottom > b.GetRect().Top)
-					{
-						handleList[2] = 0;
-					}
-					if (player.GetRect().Bottom >= b.GetRect().Top && player.GetRect().Top < b.GetRect().Bottom)
-					{
-						handleList[3] = 0;
-					}*/
 				}
 				
 			}

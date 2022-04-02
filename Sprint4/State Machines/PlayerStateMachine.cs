@@ -49,11 +49,7 @@ namespace Sprint4
 
 		public void Damaged()
 		{
-			if (health == 1)
-			{
-				die();
-			}
-			else
+			if (!(health == 0||damaged))
 			{
 				damaged = true;
 				health--;
@@ -70,9 +66,9 @@ namespace Sprint4
 			health++;
 		}
 
-		public void die()
+		public bool IfDie()
 		{
-
+			return health == 0;
 		}
 
 		public void ChangeFacing(Facing facing)

@@ -15,6 +15,7 @@ namespace Sprint4
 
 		public Level1 level1;
 
+
 		private KeyboardC _keyboardCon;
 		private MouseC mouseCon;
 
@@ -24,6 +25,8 @@ namespace Sprint4
 		private GameObjectManager gameObjectManager;
 
 		private CollisionManager collisionManager;
+
+		
 
 		public Game1()
 		{
@@ -48,19 +51,16 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
-			collisionManager.Initialize("player1", "NPC1", "projectil1");
-
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			level1.loadRoom();
+
+			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 
 			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
 
 			mouseCon = new MouseC(level1);
-			mouseCon.InitializeController();
-
-			//this should be encapsulated
-			
+			mouseCon.InitializeController();			
 
 			base.Initialize();
 		}
@@ -83,10 +83,7 @@ namespace Sprint4
 			
 			gameObjectManager.Update((gameTime));
 
-			collisionManager.Update(level1);
-
-			//again, a lot of lines for collision
-			
+			collisionManager.Update(level1);			
 
 			//x = Mouse.GetState().X;
 			//y = Mouse.GetState().Y;

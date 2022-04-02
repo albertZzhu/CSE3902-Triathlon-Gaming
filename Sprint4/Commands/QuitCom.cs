@@ -2,7 +2,7 @@
 {
     class QuitCom : ICommand
 	{
-		void ICommand.ChangePlayer(Player player)
+		public void ChangePlayer(Player player)
 		{
 			
 		}

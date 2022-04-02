@@ -4,15 +4,17 @@ using System.Text;
 
 namespace Sprint4.Collision
 {
-	class Player2EnemyHandler : ICollisionHandler<Iplayer, INPC>
+	class Player2EnemyHandler : ICollisionHandler<Player, INPC>
 	{
-		public Player2EnemyHandler()
+		private ResetCom resetCommand;
+		public Player2EnemyHandler(ResetCom resetCommand)
 		{
-
+			this.resetCommand = resetCommand;
 		}
 
-		public void Handle(Iplayer player, INPC enemy, Side.side side)
+		public void Handle(Player player, INPC enemy, Side.side side)
 		{
+			resetCommand.ChangePlayer(player);
 			if (!enemy.isDead())
 			{
 				if (player.IfAttacking())
@@ -21,7 +23,14 @@ namespace Sprint4.Collision
 				}
 				else
 				{
-					player.GoDamaged();
+					if (player.IfDie())
+					{
+						resetCommand.Execute();
+					}
+					else
+					{
+						player.GoDamaged();
+					}
 				}
 			}
 		}

@@ -18,11 +18,12 @@ namespace Sprint4
         //used by both block and item variables
         private Vector2 loc;
         private String Texture;
+        private Player player;
+
         //npc obj holder variables
         private NPC1[] npc;
         private List<String> Textureholder;
         //player variables
-        private Player player;
         //game window edges
         private int boundWidth;
         private int boundHeight;
@@ -169,10 +170,7 @@ namespace Sprint4
                             this.npc = new NPC1[0];
                         }
                     }
-
-                    //loading player into the player class.
                     player = new Player(this.boundWidth, this.boundHeight);
-
                 }
 
             }
@@ -213,7 +211,5 @@ namespace Sprint4
         {
             return player;
         }
-
-       
     }
 }

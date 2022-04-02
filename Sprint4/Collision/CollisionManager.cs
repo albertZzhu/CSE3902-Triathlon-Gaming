@@ -22,24 +22,32 @@ namespace Sprint4.Collision
 		private NPCCollisionDetection npcDetect;
 		private ProjectileCollisionDetection projDetect;
 
+		private ResetCom resetCommand;
+		private SwitchRoomBackwardCom roomBackCommand;
+		private SwitchRoomForwardCom roomForwardComand;
+
 		public CollisionManager()
 		{
 			collisionDict = new CollisionHandlerDict();
+		}
 
-			player2Block = new Player2BlockHandler();
-			player2Enemy = new Player2EnemyHandler();
-			player2Proj = new Player2ProjectileHandler();
+		public void Initialize(string playerName, string enemyName, string projectileName, Level1 level1)
+		{
+			collisionDict.Initialize();
+
+			resetCommand = new ResetCom(level1);
+			roomBackCommand = new SwitchRoomBackwardCom(level1);
+			roomForwardComand = new SwitchRoomForwardCom(level1);
+
+			player2Block = new Player2BlockHandler(roomBackCommand, roomForwardComand);
+			player2Enemy = new Player2EnemyHandler(resetCommand);
+			player2Proj = new Player2ProjectileHandler(resetCommand);
 			player2item = new Player2ItemHandler();
 
 			enemy2Block = new NPC2BlockHandler();
 			enemy2Proj = new NPC2ProjectileHandler();
 
 			proj2Blcok = new Projectile2BlockHandler();
-		}
-
-		public void Initialize(string playerName, string enemyName, string projectileName)
-		{
-			collisionDict.Initialize();
 
 			collisionDict.AddHandler(playerName, player2Block);
 			collisionDict.AddHandler(playerName, player2Enemy);

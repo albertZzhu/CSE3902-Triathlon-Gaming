@@ -27,5 +27,7 @@ namespace Sprint4
 
 		bool IfAttacking();
 
+		bool IfDie();
+
 	}
 }

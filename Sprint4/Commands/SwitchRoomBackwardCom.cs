@@ -7,14 +7,13 @@ namespace Sprint4
 		{
 			this.level1 = level;
 		}
-		void ICommand.ChangePlayer(Player player)
+		public void ChangePlayer(Player player)
 		{
 			
 		}
-		void ICommand.Execute()
+		public void Execute()
 		{
 			level1.switchPre();
-			level1.loadRoom();
 		}
 	}
 }

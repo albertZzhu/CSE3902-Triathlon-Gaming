@@ -13,13 +13,13 @@ namespace Sprint4
 			this.player = player;
 		}
 
-        void ICommand.ChangePlayer(Player player)
-        {
-            this.player = player;
-        }
-        void ICommand.Execute()
-        {
-            player.DistantAttack();
-        }
+        public void ChangePlayer(Player player)
+		{
+			this.player = player;
+		}
+		public void Execute()
+		{
+			player.DistantAttack();
+		}
     }
 }

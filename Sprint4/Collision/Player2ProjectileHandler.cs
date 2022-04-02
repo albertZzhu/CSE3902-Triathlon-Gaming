@@ -6,15 +6,26 @@ namespace Sprint4.Collision
 {
 	class Player2ProjectileHandler : ICollisionHandler<Iplayer, IProjectile>
 	{
-		public Player2ProjectileHandler()
+		private ResetCom resetCommand;
+		public Player2ProjectileHandler(ResetCom resetCommand)
 		{
-
+			this.resetCommand = resetCommand;
 		}
 
 		public void Handle(Iplayer player, IProjectile projectile, Side.side side)
 		{
-			player.GoDamaged();
-			//projectile.die();
+			if (!projectile.isDead())
+			{
+				if (player.IfDie())
+				{
+					resetCommand.Execute();
+				}
+				else
+				{
+					player.GoDamaged();
+					projectile.die();
+				}
+			}
 		}
 	}
 }

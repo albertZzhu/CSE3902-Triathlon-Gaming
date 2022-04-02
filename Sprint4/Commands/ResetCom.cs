@@ -13,7 +13,7 @@ namespace Sprint4
 			this.level = level;
 		}
 
-		void ICommand.ChangePlayer(Player player)
+		public void ChangePlayer(Player player)
 		{
 			this.player = player;
 		}
