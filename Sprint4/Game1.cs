@@ -23,29 +23,15 @@ namespace Sprint4
 
 		private GameObjectManager gameObjectManager;
 
-		//collision
-		private CollisionHandlerDict collisionDict;
-
-		private Player2BlockHandler player2Block;
-		private Player2EnemyHandler player2Enemy;
-		private Player2ProjectileHandler player2Proj;
-		private Player2ItemHandler player2item;
-
-		private NPC2BlockHandler enemy2Block;
-		private NPC2ProjectileHandler enemy2Proj;
-
-		private Projectile2BlockHandler proj2Blcok;
-
-		private PlayerCollisionDetection playerDetect;
-		private NPCCollisionDetection npcDetect;
-		private ProjectileCollisionDetection projDetect;
+		private CollisionManager collisionManager;
 
 		public Game1()
 		{
 			_graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			IsMouseVisible = true;
-			collisionDict = new CollisionHandlerDict();
+
+			collisionManager = new CollisionManager();
 		}
 
 		protected override void Initialize()
@@ -53,17 +39,6 @@ namespace Sprint4
 			//setting  game window
 			_graphics.PreferredBackBufferWidth = 800;
 			_graphics.PreferredBackBufferHeight = 550;
-
-			//collison items : this should be handled by something... game obj manager?
-			player2Block = new Player2BlockHandler();
-			player2Enemy = new Player2EnemyHandler();
-			player2Proj = new Player2ProjectileHandler();
-			player2item = new Player2ItemHandler();
-
-			enemy2Block = new NPC2BlockHandler();
-			enemy2Proj = new NPC2ProjectileHandler();
-
-			proj2Blcok = new Projectile2BlockHandler();
 
 			_graphics.ApplyChanges();
 
@@ -73,30 +48,19 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
+			collisionManager.Initialize("player1", "NPC1", "projectil1");
+
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			level1.loadRoom();
 
 			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
+
 			mouseCon = new MouseC(level1);
 			mouseCon.InitializeController();
 
 			//this should be encapsulated
-			collisionDict.Initialize();
-
-			collisionDict.AddHandler("player1", player2Block);
-			collisionDict.AddHandler("player1", player2Enemy);
-			collisionDict.AddHandler("player1", player2Proj);
-			collisionDict.AddHandler("player1", player2item);
-
-			collisionDict.AddHandler("NPC1", enemy2Block);
-			collisionDict.AddHandler("NPC1", enemy2Proj);
-
-			collisionDict.AddHandler("Projectile1", proj2Blcok);
-
-			playerDetect = new PlayerCollisionDetection("player1", collisionDict);
-			npcDetect = new NPCCollisionDetection("NPC1", collisionDict);
-			projDetect = new ProjectileCollisionDetection("Projectile1", collisionDict);
+			
 
 			base.Initialize();
 		}
@@ -118,23 +82,11 @@ namespace Sprint4
 			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			
 			gameObjectManager.Update((gameTime));
-			
+
+			collisionManager.Update(level1);
 
 			//again, a lot of lines for collision
-			playerDetect.Detect(level1.GetRoom().GetPlayerObj(), level1.GetRoom().GetNPCProjObj(), level1.GetRoom().GetNpcObj(), level1.GetRoom().GetBlockObj(), level1.GetRoom().GetItemObj());
-
-			foreach (NPC1 npc in level1.GetRoom().GetNpcObj())
-			{
-				npcDetect.Detect(npc, level1.GetRoom().GetPlayerObj().GetSeqList().ToArray(), level1.GetRoom().GetBlockObj());
-			}
-
-			foreach (IProjectile p in level1.GetRoom().GetPlayerObj().GetSeqList().ToArray())
-			{
-				projDetect.Detect(p, level1.GetRoom().GetBlockObj());
-			}
-			foreach(IProjectile p in level1.GetRoom().GetNPCProjObj()) {
-				projDetect.Detect(p, level1.GetRoom().GetBlockObj());
-			}
+			
 
 			//x = Mouse.GetState().X;
 			//y = Mouse.GetState().Y;
