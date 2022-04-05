@@ -41,7 +41,7 @@ namespace Sprint4
 		{
 			//setting  game window
 			_graphics.PreferredBackBufferWidth = 800;
-			_graphics.PreferredBackBufferHeight = 550;
+			_graphics.PreferredBackBufferHeight = 800;
 
 			_graphics.ApplyChanges();
 
@@ -51,7 +51,7 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
-			camera = new Camera(boundWidth, boundHeight, Content);
+			camera = new Camera(800, 550, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			level1.InitializeRoom();
 
