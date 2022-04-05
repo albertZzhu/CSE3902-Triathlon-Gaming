@@ -61,7 +61,7 @@ namespace Sprint4
 			keyDict.Add(Keys.Q, new QuitCom());
 			keyDict.Add(Keys.Z, new AttackCom(player));
 			keyDict.Add(Keys.N, new AttackCom(player));
-			keyDict.Add(Keys.E, new DamageCom(player));
+			//keyDict.Add(Keys.E, new DamageCom(player));
 			//keydict.Add(Keys.R, new ResetCom());
 
 			keyDict.Add(Keys.D1, new ProjectileCom(player));

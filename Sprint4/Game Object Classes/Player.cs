@@ -10,7 +10,7 @@ namespace Sprint4
 	{
 		private ISprite sprite = new Sprite();
 		private Vector2 location = new Vector2(100, 250);
-		private PlayerStateMachine state;
+		public PlayerStateMachine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
@@ -74,6 +74,10 @@ namespace Sprint4
 					break;
 			}
 		}
+		public PlayerStateMachine GetState()
+        {
+			return state;
+        }
 
 		public bool IfAttacking()
 		{

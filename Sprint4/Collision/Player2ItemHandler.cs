@@ -8,7 +8,6 @@ namespace Sprint4.Collision
 	{
 		public Player2ItemHandler()
 		{
-
 		}
 
 		public void Handle(Iplayer player, Iitem item, Side.side side)
@@ -16,6 +15,7 @@ namespace Sprint4.Collision
 			if (!item.isDisappear())
 			{
 				item.goDisappear();
+                Inventory.AddItem(item);
 			}
 		}
 	}

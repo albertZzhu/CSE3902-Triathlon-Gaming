@@ -4,7 +4,7 @@ using Sprint4.State_Machines;
 
 namespace Sprint4
 {
-	class PlayerStateMachine
+	public class PlayerStateMachine
 	{
 		//should replace with facing enum 
 		//private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward

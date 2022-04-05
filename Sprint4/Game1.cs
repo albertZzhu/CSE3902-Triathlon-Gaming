@@ -26,6 +26,8 @@ namespace Sprint4
 
 		private CollisionManager collisionManager;
 
+		private Inventory inventory;
+
 		
 
 		public Game1()
@@ -61,8 +63,10 @@ namespace Sprint4
 			_keyboardCon.InitializeController();
 
 			mouseCon = new MouseC(level1);
-			mouseCon.InitializeController();			
+			mouseCon.InitializeController();
 
+			inventory = new Inventory(Content);
+			gameObjectManager.PopulateInventory(inventory);
 			base.Initialize();
 		}
 
