@@ -6,6 +6,7 @@ namespace Sprint4
 {
     public class Inventory : IGameObject
     {
+		private static Inventory uniqueInventory;
 		private Player player;
 		private PlayerStateMachine psm;
 		private ContentManager content;
@@ -24,24 +25,48 @@ namespace Sprint4
 			font = content.Load<SpriteFont>("coortest");
 		}
 
-		public static void AddItem(Iitem item)
-        {
-
-        }
-
-		public void SetRupees(int rupees)
+		public static Inventory GetInventory(ContentManager Content)
 		{
-			this.rupees = rupees;
+			if (uniqueInventory == null)
+			{
+				uniqueInventory = new Inventory(Content);
+			}
+			return uniqueInventory;
 		}
 
-		public void SetKeys(int keys)
+		public static Inventory GetInventory()
+		{
+			return uniqueInventory;
+		}
+
+		public static void AddItem(Iitem item)
         {
-			this.keys = keys;
+			string type = item.GetItemTexture();
+			if (type.Equals("key"))
+				uniqueInventory.AddKeys();
+			else if (type.Equals("itemHeart"))
+				uniqueInventory.AddHealth();
+			else
+				uniqueInventory.AddRupees();
         }
 
-		public void SetBombs(int bombs)
+		public void AddRupees()
 		{
-			this.bombs = bombs;
+			rupees++;
+		}
+
+		public void AddKeys()
+        {
+			keys++;
+        }
+
+		public void AddBombs()
+		{
+			bombs++;
+		}
+		public void AddHealth()
+		{
+			health++;
 		}
 
 		public void UpdateContent(ContentManager content)

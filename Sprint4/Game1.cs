@@ -26,7 +26,6 @@ namespace Sprint4
 
 		private CollisionManager collisionManager;
 
-		private Inventory inventory;
 
 		
 
@@ -53,10 +52,10 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
-			inventory = new Inventory(Content);
+			Inventory.GetInventory(Content);
 
 			camera = new Camera(800, 550, Content);
-			level1 = new Level1(gameObjectManager, inventory, boundWidth, boundHeight);
+			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			level1.InitializeRoom();
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);

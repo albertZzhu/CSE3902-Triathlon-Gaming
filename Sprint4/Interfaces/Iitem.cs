@@ -8,6 +8,7 @@ namespace Sprint4
 { 
 	public interface Iitem : IGameObject
 	{
+		public string GetItemTexture();
 		bool isDisappear();
 
 		void goDisappear();

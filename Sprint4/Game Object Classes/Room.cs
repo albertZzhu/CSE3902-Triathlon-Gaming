@@ -30,13 +30,11 @@ namespace Sprint4
         private int boundHeight;
         private List<IProjectile> list;
         private GameObjectManager gom;
-        private Inventory inventory;
-        public Room(String room, GameObjectManager gom, Inventory inventory, int boundWidth, int boundHeight)
+        public Room(String room, GameObjectManager gom, int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
-            this.inventory = inventory;
             list = new List<IProjectile>();
             loadRoom(room);
         }
@@ -182,7 +180,7 @@ namespace Sprint4
             gom.PopulateBlocks(block);
             gom.PopulateItems(item);
             gom.PopulateEnemies(npc);
-            gom.PopulateInventory(inventory);
+            gom.PopulateInventory(Inventory.GetInventory());
             gom.AddLists();
 
         }
