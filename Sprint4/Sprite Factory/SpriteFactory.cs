@@ -252,7 +252,6 @@ namespace Sprint4
 			CreateSprite(wallMasterRight, 1, 2, 2, "wallMasterRight");
 			Texture2D compass = Content.Load<Texture2D>("compass");
 			CreateSprite(compass, 1, 1, 1, "compass");
-
 		}
 
 		public static SpriteFactory GetFactory(Microsoft.Xna.Framework.Content.ContentManager Content)

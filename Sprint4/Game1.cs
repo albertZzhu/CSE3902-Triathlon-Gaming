@@ -14,7 +14,7 @@ namespace Sprint4
 		//private SpriteFont font;
 
 		public Level1 level1;
-
+		private Camera camera;
 
 		private KeyboardC _keyboardCon;
 		private MouseC mouseCon;
@@ -51,8 +51,9 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
+			camera = new Camera(boundWidth, boundHeight, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
-			level1.loadRoom();
+			level1.InitializeRoom();
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 
@@ -78,12 +79,24 @@ namespace Sprint4
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
-			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
-			
-			gameObjectManager.Update((gameTime));
+			if (level1.CheckLock()) {
+				mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
+				if (level1.CheckLock()) {
+					_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+					gameObjectManager.Update((gameTime));
 
-			collisionManager.Update(level1);			
+					collisionManager.Update(level1);
+				}
+			}
+			if (!level1.CheckLock())
+			{
+				 camera.Update(gameTime, level1.currentroom(), level1.futureroom());
+				 if(camera.done()) {
+					 camera.reset();
+					 level1.loadRoom();
+					 level1.setCheckLock(false);
+				 }
+			}
 
 			//x = Mouse.GetState().X;
 			//y = Mouse.GetState().Y;
@@ -96,8 +109,12 @@ namespace Sprint4
 			GraphicsDevice.Clear(Color.Black);
 
 			_spriteBatch.Begin();
-			gameObjectManager.Draw(_spriteBatch);
-			//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
+			if (level1.CheckLock()) {
+				gameObjectManager.Draw(_spriteBatch);
+				//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
+			} else {
+				camera.Draw(_spriteBatch);
+			}
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}
