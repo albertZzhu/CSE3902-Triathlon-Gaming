@@ -54,7 +54,7 @@ namespace Sprint4
 			gameObjectManager = new GameObjectManager();
 
 			camera = new Camera(800, 550, Content);
-			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
+			level1 = new Level1(gameObjectManager, Content, boundWidth, boundHeight);
 			level1.InitializeRoom();
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);

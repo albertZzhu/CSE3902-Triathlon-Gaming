@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint4.State_Machines;
 using System;
@@ -29,11 +30,13 @@ namespace Sprint4
         private int boundHeight;
         private List<IProjectile> list;
         private GameObjectManager gom;
-        public Room(String room, GameObjectManager gom,  int boundWidth, int boundHeight)
+        private ContentManager content;
+        public Room(String room, GameObjectManager gom, ContentManager content, int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
+            this.content = content;
             list = new List<IProjectile>();
             loadRoom(room);
         }
@@ -179,6 +182,8 @@ namespace Sprint4
             gom.PopulateBlocks(block);
             gom.PopulateItems(item);
             gom.PopulateEnemies(npc);
+            Inventory inventory = new Inventory(content);
+            gom.PopulateInventory(inventory);
             gom.AddLists();
 
         }

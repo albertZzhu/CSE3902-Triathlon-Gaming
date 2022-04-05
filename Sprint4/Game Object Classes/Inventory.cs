@@ -8,6 +8,7 @@ namespace Sprint4
     {
 		private Player player;
 		private PlayerStateMachine psm;
+		private ContentManager content;
 		private SpriteFont font;
 		private int rupees;
 		private int keys;
@@ -19,6 +20,7 @@ namespace Sprint4
 			rupees = 0;
 			keys = 0;
 			bombs = 0;
+			this.content = content;
 			font = content.Load<SpriteFont>("coortest");
 		}
 
@@ -41,6 +43,11 @@ namespace Sprint4
 		{
 			this.bombs = bombs;
 		}
+
+		public void UpdateContent(ContentManager content)
+        {
+			this.content = content;
+        }
 		public void Update(GameTime gametime)
         {
 			
