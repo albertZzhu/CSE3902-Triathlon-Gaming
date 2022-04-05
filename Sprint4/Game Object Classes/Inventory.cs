@@ -55,7 +55,15 @@ namespace Sprint4
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
+			Item item = new Item();
+			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(300, 600), Color.White);
+			spriteBatch.DrawString(font, "-----HEALTH-----", new Vector2(550, 600), Color.Red);
+			item.SetSprite(SpriteFactory.GetSprite("key"));
+			item.SetLocation(new Vector2(275, 600));
+			item.Draw(spriteBatch);
+			item.SetSprite(SpriteFactory.GetSprite("heart"));
+			item.SetLocation(new Vector2(550, 700));
+			item.Draw(spriteBatch);
 		}
 	}
 }
