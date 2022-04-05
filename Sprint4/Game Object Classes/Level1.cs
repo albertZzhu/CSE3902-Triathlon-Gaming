@@ -17,17 +17,17 @@ namespace Sprint4
         //not used
         private bool loadLock;
         public GameObjectManager gom;
-        public ContentManager content;
+        public Inventory inventory;
         private int boundWidth;
         private int boundHeight;
         private int index;
-        public Level1(GameObjectManager gom, ContentManager content, int boundWidth, int boundHeight)
+        public Level1(GameObjectManager gom, Inventory inventory, int boundWidth, int boundHeight)
         {
             index = 1;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
-            this.content = content;
+            this.inventory = inventory;
             rooms = new Dictionary<int, String>();
 
             rooms.Add(1, "room1");
@@ -51,7 +51,7 @@ namespace Sprint4
         //mouse pressed might need to call this func to initiate different room classes.
         public void loadRoom()
         {
-            room = new Room(rooms[index], gom, content, boundWidth, boundHeight);
+            room = new Room(rooms[index], gom, inventory, boundWidth, boundHeight);
             this.currentRoom = rooms[index];
             //not used
             setLoadLock(true);
@@ -59,7 +59,7 @@ namespace Sprint4
 
         public void InitializeRoom()
         {
-            room = new Room(rooms[index], gom, content, boundWidth, boundHeight);
+            room = new Room(rooms[index], gom, inventory, boundWidth, boundHeight);
             this.currentRoom = rooms[index];
             setCheckLock(false);
             //not used
