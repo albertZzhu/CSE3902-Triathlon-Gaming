@@ -78,11 +78,11 @@ namespace Sprint4
 
 		protected override void Update(GameTime gameTime)
 		{
-			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
-			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			
-			gameObjectManager.Update((gameTime));
+			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 
+			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+			gameObjectManager.Update((gameTime));
 			collisionManager.Update(level1);			
 
 			//x = Mouse.GetState().X;
