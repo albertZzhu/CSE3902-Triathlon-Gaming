@@ -127,5 +127,10 @@ namespace Sprint4
             index = 1;
             InitializeRoom();
 		}
+
+        public int GetIndex()
+        {
+            return index;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.Game_Object_Classes;
 
 namespace Sprint4
 {
@@ -15,6 +16,8 @@ namespace Sprint4
 		private int keys;
 		private int bombs;
 		private int health;
+
+		private MapMarker marker = new MapMarker();
 
 		public Inventory(ContentManager content)
         {
@@ -77,18 +80,30 @@ namespace Sprint4
         {
 			
         }
+		public void Update(int index)
+		{
+
+		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			Item item = new Item();
-			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(300, 600), Color.White);
+			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
 			spriteBatch.DrawString(font, "-----HEALTH-----", new Vector2(550, 600), Color.Red);
 			item.SetSprite(SpriteFactory.GetSprite("key"));
-			item.SetLocation(new Vector2(275, 600));
+			item.SetLocation(new Vector2(350, 650));
 			item.Draw(spriteBatch);
 			item.SetSprite(SpriteFactory.GetSprite("heart"));
-			item.SetLocation(new Vector2(550, 700));
+			item.SetLocation(new Vector2(550, 650));
 			item.Draw(spriteBatch);
+
+			item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
+			item.SetLocation(new Vector2(10, 575));
+			item.Draw(spriteBatch);
+
+			marker.Draw(spriteBatch);
+
+
 		}
 	}
 }

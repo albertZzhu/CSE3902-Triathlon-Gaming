@@ -86,7 +86,7 @@ namespace Sprint4
 				mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 				if (level1.CheckLock()) {
 					_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
-					gameObjectManager.Update((gameTime));
+					gameObjectManager.Update(gameTime);
 
 					collisionManager.Update(level1);
 				}
@@ -100,7 +100,7 @@ namespace Sprint4
 					 level1.setCheckLock(false);
 				 }
 			}
-
+			
 			//x = Mouse.GetState().X;
 			//y = Mouse.GetState().Y;
 			base.Update(gameTime);
