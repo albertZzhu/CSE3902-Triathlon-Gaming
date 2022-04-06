@@ -260,7 +260,7 @@ namespace Sprint4
 			CreateSprite(mapmarker, 1, 1, 1, "mapmarker");
 
 			Texture2D mapmarker2 = Content.Load<Texture2D>("mapmarker2");
-			CreateSprite(mapmarker, 1, 1, 1, "mapmarker2");
+			CreateSprite(mapmarker2, 1, 1, 1, "mapmarker2");
 		}
 
 		public static SpriteFactory GetFactory(Microsoft.Xna.Framework.Content.ContentManager Content)
