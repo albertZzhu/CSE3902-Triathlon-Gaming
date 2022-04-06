@@ -57,6 +57,10 @@ namespace Sprint4
         {
             this.itemTexture = itemTexture;
         }
+        public string GetItemTexture()
+        {
+            return itemTexture;
+        }
         public void Update(GameTime gameTime)
         {
             if (!disappear)

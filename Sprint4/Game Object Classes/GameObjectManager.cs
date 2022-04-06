@@ -14,6 +14,7 @@ namespace Sprint4
 		private List<IGameObject> items = new List<IGameObject>();
 		private List<IGameObject> blocks = new List<IGameObject>();
 		private List<IGameObject> enemies = new List<IGameObject>();
+		private List<IGameObject> inventories = new List<IGameObject>();
 
 		public void AddLists()
 		{
@@ -21,6 +22,7 @@ namespace Sprint4
 			lists.Add(players);
 			lists.Add(enemies);
 			lists.Add(items);
+			lists.Add(inventories);
 		}
 
 		public void PopulatePlayers(Player player)
@@ -44,6 +46,10 @@ namespace Sprint4
 		{
 			foreach (NPC1 enemy in enemyArr)
 				enemies.Add(enemy);
+		}
+		public void PopulateInventory(Inventory inventory)
+		{
+			inventories.Add(inventory);
 		}
 
 		public void ClearLists()

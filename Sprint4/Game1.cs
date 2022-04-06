@@ -14,7 +14,7 @@ namespace Sprint4
 		//private SpriteFont font;
 
 		public Level1 level1;
-
+		private Camera camera;
 
 		private KeyboardC _keyboardCon;
 		private MouseC mouseCon;
@@ -25,6 +25,7 @@ namespace Sprint4
 		private GameObjectManager gameObjectManager;
 
 		private CollisionManager collisionManager;
+
 
 		
 
@@ -41,7 +42,7 @@ namespace Sprint4
 		{
 			//setting  game window
 			_graphics.PreferredBackBufferWidth = 800;
-			_graphics.PreferredBackBufferHeight = 550;
+			_graphics.PreferredBackBufferHeight = 800;
 
 			_graphics.ApplyChanges();
 
@@ -51,8 +52,11 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
+			Inventory.GetInventory(Content);
+
+			camera = new Camera(800, 550, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
-			level1.loadRoom();
+			level1.InitializeRoom();
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 
@@ -60,7 +64,7 @@ namespace Sprint4
 			_keyboardCon.InitializeController();
 
 			mouseCon = new MouseC(level1);
-			mouseCon.InitializeController();			
+			mouseCon.InitializeController();
 
 			base.Initialize();
 		}
@@ -78,13 +82,25 @@ namespace Sprint4
 
 		protected override void Update(GameTime gameTime)
 		{
+			if (level1.CheckLock()) {
+				mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
+				if (level1.CheckLock()) {
+					_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+					gameObjectManager.Update(gameTime);
+
+					collisionManager.Update(level1);
+				}
+			}
+			if (!level1.CheckLock())
+			{
+				 camera.Update(gameTime, level1.currentroom(), level1.futureroom());
+				 if(camera.done()) {
+					 camera.reset();
+					 level1.loadRoom();
+					 level1.setCheckLock(false);
+				 }
+			}
 			
-			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
-
-			_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
-			gameObjectManager.Update((gameTime));
-			collisionManager.Update(level1);			
-
 			//x = Mouse.GetState().X;
 			//y = Mouse.GetState().Y;
 			base.Update(gameTime);
@@ -96,8 +112,12 @@ namespace Sprint4
 			GraphicsDevice.Clear(Color.Black);
 
 			_spriteBatch.Begin();
-			gameObjectManager.Draw(_spriteBatch);
-			//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
+			if (level1.CheckLock()) {
+				gameObjectManager.Draw(_spriteBatch);
+				//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
+			} else {
+				camera.Draw(_spriteBatch);
+			}
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}
