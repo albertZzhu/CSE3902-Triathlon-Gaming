@@ -8,10 +8,9 @@ namespace Sprint4
     public class Inventory : IGameObject
     {
 		private static Inventory uniqueInventory;
-		private Player player;
-		private PlayerStateMachine psm;
 		private ContentManager content;
 		private SpriteFont font;
+		private Level1 level;
 		private int rupees;
 		private int keys;
 		private int bombs;
@@ -21,7 +20,7 @@ namespace Sprint4
 
 		private MapMarker marker = new MapMarker();
 
-		public Inventory(ContentManager content)
+		public Inventory(ContentManager content, Level1 level)
         {
 			rupees = 0;
 			keys = 0;
@@ -30,14 +29,15 @@ namespace Sprint4
 			boomerang = false;
 			map = false;
 			this.content = content;
+			this.level = level;
 			font = content.Load<SpriteFont>("coortest");
 		}
 
-		public static Inventory GetInventory(ContentManager Content)
+		public static Inventory GetInventory(ContentManager content, Level1 level)
 		{
 			if (uniqueInventory == null)
 			{
-				uniqueInventory = new Inventory(Content);
+				uniqueInventory = new Inventory(content, level);
 			}
 			return uniqueInventory;
 		}
@@ -111,11 +111,11 @@ namespace Sprint4
 		}
 		public void Update(GameTime gametime)
         {
-			
-        }
-		public void Update(int index)
+			marker.Update(level.GetIndex());
+		}
+		public void Update()
 		{
-
+			marker.Update(level.GetIndex());
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
@@ -150,8 +150,6 @@ namespace Sprint4
 			}
 
 			marker.Draw(spriteBatch);
-
-
 		}
 	}
 }

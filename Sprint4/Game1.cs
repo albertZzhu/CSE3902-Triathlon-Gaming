@@ -52,11 +52,11 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
-			Inventory.GetInventory(Content);
-
 			camera = new Camera(800, 550, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			level1.InitializeRoom();
+
+			gameObjectManager.PopulateInventory(Inventory.GetInventory(Content, level1));
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 
@@ -65,7 +65,7 @@ namespace Sprint4
 
 			mouseCon = new MouseC(level1);
 			mouseCon.InitializeController();
-
+			
 			base.Initialize();
 		}
 

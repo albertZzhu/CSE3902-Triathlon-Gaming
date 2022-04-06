@@ -65,7 +65,8 @@ namespace Sprint4
 			{
 				foreach (IGameObject gobj in list)
 				{
-					gobj.Update(gameTime);
+					if (gobj != null)
+						gobj.Update(gameTime);
 				}
 			}
 		}
@@ -76,7 +77,8 @@ namespace Sprint4
 			{
 				foreach (IGameObject gobj in list)
 				{
-					gobj.Draw(spriteBatch);
+					if (gobj != null)
+						gobj.Draw(spriteBatch);
 				}
 			}
 		}
