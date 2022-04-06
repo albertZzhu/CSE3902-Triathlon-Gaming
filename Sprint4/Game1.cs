@@ -73,7 +73,7 @@ namespace Sprint4
 		{
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 			//nothing needs to be done here...?
-
+			SoundManager.Instance.LoadAllSounds(Content);
 			//font is not used
 			//font = Content.Load<SpriteFont>("coortest");
 
