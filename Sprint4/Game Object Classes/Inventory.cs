@@ -17,6 +17,7 @@ namespace Sprint4
 		private int health;
 		private bool boomerang;
 		private bool map;
+		private bool compass;
 
 		private MapMarker marker = new MapMarker();
 
@@ -28,6 +29,7 @@ namespace Sprint4
 			health = 5;
 			boomerang = false;
 			map = false;
+			compass = false;
 			this.content = content;
 			this.level = level;
 			font = content.Load<SpriteFont>("coortest");
@@ -58,6 +60,8 @@ namespace Sprint4
 				uniqueInventory.AddBoomerang();
 			else if (type.Equals("map"))
 				uniqueInventory.AddMap();
+			else if (type.Equals("compass"))
+				uniqueInventory.AddCompass();
 			else
 				uniqueInventory.AddRupees();
         }
@@ -96,6 +100,11 @@ namespace Sprint4
 			map = true;
 		}
 
+		public void AddCompass()
+		{
+			compass = true;
+		}
+
 		public void UpdateContent(ContentManager content)
         {
 			this.content = content;
@@ -108,6 +117,7 @@ namespace Sprint4
 			uniqueInventory.health = 5;
 			uniqueInventory.boomerang = false;
 			uniqueInventory.map = false;
+			uniqueInventory.compass = false;
 		}
 		public void Update(GameTime gametime)
         {
@@ -120,6 +130,7 @@ namespace Sprint4
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
+			//this will need to be added to the xml file or its own class next sprint
 			Item item = new Item();
 			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
 			spriteBatch.DrawString(font, "1      2", new Vector2(450, 600), Color.White);
@@ -146,6 +157,12 @@ namespace Sprint4
 			{
 				item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
 				item.SetLocation(new Vector2(10, 575));
+				item.Draw(spriteBatch);
+			}
+			if (compass)
+            {
+				item.SetSprite(SpriteFactory.GetSprite("mapmarker2"));
+				item.SetLocation(new Vector2(305, 620));
 				item.Draw(spriteBatch);
 			}
 

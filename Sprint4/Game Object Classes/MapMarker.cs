@@ -23,7 +23,7 @@ namespace Sprint4.Game_Object_Classes
             roomLocations.Add(2, new Vector2(140, 590));
             roomLocations.Add(3, new Vector2(140, 620));
             roomLocations.Add(4, new Vector2(250, 620));
-            roomLocations.Add(5, new Vector2(300, 620));
+            roomLocations.Add(5, new Vector2(305, 620));
             roomLocations.Add(6, new Vector2(90, 655));
             roomLocations.Add(7, new Vector2(140, 655));
             roomLocations.Add(8, new Vector2(195, 655));
