@@ -22,6 +22,7 @@ namespace Sprint4
 			level.resetRoom();
 			player.Reset();
 			Inventory.Reset();
+			SoundManager.Instance.ThemeMusic();
 			/*player.Reset();
 			item.Reset();
 			block.Reset();

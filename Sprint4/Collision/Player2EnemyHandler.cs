@@ -20,6 +20,7 @@ namespace Sprint4.Collision
 				if (player.IfAttacking())
 				{
 					enemy.die();
+					SoundManager.Instance.PlaySound("EnemyHit");
 				}
 				else
 				{

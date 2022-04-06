@@ -440,6 +440,18 @@
 /processorParam:TextureFormat=Color
 /build:dungeonmap.png
 
+#begin DungeonTheme.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:DungeonTheme.mp3
+
+#begin EnemyHit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:EnemyHit.wav
+
 #begin fireball_down.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -535,6 +547,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:front_throw.png
+
+#begin GetItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:GetItem.wav
 
 #begin glassBlock.png
 /importer:TextureImporter
@@ -871,6 +889,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:mudBlock.png
+
+#begin PlayerDamaged.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:PlayerDamaged.wav
 
 #begin redGoriyaBack.png
 /importer:TextureImporter
@@ -1315,6 +1339,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sword.png
+
+#begin SwordSlash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SwordSlash.wav
 
 #begin toparch.png
 /importer:TextureImporter

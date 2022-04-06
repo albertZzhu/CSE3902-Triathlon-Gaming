@@ -14,6 +14,7 @@
 		public void Execute()
 		{
 			player.GoAttack();
+			SoundManager.Instance.PlaySound("SwordSlash");
 		}
 	}
 }
