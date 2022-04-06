@@ -17,6 +17,7 @@ namespace Sprint4
 		private int bombs;
 		private int health;
 		private bool boomerang;
+		private bool map;
 
 		private MapMarker marker = new MapMarker();
 
@@ -27,6 +28,7 @@ namespace Sprint4
 			bombs = 0;
 			health = 5;
 			boomerang = false;
+			map = false;
 			this.content = content;
 			font = content.Load<SpriteFont>("coortest");
 		}
@@ -54,6 +56,8 @@ namespace Sprint4
 				uniqueInventory.AddHealth();
 			else if (type.Equals("boomerang"))
 				uniqueInventory.AddBoomerang();
+			else if (type.Equals("map"))
+				uniqueInventory.AddMap();
 			else
 				uniqueInventory.AddRupees();
         }
@@ -87,6 +91,11 @@ namespace Sprint4
 			boomerang = true;
         }
 
+		public void AddMap()
+		{
+			map = true;
+		}
+
 		public void UpdateContent(ContentManager content)
         {
 			this.content = content;
@@ -98,6 +107,7 @@ namespace Sprint4
 			uniqueInventory.bombs = 0;
 			uniqueInventory.health = 5;
 			uniqueInventory.boomerang = false;
+			uniqueInventory.map = false;
 		}
 		public void Update(GameTime gametime)
         {
@@ -132,9 +142,12 @@ namespace Sprint4
 				item.SetLocation(new Vector2(550 + 50 * i, 650));
 				item.Draw(spriteBatch);
 			}
-			item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
-			item.SetLocation(new Vector2(10, 575));
-			item.Draw(spriteBatch);
+			if (map)
+			{
+				item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
+				item.SetLocation(new Vector2(10, 575));
+				item.Draw(spriteBatch);
+			}
 
 			marker.Draw(spriteBatch);
 
