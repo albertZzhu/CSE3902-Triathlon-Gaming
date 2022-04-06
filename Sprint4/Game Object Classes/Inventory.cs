@@ -91,6 +91,14 @@ namespace Sprint4
         {
 			this.content = content;
         }
+		public static void Reset()
+        {
+			uniqueInventory.rupees = 0;
+			uniqueInventory.keys = 0;
+			uniqueInventory.bombs = 0;
+			uniqueInventory.health = 5;
+			uniqueInventory.boomerang = false;
+		}
 		public void Update(GameTime gametime)
         {
 			

@@ -21,6 +21,7 @@ namespace Sprint4
 		{
 			level.resetRoom();
 			player.Reset();
+			Inventory.Reset();
 			/*player.Reset();
 			item.Reset();
 			block.Reset();
