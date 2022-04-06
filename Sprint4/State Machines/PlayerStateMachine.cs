@@ -53,6 +53,7 @@ namespace Sprint4
 			{
 				damaged = true;
 				health--;
+				Inventory.SubtractHealth();
 			}
 		}
 

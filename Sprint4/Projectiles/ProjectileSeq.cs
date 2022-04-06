@@ -20,7 +20,7 @@ namespace Sprint4
 		{
 			switch (sprite)
 			{ //add more
-				case 2:
+				case (int)Projectiles.SPEAR:
 					{
 						switch (direction)
 						{
@@ -39,7 +39,7 @@ namespace Sprint4
 						}
 					}
 					break;
-				case 0:
+				case (int)Projectiles.FIREBALL:
 					{
 						switch (direction)
 						{
@@ -58,21 +58,21 @@ namespace Sprint4
 						}
 					}
 					break;
-				case 1:
+				case (int)Projectiles.BOOMERANG:
 					{
 						switch (direction)
 						{
 							case Facing.RIGHT:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("heart")));
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("boomerang")));
 								break;
 							case Facing.LEFT:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("heart")));
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("boomerang")));
 								break;
 							case Facing.UP:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("heart")));
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("boomerang")));
 								break;
 							case Facing.DOWN:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("heart")));
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("boomerang")));
 								break;
 						}
 					}
