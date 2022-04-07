@@ -1,11 +1,7 @@
 ﻿namespace Sprint4
 {
-    class QuitCom : ICommand
+    class QuitCom : IGameControlCom
 	{
-		public void ChangePlayer(Player player)
-		{
-			
-		}
 		public void Execute()
 		{
 			System.Windows.Forms.Application.Exit();

@@ -52,32 +52,39 @@ namespace Sprint4.Collision
 			{
 				if (player.GetRect().Intersects(b.GetRect()))
 				{
-					Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
-					int playerX = player.GetRect().X + player.GetRect().Width / 2;
-					int playerY = player.GetRect().Y + player.GetRect().Height / 2;
-					int blockX = b.GetRect().X + b.GetRect().Width / 2;
-					int blockY = b.GetRect().Y + b.GetRect().Height / 2;
-
-					if (result.Width<Math.Max(player.GetRect().Width, b.GetRect().Width)&&result.Height<=(player.GetRect().Height+b.GetRect().Height))
+					if (b.GetType().Equals(typeof(Door)))
 					{
-						if (playerX < blockX)
-						{
-							handleList[0] = 0;
-						}
-						else
-						{
-							handleList[1] = 0;
-						}
+						Side.side direction=((Door)b).DoorSide();
 					}
-					if (result.Height<Math.Max(player.GetRect().Height, b.GetRect().Height) && result.Width <= (player.GetRect().Width + b.GetRect().Width))
-					{
-						if (playerY > blockY)
+					else 
+					{ 
+						Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
+						int playerX = player.GetRect().X + player.GetRect().Width / 2;
+						int playerY = player.GetRect().Y + player.GetRect().Height / 2;
+						int blockX = b.GetRect().X + b.GetRect().Width / 2;
+						int blockY = b.GetRect().Y + b.GetRect().Height / 2;
+
+						if (result.Width < Math.Max(player.GetRect().Width, b.GetRect().Width) && result.Height <= (player.GetRect().Height + b.GetRect().Height))
 						{
-							handleList[2] = 0;
+							if (playerX < blockX)
+							{
+								handleList[0] = 0;
+							}
+							else
+							{
+								handleList[1] = 0;
+							}
 						}
-						else
+						if (result.Height < Math.Max(player.GetRect().Height, b.GetRect().Height) && result.Width <= (player.GetRect().Width + b.GetRect().Width))
 						{
-							handleList[3] = 0;
+							if (playerY > blockY)
+							{
+								handleList[2] = 0;
+							}
+							else
+							{
+								handleList[3] = 0;
+							}
 						}
 					}
 				}

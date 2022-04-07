@@ -253,6 +253,11 @@ namespace Sprint4
 			Texture2D compass = Content.Load<Texture2D>("compass");
 			CreateSprite(compass, 1, 1, 1, "compass");
 
+			Texture2D pauseButton= Content.Load<Texture2D>("pauseButton");
+			CreateSprite(pauseButton, 1, 1, 1, "pauseButton");
+			Texture2D playButton = Content.Load<Texture2D>("playButton");
+			CreateSprite(playButton, 1, 1, 1, "playButton");
+
 			Texture2D dungeonmap = Content.Load<Texture2D>("dungeonmap");
 			CreateSprite(dungeonmap, 1, 1, 1, "dungeonmap");
 

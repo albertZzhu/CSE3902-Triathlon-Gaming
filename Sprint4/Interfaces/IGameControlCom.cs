@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4.Commands
+namespace Sprint4
 {
-	class GamePauseCom
+	interface IGameControlCom
 	{
+		void Execute();
 	}
 }

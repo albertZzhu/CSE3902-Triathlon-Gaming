@@ -12,8 +12,6 @@ namespace Sprint4
 		private SpriteBatch _spriteBatch;
 		//not used
 		//private SpriteFont font;
-
-		public Level1 level1;
 		private Camera camera;
 
 		private KeyboardC _keyboardCon;
@@ -23,19 +21,23 @@ namespace Sprint4
 		private int boundHeight;
 
 		private GameObjectManager gameObjectManager;
-
+		private GameButtonManager gameButtonManager;
 		private CollisionManager collisionManager;
 
+		public bool isPaused;
 
-		
+		public Level1 level1;
+
 
 		public Game1()
 		{
 			_graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			IsMouseVisible = true;
+			isPaused = false;
 
 			collisionManager = new CollisionManager();
+			gameButtonManager = new GameButtonManager(this);
 		}
 
 		protected override void Initialize()
@@ -59,11 +61,12 @@ namespace Sprint4
 			level1.InitializeRoom();
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
+			gameButtonManager.Initialize();
 
 			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
 
-			mouseCon = new MouseC(level1);
+			mouseCon = new MouseC(this);
 			mouseCon.InitializeController();
 
 			base.Initialize();
@@ -82,23 +85,30 @@ namespace Sprint4
 
 		protected override void Update(GameTime gameTime)
 		{
-			if (level1.CheckLock()) {
-				mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
-				if (level1.CheckLock()) {
-					_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
-					gameObjectManager.Update(gameTime);
-
-					collisionManager.Update(level1);
-				}
-			}
-			if (!level1.CheckLock())
+			gameButtonManager.Update(gameTime);
+			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
+			if (!isPaused)
 			{
-				 camera.Update(gameTime, level1.currentroom(), level1.futureroom());
-				 if(camera.done()) {
-					 camera.reset();
-					 level1.loadRoom();
-					 level1.setCheckLock(false);
-				 }
+				if (level1.CheckLock())
+				{
+					if (level1.CheckLock())
+					{
+						_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+						gameObjectManager.Update(gameTime);
+
+						collisionManager.Update(level1);
+					}
+				}
+				if (!level1.CheckLock())
+				{
+					camera.Update(gameTime, level1.currentroom(), level1.futureroom());
+					if (camera.done())
+					{
+						camera.reset();
+						level1.loadRoom();
+						level1.setCheckLock(false);
+					}
+				}
 			}
 			
 			//x = Mouse.GetState().X;
@@ -108,9 +118,7 @@ namespace Sprint4
 
 		protected override void Draw(GameTime gameTime)
 		{
-			//change this to black...?
 			GraphicsDevice.Clear(Color.Black);
-
 			_spriteBatch.Begin();
 			if (level1.CheckLock()) {
 				gameObjectManager.Draw(_spriteBatch);
@@ -118,6 +126,7 @@ namespace Sprint4
 			} else {
 				camera.Draw(_spriteBatch);
 			}
+			gameButtonManager.Draw(gameTime, _spriteBatch);
 			_spriteBatch.End();
 			base.Draw(gameTime);
 		}

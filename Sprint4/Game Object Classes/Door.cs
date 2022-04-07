@@ -4,14 +4,21 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
 namespace Sprint4
 {
-	public class Block : IBlock
+	class Door : IBlock
 	{
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
 		private String blockTexture;
+		private Side.side side;
+
+		public Door(String spriteName, Vector2 newLocation, Side.side side)
+		{
+			blockSprite = SpriteFactory.GetSprite(spriteName);
+			location = newLocation;
+			this.side = side;
+		}
 
 		public void SetLocation(Vector2 newLocation)
 		{
@@ -20,22 +27,12 @@ namespace Sprint4
 
 		public Rectangle GetRect()
 		{
-			Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)blockSprite.getSize().X, (int)blockSprite.getSize().Y);
-			return opt;
+			return new Rectangle((int)location.X, (int)location.Y, (int)blockSprite.getSize().X, (int)blockSprite.getSize().Y);
 		}
 
-		public Vector2 GetLocation()
+		public Side.side DoorSide()
 		{
-			return location;
-		}
-
-		public ISprite GetItem()
-		{
-			return blockSprite;
-		}
-		public void SetBlock(String blockTexture)
-		{
-			blockSprite = SpriteFactory.GetSprite(blockTexture);
+			return side;
 		}
 
 		public void Update(GameTime gameTime)

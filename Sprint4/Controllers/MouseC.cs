@@ -12,27 +12,17 @@ namespace Sprint4
 
         private MouseState oldState;
 
-        private Level1 level;
+        private Game1 game;
 
-        public MouseC(Level1 level)
+        public MouseC(Game1 game)
         {
-            this.level = level;
+            this.game = game;
         }
 
         public void CompareStates(Player player)
         {
             MouseState NewState = Mouse.GetState();
-            //quit
-            if (NewState.RightButton == ButtonState.Pressed && !NewState.Equals(oldState))
-            {
-                ICommand tempCom = new SwitchRoomForwardCom(level);
-                tempCom.Execute();
-            }
-            else if (NewState.LeftButton == ButtonState.Pressed && !NewState.Equals(oldState))
-            {
-                ICommand tempCom = new SwitchRoomBackwardCom(level);
-                tempCom.Execute();
-            }
+            
 
             //UPDATE STATE
             oldState = NewState;

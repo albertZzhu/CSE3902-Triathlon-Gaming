@@ -58,7 +58,6 @@ namespace Sprint4
         }
         public void InitializeController()
 		{
-			keyDict.Add(Keys.Q, new QuitCom());
 			keyDict.Add(Keys.Z, new AttackCom(player));
 			keyDict.Add(Keys.N, new AttackCom(player));
 			//keyDict.Add(Keys.E, new DamageCom(player));

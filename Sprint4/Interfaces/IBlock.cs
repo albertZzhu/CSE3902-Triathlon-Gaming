@@ -8,7 +8,6 @@ namespace Sprint4
 {
 	interface IBlock : IGameObject
 	{
-		void Reset();
 
 		Rectangle GetRect();
 	}
