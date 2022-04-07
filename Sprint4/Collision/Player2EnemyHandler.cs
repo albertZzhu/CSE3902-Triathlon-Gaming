@@ -30,7 +30,8 @@ namespace Sprint4.Collision
 					}
 					else
 					{
-						player.GoDamaged();
+						ICommand tempCom = new DamageCom(player);
+						tempCom.Execute();
 					}
 				}
 			}
