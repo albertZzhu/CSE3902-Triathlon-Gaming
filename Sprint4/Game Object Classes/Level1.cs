@@ -121,6 +121,16 @@ namespace Sprint4
             //loadRoom();
             this.futureRoom = rooms[index];
         }
+         
+         /*
+         public void SwitchRoom(int doorposition) {
+           setCheckLock(true);
+           setLoadLock(false);
+            this.index = int.Parse(this.room.GetDoorPair()[doorposition].Value.Substring(4));
+            this.futureRoom = rooms[index];
+         }
+         */
+         
 
         public void resetRoom()
 		{
