@@ -18,6 +18,7 @@ namespace Sprint4
 		private bool boomerang;
 		private bool map;
 		private bool compass;
+		private Item item2 = new Item("mapmarker2");
 
 		private MapMarker marker = new MapMarker();
 
@@ -122,14 +123,12 @@ namespace Sprint4
 		public void Update(GameTime gametime)
         {
 			marker.Update(level.GetIndex());
-		}
-		public void Update()
-		{
-			marker.Update(level.GetIndex());
+			item2.Update(gametime);
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
+
 			//this will need to be added to the xml file or its own class next sprint
 			Item item = new Item();
 			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
@@ -161,9 +160,8 @@ namespace Sprint4
 			}
 			if (compass)
             {
-				item.SetSprite(SpriteFactory.GetSprite("mapmarker2"));
-				item.SetLocation(new Vector2(305, 620));
-				item.Draw(spriteBatch);
+				item2.SetLocation(new Vector2(305, 620));
+				item2.Draw(spriteBatch);
 			}
 
 			marker.Draw(spriteBatch);
