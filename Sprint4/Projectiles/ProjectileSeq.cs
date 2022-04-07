@@ -41,6 +41,7 @@ namespace Sprint4
 					break;
 				case (int)Projectiles.FIREBALL:
 					{
+						SoundManager.Instance.PlaySound("Fireball");
 						switch (direction)
 						{
 							case Facing.RIGHT:
@@ -60,6 +61,7 @@ namespace Sprint4
 					break;
 				case (int)Projectiles.BOOMERANG:
 					{
+						SoundManager.Instance.PlaySound("Boomerang");
 						switch (direction)
 						{
 							case Facing.RIGHT:

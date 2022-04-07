@@ -229,6 +229,12 @@
 /processorParam:TextureFormat=Color
 /build:boomerang.png
 
+#begin Boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Boomerang.wav;BoomerangThrow.wav
+
 #begin bottomarch.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -451,6 +457,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:EnemyHit.wav
+
+#begin Fireball.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Fireball.wav
 
 #begin fireballdown.png
 /importer:TextureImporter

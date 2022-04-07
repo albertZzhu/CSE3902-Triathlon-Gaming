@@ -9,7 +9,7 @@ namespace Sprint4
 {
     class SoundManager
     {
-        public Dictionary<string, SoundEffect> soundEffecrDictionary = new Dictionary<string, SoundEffect>();
+        public Dictionary<string, SoundEffect> soundEffectDictionary = new Dictionary<string, SoundEffect>();
         private Dictionary<string, Song> backgroundMusic = new Dictionary<string, Song>();
         private static SoundManager instance = new SoundManager();
 
@@ -23,10 +23,12 @@ namespace Sprint4
 
         public void LoadAllSounds(ContentManager content)
         {
-            soundEffecrDictionary.Add("SwordSlash", content.Load<SoundEffect>("SwordSlash"));
-            soundEffecrDictionary.Add("EnemyHit", content.Load<SoundEffect>("EnemyHit"));
-            soundEffecrDictionary.Add("GetItem", content.Load<SoundEffect>("GetItem"));
-            soundEffecrDictionary.Add("PlayerDamaged", content.Load<SoundEffect>("PlayerDamaged"));
+            soundEffectDictionary.Add("SwordSlash", content.Load<SoundEffect>("SwordSlash"));
+            soundEffectDictionary.Add("EnemyHit", content.Load<SoundEffect>("EnemyHit"));
+            soundEffectDictionary.Add("GetItem", content.Load<SoundEffect>("GetItem"));
+            soundEffectDictionary.Add("PlayerDamaged", content.Load<SoundEffect>("PlayerDamaged"));
+            soundEffectDictionary.Add("Fireball", content.Load<SoundEffect>("Fireball"));
+            soundEffectDictionary.Add("Boomerang", content.Load<SoundEffect>("BoomerangThrow"));
 
             backgroundMusic.Add("DungeonTheme", content.Load<Song>("DungeonTheme"));
 
@@ -42,7 +44,7 @@ namespace Sprint4
 
         public void PlaySound(string Name)
         {
-            soundEffecrDictionary[Name].Play();
+            soundEffectDictionary[Name].Play();
         }
 
         public void ThemeMusic()
