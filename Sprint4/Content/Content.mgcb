@@ -1319,6 +1319,12 @@
 /processorParam:TextureFormat=Color
 /build:skeletonRight.png
 
+#begin Spear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Spear.wav
+
 #begin spriteList.txt
 /copy:spriteList.txt
 

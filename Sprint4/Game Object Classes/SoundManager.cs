@@ -29,6 +29,7 @@ namespace Sprint4
             soundEffectDictionary.Add("PlayerDamaged", content.Load<SoundEffect>("PlayerDamaged"));
             soundEffectDictionary.Add("Fireball", content.Load<SoundEffect>("Fireball"));
             soundEffectDictionary.Add("Boomerang", content.Load<SoundEffect>("BoomerangThrow"));
+            soundEffectDictionary.Add("Spear", content.Load<SoundEffect>("Spear"));
 
             backgroundMusic.Add("DungeonTheme", content.Load<Song>("DungeonTheme"));
 

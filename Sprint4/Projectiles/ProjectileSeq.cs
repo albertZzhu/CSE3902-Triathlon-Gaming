@@ -22,19 +22,20 @@ namespace Sprint4
 			{ //add more
 				case (int)Projectiles.SPEAR:
 					{
+						SoundManager.Instance.PlaySound("Spear");
 						switch (direction)
 						{
 							case Facing.RIGHT:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
 								break;
 							case Facing.LEFT:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileLeft")));
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("left_projectile")));
 								break;
 							case Facing.UP:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("up_projectile")));
 								break;
 							case Facing.DOWN:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileDown")));
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("down_projectile")));
 								break;
 						}
 					}
