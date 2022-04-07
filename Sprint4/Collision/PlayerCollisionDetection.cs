@@ -14,6 +14,7 @@ namespace Sprint4.Collision
 		private Player2EnemyHandler enemyHandle;
 		private Player2ProjectileHandler projectileHandle;
 		private Player2ItemHandler itemHandle;
+		private Player2DoorHandler doorHandle;
 
 
 		public PlayerCollisionDetection(string playerName, CollisionHandlerDict dict)
@@ -22,6 +23,7 @@ namespace Sprint4.Collision
 			enemyHandle = dict.GetPlayer2NPC(playerName);
 			projectileHandle = dict.GetPlayer2Projectile(playerName);
 			itemHandle = dict.GetPlayer2Item(playerName);
+			doorHandle = dict.GetPlayer2Door(playerName);
 		}
 
 		public void Detect(Player player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
@@ -54,9 +56,9 @@ namespace Sprint4.Collision
 				{
 					if (b.GetType().Equals(typeof(Door)))
 					{
-						Side.side direction=((Door)b).DoorSide();
+						doorHandle.Handle(((Door)b).DoorSide());
 					}
-					else 
+					else if(b.GetType().Equals(typeof(Block)))
 					{ 
 						Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
 						int playerX = player.GetRect().X + player.GetRect().Width / 2;

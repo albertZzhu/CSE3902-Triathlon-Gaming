@@ -24,6 +24,12 @@ namespace Sprint4.Collision
 			}else if(side == Side.side.left)
 			{
 				roomBackCommand.Execute();
+			}else if (side == Side.side.up)
+			{
+				roomBackCommand.Execute();
+			}else if (side == Side.side.down)
+			{
+				roomBackCommand.Execute();
 			}
 		}
 	}
