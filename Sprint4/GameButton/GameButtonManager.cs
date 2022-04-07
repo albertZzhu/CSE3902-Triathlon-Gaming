@@ -43,6 +43,7 @@ namespace Sprint4
 				if (mouseRect.Intersects(b.GetRect())&& currentState.LeftButton == ButtonState.Pressed && !currentState.Equals(prevState))
 				{
 					b.Click();
+					b.Update(gameTime);
 				}
 			}
 		}

@@ -10,7 +10,6 @@ namespace Sprint4
 	{
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
-		private String blockTexture;
 		private Side.side side;
 
 		public Door(String spriteName, Vector2 newLocation, Side.side side)
