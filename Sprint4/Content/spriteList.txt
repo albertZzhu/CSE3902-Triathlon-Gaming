@@ -102,4 +102,4 @@
 1,1,1,dungeonmap
 
 1,1,1,mapmarker
-1,1,1,mapmarker2
+2,1,2,mapmarker2
