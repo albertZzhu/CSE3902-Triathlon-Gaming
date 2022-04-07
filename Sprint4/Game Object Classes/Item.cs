@@ -17,6 +17,12 @@ namespace Sprint4
         {
             disappear = false;
         }
+        public Item(string sprite)
+        {
+            disappear = false;
+            SetSprite(SpriteFactory.GetSprite(sprite));
+            SetItem(sprite);
+        }
 
         public void SetLocation(Vector2 newLocation)
         {

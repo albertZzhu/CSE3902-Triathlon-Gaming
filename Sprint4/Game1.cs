@@ -54,11 +54,11 @@ namespace Sprint4
 			SpriteFactory.GetFactory(Content);
 			gameObjectManager = new GameObjectManager();
 
-			Inventory.GetInventory(Content);
-
 			camera = new Camera(800, 550, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			level1.InitializeRoom();
+
+			gameObjectManager.PopulateInventory(Inventory.GetInventory(Content, level1));
 
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 			gameButtonManager.Initialize();
@@ -68,7 +68,7 @@ namespace Sprint4
 
 			mouseCon = new MouseC(this);
 			mouseCon.InitializeController();
-
+			
 			base.Initialize();
 		}
 
@@ -76,7 +76,7 @@ namespace Sprint4
 		{
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 			//nothing needs to be done here...?
-
+			SoundManager.Instance.LoadAllSounds(Content);
 			//font is not used
 			//font = Content.Load<SpriteFont>("coortest");
 

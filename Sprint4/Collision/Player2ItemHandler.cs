@@ -16,6 +16,7 @@ namespace Sprint4.Collision
 			{
 				item.goDisappear();
                 Inventory.AddItem(item);
+				SoundManager.Instance.PlaySound("GetItem");
 			}
 		}
 	}

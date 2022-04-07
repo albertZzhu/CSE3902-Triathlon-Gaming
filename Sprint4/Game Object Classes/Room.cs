@@ -42,7 +42,7 @@ namespace Sprint4
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("../levelData.xml");
+            xml.Load("Content\\levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -176,8 +176,8 @@ namespace Sprint4
 
             }
             gom.ClearLists();
-            gom.PopulatePlayers(player);
             gom.PopulateBlocks(block);
+            gom.PopulatePlayers(player);
             gom.PopulateItems(item);
             gom.PopulateEnemies(npc);
             gom.PopulateInventory(Inventory.GetInventory());

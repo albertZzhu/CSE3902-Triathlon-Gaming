@@ -229,6 +229,12 @@
 /processorParam:TextureFormat=Color
 /build:boomerang.png
 
+#begin Boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Boomerang.wav;BoomerangThrow.wav
+
 #begin bottomarch.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -440,43 +446,25 @@
 /processorParam:TextureFormat=Color
 /build:dungeonmap.png
 
-#begin fireball_down.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:fireball_down.png
+#begin DungeonTheme.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:DungeonTheme.mp3
 
-#begin fireball_Left.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:fireball_Left.png
+#begin EnemyHit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:EnemyHit.wav
 
-#begin fireball_right.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:fireball_right.png
+#begin Fireball.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Fireball.wav
 
-#begin fireball_up.png
+#begin fireballdown.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -486,7 +474,43 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fireball_up.png
+/build:fireballdown.png
+
+#begin fireballLeft.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:fireballLeft.png;fireballleft.png
+
+#begin fireballright.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:fireballright.png
+
+#begin fireballup.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:fireballup.png
 
 #begin floor.png
 /importer:TextureImporter
@@ -535,6 +559,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:front_throw.png
+
+#begin GetItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:GetItem.wav
 
 #begin glassBlock.png
 /importer:TextureImporter
@@ -824,6 +854,9 @@
 /processorParam:TextureFormat=Color
 /build:leftwall11.png
 
+#begin levelData.xml
+/copy:levelData.xml
+
 #begin magic_portion.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -860,6 +893,18 @@
 /processorParam:TextureFormat=Color
 /build:mapmarker.png
 
+#begin mapmarker2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:mapmarker2.png
+
 #begin mudBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -871,30 +916,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:mudBlock.png
-
-#begin pauseButton.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:pauseButton.png
-
-#begin playButton.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:playButton.png
 
 #begin redGoriyaBack.png
 /importer:TextureImporter
@@ -1292,6 +1313,15 @@
 /processorParam:TextureFormat=Color
 /build:skeletonRight.png
 
+#begin Spear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Spear.wav
+
+#begin spriteList.txt
+/copy:spriteList.txt
+
 #begin stairs.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1339,6 +1369,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sword.png
+
+#begin SwordSlash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SwordSlash.wav
 
 #begin toparch.png
 /importer:TextureImporter

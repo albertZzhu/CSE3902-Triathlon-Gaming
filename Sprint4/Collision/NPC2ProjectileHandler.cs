@@ -17,6 +17,7 @@ namespace Sprint4.Collision
 			{
 				enemy.die();
 				projectile.die();
+				SoundManager.Instance.PlaySound("EnemyHit");
 			}
 		}
 	}

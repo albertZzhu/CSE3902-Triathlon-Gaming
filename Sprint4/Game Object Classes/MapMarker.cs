@@ -20,6 +20,21 @@ namespace Sprint4.Game_Object_Classes
         {
             sprite = SpriteFactory.GetSprite("mapmarker");
             roomLocations.Add(1, new Vector2(90, 590));
+            roomLocations.Add(2, new Vector2(140, 590));
+            roomLocations.Add(3, new Vector2(140, 620));
+            roomLocations.Add(4, new Vector2(250, 620));
+            roomLocations.Add(5, new Vector2(305, 620));
+            roomLocations.Add(6, new Vector2(90, 655));
+            roomLocations.Add(7, new Vector2(140, 655));
+            roomLocations.Add(8, new Vector2(195, 655));
+            roomLocations.Add(9, new Vector2(250, 655));
+            roomLocations.Add(10, new Vector2(90, 685));
+            roomLocations.Add(11, new Vector2(140, 685));
+            roomLocations.Add(12, new Vector2(195, 685));
+            roomLocations.Add(13, new Vector2(140, 720));
+            roomLocations.Add(14, new Vector2(90, 750));
+            roomLocations.Add(15, new Vector2(140, 750));
+            roomLocations.Add(16, new Vector2(195, 750));
             currentLocation = roomLocations[1];
         }
 

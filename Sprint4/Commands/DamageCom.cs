@@ -15,6 +15,7 @@
 		public void Execute()
 		{
 			player.GoDamaged();
+			SoundManager.Instance.PlaySound("PlayerDamaged");
 		}
 	}
 }
