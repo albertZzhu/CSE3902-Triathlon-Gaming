@@ -11,9 +11,15 @@ using System.Xml;
 namespace Sprint4
 {
     public class Room
-    {   
+    {
         //block obj holder variables
         private Block[] block;
+        //door pair holder variables
+        private KeyValuePair<Door, String>[] door;
+        //water obj holder variables
+        private Water[] water;
+        //sand obj holder variables
+        private Sand[] sand;
         //item obj holder variables
         private Item[] item;
         //used by both block and item variables
@@ -79,6 +85,113 @@ namespace Sprint4
                         }
 
                     }
+
+                    //loading doors into the door pair holder.
+                    XmlNode door = type.SelectSingleNode("door");
+                    if (door != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(door.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.door = new KeyValuePair<Door, String>[num];
+                            XmlNodeList list = block.ChildNodes;
+                            foreach (XmlNode element in list)
+                            {
+                                if (element != null)
+                                {
+                                    XmlNodeList Dinfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((Dinfo[0].FirstChild).InnerText), int.Parse((Dinfo[0].LastChild).InnerText));
+                                    this.Texture = Dinfo[1].InnerText;
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.up), Dinfo[2].InnerText);
+                                            break;
+                                        case 1:
+                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.right), Dinfo[2].InnerText);
+                                            break;
+                                        case 2:
+                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.down), Dinfo[2].InnerText);
+                                            break;
+                                        case 3:
+                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.left), Dinfo[2].InnerText);
+                                            break;
+                                    }
+                                }
+                                else this.door[i] = new KeyValuePair<Door, String>(null, "nothing");
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            this.door = new KeyValuePair<Door, String>[0];
+                        }
+
+                    }
+
+                    //loading water into the water obj holder.
+                    XmlNode water = type.SelectSingleNode("water");
+                    if (water != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(water.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.water = new Water[num];
+                            XmlNodeList list = water.ChildNodes;
+                            foreach (XmlNode element in list)
+                            {
+                                if (element != null)
+                                {
+                                    XmlNodeList Winfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((Winfo[0].FirstChild).InnerText), int.Parse((Winfo[0].LastChild).InnerText));
+                                    this.Texture = Winfo[1].InnerText;
+                                    this.water[i] = new Water();
+                                    this.water[i].SetLocation(loc);
+                                    this.water[i].SetWater(this.Texture);
+                                    i++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            this.water = new Water[0];
+                        }
+
+                    }
+
+                    //loading sand into the sand obj holder.
+                    XmlNode sand = type.SelectSingleNode("sand");
+                    if (sand != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(sand.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.sand = new Sand[num];
+                            XmlNodeList list = sand.ChildNodes;
+                            foreach (XmlNode element in list)
+                            {
+                                if (element != null)
+                                {
+                                    XmlNodeList Sinfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((Sinfo[0].FirstChild).InnerText), int.Parse((Sinfo[0].LastChild).InnerText));
+                                    this.Texture = Sinfo[1].InnerText;
+                                    this.sand[i] = new Sand();
+                                    this.sand[i].SetLocation(loc);
+                                    this.sand[i].SetSand(this.Texture);
+                                    i++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            this.sand = new Sand[0];
+                        }
+
+                    }
+
                     //loading items into the item obj holder.
                     XmlNode item = type.SelectSingleNode("items");
                     if (item != null)
@@ -177,6 +290,9 @@ namespace Sprint4
             }
             gom.ClearLists();
             gom.PopulateBlocks(block);
+            //gom.PopulateWater(water);
+            //gom.PopulateDoor(door);
+            //gom.PopulateSand(sand);
             gom.PopulatePlayers(player);
             gom.PopulateItems(item);
             gom.PopulateEnemies(npc);
@@ -209,6 +325,18 @@ namespace Sprint4
             return npc;
         }
 
+        public KeyValuePair<Door, String>[] GetDoorPair()
+        {
+            return door;
+        }
+        public Water[] GetWaterObj()
+        {
+            return water;
+        }
+        public Sand[] GetSandObj()
+        {
+            return sand;
+        }
         public Player GetPlayerObj()
         {
             return player;

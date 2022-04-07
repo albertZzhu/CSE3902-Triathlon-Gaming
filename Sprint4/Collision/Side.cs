@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sprint4
 {
-	class Side
+	public class Side
 	{
 		public enum side
 		{

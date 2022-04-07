@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint4
 {
-	class Door : IBlock
+	public class Door : IBlock
 	{
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();

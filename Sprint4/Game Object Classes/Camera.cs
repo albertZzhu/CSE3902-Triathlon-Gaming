@@ -41,50 +41,38 @@ namespace Sprint4
             this.up = false;
             this.down = false;
         }
-        public void Update(GameTime gametime, String currentRoom, String futureRoom)
+        public void Update(GameTime gametime, String currentRoom, String futureRoom, int doordirection)
         {
             this.current = currentRoom;
             this.future = futureRoom;
             this.c = int.Parse(currentRoom.Substring(4));
             this.f = int.Parse(futureRoom.Substring(4));
-            if (c < f)
+            if (doordirection == 1)
             {
-                if (c == 1 && f == 16)
-                {
-                    left = true;
-                    leftUpdate();
-                }
-                else
-                {
+                
                     right = true;
                     rightUpdate();
                     
-                }
+                
             }
-            else
-            {
-                if (c == 16 && f == 1)
-                {
-                    right = true;
-                    rightUpdate();
-                    
-                }
-                else
-                {
+            else if (doordirection == 3) {
+                
                     left = true;
                     leftUpdate();
                     
-                }
+               
             }
-            /*
-             * else if (cameraState == 2) {
-             *  up = true;
-             *  UpUpdate();
-             * } else if (cameraState == 3) {
-             *  down = true;
-             *  DownUpdate();
-             * }
-             */
+            else if (doordirection == 0)
+            {
+                up = true;
+                UpUpdate();
+            }
+            else if (doordirection == 2)
+            {
+                down = true;
+                DownUpdate();
+            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
