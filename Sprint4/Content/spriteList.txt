@@ -99,6 +99,9 @@
 1,2,2,wallMasterRight
 1,1,1,compass
 
+1,1,1,playButton
+1,1,1,pauseButton
+
 1,1,1,dungeonmap
 
 1,1,1,mapmarker
