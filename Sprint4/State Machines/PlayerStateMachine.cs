@@ -173,7 +173,7 @@ namespace Sprint4
 					}
 					else if (isMoving)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("front_move"));
+						play.SetSprite(SpriteFactory.GetSprite("back_move"));
 					}
 					else
 					{
@@ -206,7 +206,7 @@ namespace Sprint4
 					}
 					else if (isMoving)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("back_move"));
+						play.SetSprite(SpriteFactory.GetSprite("front_move"));
 					}
 					else
 					{

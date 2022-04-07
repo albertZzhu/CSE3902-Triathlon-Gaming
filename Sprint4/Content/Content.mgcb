@@ -452,7 +452,7 @@
 /processorParam:Quality=Best
 /build:EnemyHit.wav
 
-#begin fireball_down.png
+#begin fireballdown.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -462,9 +462,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fireball_down.png
+/build:fireballdown.png
 
-#begin fireball_Left.png
+#begin fireballLeft.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -474,9 +474,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fireball_Left.png
+/build:fireballLeft.png;fireballleft.png
 
-#begin fireball_right.png
+#begin fireballright.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -486,9 +486,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fireball_right.png
+/build:fireballright.png
 
-#begin fireball_up.png
+#begin fireballup.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -498,7 +498,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fireball_up.png
+/build:fireballup.png
 
 #begin floor.png
 /importer:TextureImporter
@@ -868,18 +868,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:map.png
-
-#begin mapmarker.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:mapmarker.png
 
 #begin mapmarker.png
 /importer:TextureImporter
@@ -1318,6 +1306,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:skeletonRight.png
+
+#begin spriteList.txt
+/copy:spriteList.txt
 
 #begin stairs.png
 /importer:TextureImporter
