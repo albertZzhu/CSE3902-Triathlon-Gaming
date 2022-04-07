@@ -177,7 +177,7 @@ namespace Sprint4
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("front_still"));
+						play.SetSprite(SpriteFactory.GetSprite("back_still"));
 					}
 					break;
 				case Facing.DOWN:
@@ -210,7 +210,7 @@ namespace Sprint4
 					}
 					else
 					{
-						play.SetSprite(SpriteFactory.GetSprite("back_still"));
+						play.SetSprite(SpriteFactory.GetSprite("front_still"));
 					}
 					break;
 				default:
