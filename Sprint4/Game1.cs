@@ -101,7 +101,7 @@ namespace Sprint4
 				}
 				if (!level1.CheckLock())
 				{
-					camera.Update(gameTime, level1.currentroom(), level1.futureroom());
+					camera.Update(gameTime, level1.currentroom(), level1.futureroom(), 1);
 					if (camera.done())
 					{
 						camera.reset();
