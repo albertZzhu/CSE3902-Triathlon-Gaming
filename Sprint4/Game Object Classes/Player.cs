@@ -9,7 +9,7 @@ namespace Sprint4
 	public class Player : Iplayer
 	{
 		private ISprite sprite = new Sprite();
-		private Vector2 location = new Vector2(100, 250);
+		private Vector2 location;
 		public PlayerStateMachine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
@@ -22,10 +22,11 @@ namespace Sprint4
 		private bool canMoveRight = true;
 		private bool canMoveLeft = true;
 
-		public Player(int boundWidth, int boundHeight)
+		public Player(int boundWidth, int boundHeight, Vector2 spawnLocation, int spawnHealth)
 		{
 			state = new PlayerStateMachine(this);
 			proj = new ProjectileSeq();
+			location = spawnLocation;
 
 			//this.level = level;
 
@@ -142,6 +143,11 @@ namespace Sprint4
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
+		}
+
+		public Vector2 GetLocation()
+		{
+			return location;
 		}
 
 		public Rectangle GetRect()

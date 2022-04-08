@@ -16,6 +16,7 @@ namespace Sprint4
 
 		private List<Button> buttonList;
 		private GamePauseStartCom pauseStartCommand;
+		private QuitCom exitCommand;
 
 		public GameButtonManager(Game1 game)
 		{
@@ -28,7 +29,10 @@ namespace Sprint4
 			currentState = Mouse.GetState();
 
 			pauseStartCommand = new GamePauseStartCom(game);
+			exitCommand = new QuitCom();
+
 			buttonList.Add(new StartPauseButton(pauseStartCommand));
+			buttonList.Add(new StartExitButton(exitCommand));
 		}
 
 		public void Update(GameTime gameTime)

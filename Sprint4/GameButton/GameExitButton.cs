@@ -7,21 +7,18 @@ using System.Text;
 
 namespace Sprint4
 {
-	class StartPauseButton : Button
-	{		
+	class StartExitButton : Button
+	{
 		private Vector2 location;
 		private ISprite buttonFigure;
-		private bool isStopped;
 
-		private IGameControlCom pauseStartCom;
+		private IGameControlCom exitCom;
 
-		public StartPauseButton(IGameControlCom pauseStartCom)
+		public StartExitButton(IGameControlCom exitCom)
 		{
-			location = new Vector2(600,0);
-			buttonFigure = SpriteFactory.GetSprite("pauseButton");
-			this.pauseStartCom = pauseStartCom;
-
-			isStopped = false;
+			location = new Vector2(700, 0);
+			buttonFigure = SpriteFactory.GetSprite("exitButton");
+			this.exitCom = exitCom;
 		}
 
 		public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -31,14 +28,12 @@ namespace Sprint4
 
 		public override void Update(GameTime gameTime)
 		{
-			if (isStopped) buttonFigure = SpriteFactory.GetSprite("playButton");
-			else buttonFigure = SpriteFactory.GetSprite("pauseButton");
+			
 		}
 
 		public override void Click()
 		{
-			isStopped = !isStopped;
-			pauseStartCom.Execute();
+			exitCom.Execute();
 		}
 
 		public override Rectangle GetRect()

@@ -2,7 +2,7 @@
 <Level1>
   <room1>
     <type>
-      <blocks num="20">
+      <blocks num="17">
         <B>
           <loc>
             <x>100</x>
@@ -241,7 +241,7 @@
   </room1>
   <room2>
     <type>
-      <blocks num="19">
+      <blocks num="7">
         <B>
           <loc>
             <x>100</x>
@@ -521,7 +521,7 @@
   </room2>
   <room3>
     <type>
-      <blocks num="27">
+      <blocks num="7">
         <B>
           <loc>
             <x>100</x>
@@ -836,7 +836,7 @@
   </room3>
   <room4>
     <type>
-      <blocks num="17">
+      <blocks num="13">
         <B>
           <loc>
             <x>100</x>
@@ -995,7 +995,7 @@
   </room4>
   <room5>
     <type>
-      <blocks num="21">
+      <blocks num="17">
         <B>
           <loc>
             <x>100</x>
@@ -1145,7 +1145,7 @@
   </room5>
   <room6>
     <type>
-      <blocks num="11">
+      <blocks num="7">
         <B>
           <loc>
             <x>100</x>
@@ -1311,7 +1311,7 @@
   </room6>
   <room7>
     <type>
-      <blocks num="14">
+      <blocks num="10">
         <B>
           <loc>
             <x>100</x>
@@ -1554,7 +1554,7 @@
   </room7>
   <room8>
     <type>
-      <blocks num="14">
+      <blocks num="10">
         <B>
           <loc>
             <x>100</x>
@@ -1763,7 +1763,7 @@
   </room8>
   <room9>
     <type>
-      <blocks num="26">
+      <blocks num="22">
         <B>
           <loc>
             <x>100</x>
@@ -2316,7 +2316,7 @@
   </room9>
   <room10>
     <type>
-      <blocks num="12">
+      <blocks num="8">
         <B>
           <loc>
             <x>100</x>
@@ -2589,7 +2589,7 @@
   </room10>
   <room11>
     <type>
-      <blocks num="13">
+      <blocks num="9">
         <B>
           <loc>
             <x>100</x>
@@ -2853,7 +2853,7 @@
   </room11>
   <room12>
     <type>
-      <blocks num="15">
+      <blocks num="11">
         <B>
           <loc>
             <x>100</x>
@@ -3222,7 +3222,7 @@
   </room12>
   <room13>
     <type>
-      <blocks num="12">
+      <blocks num="8">
         <B>
           <loc>
             <x>100</x>
@@ -3397,7 +3397,7 @@
   </room13>
   <room14>
     <type>
-      <blocks num="12">
+      <blocks num="8">
         <B>
           <loc>
             <x>100</x>
@@ -3573,7 +3573,7 @@
   </room14>
   <room15>
     <type>
-      <blocks num="26">
+      <blocks num="17">
         <B>
           <loc>
             <x>100</x>
@@ -3772,7 +3772,7 @@
   </room15>
   <room16>
     <type>
-      <blocks num="14">
+      <blocks num="10">
         <B>
           <loc>
             <x>100</x>

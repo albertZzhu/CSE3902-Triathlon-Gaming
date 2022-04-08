@@ -50,7 +50,7 @@ namespace Sprint4
         //mouse pressed might need to call this func to initiate different room classes.
         public void loadRoom()
         {
-            room = new Room(rooms[index], gom, boundWidth, boundHeight);
+            room = new Room(rooms[index], gom, boundWidth, boundHeight, room.GetPlayerObj());
             this.currentRoom = rooms[index];
             //not used
             setLoadLock(true);
@@ -128,7 +128,7 @@ namespace Sprint4
          public void SwitchRoom(int doorposition) {
             this.doorlocation = doorposition;
             setCheckLock(true);
-           setLoadLock(false);
+            setLoadLock(false);
             this.index = int.Parse(this.room.GetDoorPair()[doorposition].Value.Substring(4));
             this.futureRoom = rooms[index];
          }

@@ -43,9 +43,16 @@ namespace Sprint4
             MediaPlayer.Volume = 0.2f;
         }
 
-        public void PlaySound(string Name)
+        public void PlaySound(string name)
         {
-            soundEffectDictionary[Name].Play();
+            if (soundEffectDictionary.ContainsKey(name))
+                soundEffectDictionary[name].Play();
+            else
+                MediaPlayer.Play(backgroundMusic[name]);
+        }
+        public void PauseSound(string name)
+        {
+            MediaPlayer.Pause();
         }
 
         public void ThemeMusic()

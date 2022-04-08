@@ -101,6 +101,7 @@
 
 1,1,1,playButton
 1,1,1,pauseButton
+1,1,1,exitButton
 
 1,1,1,dungeonmap
 

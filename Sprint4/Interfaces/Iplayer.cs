@@ -29,5 +29,6 @@ namespace Sprint4
 
 		bool IfDie();
 
+		Vector2 GetLocation();
 	}
 }
