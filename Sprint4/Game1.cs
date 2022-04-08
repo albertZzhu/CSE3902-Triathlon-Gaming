@@ -27,7 +27,8 @@ namespace Sprint4
 		public bool isPaused;
 
 		public Level1 level1;
-
+		private Win WinState;
+		private lose LoseState;
 
 		public Game1()
 		{
@@ -56,6 +57,8 @@ namespace Sprint4
 
 			camera = new Camera(800, 550, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
+			WinState = new Win("win");
+			LoseState = new lose("lose");
 			level1.InitializeRoom();
 
 			gameObjectManager.PopulateInventory(Inventory.GetInventory(Content, level1));
@@ -90,26 +93,49 @@ namespace Sprint4
 			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			if (!isPaused)
 			{
-				if (level1.CheckLock())
-				{
+				if (!Win.GetWinCondition() && !lose.GetLoseCondition()) {
 					if (level1.CheckLock())
 					{
-						_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
-						gameObjectManager.Update(gameTime);
+						if (level1.CheckLock())
+						{
+							_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+							gameObjectManager.Update(gameTime);
 
-						collisionManager.Update(level1);
+							collisionManager.Update(level1);
+						}
 					}
-				}
-				if (!level1.CheckLock())
-				{
-					camera.Update(gameTime, level1.currentroom(), level1.futureroom(), level1.GetDoorDoc());
-					if (camera.done())
+					if (!level1.CheckLock())
 					{
-						camera.reset();
-						level1.loadRoom();
-						level1.setCheckLock(false);
+						camera.Update(gameTime, level1.currentroom(), level1.futureroom(), level1.GetDoorDoc());
+						if (camera.done())
+						{
+							camera.reset();
+							level1.loadRoom();
+							level1.setCheckLock(false);
+						}
 					}
-				}
+				} else
+                {	
+					if(Win.GetWinCondition())
+                    {
+						WinState.Update(gameTime);
+					} else LoseState.Update(gameTime);
+
+					if (Keyboard.GetState().IsKeyDown(Keys.Q))
+                    {
+						Exit();
+                    } else if(Keyboard.GetState().IsKeyDown(Keys.R))
+                    {	
+						/*
+							if(Win.GetWinCondition())
+							{
+								level1.resetRoom();
+							}
+						*/
+						lose.SetLoseCondition(false);
+						Win.SetWinCondition(false);
+					}
+                }
 			}
 			
 			//x = Mouse.GetState().X;
@@ -121,11 +147,20 @@ namespace Sprint4
 		{
 			GraphicsDevice.Clear(Color.Black);
 			_spriteBatch.Begin();
-			if (level1.CheckLock()) {
+			if (!Win.GetWinCondition() && !lose.GetLoseCondition()) {
+				if (level1.CheckLock()) {
+					gameObjectManager.Draw(_spriteBatch);
+					//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
+				} else {
+					camera.Draw(_spriteBatch);
+				}
+			} else
+            {
 				gameObjectManager.Draw(_spriteBatch);
-				//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
-			} else {
-				camera.Draw(_spriteBatch);
+				if(Win.GetWinCondition())
+                {
+					WinState.Draw(_spriteBatch);
+				} else LoseState.Draw(_spriteBatch);
 			}
 			gameButtonManager.Draw(gameTime, _spriteBatch);
 			_spriteBatch.End();

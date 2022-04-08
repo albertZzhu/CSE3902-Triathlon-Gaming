@@ -106,3 +106,5 @@
 
 1,1,1,mapmarker
 2,1,2,mapmarker2
+1,1,1,win
+1,1,1,lose

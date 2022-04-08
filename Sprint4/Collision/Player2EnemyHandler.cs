@@ -26,6 +26,7 @@ namespace Sprint4.Collision
 				{
 					if (player.IfDie())
 					{
+						lose.SetLoseCondition(true);
 						resetCommand.Execute();
 					}
 					else
