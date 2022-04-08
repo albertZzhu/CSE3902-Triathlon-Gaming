@@ -17,6 +17,14 @@ namespace Sprint4{
 		public void Execute()
 		{
 			this.game.isPaused = !this.game.isPaused;
+			if (game.isPaused)
+            {
+				SoundManager.Instance.PauseSound("DungeonTheme");
+            }
+            else
+            {
+				SoundManager.Instance.PlaySound("DungeonTheme");
+			}
 		}
 	}
 }
