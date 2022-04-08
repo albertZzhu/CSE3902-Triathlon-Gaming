@@ -1,0 +1,18 @@
+Isaac Lieber
+
+4/8/22
+
+Sprint 4
+
+GameButtonManager.cs
+
+Boru
+
+The way GameButtonManager uses the MouseState might make it much easier to use the MouseController. This
+could be a case of a God Object, where the manager has too much power, since it knows exactly how the mouse works. 
+The MouseController could simply be passed in like the Game is in the constructor to make the handling of location much simpler.
+The update, draw, and initalize methods are very simple and clean, but I think the refactoring of this class using MouseController will make it better.
+
+One other thing I noticed about this code is that the list of buttons could likely be included in the GameObjectManager, 
+and we would not necessarily need a ButtonObjectManager (if it is refactored), which would make this duplicated code.
+Since this code also led to commands being moved, I think the refactoring could help organize our code base as well.

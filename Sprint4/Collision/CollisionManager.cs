@@ -13,6 +13,7 @@ namespace Sprint4.Collision
 		private Player2EnemyHandler player2Enemy;
 		private Player2ProjectileHandler player2Proj;
 		private Player2ItemHandler player2item;
+		private Player2DoorHandler player2Door;
 
 		private NPC2BlockHandler enemy2Block;
 		private NPC2ProjectileHandler enemy2Proj;
@@ -51,6 +52,7 @@ namespace Sprint4.Collision
 			player2Enemy = new Player2EnemyHandler(resetCommand);
 			player2Proj = new Player2ProjectileHandler(resetCommand);
 			player2item = new Player2ItemHandler();
+			player2Door = new Player2DoorHandler(roomBackCommand, roomForwardComand);
 
 			enemy2Block = new NPC2BlockHandler();
 			enemy2Proj = new NPC2ProjectileHandler();
@@ -62,6 +64,7 @@ namespace Sprint4.Collision
 			collisionDict.AddHandler(playerName, player2Enemy);
 			collisionDict.AddHandler(playerName, player2Proj);
 			collisionDict.AddHandler(playerName, player2item);
+			collisionDict.AddHandler(playerName, player2Door);
 
 			collisionDict.AddHandler(enemyName, enemy2Block);
 			collisionDict.AddHandler(enemyName, enemy2Proj);
