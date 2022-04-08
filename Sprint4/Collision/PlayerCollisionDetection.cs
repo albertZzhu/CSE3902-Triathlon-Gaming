@@ -58,7 +58,7 @@ namespace Sprint4.Collision
 					{
 						doorHandle.Handle(((Door)b).DoorSide());
 					}
-					else if(b.GetType().Equals(typeof(Block)))
+					else if(b.GetType().Equals(typeof(Block))|| b.GetType().Equals(typeof(Water)))
 					{ 
 						Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
 						int playerX = player.GetRect().X + player.GetRect().Width / 2;

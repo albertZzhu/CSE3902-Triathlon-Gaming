@@ -32,7 +32,7 @@ namespace Sprint4
 		{
 			return sandSprite;
 		}
-		public void SetSand(String sandTexture)
+		public void SetBlock(String sandTexture)
 		{
 			sandSprite = SpriteFactory.GetSprite(sandTexture);
 		}

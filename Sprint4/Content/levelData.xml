@@ -2,7 +2,7 @@
 <Level1>
   <room1>
     <type>
-      <blocks num="18">
+      <blocks num="20">
         <B>
           <loc>
             <x>100</x>
@@ -44,13 +44,6 @@
             <y>0</y>
           </loc>
           <B_texture>topwall11</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
         </B>
         <B>
           <loc>
@@ -130,6 +123,21 @@
           <B_texture>stairs</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room2</neighbor>
+        </D>
+        <D/>
+        <D/>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="0" />
 		<enemies num="4">
 			<E move="true">
@@ -233,7 +241,7 @@
   </room1>
   <room2>
     <type>
-      <blocks num="17">
+      <blocks num="19">
         <B>
           <loc>
             <x>100</x>
@@ -271,13 +279,6 @@
         </B>
         <B>
           <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>350</x>
             <y>0</y>
           </loc>
@@ -290,70 +291,86 @@
           </loc>
           <B_texture>rightwall11</B_texture>
         </B>
-        <B>
+      </blocks>
+      <door num="4">
+        <D/>
+        <D/>
+        <D>
           <loc>
             <x>350</x>
             <y>450</y>
           </loc>
-          <B_texture>bottomgate</B_texture>
-        </B>
-        <B>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room3</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room1</neighbor>
+        </D>
+      </door>
+      <water num="8">
+       <W>
           <loc>
             <x>150</x>
             <y>150</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>150</x>
             <y>200</y>
           </loc>
-          <B_texture>water31</B_texture>
-        </B>
-        <B>
+          <W_texture>water31</W_texture>
+        </W>
+        <W>
           <loc>
             <x>150</x>
             <y>350</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>250</x>
             <y>250</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>400</x>
             <y>250</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>500</x>
             <y>150</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>600</x>
             <y>200</y>
           </loc>
-          <B_texture>water31</B_texture>
-        </B>
-        <B>
+          <W_texture>water31</W_texture>
+        </W>
+        <W>
           <loc>
             <x>500</x>
             <y>350</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-      </blocks>
+          <W_texture>water13</W_texture>
+        </W>
+      </water>
+      <sand num="0"/>
       <items num="1">
 		  <I>
 			  <loc>
@@ -504,7 +521,7 @@
   </room2>
   <room3>
     <type>
-      <blocks num="25">
+      <blocks num="27">
         <B>
           <loc>
             <x>100</x>
@@ -549,138 +566,147 @@
         </B>
         <B>
           <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>topgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>700</x>
             <y>225</y>
           </loc>
           <B_texture>rightwall11</B_texture>
         </B>
-        <B>
+      </blocks>
+      <door num="4">
+        <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>topgate</D_texture>
+          <neighbor>room2</neighbor>
+        </D>
+        <D/>
+        <D>
           <loc>
             <x>350</x>
             <y>450</y>
           </loc>
-          <B_texture>bottomgate</B_texture>
-        </B>
-        <B>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room7</neighbor>
+        </D>
+        <D/>
+      </door>
+      <water num="16">
+       <W>
           <loc>
             <x>100</x>
             <y>100</y>
           </loc>
-          <B_texture>water31</B_texture>
-        </B>
-        <B>
+          <W_texture>water31</W_texture>
+        </W>
+        <W>
           <loc>
             <x>150</x>
             <y>100</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>300</x>
             <y>100</y>
           </loc>
-          <B_texture>water51</B_texture>
-        </B>
-        <B>
+          <W_texture>water51</W_texture>
+        </W>
+        <W>
           <loc>
             <x>350</x>
             <y>300</y>
           </loc>
-          <B_texture>water11</B_texture>
-        </B>
-        <B>
+          <W_texture>water11</W_texture>
+        </W>
+        <W>
           <loc>
             <x>100</x>
             <y>300</y>
           </loc>
-          <B_texture>water31</B_texture>
-        </B>
-        <B>
+          <W_texture>water31</W_texture>
+        </W>
+        <W>
           <loc>
             <x>150</x>
             <y>400</y>
           </loc>
-          <B_texture>water11</B_texture>
-        </B>
-        <B>
+          <W_texture>water11</W_texture>
+        </W>
+        <W>
           <loc>
             <x>200</x>
             <y>200</y>
           </loc>
-          <B_texture>water51</B_texture>
-        </B>
-        <B>
+          <W_texture>water51</W_texture>
+        </W>
+        <W>
           <loc>
             <x>250</x>
             <y>400</y>
           </loc>
-          <B_texture>water12</B_texture>
-        </B>
-        <B>
+          <W_texture>water12</W_texture>
+        </W>
+        <W>
           <loc>
             <x>450</x>
             <y>100</y>
           </loc>
-          <B_texture>water12</B_texture>
-        </B>
-        <B>
+          <W_texture>water12</W_texture>
+        </W>
+        <W>
           <loc>
             <x>550</x>
             <y>100</y>
           </loc>
-          <B_texture>water51</B_texture>
-        </B>
-        <B>
+          <W_texture>water51</W_texture>
+        </W>
+        <W>
           <loc>
             <x>600</x>
             <y>100</y>
           </loc>
-          <B_texture>water11</B_texture>
-        </B>
-        <B>
+          <W_texture>water11</W_texture>
+        </W>
+        <W>
           <loc>
             <x>650</x>
             <y>100</y>
           </loc>
-          <B_texture>water31</B_texture>
-        </B>
-        <B>
+          <W_texture>water31</W_texture>
+        </W>
+        <W>
           <loc>
             <x>400</x>
             <y>200</y>
           </loc>
-          <B_texture>water11</B_texture>
-        </B>
-        <B>
+          <W_texture>water11</W_texture>
+        </W>
+        <W>
           <loc>
             <x>450</x>
             <y>200</y>
           </loc>
-          <B_texture>water51</B_texture>
-        </B>
-        <B>
+          <W_texture>water51</W_texture>
+        </W>
+        <W>
           <loc>
             <x>500</x>
             <y>400</y>
           </loc>
-          <B_texture>water13</B_texture>
-        </B>
-        <B>
+          <W_texture>water13</W_texture>
+        </W>
+        <W>
           <loc>
             <x>650</x>
             <y>300</y>
           </loc>
-          <B_texture>water31</B_texture>
-        </B>
-      </blocks>
+          <W_texture>water31</W_texture>
+        </W>
+      </water>
+      <sand num="0"/>
 		<items num="1">
 			<I>
 				<loc>
@@ -810,7 +836,7 @@
   </room3>
   <room4>
     <type>
-      <blocks num="15">
+      <blocks num="17">
         <B>
           <loc>
             <x>100</x>
@@ -862,20 +888,6 @@
         </B>
         <B>
           <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>450</x>
             <y>100</y>
           </loc>
@@ -917,6 +929,28 @@
           <B_texture>block15</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room5</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room9</neighbor>
+        </D>
+        <D/>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
 		<items num="1">
 			<I>
 				<loc>
@@ -961,7 +995,7 @@
   </room4>
   <room5>
     <type>
-      <blocks num="18">
+      <blocks num="21">
         <B>
           <loc>
             <x>100</x>
@@ -996,13 +1030,6 @@
             <y>450</y>
           </loc>
           <B_texture>bottomwall</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
         </B>
         <B>
           <loc>
@@ -1089,6 +1116,21 @@
           <B_texture>leftStatue</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D/>
+        <D/>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room4</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="1">
         <I>
           <loc>
@@ -1103,7 +1145,7 @@
   </room5>
   <room6>
     <type>
-      <blocks num="10">
+      <blocks num="11">
         <B>
           <loc>
             <x>100</x>
@@ -1141,31 +1183,10 @@
         </B>
         <B>
           <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>350</x>
             <y>0</y>
           </loc>
           <B_texture>topwall11</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomgate</B_texture>
         </B>
         <B>
           <loc>
@@ -1175,6 +1196,35 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room7</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room10</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room1</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="0" />
       <enemies num="3">
         <E move="true">
@@ -1299,34 +1349,6 @@
         </B>
         <B>
           <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>topgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomarch</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>150</x>
             <y>150</y>
           </loc>
@@ -1361,6 +1383,42 @@
           <B_texture>block12</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>topgate</D_texture>
+          <neighbor>room3</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room8</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomarch</D_texture>
+          <neighbor>room11</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room6</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="1">
         <I>
           <loc>
@@ -1496,7 +1554,7 @@
   </room7>
   <room8>
     <type>
-      <blocks num="13">
+      <blocks num="14">
         <B>
           <loc>
             <x>100</x>
@@ -1534,31 +1592,10 @@
         </B>
         <B>
           <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>350</x>
             <y>0</y>
           </loc>
           <B_texture>topwall11</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomarch</B_texture>
         </B>
         <B>
           <loc>
@@ -1589,6 +1626,35 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room9</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomarch</D_texture>
+          <neighbor>room12</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room7</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="1">
         <I>
           <loc>
@@ -1697,7 +1763,7 @@
   </room8>
   <room9>
     <type>
-      <blocks num="24">
+      <blocks num="26">
         <B>
           <loc>
             <x>100</x>
@@ -1732,20 +1798,6 @@
             <y>450</y>
           </loc>
           <B_texture>bottomwall</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>topgate</B_texture>
         </B>
         <B>
           <loc>
@@ -1867,6 +1919,28 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>topgate</D_texture>
+          <neighbor>room4</neighbor>
+        </D>
+        <D/>
+        <D/>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room8</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="1">
         <I>
           <loc>
@@ -2242,7 +2316,7 @@
   </room9>
   <room10>
     <type>
-      <blocks num="10">
+      <blocks num="12">
         <B>
           <loc>
             <x>100</x>
@@ -2288,20 +2362,6 @@
         <B>
           <loc>
             <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>topgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
             <y>450</y>
           </loc>
           <B_texture>bottomwall11</B_texture>
@@ -2314,6 +2374,28 @@
           <B_texture>block32</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>topgate</D_texture>
+          <neighbor>room6</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room11</neighbor>
+        </D>
+        <D/>
+        <D/>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="0"/>
     <enemies num="6">
         <E move="true">
@@ -2545,34 +2627,6 @@
         </B>
         <B>
           <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>toparch</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>200</x>
             <y>200</y>
           </loc>
@@ -2600,6 +2654,42 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
+      <door num="4">
+         <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>toparch</D_texture>
+          <neighbor>room7</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room12</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room13</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room10</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="1">
         <I>
           <loc>
@@ -2763,7 +2853,7 @@
   </room11>
   <room12>
     <type>
-      <blocks num="13">
+      <blocks num="15">
         <B>
           <loc>
             <x>100</x>
@@ -2798,20 +2888,6 @@
             <y>450</y>
           </loc>
           <B_texture>bottomwall</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>toparch</B_texture>
         </B>
         <B>
           <loc>
@@ -2856,6 +2932,28 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
+      <door num="4">
+         <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>toparch</D_texture>
+          <neighbor>room8</neighbor>
+        </D>
+        <D/>
+        <D/>
+         <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room11</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="1">
         <I>
           <loc>
@@ -3124,7 +3222,7 @@
   </room12>
   <room13>
     <type>
-      <blocks num="10">
+      <blocks num="12">
         <B>
           <loc>
             <x>100</x>
@@ -3169,24 +3267,10 @@
         </B>
         <B>
           <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>topgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>700</x>
             <y>225</y>
           </loc>
           <B_texture>rightwall11</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomgate</B_texture>
         </B>
         <B>
           <loc>
@@ -3196,6 +3280,28 @@
           <B_texture>block32</B_texture>
         </B>
       </blocks>
+      <door num="4">
+         <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>topgate</D_texture>
+          <neighbor>room11</neighbor>
+        </D>
+        <D/>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room15</neighbor>
+        </D>
+         <D/>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
       <items num="0" />
 		<enemies num="3">
 			<E move="true">
@@ -3291,7 +3397,7 @@
   </room13>
   <room14>
     <type>
-      <blocks num="9">
+      <blocks num="12">
         <B>
           <loc>
             <x>100</x>
@@ -3343,19 +3449,27 @@
         </B>
         <B>
           <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>350</x>
             <y>450</y>
           </loc>
           <B_texture>bottomwall11</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room15</neighbor>
+        </D>
+        <D/>
+        <D/>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
 		<items num="1">
 			<I>
 				<loc>
@@ -3469,41 +3583,6 @@
         </B>
         <B>
           <loc>
-            <x>250</x>
-            <y>350</y>
-          </loc>
-          <B_texture>blueSand</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>250</x>
-            <y>400</y>
-          </loc>
-          <B_texture>blueSand12</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>300</y>
-          </loc>
-          <B_texture>blueSand32</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>450</x>
-            <y>400</y>
-          </loc>
-          <B_texture>blueSand12</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>500</x>
-            <y>350</y>
-          </loc>
-          <B_texture>blueSand</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>0</x>
             <y>0</y>
           </loc>
@@ -3529,34 +3608,6 @@
             <y>450</y>
           </loc>
           <B_texture>bottomwall</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>0</y>
-          </loc>
-          <B_texture>topgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>700</x>
-            <y>225</y>
-          </loc>
-          <B_texture>rightgate</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>350</x>
-            <y>450</y>
-          </loc>
-          <B_texture>bottomgate</B_texture>
         </B>
         <B>
           <loc>
@@ -3643,13 +3694,85 @@
           <B_texture>leftStatue</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D>
+          <loc>
+            <x>350</x>
+            <y>0</y>
+          </loc>
+          <D_texture>topgate</D_texture>
+          <neighbor>room13</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>700</x>
+            <y>225</y>
+          </loc>
+          <D_texture>rightgate</D_texture>
+          <neighbor>room16</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>350</x>
+            <y>450</y>
+          </loc>
+          <D_texture>bottomgate</D_texture>
+          <neighbor>room10</neighbor>
+        </D>
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room14</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="5">
+        <S>
+            <loc>
+              <x>250</x>
+              <y>350</y>
+            </loc>
+            <S_texture>blueSand</S_texture>
+          </S>
+          <S>
+            <loc>
+              <x>250</x>
+              <y>400</y>
+            </loc>
+            <S_texture>blueSand12</S_texture>
+          </S>
+          <S>
+            <loc>
+              <x>350</x>
+              <y>300</y>
+            </loc>
+            <S_texture>blueSand32</S_texture>
+          </S>
+          <S>
+            <loc>
+              <x>450</x>
+              <y>400</y>
+            </loc>
+            <S_texture>blueSand12</S_texture>
+          </S>
+          <S>
+            <loc>
+              <x>500</x>
+              <y>350</y>
+            </loc>
+            <S_texture>blueSand</S_texture>
+          </S>
+      </sand>
 		<items num="0" />
 		<enemies num="0" />
     </type>
   </room15>
   <room16>
     <type>
-      <blocks num="11">
+      <blocks num="14">
         <B>
           <loc>
             <x>100</x>
@@ -3687,13 +3810,6 @@
         </B>
         <B>
           <loc>
-            <x>0</x>
-            <y>225</y>
-          </loc>
-          <B_texture>leftgate</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>350</x>
             <y>0</y>
           </loc>
@@ -3728,6 +3844,21 @@
           <B_texture>block32</B_texture>
         </B>
       </blocks>
+      <door num="4">
+        <D/>
+        <D/>
+        <D/>  
+        <D>
+          <loc>
+            <x>0</x>
+            <y>225</y>
+          </loc>
+          <D_texture>leftgate</D_texture>
+          <neighbor>room15</neighbor>
+        </D>
+      </door>
+      <water num="0"/>
+      <sand num="0"/>
 		<items num="1">
 			<I>
 				<loc>

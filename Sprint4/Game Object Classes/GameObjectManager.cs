@@ -36,9 +36,9 @@ namespace Sprint4
 				items.Add(item);
 		}
 
-		public void PopulateBlocks(Block[] blockArr)
+		public void PopulateBlocks(IBlock[] blockArr)
 		{
-			foreach (Block block in blockArr)
+			foreach (IBlock block in blockArr)
 				blocks.Add(block);
 		}
 

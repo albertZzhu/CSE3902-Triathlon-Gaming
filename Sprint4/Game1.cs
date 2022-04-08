@@ -86,6 +86,7 @@ namespace Sprint4
 		protected override void Update(GameTime gameTime)
 		{
 			gameButtonManager.Update(gameTime);
+			//level1.loadRoom();
 			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			if (!isPaused)
 			{
@@ -101,7 +102,7 @@ namespace Sprint4
 				}
 				if (!level1.CheckLock())
 				{
-					camera.Update(gameTime, level1.currentroom(), level1.futureroom());
+					camera.Update(gameTime, level1.currentroom(), level1.futureroom(), level1.GetDoorDoc());
 					if (camera.done())
 					{
 						camera.reset();

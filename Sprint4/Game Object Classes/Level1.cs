@@ -20,6 +20,7 @@ namespace Sprint4
         private int boundWidth;
         private int boundHeight;
         private int index;
+        private int doorlocation;
         public Level1(GameObjectManager gom, int boundWidth, int boundHeight)
         {
             index = 1;
@@ -94,6 +95,7 @@ namespace Sprint4
         {
             this.loadLock = value;
         }
+        /*
         public void switchPre()
         {
             setCheckLock(true);
@@ -121,15 +123,16 @@ namespace Sprint4
             //loadRoom();
             this.futureRoom = rooms[index];
         }
+         */
          
-         /*
          public void SwitchRoom(int doorposition) {
-           setCheckLock(true);
+            this.doorlocation = doorposition;
+            setCheckLock(true);
            setLoadLock(false);
             this.index = int.Parse(this.room.GetDoorPair()[doorposition].Value.Substring(4));
             this.futureRoom = rooms[index];
          }
-         */
+         
          
 
         public void resetRoom()
@@ -142,5 +145,10 @@ namespace Sprint4
         {
             return index;
         }
+
+        public int GetDoorDoc()
+		{
+            return this.doorlocation;
+		}
     }
 }

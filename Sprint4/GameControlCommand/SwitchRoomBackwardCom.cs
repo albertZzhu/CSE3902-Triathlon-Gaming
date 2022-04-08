@@ -1,6 +1,6 @@
 namespace Sprint4
 {
-	class SwitchRoomBackwardCom : IGameControlCom
+	public class SwitchRoomBackwardCom : IGameControlCom
 	{
 		private Level1 level1;
 		public SwitchRoomBackwardCom(Level1 level)
@@ -10,7 +10,7 @@ namespace Sprint4
 
 		public void Execute()
 		{
-			level1.switchPre();
+			level1.SwitchRoom(3);
 		}
 	}
 }

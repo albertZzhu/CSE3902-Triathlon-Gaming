@@ -7,13 +7,9 @@ namespace Sprint4.Collision
 {
 	class Player2BlockHandler
 	{
-		private SwitchRoomBackwardCom roomBackCommand;
-		private SwitchRoomForwardCom roomForwardComand;
-
-		public Player2BlockHandler(SwitchRoomBackwardCom roomBackCommand, SwitchRoomForwardCom roomForwardComand)
+		
+		public Player2BlockHandler()
 		{
-			this.roomBackCommand = roomBackCommand;
-			this.roomForwardComand = roomForwardComand;
 		}
 
 

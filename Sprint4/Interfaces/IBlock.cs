@@ -6,9 +6,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint4
 {
-	interface IBlock : IGameObject
+	public interface IBlock : IGameObject
 	{
 
 		Rectangle GetRect();
+		void SetLocation(Vector2 newLocation);
+		void SetBlock(String blockTexture);
 	}
 }

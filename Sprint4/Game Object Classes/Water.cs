@@ -32,7 +32,7 @@ namespace Sprint4
 		{
 			return waterSprite;
 		}
-		public void SetWater(String waterTexture)
+		public void SetBlock(String waterTexture)
 		{
 			waterSprite = SpriteFactory.GetSprite(waterTexture);
 		}

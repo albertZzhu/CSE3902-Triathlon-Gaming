@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4.Commands
+namespace Sprint4
 {
-	class SwitchRoomUpwardCom : IGameControlCom
+	public class SwitchRoomUpwardCom : IGameControlCom
 	{
 		
 			private Level1 level1;
@@ -15,6 +15,7 @@ namespace Sprint4.Commands
 	
 			public void Execute()
 			{
+				level1.SwitchRoom(0);
 			}
 	}
 }

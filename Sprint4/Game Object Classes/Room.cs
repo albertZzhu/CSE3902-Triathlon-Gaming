@@ -13,13 +13,13 @@ namespace Sprint4
     public class Room
     {
         //block obj holder variables
-        private Block[] block;
+        private IBlock[] block;
         //door pair holder variables
-        private KeyValuePair<Door, String>[] door;
+        private KeyValuePair<IBlock, String>[] door;
         //water obj holder variables
-        private Water[] water;
+        private IBlock[] water;
         //sand obj holder variables
-        private Sand[] sand;
+        private IBlock[] sand;
         //item obj holder variables
         private Item[] item;
         //used by both block and item variables
@@ -48,7 +48,7 @@ namespace Sprint4
         private void loadRoom(String room)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("Content\\levelData.xml");
+            xml.Load("../levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -66,9 +66,9 @@ namespace Sprint4
                         {
                             this.block = new Block[num];
                             XmlNodeList list = block.ChildNodes;
-                            foreach (XmlNode element in list)
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Binfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
@@ -94,11 +94,11 @@ namespace Sprint4
                         int num = int.Parse(door.Attributes["num"].Value);
                         if (num != 0)
                         {
-                            this.door = new KeyValuePair<Door, String>[num];
-                            XmlNodeList list = block.ChildNodes;
-                            foreach (XmlNode element in list)
+                            this.door = new KeyValuePair<IBlock, String>[num];
+                            XmlNodeList list = door.ChildNodes;
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Dinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Dinfo[0].FirstChild).InnerText), int.Parse((Dinfo[0].LastChild).InnerText));
@@ -106,26 +106,26 @@ namespace Sprint4
                                     switch (i)
                                     {
                                         case 0:
-                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.up), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.up), Dinfo[2].InnerText);
                                             break;
                                         case 1:
-                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.right), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.right), Dinfo[2].InnerText);
                                             break;
                                         case 2:
-                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.down), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.down), Dinfo[2].InnerText);
                                             break;
                                         case 3:
-                                            this.door[i] = new KeyValuePair<Door, String>(new Door(this.Texture, loc, Side.side.left), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.left), Dinfo[2].InnerText);
                                             break;
                                     }
                                 }
-                                else this.door[i] = new KeyValuePair<Door, String>(null, "nothing");
+                                else this.door[i] = new KeyValuePair<IBlock, String>(null, "nothing");
                                 i++;
                             }
                         }
                         else
                         {
-                            this.door = new KeyValuePair<Door, String>[0];
+                            this.door = new KeyValuePair<IBlock, String>[0];
                         }
 
                     }
@@ -140,16 +140,16 @@ namespace Sprint4
                         {
                             this.water = new Water[num];
                             XmlNodeList list = water.ChildNodes;
-                            foreach (XmlNode element in list)
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Winfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Winfo[0].FirstChild).InnerText), int.Parse((Winfo[0].LastChild).InnerText));
                                     this.Texture = Winfo[1].InnerText;
                                     this.water[i] = new Water();
                                     this.water[i].SetLocation(loc);
-                                    this.water[i].SetWater(this.Texture);
+                                    this.water[i].SetBlock(this.Texture);
                                     i++;
                                 }
                             }
@@ -171,16 +171,16 @@ namespace Sprint4
                         {
                             this.sand = new Sand[num];
                             XmlNodeList list = sand.ChildNodes;
-                            foreach (XmlNode element in list)
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Sinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Sinfo[0].FirstChild).InnerText), int.Parse((Sinfo[0].LastChild).InnerText));
                                     this.Texture = Sinfo[1].InnerText;
                                     this.sand[i] = new Sand();
                                     this.sand[i].SetLocation(loc);
-                                    this.sand[i].SetSand(this.Texture);
+                                    this.sand[i].SetBlock(this.Texture);
                                     i++;
                                 }
                             }
@@ -204,7 +204,7 @@ namespace Sprint4
                             XmlNodeList list = item.ChildNodes;
                             foreach (XmlNode element in list)
                             {
-                                if (element != null)
+                                if (element.InnerText != null)
                                 {
                                     XmlNodeList Iinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Iinfo[0].FirstChild).InnerText), int.Parse((Iinfo[0].LastChild).InnerText));
@@ -230,9 +230,9 @@ namespace Sprint4
                         {
                             this.npc = new NPC1[num];
                             XmlNodeList list = enemy.ChildNodes;
-                            foreach (XmlNode element in list)
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Einfo = element.ChildNodes;
                                     this.npc[i] = new NPC1(this.boundWidth, this.boundHeight);
@@ -289,7 +289,7 @@ namespace Sprint4
 
             }
             gom.ClearLists();
-            gom.PopulateBlocks(block);
+            gom.PopulateBlocks(this.GetBlockObj());
             //gom.PopulateWater(water);
             //gom.PopulateDoor(door);
             //gom.PopulateSand(sand);
@@ -302,9 +302,18 @@ namespace Sprint4
         }
 
         //collision will need these func to check objects interactions.(boru might use these funcs)
-        public Block[] GetBlockObj()
+        public IBlock[] GetBlockObj()
         {
-            return block;
+
+            List<IBlock> door1 = new List<IBlock>();
+            for (int i = 0; i < 4; i++)
+            {
+                if (this.door[i].Key != null)
+                {
+                    door1.Add(this.door[i].Key);
+                }
+            }
+                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(this.block, door1.ToArray()).ToArray(), this.water).ToArray(), this.sand).ToArray();
         }
 
         public IProjectile[] GetNPCProjObj()
@@ -325,15 +334,15 @@ namespace Sprint4
             return npc;
         }
 
-        public KeyValuePair<Door, String>[] GetDoorPair()
+        public KeyValuePair<IBlock, String>[] GetDoorPair()
         {
             return door;
         }
-        public Water[] GetWaterObj()
+        public IBlock[] GetWaterObj()
         {
             return water;
         }
-        public Sand[] GetSandObj()
+        public IBlock[] GetSandObj()
         {
             return sand;
         }
@@ -341,5 +350,6 @@ namespace Sprint4
         {
             return player;
         }
+
     }
 }

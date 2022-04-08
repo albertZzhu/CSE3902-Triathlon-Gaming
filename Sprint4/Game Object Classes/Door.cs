@@ -29,6 +29,11 @@ namespace Sprint4
 			return new Rectangle((int)location.X, (int)location.Y, (int)blockSprite.getSize().X, (int)blockSprite.getSize().Y);
 		}
 
+		public void SetBlock(String blockTexture)
+		{
+			blockSprite = SpriteFactory.GetSprite(blockTexture);
+		}
+
 		public Side.side DoorSide()
 		{
 			return side;

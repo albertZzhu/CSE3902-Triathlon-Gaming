@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4.Collision
+namespace Sprint4
 {
 	class Player2DoorHandler
 	{
 		private SwitchRoomBackwardCom roomBackCommand;
 		private SwitchRoomForwardCom roomForwardComand;
+		private SwitchRoomUpwardCom roomUpwardComand;
+		private SwitchRoomDownwardCom roomDownwardComand;
 
-		public Player2DoorHandler(SwitchRoomBackwardCom roomBackCommand, SwitchRoomForwardCom roomForwardComand)
+
+		public Player2DoorHandler(SwitchRoomBackwardCom roomBackCommand, SwitchRoomForwardCom roomForwardComand, SwitchRoomUpwardCom roomUpwardComand, SwitchRoomDownwardCom roomDownwardComand)
 		{
 			this.roomBackCommand = roomBackCommand;
 			this.roomForwardComand = roomForwardComand;
-
+			this.roomUpwardComand = roomUpwardComand;
+			this.roomDownwardComand = roomDownwardComand;
 		}
 
 		public void Handle(Side.side side)
@@ -26,10 +30,10 @@ namespace Sprint4.Collision
 				roomBackCommand.Execute();
 			}else if (side == Side.side.up)
 			{
-				roomBackCommand.Execute();
+				roomUpwardComand.Execute();
 			}else if (side == Side.side.down)
 			{
-				roomBackCommand.Execute();
+				roomDownwardComand.Execute();
 			}
 		}
 	}

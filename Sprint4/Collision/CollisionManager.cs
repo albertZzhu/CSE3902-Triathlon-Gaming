@@ -9,6 +9,7 @@ namespace Sprint4.Collision
 		private CollisionHandlerDict collisionDict;
 
 		private Player2BlockHandler player2Block;
+		private Player2DoorHandler player2Door;
 		private Player2EnemyHandler player2Enemy;
 		private Player2ProjectileHandler player2Proj;
 		private Player2ItemHandler player2item;
@@ -25,6 +26,9 @@ namespace Sprint4.Collision
 		private ResetCom resetCommand;
 		private SwitchRoomBackwardCom roomBackCommand;
 		private SwitchRoomForwardCom roomForwardComand;
+		private SwitchRoomUpwardCom roomUpwardComand;
+		private SwitchRoomDownwardCom roomDownwardComand;
+
 
 		public CollisionManager()
 		{
@@ -36,10 +40,14 @@ namespace Sprint4.Collision
 			collisionDict.Initialize();
 
 			resetCommand = new ResetCom(level1);
+
 			roomBackCommand = new SwitchRoomBackwardCom(level1);
 			roomForwardComand = new SwitchRoomForwardCom(level1);
+			roomUpwardComand = new SwitchRoomUpwardCom(level1);
+			roomDownwardComand = new SwitchRoomDownwardCom(level1);
 
-			player2Block = new Player2BlockHandler(roomBackCommand, roomForwardComand);
+			player2Block = new Player2BlockHandler();
+			player2Door = new Player2DoorHandler(roomBackCommand, roomForwardComand, roomUpwardComand, roomDownwardComand);
 			player2Enemy = new Player2EnemyHandler(resetCommand);
 			player2Proj = new Player2ProjectileHandler(resetCommand);
 			player2item = new Player2ItemHandler();
@@ -50,6 +58,7 @@ namespace Sprint4.Collision
 			proj2Blcok = new Projectile2BlockHandler();
 
 			collisionDict.AddHandler(playerName, player2Block);
+			collisionDict.AddHandler(playerName, player2Door);
 			collisionDict.AddHandler(playerName, player2Enemy);
 			collisionDict.AddHandler(playerName, player2Proj);
 			collisionDict.AddHandler(playerName, player2item);
