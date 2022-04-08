@@ -13,9 +13,7 @@ namespace Sprint4
 		//not used
 		//private SpriteFont font;
 		private Camera camera;
-
 		private KeyboardC _keyboardCon;
-		private MouseC mouseCon;
 
 		private int boundWidth;
 		private int boundHeight;
@@ -65,9 +63,6 @@ namespace Sprint4
 
 			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
-
-			mouseCon = new MouseC(this);
-			mouseCon.InitializeController();
 			
 			base.Initialize();
 		}
@@ -87,7 +82,6 @@ namespace Sprint4
 		{
 			gameButtonManager.Update(gameTime);
 			//level1.loadRoom();
-			mouseCon.CompareStates(level1.GetRoom().GetPlayerObj());
 			if (!isPaused)
 			{
 				if (level1.CheckLock())

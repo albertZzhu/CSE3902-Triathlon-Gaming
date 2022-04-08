@@ -26,6 +26,8 @@ namespace Sprint4
         private Vector2 loc;
         private String Texture;
         private Player player;
+        private Vector2 spawnLocation = new Vector2(100, 250);
+        private int spawnHealth = 6;
 
         //npc obj holder variables
         private NPC1[] npc;
@@ -36,16 +38,16 @@ namespace Sprint4
         private int boundHeight;
         private List<IProjectile> list;
         private GameObjectManager gom;
-        public Room(String room, GameObjectManager gom, int boundWidth, int boundHeight)
+        public Room(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player=null)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
             list = new List<IProjectile>();
-            loadRoom(room);
+            loadRoom(room, player);
         }
 
-        private void loadRoom(String room)
+        private void loadRoom(String room, Player oldPlayer)
         {
             XmlDocument xml = new XmlDocument();
             xml.Load("../levelData.xml");
@@ -284,7 +286,14 @@ namespace Sprint4
                             this.npc = new NPC1[0];
                         }
                     }
-                    player = new Player(this.boundWidth, this.boundHeight);
+                    if(oldPlayer != null)
+					{
+                        player = new Player(this.boundWidth, this.boundHeight, playerPositionTransition(oldPlayer.GetLocation()), spawnHealth);
+                    }
+					else
+                    {
+                        player = new Player(this.boundWidth, this.boundHeight, spawnLocation, spawnHealth);
+                    }
                 }
 
             }
@@ -299,6 +308,32 @@ namespace Sprint4
             gom.PopulateInventory(Inventory.GetInventory());
             gom.AddLists();
 
+        }
+
+
+        public Vector2 playerPositionTransition(Vector2 location)
+		{
+            Vector2 opt;
+            if (location.Y < 150)
+            {
+                opt = new Vector2(location.X, 400);
+            }
+            else if (location.Y > 350)
+            {
+                opt = new Vector2(location.X, 110);
+            }
+            else if (location.X > 600)
+            {
+                opt = new Vector2(120, location.Y);
+            }
+            else if (location.X < 200)
+            {
+                opt = new Vector2(650, location.Y);
+            }else 
+            {
+                opt = location;
+            }
+            return opt;
         }
 
         //collision will need these func to check objects interactions.(boru might use these funcs)
