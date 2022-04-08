@@ -21,6 +21,7 @@ namespace Sprint4.Collision
                 if (type.Equals("triforce"))
                 {
 					Win.SetWinCondition(true);
+					SoundManager.Instance.WinMusic();
                 }
 			}
 		}

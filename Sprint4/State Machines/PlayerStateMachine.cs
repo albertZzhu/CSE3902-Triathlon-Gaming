@@ -13,17 +13,17 @@ namespace Sprint4
 		private bool damaged = false;
 		private double elapse = 0.0;
 		private bool isMoving = false;
-		private int health = 6;
+		private int health;
 
 
 
 		private Player play;
 
 
-		public PlayerStateMachine(Player player)
+		public PlayerStateMachine(Player player, int spawnHealth)
 		{
 			play = player;
-
+			health = spawnHealth;
 		}
 
 		public int FacingState()

@@ -20,6 +20,7 @@ namespace Sprint4.Collision
 				{
 					lose.SetLoseCondition(true);
 					resetCommand.Execute();
+					SoundManager.Instance.LoseMusic();
 				}
 				else
 				{

@@ -24,7 +24,7 @@ namespace Sprint4
 
 		public Player(int boundWidth, int boundHeight, Vector2 spawnLocation, int spawnHealth)
 		{
-			state = new PlayerStateMachine(this);
+			state = new PlayerStateMachine(this, spawnHealth);
 			proj = new ProjectileSeq();
 			location = spawnLocation;
 

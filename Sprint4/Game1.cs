@@ -120,14 +120,15 @@ namespace Sprint4
 						Exit();
                     } else if(Keyboard.GetState().IsKeyDown(Keys.R))
                     {	
-						/*
+						
 							if(Win.GetWinCondition())
 							{
 								level1.resetRoom();
 							}
-						*/
+						
 						lose.SetLoseCondition(false);
 						Win.SetWinCondition(false);
+						SoundManager.Instance.ThemeMusic();
 					}
                 }
 			}

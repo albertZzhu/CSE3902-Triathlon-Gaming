@@ -50,7 +50,7 @@ namespace Sprint4
         private void loadRoom(String room, Player oldPlayer)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("Content\\levelData.xml");
+            xml.Load("../levelData.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -288,7 +288,7 @@ namespace Sprint4
                     }
                     if(oldPlayer != null)
 					{
-                        player = new Player(this.boundWidth, this.boundHeight, playerPositionTransition(oldPlayer.GetLocation()), spawnHealth);
+                        player = new Player(this.boundWidth, this.boundHeight, playerPositionTransition(oldPlayer.GetLocation()), oldPlayer.GetState().playerHealth());
                     }
 					else
                     {

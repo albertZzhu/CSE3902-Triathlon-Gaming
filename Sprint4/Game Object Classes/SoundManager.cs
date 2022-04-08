@@ -32,6 +32,8 @@ namespace Sprint4
             soundEffectDictionary.Add("Spear", content.Load<SoundEffect>("Spear"));
 
             backgroundMusic.Add("DungeonTheme", content.Load<Song>("DungeonTheme"));
+            backgroundMusic.Add("WinMusic", content.Load<Song>("zelda_theme_snes-cut-mp3"));
+            backgroundMusic.Add("LoseMusic", content.Load<Song>("Game_Over"));
 
 
             MediaPlayer.Play(backgroundMusic["DungeonTheme"]);
@@ -58,6 +60,16 @@ namespace Sprint4
         public void ThemeMusic()
         {
             MediaPlayer.Play(backgroundMusic["DungeonTheme"]);
+        }
+
+        public void WinMusic()
+        {
+            MediaPlayer.Play(backgroundMusic["WinMusic"]);
+        }
+
+        public void LoseMusic()
+        {
+            MediaPlayer.Play(backgroundMusic["LoseMusic"]);
         }
     }
 }
