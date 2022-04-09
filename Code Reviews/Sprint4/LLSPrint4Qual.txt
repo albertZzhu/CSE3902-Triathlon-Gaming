@@ -1,0 +1,11 @@
+QUALITY
+
+Leigh Lynch
+4-9-2022
+Sprint4
+SoundManager.cs
+Keyi
+
+3 Minutes
+
+The code quality seems fine to me! No magic numbers or unnecessary floating strings... The only thing is that we should move the dictionary initializations to a data file so there are no strings needed in the file. Should be simple! 
