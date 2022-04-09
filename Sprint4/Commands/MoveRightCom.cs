@@ -13,7 +13,7 @@
 		}
 		public void Execute()
 		{
-			player.Move(0);
+			player.Move(State_Machines.Facing.RIGHT);
 		}
 	}
 }

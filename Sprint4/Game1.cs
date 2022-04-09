@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Sprint4.Collision;
+using Sprint4.Game_Object_Classes;
 
 namespace Sprint4
 {
@@ -10,18 +11,19 @@ namespace Sprint4
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
-		//not used
-		//private SpriteFont font;
 		private Camera camera;
 		private KeyboardC _keyboardCon;
 
+		//Window size
 		private int boundWidth;
 		private int boundHeight;
 
+		//Object Managers
 		private GameObjectManager gameObjectManager;
 		private GameButtonManager gameButtonManager;
 		private CollisionManager collisionManager;
 
+		//why is this public?
 		public bool isPaused;
 
 		public Level1 level1;
@@ -61,12 +63,15 @@ namespace Sprint4
 
 			gameObjectManager.PopulateInventory(Inventory.GetInventory(Content, level1));
 
+
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 			gameButtonManager.Initialize();
 
 			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
 			_keyboardCon.InitializeController();
-			
+
+			UniParam.Initialize(gameObjectManager, level1, this);
+
 			base.Initialize();
 		}
 
