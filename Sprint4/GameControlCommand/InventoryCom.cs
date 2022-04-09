@@ -7,15 +7,16 @@ namespace Sprint4
 
 	class InventoryCom : IGameControlCom
 	{
-		private Game1 game;
-		public InventoryCom(Game1 game)
+		private ItemSelect inventory;
+		public InventoryCom(ItemSelect inventory)
 		{
-			this.game = game;
+			this.inventory = inventory;
 		}
 
 		public void Execute()
 		{
-			//maybe call itemselect openmenu
+			//inventory.OpenMenu();
+			//how to get spriteBatch??
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint4.Game_Object_Classes;
+using System.Collections.Generic;
 
 namespace Sprint4
 {
@@ -89,6 +90,18 @@ namespace Sprint4
 			uniqueInventory.compass = true;
 		}
 
+		public static List<Item> GetItems()
+		{
+			List<Item> items = new List<Item>();
+			items.Add(new Item("fireballdown"));
+			if (uniqueInventory.boomerang)
+				items.Add(new Item("boomerang"));
+			else if (uniqueInventory.map)
+				items.Add(new Item("map"));
+			else if (uniqueInventory.compass)
+				items.Add(new Item("compass"));
+			return items;
+		}
 		public void UpdateContent(ContentManager content)
         {
 			this.content = content;
