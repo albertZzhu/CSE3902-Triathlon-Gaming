@@ -26,4 +26,6 @@ This sprint, things came together into a more cohesive product. We added sound, 
 ##### KNOWN ISSUES:
 * When facing up or down and near a wall on the right or left, the large projectile sprite hits the wall before anything else and will not properly fire.
 * The player's animations do not play properly.
+* when player win the game and press r to restart the game, the player status like HealthPoints won’t be updated if player get hurt in the previous game play. Only the initial location in which room will be updated.
+* Items that should only have 1 copy respawn when the player reenters a room
 
