@@ -21,7 +21,7 @@ This sprint, things came together into a more cohesive product. We added sound, 
 * user can walk through doors to change rooms, which are properly laid out on a map, including an accurate map showing the player's location when unlocked.
 
 ##### Polished Collision:
-* player no longer gets stuck near walls and can shoot projectiles over water but not walk across it. 
+* player gets stuck in walls much less often and can shoot projectiles over water but not walk across it. 
 
 ##### KNOWN ISSUES:
 * When facing up or down and near a wall on the right or left, the large projectile sprite hits the wall before anything else and will not properly fire.
