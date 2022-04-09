@@ -7,6 +7,8 @@ Camera.cs
 Jianlin
 
 This code is generally in good design. The first problem I see is the magic numbers in the different updates
-methods, I cannot understand what does this 10 stands for in this part of the code. Second problem is like I mentioned in the 
-readability review about the draw method, there are many similar and repeated codes this could cause some maintain problem because 
-if we are going to change one of those cases then other parts will need to be changed correspondingly. 
+methods, I cannot understand what does this 4 and 10 stand for in this part of the code. 
+
+Second problem is like I mentioned in the readability review about the draw method, there are many similar and
+repeated codes this could cause some maintain problem because if we are going to change one of those cases then other
+parts will need to be changed correspondingly. 
