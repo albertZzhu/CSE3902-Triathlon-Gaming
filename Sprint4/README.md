@@ -2,10 +2,10 @@
 ### This is the Sprint3 stage for the CSE 3902 project.
 
 #### Description
-Our project emulates the first dungeon from the original Legend of Zelda game. At this point, the player (who is reskinned to a custom sprite) can explore each room of the dungeon, attack enemies, and be damaged by them. There is no way for the player character to switch rooms, but the user can switch rooms from the keyboard.
+Our project emulates the first dungeon from the original Legend of Zelda game. At this point, the player (who is reskinned to a custom sprite) can explore each room of the dungeon, attack enemies, and be damaged by them. Switch rooms by walking through doors. The player can die after 6 hits and they have to choose to restart or continue. If the player is able to find the triforce, the game is won and an ending screen is shown, also with quit and restart options. 
 
 #### Motivation
-This sprint, we knew we had to implement collision and create the rooms of the first level. This, we were able to do. We also added a game object manager. Our other goal was to refactor our previous code to a higher quality. We made some progress on some more complex refactoring for execute and state machines, but not to the point where they were able to be added to the project. Many small things such as comments and object declaration locations were cleaned up. As time allows, we plan to add more custom sprites to make the project our own. 
+This sprint, things came together into a more cohesive product. We added sound, moving from room to room, menus and pausing. We also changed a couple things internally, such as moving code to databases and further implementing the Game Object Manager.
 
 ##### Player Control:
 * user can use <code>w</code> or <code>↑</code> to move character move upwards
@@ -13,26 +13,17 @@ This sprint, we knew we had to implement collision and create the rooms of the f
 * user can use <code>s</code> or <code>↓</code> to move character move downwards
 * user can use <code>d</code> or <code>→</code> to move character move rightwards
 * user can use <code>z</code> or <code>n</code> to attack
-* user can use <code>e</code> to make the character damaged
 * user can use <code>1</code>, <code>2</code>, or <code>3</code> to switch different projectiles
 * user can use <code>space</code> to fire projectiles
-
-##### Added NPC:
-* NPC can fire projectiles
-* NPC can move automatically
-* dragon can fire three fireballs at the same time
+* user can use the quit and pause buttons in the top right with a left click. 
 
 ##### Added Room Switching:
-* user can use <code>0</code> to switch to the next room
-* user can use <code>9</code> to switch to the previous room
+* user can walk through doors to change rooms, which are properly laid out on a map, including an accurate map showing the player's location when unlocked.
 
-##### Added Collision:
-* player can detect interaction with NPC's projectiles, blocks and items
+##### Polished Collision:
+* player no longer gets stuck near walls and can shoot projectiles over water but not walk across it. 
 
 ##### KNOWN ISSUES:
-* the player may be stuck on blocks and walls slightly by its toes / head
-* no damage caused via player doing melee attacks
-* The player's damage sprite is larger than is correct.
-* When facing left, the player's projectiles collide with the player's hitbox, causing damage.
-* The player's melee attack animations do not play properly.
+* When facing up or down and near a wall on the right or left, the large projectile sprite hits the wall before anything else and will not properly fire.
+* The player's animations do not play properly.
 
