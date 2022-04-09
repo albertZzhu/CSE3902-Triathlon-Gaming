@@ -30,4 +30,5 @@ This sprint, things came together into a more cohesive product. We added sound, 
 * Items that should only have 1 copy respawn when the player reenters a room
 * Some doors do not lead to the rooms they should
 * enemies - specifically keese, get stuck in walls sometimes
+* chosen projectile resets when entering a new room
 
