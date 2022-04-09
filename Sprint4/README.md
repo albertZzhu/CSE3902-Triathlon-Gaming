@@ -29,4 +29,5 @@ This sprint, things came together into a more cohesive product. We added sound, 
 * when player win the game and press r to restart the game, the player status like HealthPoints won’t be updated if player get hurt in the previous game play. Only the initial location in which room will be updated.
 * Items that should only have 1 copy respawn when the player reenters a room
 * Some doors do not lead to the rooms they should
+* enemies - specifically keese, get stuck in walls sometimes
 
