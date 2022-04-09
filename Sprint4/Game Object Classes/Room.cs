@@ -27,7 +27,7 @@ namespace Sprint4
         private String Texture;
         private Player player;
         private Vector2 spawnLocation = new Vector2(100, 250);
-        private int spawnHealth = 6;
+        private int spawnHealth = 5;
 
         //npc obj holder variables
         private NPC1[] npc;
