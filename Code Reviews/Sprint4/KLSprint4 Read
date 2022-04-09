@@ -1,0 +1,16 @@
+Keyi Lu
+
+4/8/22
+
+Sprint 4
+
+Camera.cs
+
+Jianlin
+
+5 mins
+
+The code is readable. This class contains many variables, but I can quickly tell they are highly related to direction-oriented 
+functionalities. I can see separate functions responsible for moving the camera in different directions. The only part that has a
+little bit of a readability problem was the draw method which contains a big chunk of codes. I can see there are many similar and repeated
+codes in this method. 
