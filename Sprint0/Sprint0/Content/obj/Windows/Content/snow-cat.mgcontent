@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/snow-cat.png</SourceFile>
-  <SourceTime>2022-02-28T14:23:32.3873125-05:00</SourceTime>
+  <SourceTime>2022-04-07T16:51:15.4626722-04:00</SourceTime>
   <DestFile>C:/Users/26413/Source/Repos/albertZzhu/CSE3902-Triathlon-Gaming/Sprint0/Sprint0/Content/bin/Windows/Content/snow-cat.xnb</DestFile>
-  <DestTime>2022-03-11T14:44:53.6857056-05:00</DestTime>
+  <DestTime>2022-04-09T01:33:52.4065293-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
