@@ -10,8 +10,6 @@
 
 		//Updates inputs
 		//called in update
-		void CompareStates(Player player, Level1 level1);
-
-
-	}
+		void CompareStates(Player player);
+    }
 }

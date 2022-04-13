@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.State_Machines;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,25 +17,25 @@ namespace Sprint4
 		private bool movebool;
 		private bool firebool;
 		private Vector2 location;
-		private int direction;
+		private Facing direction;
 		private float timer, timespan;
 		public List<string> npcHolder;
 		private List<string> fireballHolder;
 		private List<KeyValuePair<Vector2, int>> route;
 		private Vector2 nextpos;
-		private int nextface;
-		private int dragonuse;
+		private Facing nextface;
+		private Facing dragonuse;
 		private int routesCounter;
 		private bool dead;
 		//constructor
 		public NPC1(int boundWidth, int boundHeight)
 		{
 			state = new NpcStatementMachine(this);
-			this.proj = new NpcProjectileSeq();
+			proj = new NpcProjectileSeq();
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
-			this.routesCounter = 0;
-			this.dead = false;
+			routesCounter = 0;
+			dead = false;
 		}
 
 		public bool isDead()
@@ -48,13 +49,13 @@ namespace Sprint4
 		}
 
 		//check direction and update location.
-		public void Move(int facing)
+		public void Move(Facing facing)
 		{
 			if(movebool) {
 				switch (facing)
 				{
-					case 0:
-						state.ChangeFacing(0);
+					case Facing.RIGHT:
+						state.ChangeFacing(Facing.RIGHT);
 						location = new Vector2(location.X + 1, location.Y);
 						if (location.X + 10 > boundWidth - 20)
 						{
@@ -62,8 +63,8 @@ namespace Sprint4
 						}
 						break;
 					
-					case 1:
-						state.ChangeFacing(1);
+					case Facing.LEFT:
+						state.ChangeFacing(Facing.LEFT);
 						location = new Vector2(location.X - 1, location.Y);
 						if (location.X < 0)
 						{
@@ -71,8 +72,8 @@ namespace Sprint4
 						}
 						break;
 
-					case 2:
-						state.ChangeFacing(2);
+					case Facing.UP:
+						state.ChangeFacing(Facing.UP);
 						location = new Vector2(location.X, location.Y - 1);
 						if (location.Y < 0)
 						{
@@ -80,8 +81,8 @@ namespace Sprint4
 						}
 						break;
 					
-					case 3:
-						state.ChangeFacing(3);
+					case Facing.DOWN:
+						state.ChangeFacing(Facing.DOWN);
 						location = new Vector2(location.X, location.Y + 1);
 						if (location.Y + 10 > boundHeight - 20)
 						{
@@ -100,20 +101,20 @@ namespace Sprint4
 
 			if (((Sprite)npc).GetFrames()[0].GetBitMap().Name == "dragon")
 			{
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse, fireballHolder);
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse + 10, fireballHolder);
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), this.dragonuse - 10, fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse, fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse + 10, fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse - 10, fireballHolder);
 			}
 			else
 			{
-				this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
+				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
 			}
 		}
 		//room class used
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
-			this.nextpos = newLocation;
+			nextpos = newLocation;
 		}
 		//client used
 		public Vector2 GetLocation()
@@ -123,12 +124,12 @@ namespace Sprint4
 		//room class used
 		public void setTimer(float i)
 		{
-			this.timespan = i;
+			timespan = i;
 		}
 		//client used
 		public float GetTimer()
         {
-			return this.timespan;
+			return timespan;
         }
 		//state machine used
 		public void SetNpc(ISprite npc)
@@ -141,16 +142,16 @@ namespace Sprint4
 			return npc;
 		}
 		//room class used
-		public void SetDirection(int i)
+		public void SetDirection(Facing f)
         {
-			this.direction = i;
-			this.nextface = i;
-			this.dragonuse = i;
+			direction = f;
+			nextface = f;
+			dragonuse = f;
 		}
 		//client used
-		public int GetDirection()
+		public Facing GetDirection()
         {
-			return this.direction;
+			return direction;
         }
 		//room class used
 		public void SetFireBallList(List<string> fireballHolder)
@@ -160,7 +161,7 @@ namespace Sprint4
 		//client used
 		public List<string> GetFireBallList()
         {
-			return this.fireballHolder;
+			return fireballHolder;
         }
 		//room class used
 		public void SetNpcList(List<string> npcHolder)
@@ -170,7 +171,7 @@ namespace Sprint4
 		//client used
 		public List<string> GetNpcList()
 		{
-			return this.npcHolder;
+			return npcHolder;
 		}
 		//room class used
 		public void SetFireBool(bool firebool)
@@ -180,7 +181,7 @@ namespace Sprint4
 		//client used
 		public bool GetFireBool()
 		{
-			return this.firebool;
+			return firebool;
 		}
 		//room class used
 		public void SetMoveBool(bool movebool)
@@ -190,7 +191,7 @@ namespace Sprint4
 		//client used
 		public bool GetMoveBool()
 		{
-			return this.movebool;
+			return movebool;
 		}
 		//room class used(optional loaded in xml)
 		public void SetRoute(List<KeyValuePair<Vector2,int>> route)
@@ -198,7 +199,8 @@ namespace Sprint4
 			this.route = route;
 			if (this.route != null)
 			{
-				this.route.Add(new KeyValuePair<Vector2, int>(location, direction));
+				//hm... direction is being cast to an int here.
+				this.route.Add(new KeyValuePair<Vector2, int>(location, (int)direction));
 			}
 			
 			
@@ -224,17 +226,17 @@ namespace Sprint4
 		public void BouncedBack()
         {
             switch (direction) {
-				case 0:
-					this.direction = 1;
+				case Facing.RIGHT:
+					direction = Facing.LEFT;
 					break;
-				case 1:
-					this.direction = 0;
+				case Facing.LEFT:
+					direction = Facing.RIGHT;
 					break;
-				case 2:
-					this.direction = 3;
+				case Facing.UP:
+					direction = Facing.DOWN;
 					break;
-				case 3:
-					this.direction = 2;
+				case Facing.DOWN:
+					direction = Facing.UP;
 					break;
 				default:
 					break;
@@ -243,21 +245,21 @@ namespace Sprint4
         }
 		internal List<IProjectile> GetSeqList()
 		{
-			if (this.firebool)
+			if (firebool)
 			{
-				return this.proj.GetProjList();
+				return proj.GetProjList();
 			}
 			else return new List<IProjectile>();
 		}
 		//update func
 		public void Update(GameTime gameTime)
 		{
-			if (!this.dead)
+			if (!dead)
 			{
-				if (route != null && (this.location.Equals(this.nextpos)))
+				if (route != null && (location.Equals(nextpos)))
 				{
-					this.direction = this.nextface;
-					this.next();
+					direction = nextface;
+					next();
 				}
 				Move(direction);
 				state.Update(gameTime);
@@ -265,9 +267,9 @@ namespace Sprint4
 				if (firebool)
 				{
 					timer += 1f;
-					if (timer == this.timespan)
+					if (timer == timespan)
 					{
-						this.DistantAttack();
+						DistantAttack();
 						timer = 0f;
 					}
 				}
@@ -277,7 +279,7 @@ namespace Sprint4
 		//draw func
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			if (!this.dead) {
+			if (!dead) {
 				npc.Draw(spriteBatch, location);
 				proj.Draw(spriteBatch);
 			}
@@ -286,10 +288,10 @@ namespace Sprint4
 
 		private void next()
 		{
-			this.nextpos = this.route[routesCounter].Key;
-			this.nextface = this.route[routesCounter].Value;
+			nextpos = route[routesCounter].Key;
+			nextface = (Facing)route[routesCounter].Value;
 			routesCounter++;
-			if (routesCounter == this.route.Count)
+			if (routesCounter == route.Count)
 			{
 				routesCounter = 0;
 			}

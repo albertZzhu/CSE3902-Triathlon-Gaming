@@ -1,0 +1,10 @@
+READABILITY
+Leigh Lynch
+4-9-2022
+Sprint4
+SoundManager.cs
+Keyi
+
+5 minutes
+
+The code is simple, to the point and readable. Good job! The code is so self explanatory that it doesn't really need comments. It's a managable length, too.

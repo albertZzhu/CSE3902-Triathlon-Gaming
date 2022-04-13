@@ -14,13 +14,15 @@ namespace Sprint4
 		private List<IGameObject> items = new List<IGameObject>();
 		private List<IGameObject> blocks = new List<IGameObject>();
 		private List<IGameObject> enemies = new List<IGameObject>();
+		private List<IGameObject> inventories = new List<IGameObject>();
 
 		public void AddLists()
 		{
-			lists.Add(items);
 			lists.Add(blocks);
 			lists.Add(players);
 			lists.Add(enemies);
+			lists.Add(items);
+			lists.Add(inventories);
 		}
 
 		public void PopulatePlayers(Player player)
@@ -28,20 +30,34 @@ namespace Sprint4
 			players.Add(player);
 		}
 
-		public void PopulateItems(Item item)
+		public void PopulateItems(Item[] itemArr)
 		{
-			items.Add(item);
+			foreach(Item item in itemArr)
+				items.Add(item);
 		}
 
-		public void PopulateBlocks(Block block)
+		public void PopulateBlocks(IBlock[] blockArr)
 		{
-			blocks.Add(block);
+			foreach (IBlock block in blockArr)
+				blocks.Add(block);
 		}
 
-		public void PopulateEnemies(NPC1 enemy)
+		public void PopulateEnemies(NPC1[] enemyArr)
 		{
-			enemies.Add(enemy);
+			foreach (NPC1 enemy in enemyArr)
+				enemies.Add(enemy);
 		}
+		public void PopulateInventory(Inventory inventory)
+		{
+			inventories.Add(inventory);
+		}
+
+		public void ClearLists()
+        {
+			foreach (List<IGameObject> list in lists)
+				list.Clear();
+			lists.Clear();
+        }
 
 		public void Update(GameTime gameTime)
 		{
@@ -49,7 +65,8 @@ namespace Sprint4
 			{
 				foreach (IGameObject gobj in list)
 				{
-					gobj.Update(gameTime);
+					if (gobj != null)
+						gobj.Update(gameTime);
 				}
 			}
 		}
@@ -60,7 +77,8 @@ namespace Sprint4
 			{
 				foreach (IGameObject gobj in list)
 				{
-					gobj.Draw(spriteBatch);
+					if (gobj != null)
+						gobj.Draw(spriteBatch);
 				}
 			}
 		}

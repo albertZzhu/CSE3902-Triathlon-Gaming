@@ -7,16 +7,22 @@ namespace Sprint4
 	class ResetCom : ICommand
 	{
 		private Player player;
-		public ResetCom(Player player)
+		private Level1 level;
+		public ResetCom(Level1 level)
 		{
-			this.player = player;
+			this.level = level;
 		}
-		void ICommand.ChangePlayer(Player player)
+
+		public void ChangePlayer(Player player)
 		{
 			this.player = player;
 		}
 		public void Execute()
 		{
+			level.resetRoom();
+			player.Reset();
+			Inventory.Reset();
+			SoundManager.Instance.ThemeMusic();
 			/*player.Reset();
 			item.Reset();
 			block.Reset();

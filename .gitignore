@@ -413,3 +413,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/Sprint3.zip
+/Sprint3

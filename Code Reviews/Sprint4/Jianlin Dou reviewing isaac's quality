@@ -1,0 +1,18 @@
+Jianlin Dou
+
+4/8/22
+
+Sprint 4
+
+GameObjectManager.cs & Inventory.cs
+
+Isaac
+
+The gameObjectManger is a good design it help shrink down the size of game1 class, which
+might potientially be a bad code smell. the using of gameObjectManager helps lower the coupling 
+issue exist among the block, item, iventory, npc, player classes. 
+
+the Inventory class just purly draw texture onto the specified location, this design is unmaintainable
+for example, if the game window size changed, we need manualy reset all locations of each individual textured draw on
+and also because it's just a texture draw on the game window without any concrete class to hold the individual item the 
+task became even harder to take advantage of those items classes. it's easy to understand but hard to be 

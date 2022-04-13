@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.State_Machines;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -15,63 +16,66 @@ namespace Sprint4
 			list = new List<Projectile>();
 		}
 
-		public void NewProjectile(Vector2 newLocation, int direction, int sprite)
+		public void NewProjectile(Vector2 newLocation, Facing direction, int sprite)
 		{
 			switch (sprite)
 			{ //add more
-				case 2:
+				case (int)Projectiles.SPEAR:
 					{
+						SoundManager.Instance.PlaySound("Spear");
 						switch (direction)
 						{
-							case 0:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileRight")));
+							case Facing.RIGHT:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
 								break;
-							case 1:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("projectileLeft")));
+							case Facing.LEFT:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("left_projectile")));
 								break;
-							case 2:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileUp")));
+							case Facing.UP:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("up_projectile")));
 								break;
-							case 3:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("projectileDown")));
+							case Facing.DOWN:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("down_projectile")));
 								break;
 						}
 					}
 					break;
-				case 0:
+				case (int)Projectiles.FIREBALL:
 					{
+						SoundManager.Instance.PlaySound("Fireball");
 						switch (direction)
 						{
-							case 0:
+							case Facing.RIGHT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballright")));
 								break;
-							case 1:
+							case Facing.LEFT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballleft")));
 								break;
-							case 2:
+							case Facing.UP:
 								list.Add(new Projectile(new Vector2(newLocation.X - biasfireball, newLocation.Y), direction, SpriteFactory.GetSprite("fireballup")));
 								break;
-							case 3:
+							case Facing.DOWN:
 								list.Add(new Projectile(new Vector2(newLocation.X - biasfireball, newLocation.Y), direction, SpriteFactory.GetSprite("fireballdown")));
 								break;
 						}
 					}
 					break;
-				case 1:
+				case (int)Projectiles.BOOMERANG:
 					{
+						SoundManager.Instance.PlaySound("Boomerang");
 						switch (direction)
 						{
-							case 0:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("heart")));
+							case Facing.RIGHT:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("boomerang")));
 								break;
-							case 1:
-								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("heart")));
+							case Facing.LEFT:
+								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("boomerang")));
 								break;
-							case 2:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("heart")));
+							case Facing.UP:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("boomerang")));
 								break;
-							case 3:
-								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("heart")));
+							case Facing.DOWN:
+								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("boomerang")));
 								break;
 						}
 					}
@@ -107,7 +111,7 @@ namespace Sprint4
 		}
 		public List<Projectile> GetProjList()
 		{
-			return this.list;
+			return list;
 		}
 	}
 }

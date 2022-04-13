@@ -46,6 +46,10 @@ namespace Sprint3
 					this.canMoveDown = false;
 					break;
 			}
+			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
+			{
+				Move(this.state.FacingState() % 2 == 0 ? this.state.FacingState() + 1 : this.state.FacingState() - 1);
+			}
 		}
 
 		public void moveunLock(int direction)

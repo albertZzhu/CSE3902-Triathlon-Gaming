@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.State_Machines;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,8 +9,8 @@ namespace Sprint4
 	public class Player : Iplayer
 	{
 		private ISprite sprite = new Sprite();
-		private Vector2 location = new Vector2(100, 250);
-		private PlayerStateMechine state;
+		private Vector2 location;
+		public PlayerStateMachine state;
 		private ProjectileSeq proj;
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
@@ -21,52 +22,72 @@ namespace Sprint4
 		private bool canMoveRight = true;
 		private bool canMoveLeft = true;
 
-		public Player(int boundWidth, int boundHeight)
+		public Player(int boundWidth, int boundHeight, Vector2 spawnLocation, int spawnHealth)
 		{
-			state = new PlayerStateMechine(this);
-			this.proj = new ProjectileSeq();
+			state = new PlayerStateMachine(this, spawnHealth);
+			proj = new ProjectileSeq();
+			location = spawnLocation;
+
+			//this.level = level;
+
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
 		}
 
-		public void moveLock(int direction)
+		public void moveLock(Facing direction)
 		{
 			switch (direction)
 			{
-				case 0:
-					this.canMoveRight = false;
+				case Facing.RIGHT:
+					canMoveRight = false;
 					break;
-				case 1:
-					this.canMoveLeft = false;
+				case Facing.LEFT:
+					canMoveLeft = false;
 					break;
-				case 2:
-					this.canMoveUp = false;
+				case Facing.UP:
+					canMoveUp = false;
 					break;
-				case 3:
-					this.canMoveDown = false;
+				case Facing.DOWN:
+					canMoveDown = false;
 					break;
+			}
+			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
+			{
+				Move((Facing)(this.state.FacingState() % 2 == 0 ? this.state.FacingState() + 1 : this.state.FacingState() - 1));
 			}
 		}
 
-		public void moveunLock(int direction)
+		public void moveunLock(Facing direction)
 		{
 			switch (direction)
 			{
-				case 0:
-					this.canMoveRight = true;
+				case Facing.RIGHT:
+					canMoveRight = true;
 					break;
-				case 1:
-					this.canMoveLeft = true;
+				case Facing.LEFT:
+					canMoveLeft = true;
 					break;
-				case 2:
-					this.canMoveUp = true;
+				case Facing.UP:
+					canMoveUp = true;
 					break;
-				case 3:
-					this.canMoveDown = true;
+				case Facing.DOWN:
+					canMoveDown = true;
 					break;
 			}
 		}
+		public PlayerStateMachine GetState()
+        {
+			return state;
+        }
 
+		public bool IfAttacking()
+		{
+			return state.IsAttacking();
+		}
+		public bool IfDie()
+		{
+			return state.IfDie();
+		}
 		public void GoStand()
 		{
 			state.changeMovingState(false);
@@ -74,36 +95,36 @@ namespace Sprint4
 		internal List<Projectile> GetSeqList()
 		{
 			
-				return this.proj.GetProjList();
+				return proj.GetProjList();
 		}
 		//positive x, increment to the right. negative x, decrement to the left.
 		//positive y, increment down. negative y, decrement up. 
 		//x could be 1 for walking or 5 for sprinting 
-		public void Move(int facing)
+		public void Move(Facing facing)
 		{
 			state.ChangeFacing(facing);
 			state.changeMovingState(true);
 			switch (facing)
 			{
-				case 0:
+				case Facing.RIGHT:
 					if (location.X + 10 < boundWidth - 20&&canMoveRight)
 					{
 						location = new Vector2(location.X + velocity, location.Y);
 					}
 					break;
-				case 1:
+				case Facing.LEFT:
 					if (location.X - 10 > 0&&canMoveLeft)
 					{
 						location = new Vector2(location.X - velocity, location.Y);
 					}
 					break;
-				case 2:
+				case Facing.UP:
 					if (location.Y - 10 > 0&&canMoveUp)
 					{
 						location = new Vector2(location.X, location.Y - velocity);
 					}
 					break;
-				case 3:
+				case Facing.DOWN:
 					if (location.Y + 10 < boundHeight - 30&&canMoveDown)
 					{
 						location = new Vector2(location.X, location.Y + velocity);
@@ -116,7 +137,7 @@ namespace Sprint4
 
 		public void DistantAttack()
 		{
-			this.proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), this.spriteNum);
+			proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), (Facing)state.FacingState(), spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)
@@ -124,9 +145,14 @@ namespace Sprint4
 			location = newLocation;
 		}
 
+		public Vector2 GetLocation()
+		{
+			return location;
+		}
+
 		public Rectangle GetRect()
 		{
-			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.sprite.getSize().X, (int)this.sprite.getSize().Y);
+			Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)sprite.getSize().X, (int)sprite.getSize().Y);
 			return opt;
 		}
 
@@ -153,7 +179,7 @@ namespace Sprint4
 
 		public void Reset()
 		{
-			SetLocation(new Vector2(50, 50));
+			SetLocation(new Vector2(100, 250));
 			state.ChangeFacing(0);
 			spriteNum = 0;
 		}
@@ -172,7 +198,7 @@ namespace Sprint4
 
 		public void setFireball(int i)
 		{
-			this.spriteNum = i;
+			spriteNum = i;
 		}
 	}
 }

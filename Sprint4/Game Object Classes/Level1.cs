@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -6,19 +7,28 @@ using System.Text;
 
 namespace Sprint4
 {
-    public class Level1 : ILevel
+    public class Level1
     {
         private Dictionary<int, String> rooms;
+        private string futureRoom;
         public Room room;
+        private string currentRoom;
+        private bool pass;
+        //not used
+        private bool loadLock;
+        public GameObjectManager gom;
         private int boundWidth;
         private int boundHeight;
-        private int i;
-        public Level1(int boundWidth, int boundHeight)
+        private int index;
+        private int doorlocation;
+        public Level1(GameObjectManager gom, int boundWidth, int boundHeight)
         {
-            this.i = 1;
+            index = 1;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
-            this.rooms = new Dictionary<int, String>();
+            this.gom = gom;
+            rooms = new Dictionary<int, String>();
+
             rooms.Add(1, "room1");
             rooms.Add(2, "room2");
             rooms.Add(3, "room3");
@@ -40,39 +50,105 @@ namespace Sprint4
         //mouse pressed might need to call this func to initiate different room classes.
         public void loadRoom()
         {
-            this.room = new Room(this.rooms[this.i], boundWidth, boundHeight);
+            room = new Room(rooms[index], gom, boundWidth, boundHeight, room.GetPlayerObj());
+            this.currentRoom = rooms[index];
+            //not used
+            setLoadLock(true);
+        }
+
+        public void InitializeRoom()
+        {
+            room = new Room(rooms[index], gom, boundWidth, boundHeight);
+            this.currentRoom = rooms[index];
+            setCheckLock(false);
+            //not used
+            setLoadLock(true);
         }
 
         public Room GetRoom()
         {
-            return this.room;
+            return room;
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public String currentroom()
         {
-            this.room.Draw(spriteBatch);
+            return this.currentRoom;
         }
-
-        public void Update(GameTime gameTime)
+        public String futureroom()
         {
-            this.room.Update(gameTime);
+            return this.futureRoom;
         }
-
+        public bool CheckLock()
+        {
+            return !this.pass;
+        }
+        //not used
+        public bool LoadLock()
+        {
+            return !this.loadLock;
+        }
+        public void setCheckLock(bool value)
+        {
+            this.pass = value;
+        }
+        //not used
+        private void setLoadLock(bool value)
+        {
+            this.loadLock = value;
+        }
+        /*
         public void switchPre()
         {
-            this.i--;
-            if (this.i < 1)
+            setCheckLock(true);
+            //not used
+            setLoadLock(false);
+            index--;
+            if (index < 1)
             {
-                this.i = 16;
+                index = 16;
             }
+            //loadRoom();
+            this.futureRoom = rooms[index];
         }
 
         public void switchNext()
         {
-            this.i++;
-            if (this.i > 16)
+            setCheckLock(true);
+            //not used
+            setLoadLock(false);
+            index++;
+            if (index > 16)
             {
-                this.i = 1;
+                index = 1;
             }
+            //loadRoom();
+            this.futureRoom = rooms[index];
         }
+         */
+         
+         public void SwitchRoom(int doorposition) {
+            this.doorlocation = doorposition;
+            setCheckLock(true);
+            setLoadLock(false);
+            this.index = int.Parse(this.room.GetDoorPair()[doorposition].Value.Substring(4));
+            this.futureRoom = rooms[index];
+         }
+         
+         
+
+        public void resetRoom()
+		{
+            index = 1;
+            InitializeRoom();
+		}
+
+        public int GetIndex()
+        {
+            return index;
+        }
+
+        public int GetDoorDoc()
+		{
+            return this.doorlocation;
+		}
     }
 }

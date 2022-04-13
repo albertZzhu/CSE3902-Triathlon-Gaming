@@ -11,15 +11,17 @@ namespace Sprint4
         private ISprite item = new Sprite();
         private String itemTexture;
         private Vector2 location;
-        private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
-        private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
         private bool disappear;
 
-        public Item(int boundWidth, int boundHeight)
+        public Item()
         {
-            this.boundWidth = boundWidth;
-            this.boundHeight = boundHeight;
             disappear = false;
+        }
+        public Item(string sprite)
+        {
+            disappear = false;
+            SetSprite(SpriteFactory.GetSprite(sprite));
+            SetItem(sprite);
         }
 
         public void SetLocation(Vector2 newLocation)
@@ -29,7 +31,7 @@ namespace Sprint4
 
         public Rectangle GetRect()
         {
-            Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.item.getSize().X, (int)this.item.getSize().Y);
+            Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)item.getSize().X, (int)item.getSize().Y);
             return opt;
         }
 
@@ -61,12 +63,16 @@ namespace Sprint4
         {
             this.itemTexture = itemTexture;
         }
+        public string GetItemTexture()
+        {
+            return itemTexture;
+        }
         public void Update(GameTime gameTime)
         {
             if (!disappear)
             {
                 //get key presses here?
-                SetSprite(SpriteFactory.GetSprite(this.itemTexture));
+                SetSprite(SpriteFactory.GetSprite(itemTexture));
                 item.Update();
             }
         }

@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint4.State_Machines;
 
 namespace Sprint4
 {
 	class NpcStatementMachine
 	{
-		private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		private Facing facing = Facing.RIGHT;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
 									//private bool attack = false;
 		private bool damaged = false;
 		private NPC1 npc;
@@ -14,7 +15,7 @@ namespace Sprint4
 			this.npc = npc;
 		}
 
-		public int FacingState()
+		public Facing FacingState()
 		{
 			return facing;
 		}
@@ -31,14 +32,15 @@ namespace Sprint4
 			}
 		}
 
-		public void ChangeFacing(int facing)
+		public void ChangeFacing(Facing facing)
 		{
 			this.facing = facing;
 		}
 
 		public void Update(GameTime gameTime)
 		{
-			npc.SetNpc(SpriteFactory.GetSprite(npc.npcHolder[facing]));
+			//have to change facing to an int here...S
+			npc.SetNpc(SpriteFactory.GetSprite(npc.npcHolder[(int)facing]));
 		}
 	}
 }

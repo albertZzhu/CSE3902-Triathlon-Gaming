@@ -6,8 +6,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint4
 { 
-	interface Iitem : IGameObject
+	public interface Iitem : IGameObject
 	{
+		public string GetItemTexture();
 		bool isDisappear();
 
 		void goDisappear();

@@ -1,0 +1,17 @@
+Isaac Lieber
+
+3/11/22
+
+Sprint 3
+
+Room.cs
+
+Keyi
+
+7 minutes
+
+Most of the code is readable. The xml loadRoom is personally harder for me to understand, since I didnt do as much
+research with it, but once I dive into it, it does make sense. There are a lot of nested if-elses in the method, 
+but that may just be necessary in order to correctly read the xml file. The update and Draw methods reminded me a lot of the ones
+I built for the GameObjectManager, so, as I mentioned in my quality review, I believe these can be somewhat simplified, 
+and will be next sprint.

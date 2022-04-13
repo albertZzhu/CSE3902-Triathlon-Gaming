@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sprint4.State_Machines;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,9 @@ namespace Sprint4.Collision
 {
 	class Player2BlockHandler
 	{
+		
 		public Player2BlockHandler()
 		{
-			
 		}
 
 
@@ -18,12 +19,12 @@ namespace Sprint4.Collision
 			{
 				if (handleList[i] == 0)
 				{
-					player.moveLock(i);
+					player.moveLock((Facing)i);
 					//*player.Move(i % 2 == 0 ? i + 1 : i - 1);
 				}
 				else
 				{
-					player.moveunLock(i);
+					player.moveunLock((Facing)i);
 				}
 			}
 		}

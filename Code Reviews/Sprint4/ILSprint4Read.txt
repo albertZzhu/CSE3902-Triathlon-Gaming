@@ -1,0 +1,15 @@
+Isaac Lieber
+
+4/8/22
+
+Sprint 4
+
+GameButtonManager.cs
+
+Boru
+
+2 minutes
+
+The code is very readable. It contains simple and short methods, as well as being fairly well data driven. I think, as mentioned in the quality review,
+the Update method could still be simpler by using the MouseController and the GameObjectManager. I'm not sure if there was a reason why the buttonManager was created
+separately, but this is something we will discuss. However, for now, the code functions well and is easy to understand, so it can easily be assimilated later.

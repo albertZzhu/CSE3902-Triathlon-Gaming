@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.State_Machines;
 
 namespace Sprint4
 {
 	interface Iplayer : IGameObject
 	{
-		void Move(int facing);
+		void Move(Facing facing);
 
 		Rectangle GetRect();
 
@@ -20,8 +21,14 @@ namespace Sprint4
 
 		void Reset();
 
-		void moveLock(int direction);
+		void moveLock(Facing direction);
 
-		void moveunLock(int direction);
+		void moveunLock(Facing direction);
+
+		bool IfAttacking();
+
+		bool IfDie();
+
+		Vector2 GetLocation();
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint4.Interfaces;
+using Sprint4.State_Machines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,36 +10,47 @@ using System.Xml;
 
 namespace Sprint4
 {
-    public class Room : IRoom
-    {   
+    public class Room
+    {
         //block obj holder variables
-        private Block[] block;
+        private IBlock[] block;
+        //door pair holder variables
+        private KeyValuePair<IBlock, String>[] door;
+        //water obj holder variables
+        private IBlock[] water;
+        //sand obj holder variables
+        private IBlock[] sand;
         //item obj holder variables
         private Item[] item;
         //used by both block and item variables
         private Vector2 loc;
         private String Texture;
+        private Player player;
+        private Vector2 spawnLocation = new Vector2(100, 250);
+        private int spawnHealth = 5;
+
         //npc obj holder variables
         private NPC1[] npc;
         private List<String> Textureholder;
         //player variables
-        private Player player;
         //game window edges
         private int boundWidth;
         private int boundHeight;
         private List<IProjectile> list;
-        public Room(String room, int boundWidth, int boundHeight)
+        private GameObjectManager gom;
+        public Room(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player=null)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
-            this.list = new List<IProjectile>();
-            loadRoom(room);
+            this.gom = gom;
+            list = new List<IProjectile>();
+            loadRoom(room, player);
         }
 
-        private void loadRoom(String room)
+        private void loadRoom(String room, Player oldPlayer)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("../levelData.xml");
+            xml.Load("Content\\LevelData2.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -56,14 +68,14 @@ namespace Sprint4
                         {
                             this.block = new Block[num];
                             XmlNodeList list = block.ChildNodes;
-                            foreach (XmlNode element in list)
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Binfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
                                     this.Texture = Binfo[1].InnerText;
-                                    this.block[i] = new Block(this.boundWidth, this.boundHeight);
+                                    this.block[i] = new Block();
                                     this.block[i].SetLocation(loc);
                                     this.block[i].SetBlock(this.Texture);
                                     i++;
@@ -75,6 +87,113 @@ namespace Sprint4
                         }
 
                     }
+
+                    //loading doors into the door pair holder.
+                    XmlNode door = type.SelectSingleNode("door");
+                    if (door != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(door.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.door = new KeyValuePair<IBlock, String>[num];
+                            XmlNodeList list = door.ChildNodes;
+                            foreach (XmlElement element in list)
+                            {
+                                if (!element.IsEmpty)
+                                {
+                                    XmlNodeList Dinfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((Dinfo[0].FirstChild).InnerText), int.Parse((Dinfo[0].LastChild).InnerText));
+                                    this.Texture = Dinfo[1].InnerText;
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.up), Dinfo[2].InnerText);
+                                            break;
+                                        case 1:
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.right), Dinfo[2].InnerText);
+                                            break;
+                                        case 2:
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.down), Dinfo[2].InnerText);
+                                            break;
+                                        case 3:
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.left), Dinfo[2].InnerText);
+                                            break;
+                                    }
+                                }
+                                else this.door[i] = new KeyValuePair<IBlock, String>(null, "nothing");
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            this.door = new KeyValuePair<IBlock, String>[0];
+                        }
+
+                    }
+
+                    //loading water into the water obj holder.
+                    XmlNode water = type.SelectSingleNode("water");
+                    if (water != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(water.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.water = new Water[num];
+                            XmlNodeList list = water.ChildNodes;
+                            foreach (XmlElement element in list)
+                            {
+                                if (!element.IsEmpty)
+                                {
+                                    XmlNodeList Winfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((Winfo[0].FirstChild).InnerText), int.Parse((Winfo[0].LastChild).InnerText));
+                                    this.Texture = Winfo[1].InnerText;
+                                    this.water[i] = new Water();
+                                    this.water[i].SetLocation(loc);
+                                    this.water[i].SetBlock(this.Texture);
+                                    i++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            this.water = new Water[0];
+                        }
+
+                    }
+
+                    //loading sand into the sand obj holder.
+                    XmlNode sand = type.SelectSingleNode("sand");
+                    if (sand != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(sand.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.sand = new Sand[num];
+                            XmlNodeList list = sand.ChildNodes;
+                            foreach (XmlElement element in list)
+                            {
+                                if (!element.IsEmpty)
+                                {
+                                    XmlNodeList Sinfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((Sinfo[0].FirstChild).InnerText), int.Parse((Sinfo[0].LastChild).InnerText));
+                                    this.Texture = Sinfo[1].InnerText;
+                                    this.sand[i] = new Sand();
+                                    this.sand[i].SetLocation(loc);
+                                    this.sand[i].SetBlock(this.Texture);
+                                    i++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            this.sand = new Sand[0];
+                        }
+
+                    }
+
                     //loading items into the item obj holder.
                     XmlNode item = type.SelectSingleNode("items");
                     if (item != null)
@@ -87,12 +206,12 @@ namespace Sprint4
                             XmlNodeList list = item.ChildNodes;
                             foreach (XmlNode element in list)
                             {
-                                if (element != null)
+                                if (element.InnerText != null)
                                 {
                                     XmlNodeList Iinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Iinfo[0].FirstChild).InnerText), int.Parse((Iinfo[0].LastChild).InnerText));
                                     this.Texture = Iinfo[1].InnerText;
-                                    this.item[i] = new Item(this.boundWidth, this.boundHeight);
+                                    this.item[i] = new Item();
                                     this.item[i].SetLocation(loc);
                                     this.item[i].SetItem(this.Texture);
                                     i++;
@@ -113,15 +232,16 @@ namespace Sprint4
                         {
                             this.npc = new NPC1[num];
                             XmlNodeList list = enemy.ChildNodes;
-                            foreach (XmlNode element in list)
+                            foreach (XmlElement element in list)
                             {
-                                if (element != null)
+                                if (!element.IsEmpty)
                                 {
                                     XmlNodeList Einfo = element.ChildNodes;
                                     this.npc[i] = new NPC1(this.boundWidth, this.boundHeight);
                                     this.npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
                                     this.npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
-                                    this.npc[i].SetDirection(int.Parse(Einfo[1].InnerText));
+                                    //cast here......
+                                    this.npc[i].SetDirection((Facing)int.Parse(Einfo[1].InnerText));
                                     XmlNodeList npctextures = Einfo[2].ChildNodes;
                                     this.Textureholder = new List<string>();
                                     this.Textureholder.Add(npctextures[2].InnerText);
@@ -166,91 +286,69 @@ namespace Sprint4
                             this.npc = new NPC1[0];
                         }
                     }
-
-                    //loading player into the player class.
-                    player = new Player(this.boundWidth, this.boundHeight);
-
+                    if(oldPlayer != null)
+					{
+                        player = new Player(this.boundWidth, this.boundHeight, playerPositionTransition(oldPlayer.GetLocation()), oldPlayer.GetState().playerHealth());
+                    }
+					else
+                    {
+                        player = new Player(this.boundWidth, this.boundHeight, spawnLocation, spawnHealth);
+                    }
                 }
 
             }
-
+            gom.ClearLists();
+            gom.PopulateBlocks(this.GetBlockObj());
+            //gom.PopulateWater(water);
+            //gom.PopulateDoor(door);
+            //gom.PopulateSand(sand);
+            gom.PopulatePlayers(player);
+            gom.PopulateItems(item);
+            gom.PopulateEnemies(npc);
+            gom.PopulateInventory(Inventory.GetInventory());
+            gom.AddLists();
 
         }
-        public void Update(GameTime gameTime)
-        {   
-            if(this.block.Length != 0)
-            {
-                foreach (Block block in this.block)
-                {
-                    if (item != null)
-                    {
-                        block.Update(gameTime);
-                    }
-                }
-            }
-            if (this.item.Length != 0)
-            {
-                foreach (Item item in this.item)
-                {
-                    if (item != null)
-                    {
-                        item.Update(gameTime);
-                    }
-                }
-            }
-            if (this.npc.Length != 0)
-            {
-                foreach (NPC1 npc in this.npc)
-                {
-                    if (npc != null)
-                    {
-                        npc.Update(gameTime);
-                    }
-                }
-            }
-            
-            this.player.Update(gameTime);
-        }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (this.block.Length != 0)
+
+        public Vector2 playerPositionTransition(Vector2 location)
+		{
+            Vector2 opt;
+            if (location.Y < 150)
             {
-                foreach (Block block in this.block)
-                {
-                    if (block != null) 
-                    {
-                        block.Draw(spriteBatch);
-                    }
-                }
+                opt = new Vector2(location.X, 400);
             }
-            if (this.item.Length != 0)
+            else if (location.Y > 350)
             {
-                foreach (Item item in this.item)
-                {
-                    if (item != null)
-                    {
-                        item.Draw(spriteBatch);
-                    }
-                }
+                opt = new Vector2(location.X, 110);
             }
-            if (this.npc.Length != 0)
+            else if (location.X > 600)
             {
-                foreach (NPC1 npc in this.npc)
-                {
-                    if (npc != null)
-                    {
-                        npc.Draw(spriteBatch);
-                    }
-                }
+                opt = new Vector2(120, location.Y);
             }
-            this.player.Draw(spriteBatch);
+            else if (location.X < 200)
+            {
+                opt = new Vector2(650, location.Y);
+            }else 
+            {
+                opt = location;
+            }
+            return opt;
         }
 
         //collision will need these func to check objects interactions.(boru might use these funcs)
-        public Block[] GetBlockObj()
+        public IBlock[] GetBlockObj()
         {
-            return this.block;
+
+            List<IBlock> door1 = new List<IBlock>();
+            for (int i = 0; i < 4; i++)
+            {
+                if (this.door[i].Key != null)
+                {
+                    door1.Add(this.door[i].Key);
+                }
+            }
+                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(this.block, door1.ToArray()).ToArray(), this.water).ToArray(), this.sand).ToArray();
         }
 
         public IProjectile[] GetNPCProjObj()
@@ -263,19 +361,30 @@ namespace Sprint4
 
         public Item[] GetItemObj()
         {
-            return this.item;
+            return item;
         }
 
         public NPC1[] GetNpcObj()
         {
-            return this.npc;
+            return npc;
         }
 
+        public KeyValuePair<IBlock, String>[] GetDoorPair()
+        {
+            return door;
+        }
+        public IBlock[] GetWaterObj()
+        {
+            return water;
+        }
+        public IBlock[] GetSandObj()
+        {
+            return sand;
+        }
         public Player GetPlayerObj()
         {
-            return this.player;
+            return player;
         }
 
-       
     }
 }

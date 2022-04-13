@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint4.State_Machines;
 using System.Collections.Generic;
 
 namespace Sprint4
@@ -9,7 +10,7 @@ namespace Sprint4
 	{
 		bool isDead();
 
-		void Move(int facing);
+		void Move(Facing facing);
 
 		void die();
 

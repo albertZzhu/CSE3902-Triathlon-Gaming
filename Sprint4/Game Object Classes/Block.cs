@@ -12,14 +12,7 @@ namespace Sprint4
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
 		private String blockTexture;
-        private int boundWidth;
-        private int boundHeight;
 
-        public Block(int boundWidth, int boundHeight)
-		{
-			this.boundWidth = boundWidth;
-			this.boundHeight = boundHeight;
-		}
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
@@ -27,12 +20,8 @@ namespace Sprint4
 
 		public Rectangle GetRect()
 		{
-			Rectangle opt = new Rectangle((int)this.location.X, (int)this.location.Y, (int)this.blockSprite.getSize().X, (int)this.blockSprite.getSize().Y);
+			Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)blockSprite.getSize().X, (int)blockSprite.getSize().Y);
 			return opt;
-		}
-
-		public void Reset()
-		{
 		}
 
 		public Vector2 GetLocation()
@@ -40,23 +29,17 @@ namespace Sprint4
 			return location;
 		}
 
-		public void SetSprite(ISprite spr)
-		{
-			this.blockSprite = spr;
-		}
-
 		public ISprite GetItem()
 		{
-			return this.blockSprite;
+			return blockSprite;
 		}
 		public void SetBlock(String blockTexture)
 		{
-			this.blockTexture = blockTexture;
+			blockSprite = SpriteFactory.GetSprite(blockTexture);
 		}
 
 		public void Update(GameTime gameTime)
 		{
-			SetSprite(SpriteFactory.GetSprite(this.blockTexture));
 			blockSprite.Update();
 		}
 

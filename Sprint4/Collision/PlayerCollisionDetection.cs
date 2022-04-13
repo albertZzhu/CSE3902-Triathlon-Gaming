@@ -9,25 +9,24 @@ namespace Sprint4.Collision
 {
 	class PlayerCollisionDetection
 	{
-		private string playerName;
 
 		private Player2BlockHandler blockHandle;
 		private Player2EnemyHandler enemyHandle;
 		private Player2ProjectileHandler projectileHandle;
 		private Player2ItemHandler itemHandle;
+		private Player2DoorHandler doorHandle;
+
 
 		public PlayerCollisionDetection(string playerName, CollisionHandlerDict dict)
 		{
-			this.playerName = playerName;
-
-
-			this.blockHandle = dict.GetPlayer2Block(playerName);
-			this.enemyHandle = dict.GetPlayer2NPC(playerName);
-			this.projectileHandle = dict.GetPlayer2Projectile(playerName);
-			this.itemHandle = dict.GetPlayer2Item(playerName);
+			blockHandle = dict.GetPlayer2Block(playerName);
+			enemyHandle = dict.GetPlayer2NPC(playerName);
+			projectileHandle = dict.GetPlayer2Projectile(playerName);
+			itemHandle = dict.GetPlayer2Item(playerName);
+			doorHandle = dict.GetPlayer2Door(playerName);
 		}
 
-		public void Detect(Iplayer player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
+		public void Detect(Player player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
 		{
 			IBlock[] blockInRangeModified = blockInRange.Skip(1).ToArray();
 			//this.projectileInRange = projectileInRange;
@@ -38,7 +37,7 @@ namespace Sprint4.Collision
 				if (player.GetRect().Intersects(i.GetRect()))
 				{
 					
-					this.enemyHandle.Handle(player, i, Side.side.right);
+					enemyHandle.Handle(player, i, Side.side.right);
 				}
 			}
 
@@ -55,55 +54,45 @@ namespace Sprint4.Collision
 			{
 				if (player.GetRect().Intersects(b.GetRect()))
 				{
-					Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
-					int playerX = player.GetRect().X + player.GetRect().Width / 2;
-					int playerY = player.GetRect().Y + player.GetRect().Height / 2;
-					int blockX = b.GetRect().X + b.GetRect().Width / 2;
-					int blockY = b.GetRect().Y + b.GetRect().Height / 2;
+					if (b.GetType().Equals(typeof(Door)))
+					{
+						doorHandle.Handle(((Door)b).DoorSide());
+					}
+					else if(b.GetType().Equals(typeof(Block))|| b.GetType().Equals(typeof(Water)))
+					{ 
+						Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
+						int playerX = player.GetRect().X + player.GetRect().Width / 2;
+						int playerY = player.GetRect().Y + player.GetRect().Height / 2;
+						int blockX = b.GetRect().X + b.GetRect().Width / 2;
+						int blockY = b.GetRect().Y + b.GetRect().Height / 2;
 
-					if (result.Width<Math.Max(player.GetRect().Width, b.GetRect().Width)&&result.Height<=(player.GetRect().Height+b.GetRect().Height))
-					{
-						if (playerX < blockX)
+						if (result.Width < Math.Max(player.GetRect().Width, b.GetRect().Width) && result.Height <= (player.GetRect().Height + b.GetRect().Height))
 						{
-							handleList[0] = 0;
+							if (playerX < blockX)
+							{
+								handleList[0] = 0;
+							}
+							else
+							{
+								handleList[1] = 0;
+							}
 						}
-						else
+						if (result.Height < Math.Max(player.GetRect().Height, b.GetRect().Height) && result.Width <= (player.GetRect().Width + b.GetRect().Width))
 						{
-							handleList[1] = 0;
+							if (playerY > blockY)
+							{
+								handleList[2] = 0;
+							}
+							else
+							{
+								handleList[3] = 0;
+							}
 						}
 					}
-					if (result.Height<Math.Max(player.GetRect().Height, b.GetRect().Height) && result.Width <= (player.GetRect().Width + b.GetRect().Width))
-					{
-						if (playerY > blockY)
-						{
-							handleList[2] = 0;
-						}
-						else
-						{
-							handleList[3] = 0;
-						}
-					}
-
-					/*if (player.GetRect().Right >= b.GetRect().Left && player.GetRect().Left < b.GetRect().Right)
-					{
-						handleList[0] = 0;
-					}
-					if (player.GetRect().Left <= b.GetRect().Right && player.GetRect().Right > b.GetRect().Left)
-					{
-						handleList[1] = 0;
-					}
-					if (player.GetRect().Top <= b.GetRect().Bottom && player.GetRect().Bottom > b.GetRect().Top)
-					{
-						handleList[2] = 0;
-					}
-					if (player.GetRect().Bottom >= b.GetRect().Top && player.GetRect().Top < b.GetRect().Bottom)
-					{
-						handleList[3] = 0;
-					}*/
 				}
 				
 			}
-			this.blockHandle.Handle(player, handleList);
+			blockHandle.Handle(player, handleList);
 
 			foreach (Iitem i in itemInRange)
 			{

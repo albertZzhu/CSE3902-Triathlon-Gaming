@@ -8,13 +8,13 @@
 			this.player = player;
 		}
 
-		void ICommand.ChangePlayer(Player player)
+		public void ChangePlayer(Player player)
 		{
 			this.player = player;
 		}
-		void ICommand.Execute()
+		public void Execute()
 		{
-			player.Move(3);
+			player.Move(State_Machines.Facing.DOWN);
 		}
 	}
 }
