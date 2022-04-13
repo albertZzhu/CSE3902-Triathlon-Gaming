@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
-namespace Sprint4
+namespace Sprint5
 {   //make sprite factory
 	public class Sprite : ISprite
 	{

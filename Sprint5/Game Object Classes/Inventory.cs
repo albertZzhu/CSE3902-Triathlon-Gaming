@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint4.Game_Object_Classes;
+using Sprint5.Game_Object_Classes;
+using System.Collections.Generic;
 
-namespace Sprint4
+namespace Sprint5
 {
     public class Inventory : IGameObject
     {
@@ -50,40 +51,23 @@ namespace Sprint4
 			return uniqueInventory;
 		}
 
-		public static void AddItem(Iitem item)
-        {
-			string type = item.GetItemTexture();
-			if (type.Equals("key"))
-				uniqueInventory.AddKeys();
-			else if (type.Equals("itemHeart"))
-				uniqueInventory.AddHealth();
-			else if (type.Equals("boomerang"))
-				uniqueInventory.AddBoomerang();
-			else if (type.Equals("map"))
-				uniqueInventory.AddMap();
-			else if (type.Equals("compass"))
-				uniqueInventory.AddCompass();
-			else
-				uniqueInventory.AddRupees();
-        }
-
-		public void AddRupees()
+		public static void AddRupees()
 		{
-			rupees++;
+			uniqueInventory.rupees++;
 		}
 
-		public void AddKeys()
+		public static void AddKeys()
         {
-			keys++;
+			uniqueInventory.keys++;
         }
 
-		public void AddBombs()
+		public static void AddBombs()
 		{
-			bombs++;
+			uniqueInventory.bombs++;
 		}
-		public void AddHealth()
+		public static void AddHealth()
 		{
-			health++;
+			uniqueInventory.health++;
 		}
 
 		public static void SubtractHealth()
@@ -91,21 +75,33 @@ namespace Sprint4
 			uniqueInventory.health--;
 		}
 
-		public void AddBoomerang()
+		public static void AddBoomerang()
         {
-			boomerang = true;
+			uniqueInventory.boomerang = true;
         }
 
-		public void AddMap()
+		public static void AddMap()
 		{
-			map = true;
+			uniqueInventory.map = true;
 		}
 
-		public void AddCompass()
+		public static void AddCompass()
 		{
-			compass = true;
+			uniqueInventory.compass = true;
 		}
 
+		public static List<Item> GetItems()
+		{
+			List<Item> items = new List<Item>();
+			items.Add(new Item("fireballdown"));
+			if (uniqueInventory.boomerang)
+				items.Add(new Item("boomerang"));
+			else if (uniqueInventory.map)
+				items.Add(new Item("map"));
+			else if (uniqueInventory.compass)
+				items.Add(new Item("compass"));
+			return items;
+		}
 		public void UpdateContent(ContentManager content)
         {
 			this.content = content;

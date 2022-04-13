@@ -1,4 +1,4 @@
-namespace Sprint4
+namespace Sprint5
 {
 	public class SwitchRoomForwardCom : IGameControlCom
 	{

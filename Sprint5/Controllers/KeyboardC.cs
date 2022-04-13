@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using Sprint5.GameControlCommand;
 using System;
 using System.Collections.Generic;
 
-namespace Sprint4
+namespace Sprint5
 {
 	class KeyboardC : IController
 	{
@@ -67,8 +68,9 @@ namespace Sprint4
 			keyDict.Add(Keys.D2, new Projectile2Com(player));
 			keyDict.Add(Keys.D3, new Projectile3Com(player));
 
-
             keyDict.Add(Keys.Space, new FireProjectileCom(player));
+
+			//keyDict.Add(Keys.I, new OpenItemSelectCom());
 
 			playerMove.Add(Keys.W, new MoveUpCom(player));
 			playerMove.Add(Keys.A, new MoveLeftCom(player));

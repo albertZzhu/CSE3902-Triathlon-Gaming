@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 
 
-namespace Sprint4.Collision
+namespace Sprint5.Collision
 {
 	class ProjectileCollisionDetection
 	{

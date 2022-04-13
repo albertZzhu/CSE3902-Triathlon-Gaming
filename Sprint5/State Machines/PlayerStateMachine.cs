@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Sprint4.State_Machines;
+using Sprint5.State_Machines;
 
-namespace Sprint4
+namespace Sprint5
 {
 	public class PlayerStateMachine
 	{
@@ -12,7 +12,6 @@ namespace Sprint4
 		private bool attack = false;
 		private bool damaged = false;
 		private double elapse = 0.0;
-		private double attackElapse = 0.0;
 		private bool isMoving = false;
 		private int health;
 
@@ -87,7 +86,6 @@ namespace Sprint4
 					{
 						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -105,7 +103,7 @@ namespace Sprint4
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -121,7 +119,6 @@ namespace Sprint4
 					{
 						play.SetSprite(SpriteFactory.GetSprite("left_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -139,7 +136,7 @@ namespace Sprint4
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("left_throw"));
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -155,7 +152,6 @@ namespace Sprint4
 					{
 						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -173,7 +169,7 @@ namespace Sprint4
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -189,7 +185,6 @@ namespace Sprint4
 					{
 						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -207,7 +202,7 @@ namespace Sprint4
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
-						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -221,15 +216,11 @@ namespace Sprint4
 				default:
 					break;
 			}
-			if (elapse > 3f)
+			if (elapse > 0.5f)
 			{
 				damaged = false;
-				elapse = 0.0;
-			}
-			if (attackElapse > 0.5f)
-			{
 				attack = false;
-				attackElapse = 0.0;
+				elapse = 0.0;
 			}
 		}
 	}

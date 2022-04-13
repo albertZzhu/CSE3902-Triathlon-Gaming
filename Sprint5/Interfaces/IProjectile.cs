@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Sprint4
+namespace Sprint5
 {
 	public interface IProjectile : IGameObject
 	{

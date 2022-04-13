@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Sprint4
+namespace Sprint5
 {
 	public class SpriteFactory
 	{
