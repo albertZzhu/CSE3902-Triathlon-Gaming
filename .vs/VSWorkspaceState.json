@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Sprint5",
-    "\\Sprint5\\Game Object Classes",
-    "\\Sprint5\\Interfaces",
-    "\\Sprint5\\State Machines"
+    "\\Sprint5"
   ],
-  "SelectedNode": "\\Sprint5\\State Machines\\PlayerStateMachine.cs",
+  "SelectedNode": "\\Sprint5\\Sprint5.csproj",
   "PreviewInSolutionExplorer": false
 }

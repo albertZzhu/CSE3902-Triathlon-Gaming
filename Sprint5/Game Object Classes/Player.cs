@@ -75,6 +75,8 @@ namespace Sprint5
 					break;
 			}
 		}
+
+
 		public PlayerStateMachine GetState()
         {
 			return state;
