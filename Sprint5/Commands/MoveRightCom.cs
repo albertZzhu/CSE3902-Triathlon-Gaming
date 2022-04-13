@@ -1,4 +1,4 @@
-﻿namespace Sprint4
+﻿namespace Sprint5
 {
 	class MoveRightCom : ICommand
 	{
@@ -13,7 +13,7 @@
 		}
 		public void Execute()
 		{
-			player.Move(0);
+			player.Move(State_Machines.Facing.RIGHT);
 		}
 	}
 }

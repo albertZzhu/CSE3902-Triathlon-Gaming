@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4.Collision
+namespace Sprint5.Collision
 {
 	class NPC2BlockHandler : ICollisionHandler<INPC, IBlock>
 	{

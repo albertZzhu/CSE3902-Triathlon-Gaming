@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Sprint4.State_Machines;
+using Sprint5.State_Machines;
 
-namespace Sprint4
+namespace Sprint5
 {
 	public class PlayerStateMachine
 	{
@@ -50,7 +50,7 @@ namespace Sprint4
 
 		public void Damaged()
 		{
-			if (!(health == 0||damaged))
+			if (!(health == 0 || damaged))
 			{
 				damaged = true;
 				health--;

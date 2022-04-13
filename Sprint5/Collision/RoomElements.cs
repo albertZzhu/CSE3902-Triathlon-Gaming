@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Sprint4.Collision
+namespace Sprint5.Collision
 {
 	class RoomElements
 	{

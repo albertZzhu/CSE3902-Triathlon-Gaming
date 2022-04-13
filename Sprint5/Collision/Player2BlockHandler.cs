@@ -1,9 +1,9 @@
-﻿using Sprint4.State_Machines;
+﻿using Sprint5.State_Machines;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4.Collision
+namespace Sprint5.Collision
 {
 	class Player2BlockHandler
 	{

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sprint5", "Sprint5.csproj", "{D88163B5-ED1B-46A2-85F9-74D00CBE1604}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint5", "Sprint5.csproj", "{2E41B96F-12D2-422E-8953-266D43859989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D88163B5-ED1B-46A2-85F9-74D00CBE1604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D88163B5-ED1B-46A2-85F9-74D00CBE1604}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D88163B5-ED1B-46A2-85F9-74D00CBE1604}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D88163B5-ED1B-46A2-85F9-74D00CBE1604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E41B96F-12D2-422E-8953-266D43859989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E41B96F-12D2-422E-8953-266D43859989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E41B96F-12D2-422E-8953-266D43859989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E41B96F-12D2-422E-8953-266D43859989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F7566A33-F051-46FB-BEE5-45AB32DEDF2A}
+		SolutionGuid = {12EB8862-A941-41BD-B35C-03AB523350AF}
 	EndGlobalSection
 EndGlobal

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint4.State_Machines;
+using Sprint5.State_Machines;
 using System.Collections.Generic;
 
-namespace Sprint4
+namespace Sprint5
 {
 
 	interface INPC : IGameObject

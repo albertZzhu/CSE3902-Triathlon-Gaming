@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sprint4
+namespace Sprint5
 {
 	public static class Program
 	{

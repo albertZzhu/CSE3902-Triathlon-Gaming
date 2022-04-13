@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4.Game_Object_Classes
+namespace Sprint5.Game_Object_Classes
 {
     class MapMarker
     {

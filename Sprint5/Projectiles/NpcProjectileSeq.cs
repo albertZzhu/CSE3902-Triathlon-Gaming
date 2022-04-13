@@ -1,12 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint4.State_Machines;
+using Sprint5.State_Machines;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint4
+namespace Sprint5
 {
 	class NpcProjectileSeq
 	{

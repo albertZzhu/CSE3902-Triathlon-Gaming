@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint4.State_Machines;
+using Sprint5.State_Machines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
 
-namespace Sprint4
+namespace Sprint5
 {
     public class Room
     {
@@ -27,7 +27,7 @@ namespace Sprint4
         private String Texture;
         private Player player;
         private Vector2 spawnLocation = new Vector2(100, 250);
-        private int spawnHealth = 6;
+        private int spawnHealth = 5;
 
         //npc obj holder variables
         private NPC1[] npc;
@@ -50,7 +50,7 @@ namespace Sprint4
         private void loadRoom(String room, Player oldPlayer)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("../levelData.xml");
+            xml.Load("Content\\LevelData2.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
