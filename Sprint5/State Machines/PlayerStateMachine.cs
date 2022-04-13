@@ -12,6 +12,7 @@ namespace Sprint5
 		private bool attack = false;
 		private bool damaged = false;
 		private double elapse = 0.0;
+		private double attackElapse = 0.0;
 		private bool isMoving = false;
 		private int health;
 
@@ -49,7 +50,7 @@ namespace Sprint5
 
 		public void Damaged()
 		{
-			if (!(health == 0||damaged))
+			if (!(health == 0 || damaged))
 			{
 				damaged = true;
 				health--;
@@ -86,6 +87,7 @@ namespace Sprint5
 					{
 						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -103,7 +105,7 @@ namespace Sprint5
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
-						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -119,6 +121,7 @@ namespace Sprint5
 					{
 						play.SetSprite(SpriteFactory.GetSprite("left_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -136,7 +139,7 @@ namespace Sprint5
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("left_throw"));
-						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -152,6 +155,7 @@ namespace Sprint5
 					{
 						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -169,7 +173,7 @@ namespace Sprint5
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
-						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -185,6 +189,7 @@ namespace Sprint5
 					{
 						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (damaged)
 					{
@@ -202,7 +207,7 @@ namespace Sprint5
 					else if (attack)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
-						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
+						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
 					else if (isMoving)
 					{
@@ -216,11 +221,15 @@ namespace Sprint5
 				default:
 					break;
 			}
-			if (elapse > 0.5f)
+			if (elapse > 3f)
 			{
 				damaged = false;
-				attack = false;
 				elapse = 0.0;
+			}
+			if (attackElapse > 0.5f)
+			{
+				attack = false;
+				attackElapse = 0.0;
 			}
 		}
 	}
