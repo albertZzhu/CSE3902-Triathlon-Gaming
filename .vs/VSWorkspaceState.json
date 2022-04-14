@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Sprint5"
+    "\\Sprint5",
+    "\\Sprint5\\Collision"
   ],
-  "SelectedNode": "\\Sprint5\\Sprint5.csproj",
+  "SelectedNode": "\\Sprint5\\Collision\\CollisionManager.cs",
   "PreviewInSolutionExplorer": false
 }

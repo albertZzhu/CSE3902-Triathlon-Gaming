@@ -48,6 +48,7 @@ namespace Sprint5
 		public void die()
 		{
 			dead = true;
+			SetNpc(SpriteFactory.GetSprite("EnemyDeath"));
 		}
 
 		//check direction and update location.
@@ -280,7 +281,7 @@ namespace Sprint5
 			else if(deadClock < 1f)
 			{
 				deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
-				SetNpc(SpriteFactory.GetSprite("EnemyDeath"));
+				npc.Update();
 			}
 		}
 		//draw func
