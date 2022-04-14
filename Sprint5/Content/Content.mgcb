@@ -452,6 +452,18 @@
 /processorParam:Quality=Best
 /build:DungeonTheme.mp3
 
+#begin EnemyDeath.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:EnemyDeath.png
+
 #begin EnemyHit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

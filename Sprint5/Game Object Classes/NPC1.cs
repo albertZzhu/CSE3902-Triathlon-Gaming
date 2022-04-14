@@ -28,6 +28,7 @@ namespace Sprint5
 		private Facing dragonuse;
 		private int routesCounter;
 		private bool dead;
+		private double deadClock = 0.0;
 		//constructor
 		public NPC1(int boundWidth, int boundHeight)
 		{
@@ -276,6 +277,11 @@ namespace Sprint5
 				}
 				proj.Update(gameTime);
 			}
+			else if(deadClock < 1f)
+			{
+				deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
+				SetNpc(SpriteFactory.GetSprite("EnemyDeath"));
+			}
 		}
 		//draw func
 		public void Draw(SpriteBatch spriteBatch)
@@ -284,7 +290,12 @@ namespace Sprint5
 				npc.Draw(spriteBatch, location);
 				proj.Draw(spriteBatch);
 			}
-			
+			else if (deadClock < 1f)
+			{
+				npc.Draw(spriteBatch, location);
+			}
+
+
 		}
 
 		private void next()

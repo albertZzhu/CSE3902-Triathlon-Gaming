@@ -28,6 +28,8 @@
 4,1,4,skeletonFront
 4,1,4,skeletonBack
 
+4,1,4,EnemyDeath
+
 2,3,5,heart
 1,1,1,sword
 
