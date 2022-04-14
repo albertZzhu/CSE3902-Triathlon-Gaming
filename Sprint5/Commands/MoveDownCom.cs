@@ -14,7 +14,7 @@
 		}
 		public void Execute()
 		{
-			player.Move(State_Machines.Facing.DOWN);
+			player.Move(Facing.DOWN);
 		}
 	}
 }

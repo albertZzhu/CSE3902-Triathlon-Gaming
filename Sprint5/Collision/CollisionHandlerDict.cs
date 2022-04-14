@@ -9,11 +9,13 @@ namespace Sprint5.Collision
 		private Dictionary<string, Player2EnemyHandler> player2NPCList;
 		private Dictionary<string, Player2BlockHandler> player2BlockList;
 		private Dictionary<string, Player2DoorHandler> player2DoorList;
+		private Dictionary<string, Player2MoveableBlockHandler> player2MoveableBlockList;
 		private Dictionary<string, Player2ProjectileHandler> player2ProjectileList;
 		private Dictionary<string, Player2ItemHandler> player2ItemList;
 		private Dictionary<string, NPC2BlockHandler> NPC2BlockList;
 		private Dictionary<string, NPC2ProjectileHandler> NPC2ProjectileList;
 		private Dictionary<string, Projectile2BlockHandler> projectile2BlockList;
+		private Dictionary<string, MoveableBlock2BlockHandler> block2BlockList;
 
 		public CollisionHandlerDict()
 		{
@@ -25,11 +27,13 @@ namespace Sprint5.Collision
 			player2NPCList = new Dictionary<string, Player2EnemyHandler>();
 			player2BlockList = new Dictionary<string, Player2BlockHandler>();
 			player2DoorList = new Dictionary<string, Player2DoorHandler>();
+			player2MoveableBlockList = new Dictionary<string, Player2MoveableBlockHandler>();
 			player2ProjectileList = new Dictionary<string, Player2ProjectileHandler>();
 			player2ItemList = new Dictionary<string, Player2ItemHandler>();
 			NPC2BlockList = new Dictionary<string, NPC2BlockHandler>();
 			NPC2ProjectileList = new Dictionary<string, NPC2ProjectileHandler>();
 			projectile2BlockList = new Dictionary<string, Projectile2BlockHandler>();
+			block2BlockList = new Dictionary<string, MoveableBlock2BlockHandler>();
 		}
 
 		public void AddHandler(string playerName, Player2EnemyHandler handler)
@@ -45,6 +49,11 @@ namespace Sprint5.Collision
 		public void AddHandler(string playerName, Player2DoorHandler handler)
 		{
 			player2DoorList.Add(playerName, handler);
+		}
+
+		public void AddHandler(string playerName, Player2MoveableBlockHandler handler)
+		{
+			player2MoveableBlockList.Add(playerName, handler);
 		}
 
 		public void AddHandler(string playerName, Player2ItemHandler handler)
@@ -72,6 +81,11 @@ namespace Sprint5.Collision
 			projectile2BlockList.Add(Projectilename, handler);
 		}
 
+		public void AddHandler(string Projectilename, MoveableBlock2BlockHandler handler)
+		{
+			block2BlockList.Add(Projectilename, handler);
+		}
+
 
 		public Player2EnemyHandler GetPlayer2NPC(string name)
 		{
@@ -86,6 +100,11 @@ namespace Sprint5.Collision
 		public Player2DoorHandler GetPlayer2Door(string name)
 		{
 			return player2DoorList[name];
+		}
+
+		public Player2MoveableBlockHandler GetPlayer2MoveableBlock(string name)
+		{
+			return player2MoveableBlockList[name];
 		}
 
 		public Player2ProjectileHandler GetPlayer2Projectile(string name)
@@ -111,6 +130,11 @@ namespace Sprint5.Collision
 		public Projectile2BlockHandler GetProjectile2Block(string name)
 		{
 			return projectile2BlockList[name];
+		}
+
+		public MoveableBlock2BlockHandler GetBlock2Block(string name)
+		{
+			return block2BlockList[name];
 		}
 	}
 }

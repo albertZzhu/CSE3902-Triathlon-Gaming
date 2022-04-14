@@ -46,7 +46,7 @@ namespace Sprint5
 			//setting  game window
 			_graphics.PreferredBackBufferWidth = 800;
 			_graphics.PreferredBackBufferHeight = 800;
-
+			//_graphics.IsFullScreen = true;
 			_graphics.ApplyChanges();
 
 			boundWidth = Window.ClientBounds.Width;
@@ -129,6 +129,7 @@ namespace Sprint5
 							if(Win.GetWinCondition())
 							{
 								level1.resetRoom();
+								Inventory.Reset();
 							}
 						
 						lose.SetLoseCondition(false);

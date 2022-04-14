@@ -15,6 +15,8 @@ namespace Sprint5.Collision
 		private Player2ProjectileHandler projectileHandle;
 		private Player2ItemHandler itemHandle;
 		private Player2DoorHandler doorHandle;
+		private Player2MoveableBlockHandler moveableBlockHandler;
+		private MoveableBlock2BlockHandler block2Block;
 
 
 		public PlayerCollisionDetection(string playerName, CollisionHandlerDict dict)
@@ -24,6 +26,8 @@ namespace Sprint5.Collision
 			projectileHandle = dict.GetPlayer2Projectile(playerName);
 			itemHandle = dict.GetPlayer2Item(playerName);
 			doorHandle = dict.GetPlayer2Door(playerName);
+			moveableBlockHandler = dict.GetPlayer2MoveableBlock(playerName);
+			block2Block = dict.GetBlock2Block(playerName);
 		}
 
 		public void Detect(Player player, IProjectile[] projectile, INPC[] npcInRange, IBlock[] blockInRange, Iitem[] itemInRange)
@@ -58,8 +62,85 @@ namespace Sprint5.Collision
 					{
 						doorHandle.Handle(((Door)b).DoorSide());
 					}
-					else if(b.GetType().Equals(typeof(Block))|| b.GetType().Equals(typeof(Water)))
-					{ 
+					else if (b.GetType().Equals(typeof(Sand)))
+					{
+						
+					}else if (b.GetType().Equals(typeof(MoveableBlock)))
+					{
+						if (((MoveableBlock)b).GetMoveLockState((Facing)player.GetState().FacingState()))
+						{
+							moveableBlockHandler.Handle(player, (MoveableBlock)b);
+							int[] blockHandleList = new int[] { 1, 1, 1, 1 };
+							foreach (IBlock a in blockInRangeModified)
+							{
+								if (b != a)
+								{
+									Rectangle result = Rectangle.Intersect(b.GetRect(), a.GetRect());
+									int block1X = a.GetRect().X + a.GetRect().Width / 2;
+									int block1Y = a.GetRect().Y + a.GetRect().Height / 2;
+									int block2X = b.GetRect().X + b.GetRect().Width / 2;
+									int block2Y = b.GetRect().Y + b.GetRect().Height / 2;
+									if (result.Width < Math.Max(b.GetRect().Width, a.GetRect().Width) && result.Height <= (b.GetRect().Height + a.GetRect().Height))
+									{
+										if (block2X < block1X)
+										{
+											blockHandleList[0] = 0;
+										}
+										else
+										{
+											blockHandleList[1] = 0;
+										}
+									}
+									if (result.Height < Math.Max(b.GetRect().Height, a.GetRect().Height) && result.Width <= (b.GetRect().Width + a.GetRect().Width))
+									{
+										if (block2Y > block1Y)
+										{
+											blockHandleList[2] = 0;
+										}
+										else
+										{
+											blockHandleList[3] = 0;
+										}
+									}
+								}
+							}
+							//to fill
+							block2Block.Handle((MoveableBlock)b, blockHandleList);
+						}
+						else
+						{
+							Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
+							int playerX = player.GetRect().X + player.GetRect().Width / 2;
+							int playerY = player.GetRect().Y + player.GetRect().Height / 2;
+							int blockX = b.GetRect().X + b.GetRect().Width / 2;
+							int blockY = b.GetRect().Y + b.GetRect().Height / 2;
+
+							if (result.Width < Math.Max(player.GetRect().Width, b.GetRect().Width) && result.Height <= (player.GetRect().Height + b.GetRect().Height))
+							{
+								if (playerX < blockX)
+								{
+									handleList[0] = 0;
+								}
+								else
+								{
+									handleList[1] = 0;
+								}
+							}
+							if (result.Height < Math.Max(player.GetRect().Height, b.GetRect().Height) && result.Width <= (player.GetRect().Width + b.GetRect().Width))
+							{
+								if (playerY > blockY)
+								{
+									handleList[2] = 0;
+								}
+								else
+								{
+									handleList[3] = 0;
+								}
+							}
+						}
+					}
+					else
+					{
 						Rectangle result = Rectangle.Intersect(player.GetRect(), b.GetRect());
 						int playerX = player.GetRect().X + player.GetRect().Width / 2;
 						int playerY = player.GetRect().Y + player.GetRect().Height / 2;

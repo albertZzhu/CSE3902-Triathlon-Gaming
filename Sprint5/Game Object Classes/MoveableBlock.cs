@@ -12,7 +12,6 @@ namespace Sprint5
 	{
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
-		private String blockTexture;
 		private bool canMoveUp = true;
 		private bool canMoveDown = true;
 		private bool canMoveRight = true;
@@ -46,6 +45,28 @@ namespace Sprint5
 			{
 				Move((Facing)((int)facingState % 2 == 0 ? (int)facingState + 1 : (int)facingState - 1));
 			}
+		}
+
+
+		public bool GetMoveLockState(Facing facing)
+		{
+			bool opt = false;
+			switch (facing)
+			{
+				case Facing.RIGHT:
+					opt = canMoveRight;
+					break;
+				case Facing.LEFT:
+					opt = canMoveLeft;
+					break;
+				case Facing.UP:
+					opt = canMoveUp;
+					break;
+				case Facing.DOWN:
+					opt = canMoveDown;
+					break;
+			}
+			return opt;
 		}
 
 		public void moveunLock(Facing direction)

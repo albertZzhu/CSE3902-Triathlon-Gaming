@@ -10,6 +10,7 @@ namespace Sprint5.Collision
 
 		private Player2BlockHandler player2Block;
 		private Player2DoorHandler player2Door;
+		private Player2MoveableBlockHandler player2Moveable;
 		private Player2EnemyHandler player2Enemy;
 		private Player2ProjectileHandler player2Proj;
 		private Player2ItemHandler player2item;
@@ -18,6 +19,8 @@ namespace Sprint5.Collision
 		private NPC2ProjectileHandler enemy2Proj;
 
 		private Projectile2BlockHandler proj2Blcok;
+
+		private MoveableBlock2BlockHandler block2Block;
 
 		private PlayerCollisionDetection playerDetect;
 		private NPCCollisionDetection npcDetect;
@@ -48,6 +51,7 @@ namespace Sprint5.Collision
 
 			player2Block = new Player2BlockHandler();
 			player2Door = new Player2DoorHandler(roomBackCommand, roomForwardComand, roomUpwardComand, roomDownwardComand);
+			player2Moveable = new Player2MoveableBlockHandler();
 			player2Enemy = new Player2EnemyHandler(resetCommand);
 			player2Proj = new Player2ProjectileHandler(resetCommand);
 			player2item = new Player2ItemHandler();
@@ -59,6 +63,7 @@ namespace Sprint5.Collision
 
 			collisionDict.AddHandler(playerName, player2Block);
 			collisionDict.AddHandler(playerName, player2Door);
+			collisionDict.AddHandler(playerName, player2Moveable);
 			collisionDict.AddHandler(playerName, player2Enemy);
 			collisionDict.AddHandler(playerName, player2Proj);
 			collisionDict.AddHandler(playerName, player2item);
@@ -68,6 +73,8 @@ namespace Sprint5.Collision
 
 			collisionDict.AddHandler(projectileName, proj2Blcok);
 
+			collisionDict.AddHandler(playerName, block2Block);
+
 			playerDetect = new PlayerCollisionDetection(playerName, collisionDict);
 			npcDetect = new NPCCollisionDetection(enemyName, collisionDict);
 			projDetect = new ProjectileCollisionDetection(projectileName, collisionDict);
@@ -75,7 +82,8 @@ namespace Sprint5.Collision
 
 		public void Update(Level1 level)
 		{
-			playerDetect.Detect(level.GetRoom().GetPlayerObj(), level.GetRoom().GetNPCProjObj(), level.GetRoom().GetNpcObj(), level.GetRoom().GetBlockObj(), level.GetRoom().GetItemObj());
+			playerDetect.Detect(level.GetRoom().GetPlayerObj(), level.GetRoom().GetNPCProjObj(), 
+				level.GetRoom().GetNpcObj(), level.GetRoom().GetBlockObj(), level.GetRoom().GetItemObj());
 
 			foreach (NPC1 npc in level.GetRoom().GetNpcObj())
 			{
