@@ -139,7 +139,7 @@ namespace Sprint5
 
 		public void DistantAttack()
 		{
-			proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), (Facing)state.FacingState(), spriteNum);
+			proj.NewProjectile(new Vector2(location.X + 23, location.Y + 15), (Facing)state.FacingState(), spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)
