@@ -28,7 +28,7 @@ namespace Sprint5
 
 		public Level1 level1;
 		private Win WinState;
-		private lose LoseState;
+		private Lose LoseState;
 
 		public Game1()
 		{
@@ -58,7 +58,7 @@ namespace Sprint5
 			camera = new Camera(800, 550, Content);
 			level1 = new Level1(gameObjectManager, boundWidth, boundHeight);
 			WinState = new Win("win");
-			LoseState = new lose("lose");
+			LoseState = new Lose("lose");
 			level1.InitializeRoom();
 
 			gameObjectManager.PopulateInventory(Inventory.GetInventory(Content, level1));
@@ -92,7 +92,7 @@ namespace Sprint5
 			//level1.loadRoom();
 			if (!isPaused)
 			{
-				if (!Win.GetWinCondition() && !lose.GetLoseCondition()) {
+				if (!Win.GetWinCondition() && !Lose.GetLoseCondition()) {
 					if (level1.CheckLock())
 					{
 						if (level1.CheckLock())
@@ -132,7 +132,7 @@ namespace Sprint5
 								Inventory.Reset();
 							}
 						
-						lose.SetLoseCondition(false);
+						Lose.SetLoseCondition(false);
 						Win.SetWinCondition(false);
 						SoundManager.Instance.ThemeMusic();
 					}
@@ -148,7 +148,7 @@ namespace Sprint5
 		{
 			GraphicsDevice.Clear(Color.Black);
 			_spriteBatch.Begin();
-			if (!Win.GetWinCondition() && !lose.GetLoseCondition()) {
+			if (!Win.GetWinCondition() && !Lose.GetLoseCondition()) {
 				if (level1.CheckLock()) {
 					gameObjectManager.Draw(_spriteBatch);
 					//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);

@@ -18,14 +18,14 @@ namespace Sprint5
 		private bool movebool;
 		private bool firebool;
 		private Vector2 location;
-		private Facing direction;
+		private FacingEnum direction;
 		private float timer, timespan;
 		public List<string> npcHolder;
 		private List<string> fireballHolder;
 		private List<KeyValuePair<Vector2, int>> route;
 		private Vector2 nextpos;
-		private Facing nextface;
-		private Facing dragonuse;
+		private FacingEnum nextface;
+		private FacingEnum dragonuse;
 		private int routesCounter;
 		private bool dead;
 		private double deadClock = 0.0;
@@ -52,13 +52,13 @@ namespace Sprint5
 		}
 
 		//check direction and update location.
-		public void Move(Facing facing)
+		public void Move(FacingEnum facing)
 		{
 			if(movebool) {
 				switch (facing)
 				{
-					case Facing.RIGHT:
-						state.ChangeFacing(Facing.RIGHT);
+					case FacingEnum.RIGHT:
+						state.ChangeFacing(FacingEnum.RIGHT);
 						location = new Vector2(location.X + 1, location.Y);
 						if (location.X + 10 > boundWidth - 20)
 						{
@@ -66,8 +66,8 @@ namespace Sprint5
 						}
 						break;
 					
-					case Facing.LEFT:
-						state.ChangeFacing(Facing.LEFT);
+					case FacingEnum.LEFT:
+						state.ChangeFacing(FacingEnum.LEFT);
 						location = new Vector2(location.X - 1, location.Y);
 						if (location.X < 0)
 						{
@@ -75,8 +75,8 @@ namespace Sprint5
 						}
 						break;
 
-					case Facing.UP:
-						state.ChangeFacing(Facing.UP);
+					case FacingEnum.UP:
+						state.ChangeFacing(FacingEnum.UP);
 						location = new Vector2(location.X, location.Y - 1);
 						if (location.Y < 0)
 						{
@@ -84,8 +84,8 @@ namespace Sprint5
 						}
 						break;
 					
-					case Facing.DOWN:
-						state.ChangeFacing(Facing.DOWN);
+					case FacingEnum.DOWN:
+						state.ChangeFacing(FacingEnum.DOWN);
 						location = new Vector2(location.X, location.Y + 1);
 						if (location.Y + 10 > boundHeight - 20)
 						{
@@ -145,14 +145,14 @@ namespace Sprint5
 			return npc;
 		}
 		//room class used
-		public void SetDirection(Facing f)
+		public void SetDirection(FacingEnum f)
         {
 			direction = f;
 			nextface = f;
 			dragonuse = f;
 		}
 		//client used
-		public Facing GetDirection()
+		public FacingEnum GetDirection()
         {
 			return direction;
         }
@@ -229,17 +229,17 @@ namespace Sprint5
 		public void BouncedBack()
         {
             switch (direction) {
-				case Facing.RIGHT:
-					direction = Facing.LEFT;
+				case FacingEnum.RIGHT:
+					direction = FacingEnum.LEFT;
 					break;
-				case Facing.LEFT:
-					direction = Facing.RIGHT;
+				case FacingEnum.LEFT:
+					direction = FacingEnum.RIGHT;
 					break;
-				case Facing.UP:
-					direction = Facing.DOWN;
+				case FacingEnum.UP:
+					direction = FacingEnum.DOWN;
 					break;
-				case Facing.DOWN:
-					direction = Facing.UP;
+				case FacingEnum.DOWN:
+					direction = FacingEnum.UP;
 					break;
 				default:
 					break;
@@ -302,7 +302,7 @@ namespace Sprint5
 		private void next()
 		{
 			nextpos = route[routesCounter].Key;
-			nextface = (Facing)route[routesCounter].Value;
+			nextface = (FacingEnum)route[routesCounter].Value;
 			routesCounter++;
 			if (routesCounter == route.Count)
 			{

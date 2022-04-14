@@ -17,46 +17,46 @@ namespace Sprint5
 			list = new List<IProjectile>();
 		}
 
-		public void NewProjectile(Vector2 newLocation, Facing direction, List<string> fireballHolder)
+		public void NewProjectile(Vector2 newLocation, FacingEnum direction, List<string> fireballHolder)
 		{
 			//, SpriteFactory.GetSprite("attackRight")
 			switch (direction)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[0])));
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[1])));
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[2])));
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[3])));
 					break;
 				//left for dragon use, don't care this part.
-				case Facing.NORTHEAST:
+				case FacingEnum.NORTHEAST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[0])));
 					break;
-				case Facing.SOUTHEAST:
+				case FacingEnum.SOUTHEAST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[0])));
 					break;
-				case Facing.NORTHWEST:
+				case FacingEnum.NORTHWEST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[1])));
 					break;
-				case Facing.SOUTHWEST:
+				case FacingEnum.SOUTHWEST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[1])));
 					break;
-				case Facing.NNWEST:
+				case FacingEnum.NNWEST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[2])));
 					break;
-				case Facing.NNEAST:
+				case FacingEnum.NNEAST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[2])));
 					break;
-				case Facing.SSWEST:
+				case FacingEnum.SSWEST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[3])));
 					break;
-				case Facing.SSEAST:
+				case FacingEnum.SSEAST:
 					list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite(fireballHolder[3])));
 					break;
 				default:

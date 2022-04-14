@@ -6,9 +6,9 @@ namespace Sprint5
 {
 	public class PlayerStateMachine
 	{
-		//should replace with facing enum 
-		//private int facing = 0;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
-		Facing facing;
+		//should replace with FacingEnum enum 
+		//private int FacingEnum = 0;     //FacingEnum variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+		FacingEnum facing;
 		private bool attack = false;
 		private bool damaged = false;
 		private double elapse = 0.0;
@@ -73,7 +73,7 @@ namespace Sprint5
 			return health == 0;
 		}
 
-		public void ChangeFacing(Facing facing)
+		public void ChangeFacing(FacingEnum facing)
 		{
 			this.facing = facing;
 		}
@@ -82,7 +82,7 @@ namespace Sprint5
 		{
 			switch (facing)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("right_throw"));
@@ -116,7 +116,7 @@ namespace Sprint5
 						play.SetSprite(SpriteFactory.GetSprite("right_still"));
 					}
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("left_throw"));
@@ -150,7 +150,7 @@ namespace Sprint5
 						play.SetSprite(SpriteFactory.GetSprite("left_still"));
 					}
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
@@ -184,7 +184,7 @@ namespace Sprint5
 						play.SetSprite(SpriteFactory.GetSprite("back_still"));
 					}
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					if (attack && damaged)
 					{
 						play.SetSprite(SpriteFactory.GetSprite("back_throw"));

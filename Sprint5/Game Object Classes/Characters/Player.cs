@@ -34,43 +34,43 @@ namespace Sprint5
 			this.boundHeight = boundHeight;
 		}
 
-		public void moveLock(Facing direction)
+		public void moveLock(FacingEnum direction)
 		{
 			switch (direction)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					canMoveRight = false;
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					canMoveLeft = false;
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					canMoveUp = false;
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					canMoveDown = false;
 					break;
 			}
 			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
 			{
-				Move((Facing)(this.state.FacingState() % 2 == 0 ? this.state.FacingState() + 1 : this.state.FacingState() - 1));
+				Move((FacingEnum)(this.state.FacingState() % 2 == 0 ? this.state.FacingState() + 1 : this.state.FacingState() - 1));
 			}
 		}
 
-		public void moveunLock(Facing direction)
+		public void moveunLock(FacingEnum direction)
 		{
 			switch (direction)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					canMoveRight = true;
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					canMoveLeft = true;
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					canMoveUp = true;
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					canMoveDown = true;
 					break;
 			}
@@ -102,31 +102,31 @@ namespace Sprint5
 		//positive x, increment to the right. negative x, decrement to the left.
 		//positive y, increment down. negative y, decrement up. 
 		//x could be 1 for walking or 5 for sprinting 
-		public void Move(Facing facing)
+		public void Move(FacingEnum facing)
 		{
 			state.ChangeFacing(facing);
 			state.changeMovingState(true);
 			switch (facing)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					if (location.X + 10 < boundWidth - 20&&canMoveRight)
 					{
 						location = new Vector2(location.X + velocity, location.Y);
 					}
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					if (location.X - 10 > 0&&canMoveLeft)
 					{
 						location = new Vector2(location.X - velocity, location.Y);
 					}
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					if (location.Y - 10 > 0&&canMoveUp)
 					{
 						location = new Vector2(location.X, location.Y - velocity);
 					}
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					if (location.Y + 10 < boundHeight - 30&&canMoveDown)
 					{
 						location = new Vector2(location.X, location.Y + velocity);
@@ -139,7 +139,7 @@ namespace Sprint5
 
 		public void DistantAttack()
 		{
-			proj.NewProjectile(new Vector2(location.X + 23, location.Y + 15), (Facing)state.FacingState(), spriteNum);
+			proj.NewProjectile(new Vector2(location.X + 23, location.Y + 15), (FacingEnum)state.FacingState(), spriteNum);
 		}
 
 		public void SetLocation(Vector2 newLocation)

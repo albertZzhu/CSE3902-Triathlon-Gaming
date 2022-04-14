@@ -6,7 +6,7 @@ namespace Sprint5
 {
     class NpcStatementMachine
     {
-        private Facing facing = Facing.RIGHT;     //facing variable, 0 means right, 1 means left, 2 means upward, 3 means downward
+        private FacingEnum facing = FacingEnum.RIGHT;     //FacingEnum variable, 0 means right, 1 means left, 2 means upward, 3 means downward
                                                   //private bool attack = false;
         private bool damaged = false;
         private NPC1 npc;
@@ -16,7 +16,7 @@ namespace Sprint5
             this.npc = npc;
         }
 
-        public Facing FacingState()
+        public FacingEnum FacingState()
         {
             return facing;
         }
@@ -33,14 +33,14 @@ namespace Sprint5
             }
         }
 
-        public void ChangeFacing(Facing facing)
+        public void ChangeFacing(FacingEnum facing)
         {
             this.facing = facing;
         }
 
         public void Update(GameTime gameTime)
         {
-            //have to change facing to an int here...S
+            //have to change FacingEnum to an int here...S
             npc.SetNpc(SpriteFactory.GetSprite(npc.npcHolder[(int)facing]));
         }
     }

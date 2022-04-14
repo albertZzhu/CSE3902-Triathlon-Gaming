@@ -16,7 +16,7 @@ namespace Sprint5
 		}
 		public void Execute()
 		{
-			player.Move(Facing.UP);
+			player.Move(FacingEnum.UP);
 		}
 	}
 }

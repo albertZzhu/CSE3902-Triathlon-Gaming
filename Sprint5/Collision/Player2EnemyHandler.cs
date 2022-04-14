@@ -26,7 +26,7 @@ namespace Sprint5.Collision
 				{
 					if (player.IfDie())
 					{
-						lose.SetLoseCondition(true);
+						Lose.SetLoseCondition(true);
 						resetCommand.Execute();
 						SoundManager.Instance.LoseMusic();
 					}

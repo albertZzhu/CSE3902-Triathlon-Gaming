@@ -14,7 +14,7 @@
 		}
 		public void Execute()
 		{
-			player.Move(Facing.DOWN);
+			player.Move(FacingEnum.DOWN);
 		}
 	}
 }

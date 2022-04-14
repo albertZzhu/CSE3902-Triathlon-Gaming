@@ -13,7 +13,7 @@
 		}
 		public void Execute()
 		{
-			player.Move(Facing.RIGHT);
+			player.Move(FacingEnum.RIGHT);
 		}
 	}
 }

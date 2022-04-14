@@ -16,65 +16,65 @@ namespace Sprint5
 			list = new List<Projectile>();
 		}
 
-		public void NewProjectile(Vector2 newLocation, Facing direction, int sprite)
+		public void NewProjectile(Vector2 newLocation, FacingEnum direction, int sprite)
 		{
 			switch (sprite)
 			{ //add more
-				case (int)Projectiles.SPEAR:
+				case (int)ProjectileEnum.SPEAR:
 					{
 						SoundManager.Instance.PlaySound("Spear");
 						switch (direction)
 						{
-							case Facing.RIGHT:
+							case FacingEnum.RIGHT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("right_projectile")));
 								break;
-							case Facing.LEFT:
+							case FacingEnum.LEFT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("left_projectile")));
 								break;
-							case Facing.UP:
+							case FacingEnum.UP:
 								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("up_projectile")));
 								break;
-							case Facing.DOWN:
+							case FacingEnum.DOWN:
 								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("down_projectile")));
 								break;
 						}
 					}
 					break;
-				case (int)Projectiles.FIREBALL:
+				case (int)ProjectileEnum.FIREBALL:
 					{
 						SoundManager.Instance.PlaySound("Fireball");
 						switch (direction)
 						{
-							case Facing.RIGHT:
+							case FacingEnum.RIGHT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballright")));
 								break;
-							case Facing.LEFT:
+							case FacingEnum.LEFT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("fireballleft")));
 								break;
-							case Facing.UP:
+							case FacingEnum.UP:
 								list.Add(new Projectile(new Vector2(newLocation.X - biasfireball, newLocation.Y), direction, SpriteFactory.GetSprite("fireballup")));
 								break;
-							case Facing.DOWN:
+							case FacingEnum.DOWN:
 								list.Add(new Projectile(new Vector2(newLocation.X - biasfireball, newLocation.Y), direction, SpriteFactory.GetSprite("fireballdown")));
 								break;
 						}
 					}
 					break;
-				case (int)Projectiles.BOOMERANG:
+				case (int)ProjectileEnum.BOOMERANG:
 					{
 						SoundManager.Instance.PlaySound("Boomerang");
 						switch (direction)
 						{
-							case Facing.RIGHT:
+							case FacingEnum.RIGHT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("boomerang")));
 								break;
-							case Facing.LEFT:
+							case FacingEnum.LEFT:
 								list.Add(new Projectile(newLocation, direction, SpriteFactory.GetSprite("boomerang")));
 								break;
-							case Facing.UP:
+							case FacingEnum.UP:
 								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("boomerang")));
 								break;
-							case Facing.DOWN:
+							case FacingEnum.DOWN:
 								list.Add(new Projectile(new Vector2(newLocation.X - bias, newLocation.Y), direction, SpriteFactory.GetSprite("boomerang")));
 								break;
 						}

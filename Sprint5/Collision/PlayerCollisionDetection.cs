@@ -67,7 +67,7 @@ namespace Sprint5.Collision
 						
 					}else if (b.GetType().Equals(typeof(MoveableBlock)))
 					{
-						if (((MoveableBlock)b).GetMoveLockState((Facing)player.GetState().FacingState()))
+						if (((MoveableBlock)b).GetMoveLockState((FacingEnum)player.GetState().FacingState()))
 						{
 							moveableBlockHandler.Handle(player, (MoveableBlock)b);
 							int[] blockHandleList = new int[] { 1, 1, 1, 1 };

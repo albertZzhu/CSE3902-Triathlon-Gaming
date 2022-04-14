@@ -9,7 +9,7 @@ namespace Sprint5
 {
 	interface Iplayer : IGameObject
 	{
-		void Move(Facing facing);
+		void Move(FacingEnum facing);
 
 		Rectangle GetRect();
 
@@ -21,9 +21,9 @@ namespace Sprint5
 
 		void Reset();
 
-		void moveLock(Facing direction);
+		void moveLock(FacingEnum direction);
 
-		void moveunLock(Facing direction);
+		void moveunLock(FacingEnum direction);
 
 		bool IfAttacking();
 

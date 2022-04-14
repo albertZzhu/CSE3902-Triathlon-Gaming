@@ -17,12 +17,12 @@ namespace Sprint5.Collision
 			{
 				if (handleList[i] == 0)
 				{
-					block.moveLock((Facing)i);
+					block.moveLock((FacingEnum)i);
 					//*player.Move(i % 2 == 0 ? i + 1 : i - 1);
 				}
 				else
 				{
-					block.moveunLock((Facing)i);
+					block.moveunLock((FacingEnum)i);
 				}
 			}
 		}

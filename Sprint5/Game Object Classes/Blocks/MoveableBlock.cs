@@ -17,103 +17,103 @@ namespace Sprint5
 		private bool canMoveRight = true;
 		private bool canMoveLeft = true;
 		private int speed = 10;
-		private Facing facingState = Facing.RIGHT;
+		private FacingEnum facingState = FacingEnum.RIGHT;
 
 		public void SetLocation(Vector2 newLocation)
 		{
 			location = newLocation;
 		}
 
-		public void moveLock(Facing direction)
+		public void moveLock(FacingEnum direction)
 		{
 			switch (direction)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					canMoveRight = false;
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					canMoveLeft = false;
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					canMoveUp = false;
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					canMoveDown = false;
 					break;
 			}
 			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
 			{
-				Move((Facing)((int)facingState % 2 == 0 ? (int)facingState + 1 : (int)facingState - 1));
+				Move((FacingEnum)((int)facingState % 2 == 0 ? (int)facingState + 1 : (int)facingState - 1));
 			}
 		}
 
 
-		public bool GetMoveLockState(Facing facing)
+		public bool GetMoveLockState(FacingEnum facing)
 		{
 			bool opt = false;
 			switch (facing)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					opt = canMoveRight;
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					opt = canMoveLeft;
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					opt = canMoveUp;
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					opt = canMoveDown;
 					break;
 			}
 			return opt;
 		}
 
-		public void moveunLock(Facing direction)
+		public void moveunLock(FacingEnum direction)
 		{
 			switch (direction)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					canMoveRight = true;
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					canMoveLeft = true;
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					canMoveUp = true;
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					canMoveDown = true;
 					break;
 			}
 		}
 
-		public void Move(Facing facing)
+		public void Move(FacingEnum facing)
 		{
 			switch (facing)
 			{
-				case Facing.RIGHT:
+				case FacingEnum.RIGHT:
 					if(canMoveRight)
 					{
 						location.X += speed;
 						facingState = facing;
 					}
 					break;
-				case Facing.LEFT:
+				case FacingEnum.LEFT:
 					if(canMoveLeft)
 					{
 						location.X -= speed;
 						facingState = facing;
 					}
 					break;
-				case Facing.UP:
+				case FacingEnum.UP:
 					if (canMoveUp)
 					{
 						location.Y -= speed;
 						facingState = facing;
 					}
 					break;
-				case Facing.DOWN:
+				case FacingEnum.DOWN:
 					if(canMoveDown)
 					{
 						location.Y += speed;

@@ -10,7 +10,7 @@ namespace Sprint5
 	{
 		bool isDead();
 
-		void Move(Facing facing);
+		void Move(FacingEnum facing);
 
 		void die();
 

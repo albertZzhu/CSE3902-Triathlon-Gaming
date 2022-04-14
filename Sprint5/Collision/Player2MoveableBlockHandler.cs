@@ -14,7 +14,7 @@ namespace Sprint5.Collision
 
 		public void Handle(Player player, MoveableBlock block)
 		{
-			block.Move((Facing)player.GetState().FacingState());
+			block.Move((FacingEnum)player.GetState().FacingState());
 		}
 	}
 }

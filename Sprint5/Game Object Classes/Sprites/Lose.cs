@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Sprint5
 {
-    public class lose
+    public class Lose
     {
         private ISprite LoseSprite = new Sprite();
         private static bool LoseCondition;
-        public lose(String Losepic)
+        public Lose(String Losepic)
         {
             this.LoseSprite = SpriteFactory.GetSprite(Losepic);
         }

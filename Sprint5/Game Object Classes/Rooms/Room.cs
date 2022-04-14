@@ -241,7 +241,7 @@ namespace Sprint5
                                     this.npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
                                     this.npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
                                     //cast here......
-                                    this.npc[i].SetDirection((Facing)int.Parse(Einfo[1].InnerText));
+                                    this.npc[i].SetDirection((FacingEnum)int.Parse(Einfo[1].InnerText));
                                     XmlNodeList npctextures = Einfo[2].ChildNodes;
                                     this.Textureholder = new List<string>();
                                     this.Textureholder.Add(npctextures[2].InnerText);

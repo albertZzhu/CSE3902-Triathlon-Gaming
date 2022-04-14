@@ -8,10 +8,10 @@ namespace Sprint5
 	{
 		private ISprite sprite;
 		private Vector2 location;
-		private Facing direction; 
+		private FacingEnum direction; 
 		private bool dead;
 
-		public Projectile(Vector2 newLocation, Facing direction, ISprite sprite)
+		public Projectile(Vector2 newLocation, FacingEnum direction, ISprite sprite)
 		{
 			location = newLocation;
 			this.direction = direction;
@@ -40,41 +40,41 @@ namespace Sprint5
 			{
 				switch (direction)
 				{
-					case Facing.RIGHT:
+					case FacingEnum.RIGHT:
 						location = new Vector2(location.X + 5, location.Y);
 						break;
-					case Facing.LEFT:
+					case FacingEnum.LEFT:
 						location = new Vector2(location.X - 5, location.Y);
 						break;
-					case Facing.UP:
+					case FacingEnum.UP:
 						location = new Vector2(location.X, location.Y - 5);
 						break;
-					case Facing.DOWN:
+					case FacingEnum.DOWN:
 						location = new Vector2(location.X, location.Y + 5);
 						break;
 					//left for dragon use, don't care about this part.
-					case Facing.NORTHEAST:
+					case FacingEnum.NORTHEAST:
 						location = new Vector2(location.X + 5, location.Y - 3);
 						break;
-					case Facing.SOUTHEAST:
+					case FacingEnum.SOUTHEAST:
 						location = new Vector2(location.X + 5, location.Y + 3);
 						break;
-					case Facing.NORTHWEST:
+					case FacingEnum.NORTHWEST:
 						location = new Vector2(location.X - 5, location.Y - 3);
 						break;
-					case Facing.SOUTHWEST:
+					case FacingEnum.SOUTHWEST:
 						location = new Vector2(location.X - 5, location.Y + 3);
 						break;
-					case Facing.NNWEST:
+					case FacingEnum.NNWEST:
 						location = new Vector2(location.X - 3, location.Y - 5);
 						break;
-					case Facing.NNEAST:
+					case FacingEnum.NNEAST:
 						location = new Vector2(location.X + 3, location.Y - 5);
 						break;
-					case Facing.SSWEST:
+					case FacingEnum.SSWEST:
 						location = new Vector2(location.X - 3, location.Y + 5);
 						break;
-					case Facing.SSEAST:
+					case FacingEnum.SSEAST:
 						location = new Vector2(location.X + 3, location.Y + 5);
 						break;
 					default:
