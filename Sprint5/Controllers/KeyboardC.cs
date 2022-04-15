@@ -15,11 +15,13 @@ namespace Sprint5
 		private KeyboardState newState;
 
         private Player player;
+		private Level1 level;
 
 
-		public KeyboardC(Player player)
+		public KeyboardC(Player player, Level1 level)
 		{
             this.player = player;
+			this.level = level;
 		}
 
         public void CompareStates(Player player)
@@ -55,6 +57,22 @@ namespace Sprint5
                     keyDict[newState.GetPressedKeys()[0]].Execute();
                 }
             }
+			if (Keyboard.GetState().IsKeyDown(Keys.Q)){
+				ICommand tempCom = new QuitCom();
+				tempCom.Execute();
+			} else if(Keyboard.GetState().IsKeyDown(Keys.R))
+                    {	
+						
+							if(Win.GetWinCondition())
+							{
+								ICommand tempCom = new ResetCom(level);
+								tempCom.Execute();
+							}
+						
+						Lose.SetLoseCondition(false);
+						Win.SetWinCondition(false);
+						SoundManager.Instance.ThemeMusic();
+					}
             oldState = newState;
         }
         public void InitializeController()

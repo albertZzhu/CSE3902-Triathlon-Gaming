@@ -67,7 +67,7 @@ namespace Sprint5
 			collisionManager.Initialize("player1", "NPC1", "projectil1", level1);
 			gameButtonManager.Initialize();
 
-			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj());
+			_keyboardCon = new KeyboardC(level1.GetRoom().GetPlayerObj(), level1);
 			_keyboardCon.InitializeController();
 
 			UniParam.Initialize(gameObjectManager, level1, this);
@@ -119,24 +119,8 @@ namespace Sprint5
                     {
 						WinState.Update(gameTime);
 					} else LoseState.Update(gameTime);
-
-					if (Keyboard.GetState().IsKeyDown(Keys.Q))
-                    {
-						Exit();
-                    } else if(Keyboard.GetState().IsKeyDown(Keys.R))
-                    {	
-						
-							if(Win.GetWinCondition())
-							{
-								level1.resetRoom();
-								Inventory.Reset();
-							}
-						
-						Lose.SetLoseCondition(false);
-						Win.SetWinCondition(false);
-						SoundManager.Instance.ThemeMusic();
-					}
-                }
+					_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
+				}
 			}
 			
 			//x = Mouse.GetState().X;

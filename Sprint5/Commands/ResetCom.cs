@@ -20,7 +20,6 @@ namespace Sprint5
 		public void Execute()
 		{
 			level.resetRoom();
-			player.Reset();
 			Inventory.Reset();
 			SoundManager.Instance.ThemeMusic();
 			/*player.Reset();

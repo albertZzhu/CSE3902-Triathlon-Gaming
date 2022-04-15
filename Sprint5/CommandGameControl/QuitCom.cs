@@ -1,8 +1,13 @@
 ﻿namespace Sprint5
 {
-    class QuitCom : IGameControlCom
+    class QuitCom : IGameControlCom, ICommand
 	{
-		public void Execute()
+        public void ChangePlayer(Player player)
+        {
+            
+        }
+
+        public void Execute()
 		{
 			System.Windows.Forms.Application.Exit();
 		}
