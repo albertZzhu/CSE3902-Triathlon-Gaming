@@ -58,11 +58,11 @@ namespace Sprint5
                 }
             }
 
-			if (Keyboard.GetState().IsKeyDown(Keys.Q)){
+			if (newState.IsKeyDown(Keys.Q)){
 				ICommand tempCom = new QuitCom();
 				tempCom.Execute();
 			} 
-			else if(Keyboard.GetState().IsKeyDown(Keys.R))
+			else if(newState.IsKeyDown(Keys.R))
                 {	
 						
 					if(Win.GetWinCondition())
