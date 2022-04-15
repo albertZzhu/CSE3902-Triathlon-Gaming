@@ -12,11 +12,11 @@ namespace Sprint5
         private static bool WinCondition;
         public Win(String Winpic)
         {
-            this.WinSprite = SpriteFactory.GetSprite(Winpic);
+            WinSprite = SpriteFactory.GetSprite(Winpic);
         }
         public void Update(GameTime gametime)
         {
-            this.WinSprite.Update();
+            WinSprite.Update();
         }
         public static void SetWinCondition(bool condition)
         {
@@ -30,7 +30,7 @@ namespace Sprint5
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            this.WinSprite.Draw(spriteBatch, new Vector2(0,0));
+            WinSprite.Draw(spriteBatch, new Vector2(0,0));
         }
     }
 }

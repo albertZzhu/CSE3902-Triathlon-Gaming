@@ -12,11 +12,11 @@ namespace Sprint5
         private static bool LoseCondition;
         public Lose(String Losepic)
         {
-            this.LoseSprite = SpriteFactory.GetSprite(Losepic);
+            LoseSprite = SpriteFactory.GetSprite(Losepic);
         }
         public void Update(GameTime gametime)
         {
-            this.LoseSprite.Update();
+            LoseSprite.Update();
         }
         public static void SetLoseCondition(bool condition)
         {
@@ -30,7 +30,7 @@ namespace Sprint5
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            this.LoseSprite.Draw(spriteBatch, new Vector2(0, 0));
+            LoseSprite.Draw(spriteBatch, new Vector2(0, 0));
         }
     }
 }

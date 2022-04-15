@@ -20,33 +20,33 @@ namespace Sprint5
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
-            this.CWidth = 0;
-            this.FWidth = this.boundWidth;
-            this.CHeight = 0;
-            this.FHeight = this.boundHeight;
+            CWidth = 0;
+            FWidth = this.boundWidth;
+            CHeight = 0;
+            FHeight = this.boundHeight;
             this.Content = Content;
-            this.right = false;
-            this.left = false;
-            this.up = false;
-            this.down = false;
+            right = false;
+            left = false;
+            up = false;
+            down = false;
         }
         public void reset()
         {
-            this.CWidth = 0;
-            this.FWidth = this.boundWidth;
-            this.CHeight = 0;
-            this.FHeight = this.boundHeight;
-            this.right = false;
-            this.left = false;
-            this.up = false;
-            this.down = false;
+            CWidth = 0;
+            FWidth = boundWidth;
+            CHeight = 0;
+            FHeight = boundHeight;
+            right = false;
+            left = false;
+            up = false;
+            down = false;
         }
         public void Update(GameTime gametime, String currentRoom, String futureRoom, int doordirection)
         {
-            this.current = currentRoom;
-            this.future = futureRoom;
-            this.c = int.Parse(currentRoom.Substring(4));
-            this.f = int.Parse(futureRoom.Substring(4));
+            current = currentRoom;
+            future = futureRoom;
+            c = int.Parse(currentRoom.Substring(4));
+            f = int.Parse(futureRoom.Substring(4));
             if (doordirection == 1)
             {
                 
@@ -133,7 +133,7 @@ namespace Sprint5
 
         public bool done()
         {
-            if (this.CWidth > this.boundWidth || this.FWidth < 0 || this.CHeight > this.boundHeight || this.FHeight < 0)
+            if (CWidth > boundWidth || FWidth < 0 || CHeight > boundHeight || FHeight < 0)
             {
                 return true;
             }

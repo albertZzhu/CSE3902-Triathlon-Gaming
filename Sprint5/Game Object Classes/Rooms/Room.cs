@@ -74,10 +74,10 @@ namespace Sprint5
                                 {
                                     XmlNodeList Binfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Binfo[0].FirstChild).InnerText), int.Parse((Binfo[0].LastChild).InnerText));
-                                    this.Texture = Binfo[1].InnerText;
+                                    Texture = Binfo[1].InnerText;
                                     this.block[i] = new Block();
                                     this.block[i].SetLocation(loc);
-                                    this.block[i].SetBlock(this.Texture);
+                                    this.block[i].SetBlock(Texture);
                                     i++;
                                 }
                             }
@@ -104,20 +104,20 @@ namespace Sprint5
                                 {
                                     XmlNodeList Dinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Dinfo[0].FirstChild).InnerText), int.Parse((Dinfo[0].LastChild).InnerText));
-                                    this.Texture = Dinfo[1].InnerText;
+                                    Texture = Dinfo[1].InnerText;
                                     switch (i)
                                     {
                                         case 0:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.up), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.up), Dinfo[2].InnerText);
                                             break;
                                         case 1:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.right), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.right), Dinfo[2].InnerText);
                                             break;
                                         case 2:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.down), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.down), Dinfo[2].InnerText);
                                             break;
                                         case 3:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(this.Texture, loc, Side.side.left), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.left), Dinfo[2].InnerText);
                                             break;
                                     }
                                 }
@@ -148,10 +148,10 @@ namespace Sprint5
                                 {
                                     XmlNodeList Winfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Winfo[0].FirstChild).InnerText), int.Parse((Winfo[0].LastChild).InnerText));
-                                    this.Texture = Winfo[1].InnerText;
+                                    Texture = Winfo[1].InnerText;
                                     this.water[i] = new Water();
                                     this.water[i].SetLocation(loc);
-                                    this.water[i].SetBlock(this.Texture);
+                                    this.water[i].SetBlock(Texture);
                                     i++;
                                 }
                             }
@@ -179,10 +179,10 @@ namespace Sprint5
                                 {
                                     XmlNodeList Sinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Sinfo[0].FirstChild).InnerText), int.Parse((Sinfo[0].LastChild).InnerText));
-                                    this.Texture = Sinfo[1].InnerText;
+                                    Texture = Sinfo[1].InnerText;
                                     this.sand[i] = new Sand();
                                     this.sand[i].SetLocation(loc);
-                                    this.sand[i].SetBlock(this.Texture);
+                                    this.sand[i].SetBlock(Texture);
                                     i++;
                                 }
                             }
@@ -210,10 +210,10 @@ namespace Sprint5
                                 {
                                     XmlNodeList Iinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Iinfo[0].FirstChild).InnerText), int.Parse((Iinfo[0].LastChild).InnerText));
-                                    this.Texture = Iinfo[1].InnerText;
+                                    Texture = Iinfo[1].InnerText;
                                     this.item[i] = new Item();
                                     this.item[i].SetLocation(loc);
-                                    this.item[i].SetItem(this.Texture);
+                                    this.item[i].SetItem(Texture);
                                     i++;
                                 }
                             }
@@ -230,36 +230,36 @@ namespace Sprint5
                         int num = int.Parse(enemy.Attributes["num"].Value);
                         if (num != 0)
                         {
-                            this.npc = new NPC1[num];
+                            npc = new NPC1[num];
                             XmlNodeList list = enemy.ChildNodes;
                             foreach (XmlElement element in list)
                             {
                                 if (!element.IsEmpty)
                                 {
                                     XmlNodeList Einfo = element.ChildNodes;
-                                    this.npc[i] = new NPC1(this.boundWidth, this.boundHeight);
-                                    this.npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
-                                    this.npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
+                                    npc[i] = new NPC1(boundWidth, boundHeight);
+                                    npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
+                                    npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
                                     //cast here......
-                                    this.npc[i].SetDirection((FacingEnum)int.Parse(Einfo[1].InnerText));
+                                    npc[i].SetDirection((FacingEnum)int.Parse(Einfo[1].InnerText));
                                     XmlNodeList npctextures = Einfo[2].ChildNodes;
-                                    this.Textureholder = new List<string>();
-                                    this.Textureholder.Add(npctextures[2].InnerText);
-                                    this.Textureholder.Add(npctextures[3].InnerText);
-                                    this.Textureholder.Add(npctextures[0].InnerText);
-                                    this.Textureholder.Add(npctextures[1].InnerText);
-                                    this.npc[i].SetNpcList(this.Textureholder);
-                                    this.npc[i].SetFireBool(Convert.ToBoolean(Einfo[3].Attributes["fire"].Value));
+                                    Textureholder = new List<string>();
+                                    Textureholder.Add(npctextures[2].InnerText);
+                                    Textureholder.Add(npctextures[3].InnerText);
+                                    Textureholder.Add(npctextures[0].InnerText);
+                                    Textureholder.Add(npctextures[1].InnerText);
+                                    npc[i].SetNpcList(Textureholder);
+                                    npc[i].SetFireBool(Convert.ToBoolean(Einfo[3].Attributes["fire"].Value));
                                     bool fire = Convert.ToBoolean(Einfo[3].Attributes["fire"].Value);
                                     if (fire)
                                     {
                                         XmlNodeList firetextures = Einfo[3].ChildNodes;
-                                        this.Textureholder = new List<string>();
-                                        this.Textureholder.Add(firetextures[2].InnerText);
-                                        this.Textureholder.Add(firetextures[3].InnerText);
-                                        this.Textureholder.Add(firetextures[0].InnerText);
-                                        this.Textureholder.Add(firetextures[1].InnerText);
-                                        this.npc[i].SetFireBallList(this.Textureholder);
+                                        Textureholder = new List<string>();
+                                        Textureholder.Add(firetextures[2].InnerText);
+                                        Textureholder.Add(firetextures[3].InnerText);
+                                        Textureholder.Add(firetextures[0].InnerText);
+                                        Textureholder.Add(firetextures[1].InnerText);
+                                        npc[i].SetFireBallList(Textureholder);
                                     }
                                     if (Einfo[4].ChildNodes.Count != 0)
                                     {
@@ -270,12 +270,12 @@ namespace Sprint5
                                             routes.Add(new KeyValuePair<Vector2, int>(new Vector2(int.Parse((r.FirstChild.FirstChild).InnerText), int.Parse((r.FirstChild.LastChild).InnerText)), int.Parse((r.LastChild).InnerText)));
 
                                         }
-                                        this.npc[i].SetRoute(routes);
+                                        npc[i].SetRoute(routes);
                                     }
-                                    else this.npc[i].SetRoute(null);
+                                    else npc[i].SetRoute(null);
                                     if (fire)
                                     {
-                                        this.npc[i].setTimer(float.Parse(Einfo[5].InnerText));
+                                        npc[i].setTimer(float.Parse(Einfo[5].InnerText));
                                     }
                                     i++;
                                 }
@@ -288,17 +288,17 @@ namespace Sprint5
                     }
                     if(oldPlayer != null)
 					{
-                        player = new Player(this.boundWidth, this.boundHeight, playerPositionTransition(oldPlayer.GetLocation()), oldPlayer.GetState().playerHealth());
+                        player = new Player(boundWidth, boundHeight, playerPositionTransition(oldPlayer.GetLocation()), oldPlayer.GetState().playerHealth());
                     }
 					else
                     {
-                        player = new Player(this.boundWidth, this.boundHeight, spawnLocation, spawnHealth);
+                        player = new Player(boundWidth, boundHeight, spawnLocation, spawnHealth);
                     }
                 }
 
             }
             gom.ClearLists();
-            gom.PopulateBlocks(this.GetBlockObj());
+            gom.PopulateBlocks(GetBlockObj());
             //gom.PopulateWater(water);
             //gom.PopulateDoor(door);
             //gom.PopulateSand(sand);
@@ -343,17 +343,17 @@ namespace Sprint5
             List<IBlock> door1 = new List<IBlock>();
             for (int i = 0; i < 4; i++)
             {
-                if (this.door[i].Key != null)
+                if (door[i].Key != null)
                 {
-                    door1.Add(this.door[i].Key);
+                    door1.Add(door[i].Key);
                 }
             }
-                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(this.block, door1.ToArray()).ToArray(), this.water).ToArray(), this.sand).ToArray();
+                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(block, door1.ToArray()).ToArray(), water).ToArray(), sand).ToArray();
         }
 
         public IProjectile[] GetNPCProjObj()
 		{   
-            foreach (NPC1 element in this.npc) {
+            foreach (NPC1 element in npc) {
                 list.AddRange(element.GetSeqList());
             }
             return list.ToArray();

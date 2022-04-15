@@ -57,22 +57,25 @@ namespace Sprint5
                     keyDict[newState.GetPressedKeys()[0]].Execute();
                 }
             }
+
 			if (Keyboard.GetState().IsKeyDown(Keys.Q)){
 				ICommand tempCom = new QuitCom();
 				tempCom.Execute();
-			} else if(Keyboard.GetState().IsKeyDown(Keys.R))
-                    {	
+			} 
+			else if(Keyboard.GetState().IsKeyDown(Keys.R))
+                {	
 						
-							if(Win.GetWinCondition())
-							{
-								ICommand tempCom = new ResetCom(level);
-								tempCom.Execute();
-							}
-						
-						Lose.SetLoseCondition(false);
-						Win.SetWinCondition(false);
-						SoundManager.Instance.ThemeMusic();
+					if(Win.GetWinCondition())
+					{
+						ICommand tempCom = new ResetCom(level);
+						tempCom.Execute();
 					}
+						
+					Lose.SetLoseCondition(false);
+					Win.SetWinCondition(false);
+					SoundManager.Instance.ThemeMusic();
+			}
+
             oldState = newState;
         }
         public void InitializeController()

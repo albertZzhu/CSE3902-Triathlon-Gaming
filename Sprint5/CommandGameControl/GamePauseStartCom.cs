@@ -16,7 +16,7 @@ namespace Sprint5{
 
 		public void Execute()
 		{
-			this.game.isPaused = !this.game.isPaused;
+			game.isPaused = !game.isPaused;
 			if (game.isPaused)
             {
 				SoundManager.Instance.PauseSound("DungeonTheme");
