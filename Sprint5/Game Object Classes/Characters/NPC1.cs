@@ -13,6 +13,7 @@ namespace Sprint5
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 		private ISprite npc = new Sprite();
+		private ISprite spawn = new Sprite();
 		private NpcStatementMachine state;
 		private NpcProjectileSeq proj;
 		private bool movebool;
@@ -29,8 +30,10 @@ namespace Sprint5
 		private int routesCounter;
 		private bool dead;
 		private double deadClock = 0.0;
-		//constructor
-		public NPC1(int boundWidth, int boundHeight)
+        private int spawneffectframecount;
+
+        //constructor
+        public NPC1(int boundWidth, int boundHeight)
 		{
 			state = new NpcStatementMachine(this);
 			proj = new NpcProjectileSeq();
@@ -38,6 +41,8 @@ namespace Sprint5
 			this.boundHeight = boundHeight;
 			routesCounter = 0;
 			dead = false;
+			spawn = SpriteFactory.GetSprite("spawneffect");
+			this.spawneffectframecount = 0;
 		}
 
 		public bool isDead()
@@ -257,43 +262,58 @@ namespace Sprint5
 		//update func
 		public void Update(GameTime gameTime)
 		{
-			if (!dead)
-			{
-				if (route != null && (location.Equals(nextpos)))
+			if ( spawneffectframecount >= (((Sprite)spawn).GetFrames()).Count) {
+				if (!dead)
 				{
-					direction = nextface;
-					next();
-				}
-				Move(direction);
-				state.Update(gameTime);
-				npc.Update();
-				if (firebool)
-				{
-					timer += 1f;
-					if (timer == timespan)
+					if (route != null && (location.Equals(nextpos)))
 					{
-						DistantAttack();
-						timer = 0f;
+						direction = nextface;
+						next();
 					}
+					Move(direction);
+					state.Update(gameTime);
+					npc.Update();
+					if (firebool)
+					{
+						timer += 1f;
+						if (timer == timespan)
+						{
+							DistantAttack();
+							timer = 0f;
+						}
+					}
+					proj.Update(gameTime);
 				}
-				proj.Update(gameTime);
-			}
-			else if(deadClock < 1f)
-			{
-				deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
-				npc.Update();
+				else if (deadClock < 1f)
+				{
+					deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
+					npc.Update();
+				}
+			} else
+            {
+				this.spawn.Update();
+				this.dead = false;
+
 			}
 		}
 		//draw func
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			if (!dead) {
-				npc.Draw(spriteBatch, location);
-				proj.Draw(spriteBatch);
-			}
-			else if (deadClock < 1f)
+			if (spawneffectframecount >= (((Sprite)spawn).GetFrames()).Count)
 			{
-				npc.Draw(spriteBatch, location);
+				if (!dead)
+				{
+					npc.Draw(spriteBatch, location);
+					proj.Draw(spriteBatch);
+				}
+				else if (deadClock < 1f)
+				{
+					npc.Draw(spriteBatch, location);
+				}
+			} else
+            {
+				this.spawn.Draw(spriteBatch, location);
+				spawneffectframecount++;
 			}
 
 
