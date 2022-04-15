@@ -14,6 +14,8 @@ namespace Sprint5
     {
         //block obj holder variables
         private IBlock[] block;
+        //MOVABLE_Block obj holder variables
+        private IBlock[] Mblock;
         //door pair holder variables
         private KeyValuePair<IBlock, String>[] door;
         //water obj holder variables
@@ -66,7 +68,7 @@ namespace Sprint5
                         int num = int.Parse(block.Attributes["num"].Value);
                         if (num != 0)
                         {
-                            this.block = new Block[num];
+                            this.block = new IBlock[num];
                             XmlNodeList list = block.ChildNodes;
                             foreach (XmlElement element in list)
                             {
@@ -83,11 +85,41 @@ namespace Sprint5
                             }
                         }
                         else {
-                            this.block = new Block[0];
+                            this.block = new IBlock[0];
                         }
 
                     }
 
+                    //loading movable_blocks into the movable_block obj holder.
+                    XmlNode Mblock = type.SelectSingleNode("movable_block");
+                    if (Mblock != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(Mblock.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            this.Mblock = new IBlock[num];
+                            XmlNodeList list = Mblock.ChildNodes;
+                            foreach (XmlElement element in list)
+                            {
+                                if (!element.IsEmpty)
+                                {
+                                    XmlNodeList MBinfo = element.ChildNodes;
+                                    loc = new Vector2(int.Parse((MBinfo[0].FirstChild).InnerText), int.Parse((MBinfo[0].LastChild).InnerText));
+                                    Texture = MBinfo[1].InnerText;
+                                    this.Mblock[i] = new MoveableBlock();
+                                    this.Mblock[i].SetLocation(loc);
+                                    this.Mblock[i].SetBlock(Texture);
+                                    i++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            this.Mblock = new IBlock[0];
+                        }
+
+                    }
                     //loading doors into the door pair holder.
                     XmlNode door = type.SelectSingleNode("door");
                     if (door != null)
@@ -348,9 +380,13 @@ namespace Sprint5
                     door1.Add(door[i].Key);
                 }
             }
-                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(block, door1.ToArray()).ToArray(), water).ToArray(), sand).ToArray();
+                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(block, door1.ToArray()).ToArray(), water).ToArray(), sand).ToArray(), Mblock).ToArray();
         }
 
+        public IBlock[] getMovableBlock()
+        {
+            return this.Mblock;
+        }
         public IProjectile[] GetNPCProjObj()
 		{   
             foreach (NPC1 element in npc) {
