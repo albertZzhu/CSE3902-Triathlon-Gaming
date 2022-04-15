@@ -15,6 +15,7 @@ This sprint, things came together into a more cohesive product. We added sound, 
 * user can use <code>z</code> or <code>n</code> to attack
 * user can use <code>1</code>, <code>2</code>, or <code>3</code> to switch different projectiles
 * user can use <code>space</code> to fire projectiles
+* user can use <code>q</code> to quit at any time
 * user can use the quit and pause buttons in the top right with a left click. 
 
 ##### Added Room Switching:
