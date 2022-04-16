@@ -41,7 +41,7 @@ namespace Sprint5
 			this.boundHeight = boundHeight;
 			routesCounter = 0;
 			dead = false;
-			spawn = SpriteFactory.GetSprite("spawneffect");
+			spawn = SpriteFactory.GetSprite("animatedDamage");
 			this.spawneffectframecount = 0;
 		}
 
