@@ -61,6 +61,8 @@ namespace Sprint5.Collision
 
 			proj2Blcok = new Projectile2BlockHandler();
 
+			block2Block = new MoveableBlock2BlockHandler();
+
 			collisionDict.AddHandler(playerName, player2Block);
 			collisionDict.AddHandler(playerName, player2Door);
 			collisionDict.AddHandler(playerName, player2Moveable);
