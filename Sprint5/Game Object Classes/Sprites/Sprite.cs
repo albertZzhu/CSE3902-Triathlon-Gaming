@@ -12,6 +12,7 @@ namespace Sprint5
 		//could make frames into objects
 		private int width;
 		private int height;
+		private int spriteBuff;
 
 		private List<Frame> frames = new List<Frame>();
 
@@ -26,10 +27,11 @@ namespace Sprint5
 			return frames;
 		}
 
-		public void SetFrames(Texture2D bitMap, int columns, int rows, int totalFrames)
+		public void SetFrames(Texture2D bitMap, int columns, int rows, int totalFrames, int buffer)
 		{
 			width = bitMap.Width / columns;
 			height = bitMap.Height / rows;
+			spriteBuff = buffer;
 			for (int i = 0; i < totalFrames; i++)
 			{
 				int row = i / columns;
@@ -59,7 +61,7 @@ namespace Sprint5
 			//animation
 			//if statement for if totalframes > 1 ?
 			buffer++;
-			if (buffer % 20 == 0)
+			if (buffer % spriteBuff == 0)
 			{
 				currentFrame++;
 				if (currentFrame == frames.Count)

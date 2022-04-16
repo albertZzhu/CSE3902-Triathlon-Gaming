@@ -33,10 +33,14 @@ namespace Sprint5
 					String totFra = line.Substring(secondCommaIndex + 1, thirdCommaIndex - secondCommaIndex - 1);
 					int totalFrames = Int32.Parse(totFra);
 
-					String spriteName = line.Substring(thirdCommaIndex + 1);
+					int fourthCommaIndex = thirdCommaIndex + line.Substring(thirdCommaIndex + 1).IndexOf(',') + 1;
+					String buff = line.Substring(thirdCommaIndex + 1, fourthCommaIndex - thirdCommaIndex - 1);
+					int buffer = Int32.Parse(buff);
+
+					String spriteName = line.Substring(fourthCommaIndex + 1);
 
 					Texture2D bitMap = Content.Load<Texture2D>(spriteName);
-					CreateSprite(bitMap, columns, rows, totalFrames, spriteName);
+					CreateSprite(bitMap, columns, rows, totalFrames, spriteName, buffer);
 				}
 			}
 		}
@@ -53,10 +57,10 @@ namespace Sprint5
 
 		//takes in info about whats to be made in create sprite method?
 		//encapsulate sprite data? bitmap, col, rows, tFrames?
-		public static ISprite CreateSprite(Texture2D bitMap, int columns, int rows, int totalFrames, String spriteName)
+		public static ISprite CreateSprite(Texture2D bitMap, int columns, int rows, int totalFrames, String spriteName, int buffer)
 		{
 			Sprite sprite = new Sprite();
-			sprite.SetFrames(bitMap, columns, rows, totalFrames);
+			sprite.SetFrames(bitMap, columns, rows, totalFrames, buffer);
 			spriteDict.Add(spriteName, sprite);
 			return sprite;
 		}
