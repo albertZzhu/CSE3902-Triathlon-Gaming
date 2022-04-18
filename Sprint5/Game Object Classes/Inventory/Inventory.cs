@@ -11,7 +11,7 @@ namespace Sprint5
 		private static Inventory uniqueInventory;
 		private ContentManager content;
 		private SpriteFont font;
-		private Level1 level;
+		private Level level;
 		private int rupees;
 		private int keys;
 		private int bombs;
@@ -23,7 +23,7 @@ namespace Sprint5
 
 		private MapMarker marker = new MapMarker();
 
-		public Inventory(ContentManager content, Level1 level)
+		public Inventory(ContentManager content, Level level)
         {
 			rupees = 0;
 			keys = 0;
@@ -37,7 +37,7 @@ namespace Sprint5
 			font = content.Load<SpriteFont>("coortest");
 		}
 
-		public static Inventory GetInventory(ContentManager content, Level1 level)
+		public static Inventory GetInventory(ContentManager content, Level level)
 		{
 			if (uniqueInventory == null)
 			{

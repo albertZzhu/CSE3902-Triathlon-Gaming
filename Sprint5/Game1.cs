@@ -26,7 +26,7 @@ namespace Sprint5
 		//why is this public?
 		public bool isPaused;
 
-		public Level1 level1;
+		public Level level1;
 		private Win WinState;
 		private Lose LoseState;
 
@@ -89,28 +89,34 @@ namespace Sprint5
 		protected override void Update(GameTime gameTime)
 		{
 			gameButtonManager.Update(gameTime);
-			//level1.loadRoom();
 			if (!isPaused)
 			{
 				if (!Win.GetWinCondition() && !Lose.GetLoseCondition()) {
 					if (level1.CheckLock())
 					{
-						if (level1.CheckLock())
-						{
 							_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
 							gameObjectManager.Update(gameTime);
-
 							collisionManager.Update(level1);
-						}
 					}
 					if (!level1.CheckLock())
 					{
-						camera.Update(gameTime, level1.currentroom(), level1.futureroom(), level1.GetDoorDoc());
-						if (camera.done())
-						{
-							camera.reset();
-							level1.loadRoom();
-							level1.setCheckLock(false);
+						if (level1.futureroom() != "level2" && level1.futureroom() != "level1") {
+							camera.Update(gameTime, level1.currentroom(), level1.futureroom(), level1.GetDoorDoc());
+							if (camera.done())
+							{
+								camera.reset();
+								level1.loadRoom();
+								level1.setCheckLock(false);
+							}
+						} else
+                        {
+							if (level1.futureroom() == "level2")
+                            {
+								this.level1 = this.renewToLevel2(this._graphics, this.gameObjectManager, this.boundWidth, this.boundHeight);
+							} else if (level1.futureroom() == "level1")
+                            {
+								this.level1 = renewToLevel1(this._graphics, this.gameObjectManager, this.boundWidth, this.boundHeight);
+							}
 						}
 					}
 				} else
@@ -137,7 +143,9 @@ namespace Sprint5
 					gameObjectManager.Draw(_spriteBatch);
 					//_spriteBatch.DrawString(font, "[" + x.ToString() + ", " + y.ToString() + "]", new Vector2(225, 225), Color.Black);
 				} else {
-					camera.Draw(_spriteBatch);
+					if (level1.futureroom() != "level2" && level1.futureroom() != "level1") {
+						camera.Draw(_spriteBatch);
+					}
 				}
 			} else
             {
@@ -150,6 +158,34 @@ namespace Sprint5
 			gameButtonManager.Draw(gameTime, _spriteBatch);
 			_spriteBatch.End();
 			base.Draw(gameTime);
+		}
+
+		private Level renewToLevel2(GraphicsDeviceManager _graphics, GameObjectManager gameObjectManager, int boundWidth, int boundHeight)
+        {
+			_graphics.PreferredBackBufferWidth = 1600;
+			_graphics.PreferredBackBufferHeight = 1100;
+			this._graphics.IsFullScreen = true;
+			_graphics.ApplyChanges();
+			boundWidth = Window.ClientBounds.Width;
+			boundHeight = Window.ClientBounds.Height;
+			Level level = new Level2(gameObjectManager, boundWidth, boundHeight);
+			level.InitializeRoom();
+			level.loadRoom();
+			return level;
+		}
+
+		private Level renewToLevel1(GraphicsDeviceManager _graphics, GameObjectManager gameObjectManager, int boundWidth, int boundHeight)
+		{
+			_graphics.PreferredBackBufferWidth = 800;
+			_graphics.PreferredBackBufferHeight = 800;
+			this._graphics.IsFullScreen = false;
+			_graphics.ApplyChanges();
+			boundWidth = Window.ClientBounds.Width;
+			boundHeight = Window.ClientBounds.Height;
+			Level level = new Level1(gameObjectManager, boundWidth, boundHeight);
+			level.InitializeRoom();
+			level.setRoom(5);
+			return level;
 		}
 	}
 }

@@ -7,8 +7,8 @@ namespace Sprint5
 	public class SwitchRoomUpwardCom : IGameControlCom
 	{
 		
-			private Level1 level1;
-			public SwitchRoomUpwardCom(Level1 level)
+			private Level level1;
+			public SwitchRoomUpwardCom(Level level)
 			{
 				this.level1 = level;
 			}

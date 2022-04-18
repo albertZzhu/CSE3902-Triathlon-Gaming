@@ -38,10 +38,10 @@
 2,2,4,5,left_projectile
 2,2,4,5,down_projectile
 
-8,1,8,10,fireballright
-8,1,8,10,fireballleft
-8,1,8,10,fireballup
-8,1,8,10,fireballdown
+4,1,4,10,fireballright
+4,1,4,10,fireballleft
+4,1,4,10,fireballup
+4,1,4,10,fireballdown
 
 1,1,1,1,mudBlock
 1,1,1,1,glassBlock
@@ -112,3 +112,16 @@
 1,1,1,1,win
 1,1,1,1,lose
 5,4,20,5,animatedDamage
+1,1,1,1,bottomleftwall
+1,1,1,1,bottomrightwall
+1,1,1,1,largeFloor
+1,1,1,1,leftlowerwall
+1,1,1,1,leftupperwall
+1,1,1,1,midleftwall
+1,1,1,1,midlowerwall
+1,1,1,1,midrightwall
+1,1,1,1,midupperwall
+1,1,1,1,rightbottomwall
+1,1,1,1,rightupperwall
+1,1,1,1,topleftwall
+1,1,1,1,toprightwall

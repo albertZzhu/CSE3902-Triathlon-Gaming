@@ -15,10 +15,10 @@ namespace Sprint5
 		private KeyboardState newState;
 
         private Player player;
-		private Level1 level;
+		private Level level;
 
 
-		public KeyboardC(Player player, Level1 level)
+		public KeyboardC(Player player, Level level)
 		{
             this.player = player;
 			this.level = level;
