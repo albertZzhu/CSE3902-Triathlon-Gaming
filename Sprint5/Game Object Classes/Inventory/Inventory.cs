@@ -19,6 +19,8 @@ namespace Sprint5
 		private bool boomerang;
 		private bool map;
 		private bool compass;
+		private bool additionalHealth;
+		private bool getKey;
 		private Item item2 = new Item("mapmarker2");
 
 		private MapMarker marker = new MapMarker();
@@ -29,6 +31,8 @@ namespace Sprint5
 			keys = 0;
 			bombs = 0;
 			health = 5;
+			additionalHealth = false;
+			getKey = false;
 			boomerang = false;
 			map = false;
 			compass = false;
@@ -59,6 +63,7 @@ namespace Sprint5
 		public static void AddKeys()
         {
 			uniqueInventory.keys++;
+			uniqueInventory.getKey = true; 
         }
 
 		public static void AddBombs()
@@ -68,6 +73,7 @@ namespace Sprint5
 		public static void AddHealth()
 		{
 			uniqueInventory.health++;
+			uniqueInventory.additionalHealth = true;
 		}
 
 		public static void SubtractHealth()
@@ -162,5 +168,30 @@ namespace Sprint5
 
 			marker.Draw(spriteBatch);
 		}
+
+		public static bool getBoomerangBoolean()
+        {
+			return uniqueInventory.boomerang;
+        }
+
+		public static bool getMapBoolean()
+        {
+			return uniqueInventory.map;
+        }
+
+		public static bool getCompassBoolean()
+        {
+			return uniqueInventory.compass;
+        }
+
+		public static bool getAddfitionalHP()
+        {
+			return uniqueInventory.additionalHealth;
+        }
+
+		public static bool getKeyBool()
+        {
+			return uniqueInventory.getKey;
+        }
 	}
 }

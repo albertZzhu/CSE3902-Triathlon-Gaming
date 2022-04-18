@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,6 +16,17 @@ namespace Sprint5
 		private List<IGameObject> blocks = new List<IGameObject>();
 		private List<IGameObject> enemies = new List<IGameObject>();
 		private List<IGameObject> inventories = new List<IGameObject>();
+
+		private Collection<IGameObject> removeBuffer = new Collection<IGameObject>();
+
+		private static GameObjectManager instance = new GameObjectManager();
+		public static GameObjectManager Instance
+		{
+			get
+			{
+				return instance;
+			}
+		}
 
 		public void AddLists()
 		{
@@ -51,6 +63,12 @@ namespace Sprint5
 		{
 			inventories.Add(inventory);
 		}
+
+		public void RemoveOnNextFrame(IGameObject obeject)
+        {
+            removeBuffer.Add(obeject);
+        }
+
 
 		public void ClearLists()
         {

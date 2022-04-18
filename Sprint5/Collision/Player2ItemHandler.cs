@@ -19,6 +19,7 @@ namespace Sprint5.Collision
 				SoundManager.Instance.PlaySound("GetItem");
 				if (type.Equals("key"))
 					Inventory.AddKeys();
+					
 				else if (type.Equals("itemHeart"))
 					Inventory.AddHealth();
 				else if (type.Equals("boomerang"))
@@ -33,6 +34,8 @@ namespace Sprint5.Collision
 					SoundManager.Instance.WinMusic();
                 }
 			}
+
+			item.Remove();
 		}
 	}
 }

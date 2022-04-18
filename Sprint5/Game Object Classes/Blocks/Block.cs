@@ -47,5 +47,7 @@ namespace Sprint5
 		{
 			blockSprite.Draw(spriteBatch, location);
 		}
-	}
+
+		
+    }
 }
