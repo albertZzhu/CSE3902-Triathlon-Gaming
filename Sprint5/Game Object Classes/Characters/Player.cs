@@ -99,7 +99,7 @@ namespace Sprint5
 		{
 			state.changeMovingState(false);
 		}
-		internal List<Projectile> GetSeqList()
+		internal List<IProjectile> GetSeqList()
 		{
 			
 				return proj.GetProjList();
@@ -198,11 +198,13 @@ namespace Sprint5
             {
 				if (this.boomrang == null) {
 					this.boomrang = new Boomrang(SpriteFactory.GetSprite("BoomerangFlying"), this);
+					proj.AddBoomerangToList(this.boomrang);
 				}
 				this.boomrang.Update(gameTime);
 				if (Vector2.Distance(this.GetLocation(),this.boomrang.GetLocation())<=epsilon)
                 {
 					//this.boomrang.GetLocation().Equals(this.GetLocation())
+					proj.dequeueBoomerangFromList(this.boomrang);
 					this.UnLoadBoomrang();
 					this.boomrang = null;
 				}
@@ -213,7 +215,7 @@ namespace Sprint5
 		{
 			sprite.Draw(spriteBatch, location);
 			proj.Draw(spriteBatch);
-			if (this.loadboomrang)
+			if (this.loadboomrang && this.boomrang != null)
             {
 				this.boomrang.Draw(spriteBatch);
             }

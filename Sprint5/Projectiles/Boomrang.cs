@@ -28,7 +28,8 @@ namespace Sprint5
         }
         public void die()
         {
-            this.dead = true;
+            this.dead = false;
+            /*
             if (this.direction == FacingEnum.RIGHT)
             {
                 this.direction = FacingEnum.LEFT;
@@ -41,6 +42,9 @@ namespace Sprint5
             {
                 this.direction = FacingEnum.UP;
             }
+            */
+            //this.FlyingBack(this.player, this.location);
+            this.back = true;
         }
         public Rectangle GetRect()
         {
@@ -58,6 +62,18 @@ namespace Sprint5
             return this.location;
         }
 
+        public void SetLocation(Vector2 location)
+        {
+            this.location = location;
+        }
+
+        private void FlyingBack(Player player, Vector2 location)
+        {
+            boomerangBack = player.GetLocation() - location;
+            boomerangBack.Normalize();
+            Vector2 loc = location + boomerangBack * 5;
+            this.SetLocation(loc);
+        }
         public void Update(GameTime gameTime)
         {
             if (!dead)
@@ -65,73 +81,56 @@ namespace Sprint5
                 switch (direction)
                 {
                     case FacingEnum.RIGHT:
-                        if (this.location.X >= this.playerlocation.X + 150 || back)
+                        if (back)
                         {
-                            back = true;
-                            boomerangBack = this.player.GetLocation() - this.location;
-                            if (boomerangBack.X <= 0) {
-                                boomerangBack.Normalize();
-                                this.location += boomerangBack * 5;
-                            } else
-                            {
-                                this.direction = FacingEnum.LEFT;
-                            }
+                            this.FlyingBack(this.player, this.location);
                         }
                         else
                         {
                             this.location = new Vector2(location.X + 5, location.Y);
+                            if(this.location.X >= this.playerlocation.X + 150)
+                            {
+                                back = true;
+                            }
                         }
                         break;
                     case FacingEnum.LEFT:  
-                        if (this.location.X <= this.playerlocation.X - 150 || back)
+                        if (back)
                         {
-                            back = true;
-                            boomerangBack = this.player.GetLocation() - this.location;
-                            if (boomerangBack.X >= 0) {
-                                boomerangBack.Normalize();
-                                this.location += boomerangBack * 5;
-                            }
-                            else
-                            {
-                                this.direction = FacingEnum.RIGHT;
-                            }
+                            this.FlyingBack(this.player, this.location);
                         } else
                         {
                             this.location = new Vector2(location.X - 5, location.Y);
+                            if (this.location.X <= this.playerlocation.X - 150)
+                            {
+                                back = true;
+                            }
                         }
                         break;
                     case FacingEnum.UP:
-                        if (this.location.Y <= this.playerlocation.Y - 150 || back)
+                        if (back)
                         {
-                            back = true;
-                            boomerangBack = this.player.GetLocation() - this.location;
-                            if (boomerangBack.Y >= 0) {
-                                boomerangBack.Normalize();
-                                this.location += boomerangBack * 5;
-                            } else
-                            {
-                                this.direction = FacingEnum.DOWN;
-                            }
+                            this.FlyingBack(this.player, this.location);
                         } else
                         {
                             this.location = new Vector2(location.X, location.Y - 5);
+                            if(this.location.Y <= this.playerlocation.Y - 150)
+                            {
+                                back = true;
+                            }
                         }
                         break;
                     case FacingEnum.DOWN:
-                        if (this.location.Y >= this.playerlocation.Y + 150 || back)
+                        if (back)
                         {
-                            back = true;
-                            boomerangBack = this.player.GetLocation() - this.location;
-                            if (boomerangBack.Y <= 0) {
-                                boomerangBack.Normalize();
-                                this.location += boomerangBack * 5;
-                            } else
-                            {
-                                this.direction = FacingEnum.UP;
-                            }
+                            this.FlyingBack(this.player, this.location);
                         } else
                         {
                             this.location = new Vector2(location.X, location.Y + 5);
+                            if(this.location.Y >= this.playerlocation.Y + 150)
+                            {
+                                back = true;
+                            }
                         }
                         break;
                 }
