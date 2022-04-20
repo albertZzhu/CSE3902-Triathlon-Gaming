@@ -51,6 +51,10 @@ namespace Sprint5
 			return uniqueInventory;
 		}
 
+		public static bool GetBoomerang()
+        {
+			return uniqueInventory.boomerang;
+        }
 		public static void AddRupees()
 		{
 			uniqueInventory.rupees++;

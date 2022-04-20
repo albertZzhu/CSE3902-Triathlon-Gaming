@@ -18,7 +18,10 @@ namespace Sprint5
 		}
 		public void Execute()
 		{
-			player.setFireball(1);
+			if (Inventory.GetBoomerang()) {
+				player.initiateBoomrang();
+				player.setFireball(1);
+			}
 		}
 	}
 }

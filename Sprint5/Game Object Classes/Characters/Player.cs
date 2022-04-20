@@ -16,22 +16,27 @@ namespace Sprint5
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
 		private int spriteNum;
 		private int velocity = 5;
-
 		private bool canMoveUp = true;
 		private bool canMoveDown = true;
 		private bool canMoveRight = true;
 		private bool canMoveLeft = true;
+        private Boomrang boomrang;
+		private bool pickupboomrang, loadboomrang;
+		private float epsilon;
 
-		public Player(int boundWidth, int boundHeight, Vector2 spawnLocation, int spawnHealth)
+        public Player(int boundWidth, int boundHeight, Vector2 spawnLocation, int spawnHealth)
 		{
 			state = new PlayerStateMachine(this, spawnHealth);
 			proj = new ProjectileSeq();
 			location = spawnLocation;
-
+			epsilon = 3f;
 			//this.level = level;
 
 			this.boundWidth = boundWidth;
 			this.boundHeight = boundHeight;
+			this.pickupboomrang = false;
+			this.loadboomrang = false;
+			this.boomrang = null;
 		}
 
 		public void moveLock(FacingEnum direction)
@@ -151,7 +156,6 @@ namespace Sprint5
 		{
 			return location;
 		}
-
 		public Rectangle GetRect()
 		{
 			Rectangle opt = new Rectangle((int)location.X, (int)location.Y, (int)sprite.getSize().X, (int)sprite.getSize().Y);
@@ -190,17 +194,61 @@ namespace Sprint5
 			state.Update(gameTime);
 			sprite.Update();
 			proj.Update(gameTime);
+			if (this.loadboomrang)
+            {
+				if (this.boomrang == null) {
+					this.boomrang = new Boomrang(SpriteFactory.GetSprite("BoomerangFlying"), this);
+				}
+				this.boomrang.Update(gameTime);
+				if (Vector2.Distance(this.GetLocation(),this.boomrang.GetLocation())<=epsilon)
+                {
+					//this.boomrang.GetLocation().Equals(this.GetLocation())
+					this.UnLoadBoomrang();
+					this.boomrang = null;
+				}
+            }
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			sprite.Draw(spriteBatch, location);
 			proj.Draw(spriteBatch);
+			if (this.loadboomrang)
+            {
+				this.boomrang.Draw(spriteBatch);
+            }
 		}
 
 		public void setFireball(int i)
 		{
 			spriteNum = i;
+		}
+
+		public int getFireBall()
+        {
+			return this.spriteNum;
+        }
+
+		public void initiateBoomrang()
+        {
+			pickupboomrang = true;
+        }
+		public bool PickupBoomrang()
+        {
+			return this.pickupboomrang;
+
+		}
+		public void LoadBoomrang()
+        {
+			this.loadboomrang = true;
+        }
+		public void UnPickupBoomrang()
+        {
+			this.pickupboomrang = false;
+		}
+		public void UnLoadBoomrang()
+        {
+			this.loadboomrang = false;
 		}
 	}
 }
