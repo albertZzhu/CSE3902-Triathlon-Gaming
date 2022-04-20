@@ -16,6 +16,7 @@ namespace Sprint5
 		private int keys;
 		private int bombs;
 		private int health;
+		private int score;
 		private bool boomerang;
 		private bool map;
 		private bool compass;
@@ -28,6 +29,7 @@ namespace Sprint5
 			rupees = 0;
 			keys = 0;
 			bombs = 0;
+			score = 0;
 			health = 5;
 			boomerang = false;
 			map = false;
@@ -54,6 +56,12 @@ namespace Sprint5
 		public static void AddRupees()
 		{
 			uniqueInventory.rupees++;
+		}
+
+		public static void AddScore()
+		{
+			if (uniqueInventory.level is Level2)
+				uniqueInventory.score+=10;
 		}
 
 		public static void AddKeys()
@@ -90,6 +98,10 @@ namespace Sprint5
 			uniqueInventory.compass = true;
 		}
 
+		public static void UpdateLevel(Level level)
+        {
+			uniqueInventory.level = level;
+        }
 		public static List<Item> GetItems()
 		{
 			List<Item> items = new List<Item>();
@@ -102,15 +114,12 @@ namespace Sprint5
 				items.Add(new Item("compass"));
 			return items;
 		}
-		public void UpdateContent(ContentManager content)
-        {
-			this.content = content;
-        }
 		public static void Reset()
         {
 			uniqueInventory.rupees = 0;
 			uniqueInventory.keys = 0;
 			uniqueInventory.bombs = 0;
+			uniqueInventory.score = 0;
 			uniqueInventory.health = 5;
 			uniqueInventory.boomerang = false;
 			uniqueInventory.map = false;
@@ -118,49 +127,70 @@ namespace Sprint5
 		}
 		public void Update(GameTime gametime)
         {
-			marker.Update(level.GetIndex());
-			item2.Update(gametime);
+			if (level is Level1)
+			{
+				marker.Update(level.GetIndex());
+				item2.Update(gametime);
+			}
+            else
+            {
+
+            }
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
 
 			//this will need to be added to the xml file or its own class next sprint
-			Item item = new Item();
-			spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
-			spriteBatch.DrawString(font, "1      2", new Vector2(450, 600), Color.White);
-			spriteBatch.DrawString(font, "-----HEALTH-----", new Vector2(550, 600), Color.Red);
-			item.SetSprite(SpriteFactory.GetSprite("fireballdown"));
-			item.SetLocation(new Vector2(450, 650));
-			item.Draw(spriteBatch);
-			if (boomerang)
-			{
-				item.SetSprite(SpriteFactory.GetSprite("boomerang"));
-				item.SetLocation(new Vector2(520, 655));
+			if(level is Level1) { 
+				Item item = new Item();
+				spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
+				spriteBatch.DrawString(font, "1      2", new Vector2(450, 600), Color.White);
+				spriteBatch.DrawString(font, "-----HEALTH-----", new Vector2(550, 600), Color.Red);
+				item.SetSprite(SpriteFactory.GetSprite("fireballdown"));
+				item.SetLocation(new Vector2(450, 650));
 				item.Draw(spriteBatch);
-			}
-			item.SetSprite(SpriteFactory.GetSprite("key"));
-			item.SetLocation(new Vector2(350, 650));
-			item.Draw(spriteBatch);
-			for (int i = 0; i < health; i++)
-			{
-				item.SetSprite(SpriteFactory.GetSprite("heart"));
-				item.SetLocation(new Vector2(550 + 50 * i, 650));
+				if (boomerang)
+				{
+					item.SetSprite(SpriteFactory.GetSprite("boomerang"));
+					item.SetLocation(new Vector2(520, 655));
+					item.Draw(spriteBatch);
+				}
+				item.SetSprite(SpriteFactory.GetSprite("key"));
+				item.SetLocation(new Vector2(350, 650));
 				item.Draw(spriteBatch);
-			}
-			if (map)
-			{
-				item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
-				item.SetLocation(new Vector2(10, 575));
-				item.Draw(spriteBatch);
-			}
-			if (compass)
-            {
-				item2.SetLocation(new Vector2(305, 620));
-				item2.Draw(spriteBatch);
-			}
+				for (int i = 0; i < health; i++)
+				{
+					item.SetSprite(SpriteFactory.GetSprite("heart"));
+					item.SetLocation(new Vector2(550 + 50 * i, 650));
+					item.Draw(spriteBatch);
+				}
+				if (map)
+				{
+					item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
+					item.SetLocation(new Vector2(10, 575));
+					item.Draw(spriteBatch);
+				}
+				if (compass)
+				{
+					item2.SetLocation(new Vector2(305, 620));
+					item2.Draw(spriteBatch);
+				}
 
-			marker.Draw(spriteBatch);
+				marker.Draw(spriteBatch);
+			}
+            else
+            {
+				spriteBatch.DrawString(font, "SCORE: " + score, new Vector2(0, 0), Color.White);
+				spriteBatch.DrawString(font, "HEALTH: ", new Vector2(850, 0), Color.Red);
+				Item item = new Item();
+				for (int i = 0; i < health; i++)
+				{
+					item.SetSprite(SpriteFactory.GetSprite("heart"));
+					item.SetLocation(new Vector2(1000 + 50 * i, 0));
+					item.Draw(spriteBatch);
+				}
+			}
 		}
 	}
 }

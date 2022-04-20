@@ -171,6 +171,7 @@ namespace Sprint5
 			Level level = new Level2(gameObjectManager, boundWidth, boundHeight);
 			level.InitializeRoom();
 			level.loadRoom();
+			Inventory.UpdateLevel(level);
 			return level;
 		}
 
