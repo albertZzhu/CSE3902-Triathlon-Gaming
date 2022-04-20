@@ -3733,7 +3733,7 @@
             <y>450</y>
           </loc>
           <D_texture>bottomgate</D_texture>
-          <neighbor>room10</neighbor>
+          <neighbor>level2</neighbor>
         </D>
         <D>
           <loc>
