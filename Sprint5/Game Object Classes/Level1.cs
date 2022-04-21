@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Sprint5
 {
-    public class Level1
+    public class Level1 : Level
     {
         private Dictionary<int, String> rooms;
         private string futureRoom;
-        public Room room;
+        public IRoom room;
         private string currentRoom;
         private bool pass;
         //not used
@@ -56,6 +56,11 @@ namespace Sprint5
             setLoadLock(true);
         }
 
+        public void setRoom(int i)
+        {
+            this.index = i;
+            loadRoom();
+        }
         public void InitializeRoom()
         {
             room = new Room(rooms[index], gom, boundWidth, boundHeight);
@@ -65,7 +70,7 @@ namespace Sprint5
             setLoadLock(true);
         }
 
-        public Room GetRoom()
+        public IRoom GetRoom()
         {
             return room;
         }
@@ -95,43 +100,19 @@ namespace Sprint5
         {
             this.loadLock = value;
         }
-        /*
-        public void switchPre()
-        {
-            setCheckLock(true);
-            //not used
-            setLoadLock(false);
-            index--;
-            if (index < 1)
-            {
-                index = 16;
-            }
-            //loadRoom();
-            this.futureRoom = rooms[index];
-        }
-
-        public void switchNext()
-        {
-            setCheckLock(true);
-            //not used
-            setLoadLock(false);
-            index++;
-            if (index > 16)
-            {
-                index = 1;
-            }
-            //loadRoom();
-            this.futureRoom = rooms[index];
-        }
-         */
          
          public void SwitchRoom(int doorposition) {
             this.doorlocation = doorposition;
             setCheckLock(true);
             setLoadLock(false);
-            this.index = int.Parse(this.room.GetDoorPair()[doorposition].Value.Substring(4));
-            this.futureRoom = rooms[index];
-         }
+            if (!(this.room.GetDoorPair()[doorposition].Value).Equals("level2")) {
+                this.index = int.Parse(this.room.GetDoorPair()[doorposition].Value.Substring(4));
+                this.futureRoom = rooms[index];
+            } else
+            {
+                this.futureRoom = "level2";
+            }
+        }
          
          
 

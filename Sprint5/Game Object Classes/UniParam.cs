@@ -13,13 +13,13 @@ namespace Sprint5.Game_Object_Classes
         //ItemSelect
         //Inventory?
         private GameObjectManager gom;
-        private Level1 level;
+        private Level level;
         private Game1 game;
         private static UniParam uniparam;
 
         //I cant really remember how static constructors work...
         //you make static methods and those can be accessed!
-        private UniParam(GameObjectManager gameom, Level1 level1, Game1 game1)
+        private UniParam(GameObjectManager gameom, Level level1, Game1 game1)
         {
             gom = gameom;
             level = level1;
@@ -27,7 +27,7 @@ namespace Sprint5.Game_Object_Classes
         }
 
         //but this is an instance method.............
-        public static void Initialize(GameObjectManager gameom, Level1 level1, Game1 game1)
+        public static void Initialize(GameObjectManager gameom, Level level1, Game1 game1)
         {
             uniparam = new UniParam(gameom, level1, game1);
         }

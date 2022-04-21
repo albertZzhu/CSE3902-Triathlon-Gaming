@@ -7,8 +7,8 @@ namespace Sprint5
 	class ResetCom : ICommand
 	{
 		private Player player;
-		private Level1 level;
-		public ResetCom(Level1 level)
+		private Level level;
+		public ResetCom(Level level)
 		{
 			this.level = level;
 		}

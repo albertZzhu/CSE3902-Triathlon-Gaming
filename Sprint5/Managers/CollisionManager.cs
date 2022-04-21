@@ -38,7 +38,7 @@ namespace Sprint5.Collision
 			collisionDict = new CollisionHandlerDict();
 		}
 
-		public void Initialize(string playerName, string enemyName, string projectileName, Level1 level1)
+		public void Initialize(string playerName, string enemyName, string projectileName, Level level1)
 		{
 			collisionDict.Initialize();
 
@@ -82,7 +82,7 @@ namespace Sprint5.Collision
 			projDetect = new ProjectileCollisionDetection(projectileName, collisionDict);
 		}
 
-		public void Update(Level1 level)
+		public void Update(Level level)
 		{
 			playerDetect.Detect(level.GetRoom().GetPlayerObj(), level.GetRoom().GetNPCProjObj(), 
 				level.GetRoom().GetNpcObj(), level.GetRoom().GetBlockObj(), level.GetRoom().GetItemObj());
