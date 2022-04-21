@@ -196,7 +196,7 @@ namespace Sprint5
 			}
             else
             {
-				spriteBatch.DrawString(font, "SCORE: " + score + "\n\nHIGH SCORE: " + hiscore, new Vector2(0, 0), Color.White);
+				spriteBatch.DrawString(font, "SCORE: " + score + "\nHIGH SCORE: " + hiscore, new Vector2(0, 0), Color.White);
 				spriteBatch.DrawString(font, "HEALTH: ", new Vector2(850, 0), Color.Red);
 				Item item = new Item();
 				for (int i = 0; i < health; i++)

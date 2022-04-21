@@ -11,7 +11,7 @@ namespace Sprint5.Collision
 
 		}
 
-		public void Handle(INPC enemy, IProjectile projectile, Side.side side)
+		public void Handle(INPC enemy, IProjectile projectile, SideEnum side)
 		{
 			if (!enemy.isDead())
 			{

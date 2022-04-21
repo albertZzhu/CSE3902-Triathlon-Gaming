@@ -10,9 +10,9 @@ namespace Sprint5
 	{
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
-		private Side.side side;
+		private SideEnum side;
 
-		public Door(String spriteName, Vector2 newLocation, Side.side side)
+		public Door(String spriteName, Vector2 newLocation, SideEnum side)
 		{
 			blockSprite = SpriteFactory.GetSprite(spriteName);
 			location = newLocation;
@@ -34,7 +34,7 @@ namespace Sprint5
 			blockSprite = SpriteFactory.GetSprite(blockTexture);
 		}
 
-		public Side.side DoorSide()
+		public SideEnum DoorSide()
 		{
 			return side;
 		}
