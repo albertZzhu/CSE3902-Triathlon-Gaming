@@ -21,6 +21,7 @@ namespace Sprint5.Collision
 
 		public void Detect(INPC npc, IProjectile[] projectileInRange, IBlock[] blockInRange)
 		{
+			int[] handleList = new int[] { 1, 1, 1, 1 };
 			IBlock[] blockInRangeModified = blockInRange.Skip(1).ToArray();
 
 			foreach (IProjectile p in projectileInRange)
@@ -35,9 +36,37 @@ namespace Sprint5.Collision
 			{
 				if (npc.GetRect().Intersects(b.GetRect()))
 				{
-					blockHandle.Handle(npc, b, Side.side.right);
+					Rectangle result = Rectangle.Intersect(npc.GetRect(), b.GetRect());
+					int playerX = npc.GetRect().X + npc.GetRect().Width / 2;
+					int playerY = npc.GetRect().Y + npc.GetRect().Height / 2;
+					int blockX = b.GetRect().X + b.GetRect().Width / 2;
+					int blockY = b.GetRect().Y + b.GetRect().Height / 2;
+
+					if (result.Width < Math.Max(npc.GetRect().Width, b.GetRect().Width) && result.Height <= (npc.GetRect().Height + b.GetRect().Height))
+					{
+						if (playerX < blockX)
+						{
+							handleList[0] = 0;
+						}
+						else
+						{
+							handleList[1] = 0;
+						}
+					}
+					if (result.Height < Math.Max(npc.GetRect().Height, b.GetRect().Height) && result.Width <= (npc.GetRect().Width + b.GetRect().Width))
+					{
+						if (playerY > blockY)
+						{
+							handleList[2] = 0;
+						}
+						else
+						{
+							handleList[3] = 0;
+						}
+					}
 				}
 			}
+			blockHandle.Handle(npc, handleList);
 		}
 	}
 }

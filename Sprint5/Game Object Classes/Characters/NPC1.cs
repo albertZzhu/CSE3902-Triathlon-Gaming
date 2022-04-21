@@ -31,9 +31,13 @@ namespace Sprint5
 		private bool dead;
 		private double deadClock = 0.0;
         private int spawneffectframecount;
+		private bool canMoveUp = true;
+		private bool canMoveDown = true;
+		private bool canMoveRight = true;
+		private bool canMoveLeft = true;
 
-        //constructor
-        public NPC1(int boundWidth, int boundHeight)
+		//constructor
+		public NPC1(int boundWidth, int boundHeight)
 		{
 			state = new NpcStatementMachine(this);
 			proj = new NpcProjectileSeq();
@@ -56,6 +60,48 @@ namespace Sprint5
 			SetNpc(SpriteFactory.GetSprite("EnemyDeath"));
 		}
 
+		public void moveLock(FacingEnum direction)
+		{
+			switch (direction)
+			{
+				case FacingEnum.RIGHT:
+					canMoveRight = false;
+					break;
+				case FacingEnum.LEFT:
+					canMoveLeft = false;
+					break;
+				case FacingEnum.UP:
+					canMoveUp = false;
+					break;
+				case FacingEnum.DOWN:
+					canMoveDown = false;
+					break;
+			}
+			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
+			{
+				Move((FacingEnum)((int)state.FacingState() % 2 == 0 ? (int)state.FacingState() + 1 : (int)state.FacingState() - 1));
+			}
+		}
+
+		public void moveunLock(FacingEnum direction)
+		{
+			switch (direction)
+			{
+				case FacingEnum.RIGHT:
+					canMoveRight = true;
+					break;
+				case FacingEnum.LEFT:
+					canMoveLeft = true;
+					break;
+				case FacingEnum.UP:
+					canMoveUp = true;
+					break;
+				case FacingEnum.DOWN:
+					canMoveDown = true;
+					break;
+			}
+		}
+
 		//check direction and update location.
 		public void Move(FacingEnum facing)
 		{
@@ -63,41 +109,49 @@ namespace Sprint5
 				switch (facing)
 				{
 					case FacingEnum.RIGHT:
-						state.ChangeFacing(FacingEnum.RIGHT);
-						location = new Vector2(location.X + 1, location.Y);
-						if (location.X + 10 > boundWidth - 20)
+						if (canMoveRight)
 						{
-							location = new Vector2(location.X - 1, location.Y);
-						}
-						break;
-					
-					case FacingEnum.LEFT:
-						state.ChangeFacing(FacingEnum.LEFT);
-						location = new Vector2(location.X - 1, location.Y);
-						if (location.X < 0)
-						{
+							state.ChangeFacing(FacingEnum.RIGHT);
 							location = new Vector2(location.X + 1, location.Y);
+							if (location.X + 10 > boundWidth - 20)
+							{
+								location = new Vector2(location.X - 1, location.Y);
+							}
 						}
 						break;
-
+					case FacingEnum.LEFT:
+						if (canMoveLeft)
+						{
+							state.ChangeFacing(FacingEnum.LEFT);
+							location = new Vector2(location.X - 1, location.Y);
+							if (location.X < 0)
+							{
+								location = new Vector2(location.X + 1, location.Y);
+							}
+						}
+						break;
 					case FacingEnum.UP:
-						state.ChangeFacing(FacingEnum.UP);
-						location = new Vector2(location.X, location.Y - 1);
-						if (location.Y < 0)
+						if (canMoveUp)
 						{
-							location = new Vector2(location.X, location.Y + 1);
-						}
-						break;
-					
-					case FacingEnum.DOWN:
-						state.ChangeFacing(FacingEnum.DOWN);
-						location = new Vector2(location.X, location.Y + 1);
-						if (location.Y + 10 > boundHeight - 20)
-						{
+							state.ChangeFacing(FacingEnum.UP);
 							location = new Vector2(location.X, location.Y - 1);
+							if (location.Y < 0)
+							{
+								location = new Vector2(location.X, location.Y + 1);
+							}
 						}
 						break;
-
+					case FacingEnum.DOWN:
+						if (canMoveDown)
+						{
+							state.ChangeFacing(FacingEnum.DOWN);
+							location = new Vector2(location.X, location.Y + 1);
+							if (location.Y + 10 > boundHeight - 20)
+							{
+								location = new Vector2(location.X, location.Y - 1);
+							}
+						}
+						break;
 					default:
 						break;
 				}

@@ -44,6 +44,7 @@ namespace Sprint5
 			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
 			{
 				Move((FacingEnum)((int)facingState % 2 == 0 ? (int)facingState + 1 : (int)facingState - 1));
+				Move((FacingEnum)((int)facingState % 2 == 0 ? (int)facingState + 1 : (int)facingState - 1));
 			}
 		}
 
