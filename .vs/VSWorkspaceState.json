@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Sprint5",
+    "\\Sprint5\\Collision",
+    "\\Sprint5\\Game Object Classes",
+    "\\Sprint5\\Game Object Classes\\Rooms"
   ],
-  "SelectedNode": "\\Sprint5.sln",
+  "SelectedNode": "\\Sprint5\\Collision\\NPC2ProjectileHandler.cs",
   "PreviewInSolutionExplorer": false
 }

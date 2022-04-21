@@ -14,8 +14,13 @@ namespace Sprint5
 
 		void die();
 
+		void moveLock(FacingEnum direction);
+
+		void moveunLock(FacingEnum direction);
 
 		void GoDamaged();
+
+		void BouncedBack();
 
 		Rectangle GetRect();
 	}
