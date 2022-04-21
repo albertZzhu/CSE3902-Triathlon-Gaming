@@ -17,6 +17,7 @@ namespace Sprint5
 		private int bombs;
 		private int health;
 		private int score;
+		private int hiscore;
 		private bool boomerang;
 		private bool map;
 		private bool compass;
@@ -30,6 +31,7 @@ namespace Sprint5
 			keys = 0;
 			bombs = 0;
 			score = 0;
+			hiscore = 0;
 			health = 5;
 			boomerang = false;
 			map = false;
@@ -123,6 +125,8 @@ namespace Sprint5
 			uniqueInventory.rupees = 0;
 			uniqueInventory.keys = 0;
 			uniqueInventory.bombs = 0;
+			if (uniqueInventory.score > uniqueInventory.hiscore)
+				uniqueInventory.hiscore = uniqueInventory.score;
 			uniqueInventory.score = 0;
 			uniqueInventory.health = 5;
 			uniqueInventory.boomerang = false;
@@ -185,7 +189,7 @@ namespace Sprint5
 			}
             else
             {
-				spriteBatch.DrawString(font, "SCORE: " + score, new Vector2(0, 0), Color.White);
+				spriteBatch.DrawString(font, "SCORE: " + score + "\n\nHIGH SCORE: " + hiscore, new Vector2(0, 0), Color.White);
 				spriteBatch.DrawString(font, "HEALTH: ", new Vector2(850, 0), Color.Red);
 				Item item = new Item();
 				for (int i = 0; i < health; i++)
