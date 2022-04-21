@@ -1562,7 +1562,7 @@
   </room7>
   <room8>
     <type>
-      <blocks num="10">
+      <blocks num="8">
         <B>
           <loc>
             <x>100</x>
@@ -1607,20 +1607,6 @@
         </B>
         <B>
           <loc>
-            <x>200</x>
-            <y>200</y>
-          </loc>
-          <B_texture>block</B_texture>
-        </B>
-        <B>
-          <loc>
-            <x>200</x>
-            <y>300</y>
-          </loc>
-          <B_texture>block</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>550</x>
             <y>200</y>
           </loc>
@@ -1634,7 +1620,22 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
-	  <movable_block num ="0"/>
+	  <movable_block num ="2">
+      <B>
+        <loc>
+          <x>200</x>
+          <y>200</y>
+        </loc>
+        <B_texture>block</B_texture>
+      </B>
+      <B>
+        <loc>
+          <x>200</x>
+          <y>300</y>
+        </loc>
+        <B_texture>block</B_texture>
+      </B>
+    </movable_block>
       <door num="4">
         <D/>
         <D>

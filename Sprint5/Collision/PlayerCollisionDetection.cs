@@ -73,7 +73,7 @@ namespace Sprint5.Collision
 							int[] blockHandleList = new int[] { 1, 1, 1, 1 };
 							foreach (IBlock a in blockInRangeModified)
 							{
-								if (b != a&& b.GetRect().Intersects(a.GetRect()))
+								if (b != a && b.GetRect().Intersects(a.GetRect()))
 								{
 									Rectangle result = Rectangle.Intersect(b.GetRect(), a.GetRect());
 									int block1X = a.GetRect().X + a.GetRect().Width / 2;
