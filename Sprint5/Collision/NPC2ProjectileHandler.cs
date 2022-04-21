@@ -18,6 +18,7 @@ namespace Sprint5.Collision
 				enemy.die();
 				projectile.die();
 				Inventory.AddScore();
+				Inventory.AddHiScore();
 				SoundManager.Instance.PlaySound("EnemyHit");
 			}
 		}
