@@ -25,7 +25,7 @@ namespace Sprint5.Collision
 			foreach (IBlock b in blockInRangeModified)
 			{
 				if ((new Rectangle(projectile.GetRect().X, projectile.GetRect().Y, 20, 20)).Intersects(b.GetRect())&&
-					b.GetType().Equals(typeof(Block)))
+					(b.GetType().Equals(typeof(Block))|| b.GetType().Equals(typeof(MoveableBlock))))
 				{
 					blockHandle.Handle(projectile, b, SideEnum.right);
 				}
