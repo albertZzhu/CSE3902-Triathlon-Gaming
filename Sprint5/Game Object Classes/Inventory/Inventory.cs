@@ -70,6 +70,13 @@ namespace Sprint5
 				uniqueInventory.score+=10;
 		}
 
+		public static void AddHiScore()
+		{
+			if (uniqueInventory.level is Level2)
+				if (uniqueInventory.score > uniqueInventory.hiscore)
+					uniqueInventory.hiscore = uniqueInventory.score;
+		}
+
 		public static void AddKeys()
         {
 			uniqueInventory.keys++;
