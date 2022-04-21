@@ -18,8 +18,24 @@ namespace Sprint5
 			this.player = player;
 		}
 		public void Execute()
-		{
-			player.DistantAttack();
+		{	
+			if (this.player.getFireBall() == 2)
+            {
+				this.player.UnPickupBoomrang();
+				this.player.UnLoadBoomrang();
+				player.GoAttack();
+				player.DistantAttack();
+			} 
+			else if (this.player.getFireBall() == 0)
+            {
+				this.player.UnPickupBoomrang();
+				this.player.UnLoadBoomrang();
+				player.DistantAttack();
+			}
+			else if(this.player.PickupBoomrang())
+			{
+				this.player.LoadBoomrang();
+			}
 		}
     }
 }

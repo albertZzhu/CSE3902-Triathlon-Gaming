@@ -100,6 +100,7 @@
 1,2,2,20,wallMasterLeft
 1,2,2,20,wallMasterRight
 1,1,1,1,compass
+8,1,8,5,BoomerangFlying
 
 1,1,1,1,playButton
 1,1,1,1,pauseButton

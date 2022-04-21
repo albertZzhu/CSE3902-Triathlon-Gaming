@@ -8,12 +8,12 @@ namespace Sprint5
 {
 	class ProjectileSeq
 	{
-		private List<Projectile> list;
+		private List<IProjectile> list;
 		float bias = 30;
 		float biasfireball = 16;
 		public ProjectileSeq()
 		{
-			list = new List<Projectile>();
+			list = new List<IProjectile>();
 		}
 
 		public void NewProjectile(Vector2 newLocation, FacingEnum direction, int sprite)
@@ -93,6 +93,10 @@ namespace Sprint5
 			{
 				if (!list[i].isDead())
 				{
+					if (list[i].GetType().Name == "Boomrang")
+					{
+						continue;
+					}
 					list[i].Update(gametime);
 				}
 				else
@@ -104,14 +108,26 @@ namespace Sprint5
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (Projectile p in list)
-			{
+			foreach (IProjectile p in list)
+			{	
+				if(p.GetType().Name == "Boomrang")
+                {
+					continue;
+                }
 				p.Draw(spriteBatch);
 			}
 		}
-		public List<Projectile> GetProjList()
+		public List<IProjectile> GetProjList()
 		{
 			return list;
 		}
+		public void AddBoomerangToList(Boomrang boomrang)
+        {
+			list.Add(boomrang);
+        }
+		public void dequeueBoomerangFromList(Boomrang boomrang)
+        {
+			list.Remove(boomrang);
+        }
 	}
 }
