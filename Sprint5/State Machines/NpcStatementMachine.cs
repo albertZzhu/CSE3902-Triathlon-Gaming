@@ -8,8 +8,9 @@ namespace Sprint5
     {
         private FacingEnum facing = FacingEnum.RIGHT;     //FacingEnum variable, 0 means right, 1 means left, 2 means upward, 3 means downward
                                                   //private bool attack = false;
-        private bool damaged = false;
+        //private bool damaged = false;
         private NPC1 npc;
+        private int health;
 
         public NpcStatementMachine(NPC1 npc)
         {
@@ -23,9 +24,9 @@ namespace Sprint5
 
         public void Damaged()
         {
-            if (damaged == false)
+            if (health > 1)
             {
-                damaged = true;
+                health--;
             }
             else
             {
@@ -40,8 +41,30 @@ namespace Sprint5
 
         public void Update(GameTime gameTime)
         {
-            //have to change FacingEnum to an int here...S
+            //have to change FacingEnum to an int here...Sadge
             npc.SetNpc(SpriteFactory.GetSprite(npc.npcHolder[(int)facing]));
+        }
+
+        public string NPCType()
+        {
+            return npc.npcHolder[(int)facing];
+        }
+
+        public void SetHealth()
+        {
+            if (NPCType().Contains("dragon"))
+            {
+                health = 6;
+            }
+            else
+            {
+                health = 3;
+            }
+        }
+
+        public int GetHealth()
+        {
+            return health;
         }
     }
 }

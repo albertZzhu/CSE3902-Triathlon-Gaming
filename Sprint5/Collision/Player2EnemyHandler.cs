@@ -19,7 +19,7 @@ namespace Sprint5.Collision
 			{
 				if (player.IfAttacking())
 				{
-					enemy.die();
+					enemy.GoDamaged();
 					SoundManager.Instance.PlaySound("EnemyHit");
 				}
 				else

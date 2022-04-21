@@ -15,7 +15,7 @@ namespace Sprint5.Collision
 		{
 			if (!enemy.isDead())
 			{
-				enemy.die();
+				enemy.GoDamaged();
 				projectile.die();
 				Inventory.AddScore();
 				Inventory.AddHiScore();
