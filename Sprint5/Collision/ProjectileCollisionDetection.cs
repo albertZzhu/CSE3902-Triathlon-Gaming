@@ -27,7 +27,7 @@ namespace Sprint5.Collision
 				if ((new Rectangle(projectile.GetRect().X, projectile.GetRect().Y, 20, 20)).Intersects(b.GetRect())&&
 					(b.GetType().Equals(typeof(Block))|| b.GetType().Equals(typeof(MoveableBlock))))
 				{
-					blockHandle.Handle(projectile, b, Side.side.right);
+					blockHandle.Handle(projectile, b, SideEnum.right);
 				}
 			}
 		}

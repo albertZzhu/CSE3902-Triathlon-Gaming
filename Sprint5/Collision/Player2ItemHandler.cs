@@ -10,7 +10,7 @@ namespace Sprint5.Collision
 		{
 		}
 
-		public void Handle(Iplayer player, Iitem item, Side.side side)
+		public void Handle(Iplayer player, Iitem item, SideEnum side)
 		{
 			string type = item.GetItemTexture();
 			if (!item.isDisappear())

@@ -12,14 +12,14 @@ namespace Sprint5.Collision
 			this.resetCommand = resetCommand;
 		}
 
-		public void Handle(Player player, INPC enemy, Side.side side)
+		public void Handle(Player player, INPC enemy, SideEnum side)
 		{
 			resetCommand.ChangePlayer(player);
 			if (!enemy.isDead())
 			{
 				if (player.IfAttacking())
 				{
-					enemy.die();
+					enemy.GoDamaged();
 					SoundManager.Instance.PlaySound("EnemyHit");
 				}
 				else

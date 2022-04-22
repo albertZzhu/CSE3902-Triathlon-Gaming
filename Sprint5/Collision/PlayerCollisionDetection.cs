@@ -41,7 +41,7 @@ namespace Sprint5.Collision
 				if (player.GetRect().Intersects(i.GetRect()))
 				{
 					
-					enemyHandle.Handle(player, i, Side.side.right);
+					enemyHandle.Handle(player, i, SideEnum.right);
 				}
 			}
 
@@ -49,7 +49,7 @@ namespace Sprint5.Collision
 			{
 				if (player.GetRect().Intersects(p.GetRect()))
 				{
-					projectileHandle.Handle(player, p, Side.side.right);
+					projectileHandle.Handle(player, p, SideEnum.right);
 				}
 			}
 
@@ -60,7 +60,7 @@ namespace Sprint5.Collision
 				{
 					if (b.GetType().Equals(typeof(Door)))
 					{
-						doorHandle.Handle(((Door)b).DoorSide());
+						doorHandle.Handle(((Door)b).DoorSide(), (Door)b);
 					}
 					else if (b.GetType().Equals(typeof(Sand)))
 					{
@@ -179,7 +179,7 @@ namespace Sprint5.Collision
 			{
 				if (player.GetRect().Intersects(i.GetRect()))
 				{
-					itemHandle.Handle(player, i, Side.side.right);
+					itemHandle.Handle(player, i, SideEnum.right);
 				}
 			}
 		}

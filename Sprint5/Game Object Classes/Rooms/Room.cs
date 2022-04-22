@@ -141,16 +141,16 @@ namespace Sprint5
                                     switch (i)
                                     {
                                         case 0:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.up), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, SideEnum.up), Dinfo[2].InnerText);
                                             break;
                                         case 1:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.right), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, SideEnum.right), Dinfo[2].InnerText);
                                             break;
                                         case 2:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.down), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, SideEnum.down), Dinfo[2].InnerText);
                                             break;
                                         case 3:
-                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, Side.side.left), Dinfo[2].InnerText);
+                                            this.door[i] = new KeyValuePair<IBlock, String>(new Door(Texture, loc, SideEnum.left), Dinfo[2].InnerText);
                                             break;
                                     }
                                 }

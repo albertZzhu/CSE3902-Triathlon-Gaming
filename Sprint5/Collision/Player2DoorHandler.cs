@@ -20,21 +20,31 @@ namespace Sprint5
 			this.roomDownwardComand = roomDownwardComand;
 		}
 
-		public void Handle(Side.side side)
+		public void Handle(SideEnum side, Door door)
 		{
-			if (side == Side.side.right)
+			if (!door.IsLocked())
 			{
-				roomForwardComand.Execute();
-			}else if(side == Side.side.left)
-			{
-				roomBackCommand.Execute();
-			}else if (side == Side.side.up)
-			{
-				roomUpwardComand.Execute();
-			}else if (side == Side.side.down)
-			{
-				roomDownwardComand.Execute();
+				if (side == SideEnum.right)
+				{
+					roomForwardComand.Execute();
+				}
+				else if (side == SideEnum.left)
+				{
+					roomBackCommand.Execute();
+				}
+				else if (side == SideEnum.up)
+				{
+					roomUpwardComand.Execute();
+				}
+				else if (side == SideEnum.down)
+				{
+					roomDownwardComand.Execute();
+				}
 			}
+            else
+            {
+				door.UnlockDoor();
+            }
 		}
 	}
 }

@@ -28,7 +28,7 @@ namespace Sprint5.Collision
 			{
 				if (npc.GetRect().Intersects(p.GetRect()))
 				{
-					projectileHandle.Handle(npc, p, Side.side.right);
+					projectileHandle.Handle(npc, p, SideEnum.right);
 				}
 			}
 			//if (!npc.GetType().Equals(typeof(NPCwithAstar)))

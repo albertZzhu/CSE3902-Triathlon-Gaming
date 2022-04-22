@@ -12,7 +12,7 @@ namespace Sprint5.Collision
 			this.resetCommand = resetCommand;
 		}
 
-		public void Handle(Iplayer player, IProjectile projectile, Side.side side)
+		public void Handle(Iplayer player, IProjectile projectile, SideEnum side)
 		{
 			if (!projectile.isDead())
 			{

@@ -11,7 +11,7 @@ namespace Sprint5.Collision
 
 		}
 
-		public void Handle(IProjectile projectile, IBlock block, Side.side side)
+		public void Handle(IProjectile projectile, IBlock block, SideEnum side)
 		{
 			projectile.die();
 		}

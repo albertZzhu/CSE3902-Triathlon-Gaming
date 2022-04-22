@@ -4,14 +4,11 @@ using System.Text;
 
 namespace Sprint5
 {
-	public class Side
+	public enum SideEnum
 	{
-		public enum side
-		{
 			left,
 			right,
 			up,
 			down,
-		};
-	}
+	};
 }

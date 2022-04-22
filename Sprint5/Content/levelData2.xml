@@ -941,7 +941,7 @@
             <x>700</x>
             <y>225</y>
           </loc>
-          <D_texture>rightgate</D_texture>
+          <D_texture>lockeddoor</D_texture>
           <neighbor>room5</neighbor>
         </D>
         <D>
