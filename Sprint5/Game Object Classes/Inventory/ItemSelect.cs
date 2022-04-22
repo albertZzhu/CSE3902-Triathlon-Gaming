@@ -31,7 +31,7 @@ namespace Sprint5
         public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
             graphicsDevice.Clear(Color.Black);
-            Inventory.Draw(spriteBatch);
+            //Inventory.Draw(spriteBatch);
             //black background
             //"item select"
             //pictures of items with square cursor (select with WASD)

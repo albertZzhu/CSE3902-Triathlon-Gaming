@@ -161,7 +161,7 @@ namespace Sprint5
             }
 		}
 
-		public static void Draw(SpriteBatch spriteBatch)
+		public void Draw(SpriteBatch spriteBatch)
 		{
 
 			//this will need to be added to the xml file or its own class next sprint

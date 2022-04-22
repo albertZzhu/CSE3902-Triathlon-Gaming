@@ -81,6 +81,7 @@
 1,1,1,1,water13
 1,1,1,1,water31
 1,1,1,1,water51
+1,1,1,1,lockeddoor
 
 1,1,1,1,bladetrap
 1,2,2,20,redGoriyaRight
