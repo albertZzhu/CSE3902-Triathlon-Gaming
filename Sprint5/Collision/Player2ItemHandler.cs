@@ -34,8 +34,6 @@ namespace Sprint5.Collision
 					SoundManager.Instance.WinMusic();
                 }
 			}
-
-			item.Remove();
 		}
 	}
 }

@@ -14,7 +14,5 @@ namespace Sprint5
 		void goDisappear();
 
 		Rectangle GetRect();
-
-		void Remove();
 	}
 }

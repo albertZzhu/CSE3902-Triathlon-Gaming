@@ -68,11 +68,6 @@ namespace Sprint5
             return itemTexture;
         }
 
-        public void Remove()
-        {
-            GameObjectManager.Instance.RemoveOnNextFrame(this);
-        }
-
         public void Update(GameTime gameTime)
         {
             if (!disappear)
