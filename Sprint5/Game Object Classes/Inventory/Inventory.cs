@@ -72,7 +72,10 @@ namespace Sprint5
 		}
 		public static void AddHealth()
 		{
-			uniqueInventory.health++;
+			if (uniqueInventory.health < 5)
+			{
+				uniqueInventory.health++;
+			}
 		}
 
 		public static void SubtractHealth()
