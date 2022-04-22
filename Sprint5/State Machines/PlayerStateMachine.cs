@@ -153,7 +153,7 @@ namespace Sprint5
 				case FacingEnum.UP:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
+						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
@@ -187,7 +187,7 @@ namespace Sprint5
 				case FacingEnum.DOWN:
 					if (attack && damaged)
 					{
-						play.SetSprite(SpriteFactory.GetSprite("back_throw"));
+						play.SetSprite(SpriteFactory.GetSprite("front_throw"));
 						elapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 						attackElapse += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					}
