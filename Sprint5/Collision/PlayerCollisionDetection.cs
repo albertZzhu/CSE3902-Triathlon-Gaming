@@ -60,7 +60,7 @@ namespace Sprint5.Collision
 				{
 					if (b.GetType().Equals(typeof(Door)))
 					{
-						doorHandle.Handle(((Door)b).DoorSide());
+						doorHandle.Handle(((Door)b).DoorSide(), (Door)b);
 					}
 					else if (b.GetType().Equals(typeof(Sand)))
 					{

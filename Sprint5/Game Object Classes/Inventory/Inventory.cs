@@ -82,6 +82,14 @@ namespace Sprint5
 			uniqueInventory.keys++;
         }
 
+		public static void SubtractKeys()
+		{
+			uniqueInventory.keys--;
+		}
+		public static int KeyCount()
+		{
+			return uniqueInventory.keys;
+		}
 		public static void AddBombs()
 		{
 			uniqueInventory.bombs++;

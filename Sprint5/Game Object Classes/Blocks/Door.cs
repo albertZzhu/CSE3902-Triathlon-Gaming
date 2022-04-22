@@ -11,13 +11,30 @@ namespace Sprint5
 		private Vector2 location;
 		private ISprite blockSprite = new Sprite();
 		private SideEnum side;
+		private bool locked;
 
-		public Door(String spriteName, Vector2 newLocation, SideEnum side)
+		public Door(String spriteName, Vector2 newLocation, SideEnum side, bool locked)
 		{
 			blockSprite = SpriteFactory.GetSprite(spriteName);
 			location = newLocation;
 			this.side = side;
+			this.locked = locked;
 		}
+
+		public void UnlockDoor()
+        {
+			if (Inventory.KeyCount() > 0)
+			{
+				Inventory.SubtractKeys();
+				SetBlock("rightgate");
+				locked = false;
+			}
+        }
+
+		public bool IsLocked()
+        {
+			return locked;
+        }
 
 		public void SetLocation(Vector2 newLocation)
 		{
