@@ -307,6 +307,7 @@ namespace Sprint5
 				default:
 					break;
 			}
+			next();
 
         }
 		internal List<IProjectile> GetSeqList()
