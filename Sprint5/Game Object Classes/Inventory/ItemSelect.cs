@@ -19,18 +19,19 @@ namespace Sprint5
             //get current items?
         }
 
-        public void OpenMenu(SpriteBatch spriteBatch)
+        public void OpenMenu(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
             //calls pause
             gameControlCom = new GamePauseStartCom(game);
             gameControlCom.Execute();
-            Draw(spriteBatch);
-            gameControlCom.Execute();
+            Draw(spriteBatch, graphicsDevice);
             //user activates a command with a key press (i for inventory, maybe) to call this method
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
+            graphicsDevice.Clear(Color.Black);
+            Inventory.Draw(spriteBatch);
             //black background
             //"item select"
             //pictures of items with square cursor (select with WASD)

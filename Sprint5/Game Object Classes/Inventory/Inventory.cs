@@ -161,19 +161,19 @@ namespace Sprint5
             }
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public static void Draw(SpriteBatch spriteBatch)
 		{
 
 			//this will need to be added to the xml file or its own class next sprint
-			if(level is Level1) { 
+			if(uniqueInventory.level is Level1) { 
 				Item item = new Item();
-				spriteBatch.DrawString(font, "x" + rupees +"\n\nx" + keys + "\nx" + bombs, new Vector2(400, 600), Color.White);
-				spriteBatch.DrawString(font, "1      2", new Vector2(450, 600), Color.White);
-				spriteBatch.DrawString(font, "-----HEALTH-----", new Vector2(550, 600), Color.Red);
+				spriteBatch.DrawString(uniqueInventory.font, "x" + uniqueInventory.rupees +"\n\nx" + uniqueInventory.keys + "\nx" + uniqueInventory.bombs, new Vector2(400, 600), Color.White);
+				spriteBatch.DrawString(uniqueInventory.font, "1      2", new Vector2(450, 600), Color.White);
+				spriteBatch.DrawString(uniqueInventory.font, "-----HEALTH-----", new Vector2(550, 600), Color.Red);
 				item.SetSprite(SpriteFactory.GetSprite("fireballdown"));
 				item.SetLocation(new Vector2(450, 650));
 				item.Draw(spriteBatch);
-				if (boomerang)
+				if (uniqueInventory.boomerang)
 				{
 					item.SetSprite(SpriteFactory.GetSprite("boomerang"));
 					item.SetLocation(new Vector2(520, 655));
@@ -182,32 +182,32 @@ namespace Sprint5
 				item.SetSprite(SpriteFactory.GetSprite("key"));
 				item.SetLocation(new Vector2(350, 650));
 				item.Draw(spriteBatch);
-				for (int i = 0; i < health; i++)
+				for (int i = 0; i < uniqueInventory.health; i++)
 				{
 					item.SetSprite(SpriteFactory.GetSprite("heart"));
 					item.SetLocation(new Vector2(550 + 50 * i, 650));
 					item.Draw(spriteBatch);
 				}
-				if (map)
+				if (uniqueInventory.map)
 				{
 					item.SetSprite(SpriteFactory.GetSprite("dungeonmap"));
 					item.SetLocation(new Vector2(10, 575));
 					item.Draw(spriteBatch);
 				}
-				if (compass)
+				if (uniqueInventory.compass)
 				{
-					item2.SetLocation(new Vector2(305, 620));
-					item2.Draw(spriteBatch);
+					uniqueInventory.item2.SetLocation(new Vector2(305, 620));
+					uniqueInventory.item2.Draw(spriteBatch);
 				}
 
-				marker.Draw(spriteBatch);
+				uniqueInventory.marker.Draw(spriteBatch);
 			}
             else
             {
-				spriteBatch.DrawString(font, "SCORE: " + score + "\nHIGH SCORE: " + hiscore, new Vector2(0, 0), Color.White);
-				spriteBatch.DrawString(font, "HEALTH: ", new Vector2(850, 0), Color.Red);
+				spriteBatch.DrawString(uniqueInventory.font, "SCORE: " + uniqueInventory.score + "\nHIGH SCORE: " + uniqueInventory.hiscore, new Vector2(0, 0), Color.White);
+				spriteBatch.DrawString(uniqueInventory.font, "HEALTH: ", new Vector2(850, 0), Color.Red);
 				Item item = new Item();
-				for (int i = 0; i < health; i++)
+				for (int i = 0; i < uniqueInventory.health; i++)
 				{
 					item.SetSprite(SpriteFactory.GetSprite("heart"));
 					item.SetLocation(new Vector2(1000 + 50 * i, 0));
