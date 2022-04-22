@@ -40,7 +40,7 @@ namespace Sprint5
         private int boundHeight;
         private List<IProjectile> list;
         private GameObjectManager gom;
-        public Room(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player=null)
+        public Room(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player = null)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
@@ -52,7 +52,7 @@ namespace Sprint5
         private void loadRoom(String room, Player oldPlayer)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("Content\\LevelData2.xml");
+            xml.Load("..\\LevelData2.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
@@ -84,7 +84,8 @@ namespace Sprint5
                                 }
                             }
                         }
-                        else {
+                        else
+                        {
                             this.block = new IBlock[0];
                         }
 
@@ -250,7 +251,8 @@ namespace Sprint5
                                 }
                             }
                         }
-                        else { 
+                        else
+                        {
                             this.item = new Item[0];
                         }
                     }
@@ -318,11 +320,11 @@ namespace Sprint5
                             this.npc = new NPC1[0];
                         }
                     }
-                    if(oldPlayer != null)
-					{
+                    if (oldPlayer != null)
+                    {
                         player = new Player(boundWidth, boundHeight, playerPositionTransition(oldPlayer.GetLocation()), oldPlayer.GetState().playerHealth());
                     }
-					else
+                    else
                     {
                         player = new Player(boundWidth, boundHeight, spawnLocation, spawnHealth);
                     }
@@ -344,7 +346,7 @@ namespace Sprint5
 
 
         public Vector2 playerPositionTransition(Vector2 location)
-		{
+        {
             Vector2 opt;
             if (location.Y < 150)
             {
@@ -361,7 +363,8 @@ namespace Sprint5
             else if (location.X < 200)
             {
                 opt = new Vector2(650, location.Y);
-            }else 
+            }
+            else
             {
                 opt = location;
             }
@@ -380,7 +383,7 @@ namespace Sprint5
                     door1.Add(door[i].Key);
                 }
             }
-                return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(block, door1.ToArray()).ToArray(), water).ToArray(), sand).ToArray(), Mblock).ToArray();
+            return Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(Enumerable.Concat(block, door1.ToArray()).ToArray(), water).ToArray(), sand).ToArray(), Mblock).ToArray();
         }
 
         public IBlock[] getMovableBlock()
@@ -388,19 +391,20 @@ namespace Sprint5
             return this.Mblock;
         }
         public IProjectile[] GetNPCProjObj()
-		{   
-            foreach (NPC1 element in npc) {
+        {
+            foreach (NPC1 element in npc)
+            {
                 list.AddRange(element.GetSeqList());
             }
             return list.ToArray();
-		}
+        }
 
         public Item[] GetItemObj()
         {
             return item;
         }
 
-        public NPC1[] GetNpcObj()
+        public INPC[] GetNpcObj()
         {
             return npc;
         }
@@ -421,6 +425,5 @@ namespace Sprint5
         {
             return player;
         }
-
     }
 }

@@ -13,7 +13,7 @@ namespace Sprint5
         public GameObjectManager gom;
         private int boundWidth;
         private int boundHeight;
-
+        public static bool levelset;
         public Level2(GameObjectManager gom, int boundWidth, int boundHeight)
         {
             this.boundWidth = boundWidth;
@@ -87,5 +87,10 @@ namespace Sprint5
         {
             return true;
         }
+        public static void SetLevel()
+		{
+            Level2.levelset = true;
+            Level1.levelset = false;
+		}
     }
 }

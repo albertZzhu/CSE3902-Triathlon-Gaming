@@ -31,42 +31,44 @@ namespace Sprint5.Collision
 					projectileHandle.Handle(npc, p, Side.side.right);
 				}
 			}
-
-			foreach (IBlock b in blockInRangeModified)
-			{
-				if (npc.GetRect().Intersects(b.GetRect()))
+			//if (!npc.GetType().Equals(typeof(NPCwithAstar)))
+			//{
+				foreach (IBlock b in blockInRangeModified)
 				{
-					Rectangle result = Rectangle.Intersect(npc.GetRect(), b.GetRect());
-					int playerX = npc.GetRect().X + npc.GetRect().Width / 2;
-					int playerY = npc.GetRect().Y + npc.GetRect().Height / 2;
-					int blockX = b.GetRect().X + b.GetRect().Width / 2;
-					int blockY = b.GetRect().Y + b.GetRect().Height / 2;
+					if (npc.GetRect().Intersects(b.GetRect()))
+					{
+						Rectangle result = Rectangle.Intersect(npc.GetRect(), b.GetRect());
+						int playerX = npc.GetRect().X + npc.GetRect().Width / 2;
+						int playerY = npc.GetRect().Y + npc.GetRect().Height / 2;
+						int blockX = b.GetRect().X + b.GetRect().Width / 2;
+						int blockY = b.GetRect().Y + b.GetRect().Height / 2;
 
-					if (result.Width < Math.Max(npc.GetRect().Width, b.GetRect().Width) && result.Height <= (npc.GetRect().Height + b.GetRect().Height))
-					{
-						if (playerX < blockX)
+						if (result.Width < Math.Max(npc.GetRect().Width, b.GetRect().Width) && result.Height <= (npc.GetRect().Height + b.GetRect().Height))
 						{
-							handleList[0] = 0;
+							if (playerX < blockX)
+							{
+								handleList[0] = 0;
+							}
+							else
+							{
+								handleList[1] = 0;
+							}
 						}
-						else
+						if (result.Height < Math.Max(npc.GetRect().Height, b.GetRect().Height) && result.Width <= (npc.GetRect().Width + b.GetRect().Width))
 						{
-							handleList[1] = 0;
-						}
-					}
-					if (result.Height < Math.Max(npc.GetRect().Height, b.GetRect().Height) && result.Width <= (npc.GetRect().Width + b.GetRect().Width))
-					{
-						if (playerY > blockY)
-						{
-							handleList[2] = 0;
-						}
-						else
-						{
-							handleList[3] = 0;
+							if (playerY > blockY)
+							{
+								handleList[2] = 0;
+							}
+							else
+							{
+								handleList[3] = 0;
+							}
 						}
 					}
 				}
-			}
-			blockHandle.Handle(npc, handleList);
+				blockHandle.Handle(npc, handleList);
+			//}
 		}
 	}
 }

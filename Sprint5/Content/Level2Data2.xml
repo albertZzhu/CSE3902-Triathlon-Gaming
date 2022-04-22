@@ -2,7 +2,7 @@
 <level2>
   <room>
     <type>
-      <blocks num="26">
+      <blocks num="25">
         <B>
           <loc>
             <x>100</x>
@@ -96,13 +96,6 @@
         </B>
         <B>
           <loc>
-            <x>450</x>
-            <y>300</y>
-          </loc>
-          <B_texture>block</B_texture>
-        </B>
-        <B>
-          <loc>
             <x>700</x>
             <y>550</y>
           </loc>
@@ -186,11 +179,46 @@
           <B_texture>midrightwall</B_texture>
         </B>
       </blocks>
-      <movable_block num ="0"/>
+      <movable_block num ="1">
+        <B>
+          <loc>
+            <x>450</x>
+            <y>300</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+      </movable_block>
       <water num="0"/>
       <sand num="0"/>
       <items num="0" />
-      <enemies num="0"/>
+      <enemies num="2">
+        <E move="true">
+          <loc>
+            <x>100</x>
+            <y>100</y>
+          </loc>
+          <dir>3</dir>
+          <E_texture>
+            <up>bladetrap</up>
+            <down>bladetrap</down>
+            <right>bladetrap</right>
+            <left>bladetrap</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>100</x>
+            <y>400</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>bladetrap</up>
+            <down>bladetrap</down>
+            <right>bladetrap</right>
+            <left>bladetrap</left>
+          </E_texture>
+        </E>
+      </enemies>
     </type>
   </room>
 </level2>

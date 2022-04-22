@@ -15,5 +15,7 @@ namespace Sprint5
 		public abstract Rectangle GetRect();
 
 		public abstract void Click();
+
+		public abstract void ChangeGameMode();
 	}
 }

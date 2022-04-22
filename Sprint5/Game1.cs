@@ -164,11 +164,12 @@ namespace Sprint5
         {
 			_graphics.PreferredBackBufferWidth = 1600;
 			_graphics.PreferredBackBufferHeight = 1100;
-			this._graphics.IsFullScreen = true;
+			//this._graphics.IsFullScreen = true;
 			_graphics.ApplyChanges();
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
 			Level level = new Level2(gameObjectManager, boundWidth, boundHeight);
+			Level2.SetLevel();
 			level.InitializeRoom();
 			level.loadRoom();
 			Inventory.UpdateLevel(level);
@@ -184,6 +185,7 @@ namespace Sprint5
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
 			Level level = new Level1(gameObjectManager, boundWidth, boundHeight);
+			Level1.SetLevel();
 			level.InitializeRoom();
 			level.setRoom(5);
 			return level;

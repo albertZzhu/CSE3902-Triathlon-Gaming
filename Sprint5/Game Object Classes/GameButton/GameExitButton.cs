@@ -31,6 +31,11 @@ namespace Sprint5
 			
 		}
 
+		public override void ChangeGameMode()
+		{
+			location = new Vector2(1500, 0);
+		}
+
 		public override void Click()
 		{
 			exitCom.Execute();

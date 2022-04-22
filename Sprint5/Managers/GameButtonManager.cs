@@ -49,6 +49,9 @@ namespace Sprint5
 					b.Click();
 					b.Update(gameTime);
 				}
+				if (game.level1.GetType().Equals(typeof(Level2))){
+					b.ChangeGameMode();
+				}
 			}
 		}
 

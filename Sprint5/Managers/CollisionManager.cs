@@ -87,7 +87,7 @@ namespace Sprint5.Collision
 			playerDetect.Detect(level.GetRoom().GetPlayerObj(), level.GetRoom().GetNPCProjObj(), 
 				level.GetRoom().GetNpcObj(), level.GetRoom().GetBlockObj(), level.GetRoom().GetItemObj());
 
-			foreach (NPC1 npc in level.GetRoom().GetNpcObj())
+			foreach (INPC npc in level.GetRoom().GetNpcObj())
 			{
 				npcDetect.Detect(npc, level.GetRoom().GetPlayerObj().GetSeqList().ToArray(), level.GetRoom().GetBlockObj());
 			}

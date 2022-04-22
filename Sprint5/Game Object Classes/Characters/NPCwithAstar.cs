@@ -1,14 +1,15 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Sprint5.State_Machines;
-using Sprint5;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using Sprint5.AstarPathFinder;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
+
 
 namespace Sprint5
 {
-    public class NPC1 : INPC
+	class NPCwithAstar : INPC
 	{
 		private int boundWidth;//Get the width of the current window so the figure can go back when hit the boundary
 		private int boundHeight;//Get the height of the current window so the figure can go back when hit the boundary
@@ -23,21 +24,23 @@ namespace Sprint5
 		private float timer, timespan;
 		public List<string> npcHolder;
 		private List<string> fireballHolder;
-		private List<KeyValuePair<Vector2, int>> route;
+		private List<FacingEnum> route;
 		private Vector2 nextpos;
 		private FacingEnum nextface;
 		private FacingEnum dragonuse;
 		private int routesCounter;
 		private bool dead;
 		private double deadClock = 0.0;
-        private int spawneffectframecount;
+		private int spawneffectframecount;
 		private bool canMoveUp = true;
 		private bool canMoveDown = true;
 		private bool canMoveRight = true;
 		private bool canMoveLeft = true;
-
+		private IBlock[] wall;
+		private Iplayer localPlayer;
+		private PathFinder pathFinder;
 		//constructor
-		public NPC1(int boundWidth, int boundHeight)
+		public NPCwithAstar(int boundWidth, int boundHeight, Iplayer player,IBlock[] block)
 		{
 			state = new NpcStatementMachine(this);
 			proj = new NpcProjectileSeq();
@@ -47,6 +50,24 @@ namespace Sprint5
 			dead = false;
 			spawn = SpriteFactory.GetSprite("animatedDamage");
 			this.spawneffectframecount = 0;
+
+			this.wall = Removewalls(block.Skip(5).ToArray());
+			this.localPlayer = player;
+			this.pathFinder = new PathFinder();
+		}
+
+		private IBlock[] Removewalls(IBlock[] block)
+		{
+			List<IBlock> opt = new List<IBlock>();
+			foreach(IBlock b in block)
+			{
+				if (b.GetType().Equals(typeof(MoveableBlock))||
+					b.GetType().Equals(typeof(Block)))
+				{
+					opt.Add(b);
+				}
+			}
+			return opt.ToArray();
 		}
 
 		public bool isDead()
@@ -105,7 +126,8 @@ namespace Sprint5
 		//check direction and update location.
 		public void Move(FacingEnum facing)
 		{
-			if(movebool) {
+			if (movebool)
+			{
 				switch (facing)
 				{
 					case FacingEnum.RIGHT:
@@ -155,23 +177,10 @@ namespace Sprint5
 					default:
 						break;
 				}
-			} else state.ChangeFacing(facing);
-		}
-		//npc projectile used
-		private void DistantAttack()
-		{
-
-			if (((Sprite)npc).GetFrames()[0].GetBitMap().Name == "dragon")
-			{
-				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse, fireballHolder);
-				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse + 10, fireballHolder);
-				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), dragonuse - 10, fireballHolder);
 			}
-			else
-			{
-				proj.NewProjectile(new Vector2(location.X + 15, location.Y + 15), state.FacingState(), fireballHolder);
-			}
+			else state.ChangeFacing(facing);
 		}
+		
 		//room class used
 		public void SetLocation(Vector2 newLocation)
 		{
@@ -190,9 +199,9 @@ namespace Sprint5
 		}
 		//client used
 		public float GetTimer()
-        {
+		{
 			return timespan;
-        }
+		}
 		//state machine used
 		public void SetNpc(ISprite npc)
 		{
@@ -205,16 +214,16 @@ namespace Sprint5
 		}
 		//room class used
 		public void SetDirection(FacingEnum f)
-        {
+		{
 			direction = f;
 			nextface = f;
 			dragonuse = f;
 		}
 		//client used
 		public FacingEnum GetDirection()
-        {
+		{
 			return direction;
-        }
+		}
 		//room class used
 		public void SetFireBallList(List<string> fireballHolder)
 		{
@@ -222,9 +231,9 @@ namespace Sprint5
 		}
 		//client used
 		public List<string> GetFireBallList()
-        {
+		{
 			return fireballHolder;
-        }
+		}
 		//room class used
 		public void SetNpcList(List<string> npcHolder)
 		{
@@ -236,16 +245,6 @@ namespace Sprint5
 			return npcHolder;
 		}
 		//room class used
-		public void SetFireBool(bool firebool)
-		{
-			this.firebool = firebool;
-		}
-		//client used
-		public bool GetFireBool()
-		{
-			return firebool;
-		}
-		//room class used
 		public void SetMoveBool(bool movebool)
 		{
 			this.movebool = movebool;
@@ -255,18 +254,6 @@ namespace Sprint5
 		{
 			return movebool;
 		}
-		//room class used(optional loaded in xml)
-		public void SetRoute(List<KeyValuePair<Vector2,int>> route)
-		{
-			this.route = route;
-			if (this.route != null)
-			{
-				//hm... direction is being cast to an int here.
-				this.route.Add(new KeyValuePair<Vector2, int>(location, (int)direction));
-			}
-			
-			
-		}
 
 		public Rectangle GetRect()
 		{
@@ -274,11 +261,7 @@ namespace Sprint5
 			return opt;
 		}
 
-		//client used(may obtain null if not loaded in the respective xml block)
-		public List<KeyValuePair<Vector2, int>> GetRoute()
-		{
-			return this.route;
-		}
+
 		//state machine used
 		public void GoDamaged()
 		{
@@ -286,8 +269,9 @@ namespace Sprint5
 		}
 		//boru will use to check the collision, if collision detected change to the opposite moving direction.
 		public void BouncedBack()
-        {
-            switch (direction) {
+		{
+			switch (direction)
+			{
 				case FacingEnum.RIGHT:
 					direction = FacingEnum.LEFT;
 					break;
@@ -304,7 +288,7 @@ namespace Sprint5
 					break;
 			}
 
-        }
+		}
 		internal List<IProjectile> GetSeqList()
 		{
 			if (firebool)
@@ -316,13 +300,16 @@ namespace Sprint5
 		//update func
 		public void Update(GameTime gameTime)
 		{
-			if ( spawneffectframecount >= (((Sprite)spawn).GetFrames()).Count) {
+			if (spawneffectframecount >= (((Sprite)spawn).GetFrames()).Count)
+			{
 				if (!dead)
 				{
-					if (route != null && (location.Equals(nextpos)))
+					this.route = this.pathFinder.Start(location, localPlayer.GetLocation(), wall);
+					routesCounter = 0;
+					if (System.Math.Abs(Vector2.Distance(this.location, this.nextpos)) == 50)
 					{
-						direction = nextface;
 						next();
+						direction = nextface;
 					}
 					Move(direction);
 					state.Update(gameTime);
@@ -332,7 +319,6 @@ namespace Sprint5
 						timer += 1f;
 						if (timer == timespan)
 						{
-							DistantAttack();
 							timer = 0f;
 						}
 					}
@@ -343,8 +329,9 @@ namespace Sprint5
 					deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					npc.Update();
 				}
-			} else
-            {
+			}
+			else
+			{
 				this.spawn.Update();
 				this.dead = false;
 
@@ -364,13 +351,12 @@ namespace Sprint5
 				{
 					npc.Draw(spriteBatch, location);
 				}
-			} else
-            {
+			}
+			else
+			{
 				this.spawn.Draw(spriteBatch, location);
 				spawneffectframecount++;
 			}
-
-
 		}
 
 		public List<string> GetNPCHolder()
@@ -380,14 +366,20 @@ namespace Sprint5
 
 		private void next()
 		{
-			nextpos = route[routesCounter].Key;
-			nextface = (FacingEnum)route[routesCounter].Value;
-			routesCounter++;
-			if (routesCounter == route.Count)
+			if (routesCounter < route.Count)
 			{
-				routesCounter = 0;
+				nextface = (FacingEnum)route[routesCounter];
+				nextpos = this.location;
+				routesCounter++;
 			}
+			
 		}
 
+		public void SetRoute(List<FacingEnum> route)
+		{
+		}
+		public void SetFireBool(bool firebool)
+		{
+		}
 	}
 }

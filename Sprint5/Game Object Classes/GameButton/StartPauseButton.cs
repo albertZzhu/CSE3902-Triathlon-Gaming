@@ -35,6 +35,11 @@ namespace Sprint5
 			else buttonFigure = SpriteFactory.GetSprite("pauseButton");
 		}
 
+		public override void ChangeGameMode()
+		{
+			location = new Vector2(1400, 0);
+		}
+
 		public override void Click()
 		{
 			isStopped = !isStopped;

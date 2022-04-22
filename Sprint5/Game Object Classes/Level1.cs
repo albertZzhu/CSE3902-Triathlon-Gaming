@@ -21,6 +21,7 @@ namespace Sprint5
         private int boundHeight;
         private int index;
         private int doorlocation;
+        public static bool levelset;
         public Level1(GameObjectManager gom, int boundWidth, int boundHeight)
         {
             index = 1;
@@ -130,6 +131,11 @@ namespace Sprint5
         public int GetDoorDoc()
 		{
             return this.doorlocation;
+		}
+        public static void SetLevel()
+		{
+            Level1.levelset = true;
+            Level2.levelset = false;
 		}
     }
 }

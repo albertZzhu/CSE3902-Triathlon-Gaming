@@ -6,8 +6,10 @@ using System.Collections.Generic;
 namespace Sprint5
 {
 
-	interface INPC : IGameObject
+	public interface INPC : IGameObject
 	{
+		List<string> GetNPCHolder();
+
 		bool isDead();
 
 		void Move(FacingEnum facing);
@@ -23,5 +25,7 @@ namespace Sprint5
 		void BouncedBack();
 
 		Rectangle GetRect();
+
+		void SetNpc(ISprite npc);
 	}
 }

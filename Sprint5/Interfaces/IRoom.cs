@@ -12,7 +12,7 @@ namespace Sprint5
         public IBlock[] getMovableBlock();
         public IProjectile[] GetNPCProjObj();
         public Item[] GetItemObj();
-        public NPC1[] GetNpcObj();
+        public INPC[] GetNpcObj();
         public KeyValuePair<IBlock, String>[] GetDoorPair();
         public IBlock[] GetWaterObj();
         public IBlock[] GetSandObj();

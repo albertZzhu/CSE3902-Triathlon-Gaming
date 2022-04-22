@@ -42,9 +42,9 @@ namespace Sprint5
 				blocks.Add(block);
 		}
 
-		public void PopulateEnemies(NPC1[] enemyArr)
+		public void PopulateEnemies(INPC[] enemyArr)
 		{
-			foreach (NPC1 enemy in enemyArr)
+			foreach (INPC enemy in enemyArr)
 				enemies.Add(enemy);
 		}
 		public void PopulateInventory(Inventory inventory)

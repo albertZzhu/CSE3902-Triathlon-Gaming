@@ -27,14 +27,16 @@ namespace Sprint5
         private int spawnHealth = 5;
 
         //npc obj holder variables
-        private NPC1[] npc = new NPC1[0];
+        private NPCwithAstar[] npc;
         //player variables
         //game window edges
         private int boundWidth;
         private int boundHeight;
         private List<IProjectile> list;
         private GameObjectManager gom;
-        public Room2(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player = null)
+		private List<string> Textureholder;
+
+		public Room2(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player = null)
         {
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
@@ -202,6 +204,7 @@ namespace Sprint5
                             this.item = new Item[0];
                         }
                     }
+                    //load player
                     if (oldPlayer != null)
                     {
                         player = new Player(boundWidth, boundHeight, playerPositionTransition(oldPlayer.GetLocation()), oldPlayer.GetState().playerHealth());
@@ -209,6 +212,42 @@ namespace Sprint5
                     else
                     {
                         player = new Player(boundWidth, boundHeight, spawnLocation, spawnHealth);
+                    }
+                    //loading enemys into the npc obj holder.
+                    XmlNode enemy = type.SelectSingleNode("enemies");
+                    if (enemy != null)
+                    {
+                        int i = 0;
+                        int num = int.Parse(enemy.Attributes["num"].Value);
+                        if (num != 0)
+                        {
+                            npc = new NPCwithAstar[num];
+                            XmlNodeList list = enemy.ChildNodes;
+                            foreach (XmlElement element in list)
+                            {
+                                if (!element.IsEmpty)
+                                {
+                                    XmlNodeList Einfo = element.ChildNodes;
+                                    npc[i] = new NPCwithAstar(boundWidth, boundHeight, this.GetPlayerObj(), this.GetBlockObj());
+                                    npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
+                                    npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
+                                    //cast here......
+                                    npc[i].SetDirection((FacingEnum)int.Parse(Einfo[1].InnerText));
+                                    XmlNodeList npctextures = Einfo[2].ChildNodes;
+                                    Textureholder = new List<string>();
+                                    Textureholder.Add(npctextures[2].InnerText);
+                                    Textureholder.Add(npctextures[3].InnerText);
+                                    Textureholder.Add(npctextures[0].InnerText);
+                                    Textureholder.Add(npctextures[1].InnerText);
+                                    npc[i].SetNpcList(Textureholder);
+                                    i++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            this.npc = new NPCwithAstar[0];
+                        }
                     }
                 }
             }
@@ -258,7 +297,7 @@ namespace Sprint5
         {
             return item;
         }
-        public NPC1[] GetNpcObj()
+        public INPC[] GetNpcObj()
         {
             return npc;
         }
@@ -274,19 +313,16 @@ namespace Sprint5
         {
             return player;
         }
-        public IProjectile[] GetNPCProjObj()
-        {
-            foreach (NPC1 element in npc)
-            {
-                list.AddRange(element.GetSeqList());
-            }
-            return list.ToArray();
-        }
 
         //not used
         public KeyValuePair<IBlock, String>[] GetDoorPair()
         {
             return null;
         }
-    }
+
+		public IProjectile[] GetNPCProjObj()
+		{
+            return new IProjectile[0];
+		}
+	}
 }
