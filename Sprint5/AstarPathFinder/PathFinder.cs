@@ -146,7 +146,7 @@ namespace Sprint5.AstarPathFinder
 
 		private bool isValid(Node point)
 		{
-			if (point.x < 0 || point.y < 0 || point.x > 11 || point.y > 6)
+			if (point.x < 0 || point.y < 0 || point.x > 27 || point.y > 17)
 			{
 				return false;
 			}
