@@ -67,6 +67,7 @@ namespace Sprint5
         {
             return itemTexture;
         }
+
         public void Update(GameTime gameTime)
         {
             if (!disappear)

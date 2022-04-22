@@ -244,10 +244,17 @@ namespace Sprint5
                                     XmlNodeList Iinfo = element.ChildNodes;
                                     loc = new Vector2(int.Parse((Iinfo[0].FirstChild).InnerText), int.Parse((Iinfo[0].LastChild).InnerText));
                                     Texture = Iinfo[1].InnerText;
-                                    this.item[i] = new Item();
-                                    this.item[i].SetLocation(loc);
-                                    this.item[i].SetItem(Texture);
-                                    i++;
+                                    if ((Texture.Equals("map")&& !Inventory.getMapBoolean() )||(Texture.Equals("key")&&!Inventory.getKeyBool())||(Texture.Equals("compass")&&!Inventory.getCompassBoolean())||(Texture.Equals("boomerang")&&!Inventory.getBoomerangBoolean())||(Texture.Equals("itemHeart")&&!Inventory.getAddfitionalHP())||Texture.Equals("triforce"))
+                                    {
+                                        this.item[i] = new Item();
+                                        this.item[i].SetLocation(loc);
+                                        this.item[i].SetItem(Texture);
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        this.item = new Item[0];
+                                    }
                                 }
                             }
                         }
