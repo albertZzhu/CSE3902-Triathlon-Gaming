@@ -29,6 +29,10 @@ namespace Sprint5
         public void die()
         {
             this.dead = false;
+            if (back)
+            {
+                this.dead = true;
+            }
             /*
             if (this.direction == FacingEnum.RIGHT)
             {

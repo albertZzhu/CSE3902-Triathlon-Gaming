@@ -269,7 +269,7 @@ namespace Sprint5
                                 if (!element.IsEmpty)
                                 {
                                     XmlNodeList Einfo = element.ChildNodes;
-                                    npc[i] = new NPC1(boundWidth, boundHeight);
+                                    npc[i] = new NPC1(boundWidth, boundHeight, this);
                                     npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
                                     npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
                                     //cast here......
@@ -422,5 +422,11 @@ namespace Sprint5
             return player;
         }
 
+        public void AddItem(Item item)
+        {
+            List<Item> arr = this.item.ToList();
+            arr.Add(item);
+            this.item = arr.ToArray();
+        }
     }
 }

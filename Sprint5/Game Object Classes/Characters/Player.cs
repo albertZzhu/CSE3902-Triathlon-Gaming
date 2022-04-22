@@ -201,7 +201,7 @@ namespace Sprint5
 					proj.AddBoomerangToList(this.boomrang);
 				}
 				this.boomrang.Update(gameTime);
-				if (Vector2.Distance(this.GetLocation(),this.boomrang.GetLocation())<=epsilon)
+				if (Vector2.Distance(this.GetLocation(),this.boomrang.GetLocation())<=epsilon || this.boomrang.isDead())
                 {
 					//this.boomrang.GetLocation().Equals(this.GetLocation())
 					proj.dequeueBoomerangFromList(this.boomrang);

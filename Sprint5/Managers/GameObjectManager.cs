@@ -15,7 +15,6 @@ namespace Sprint5
 		private List<IGameObject> blocks = new List<IGameObject>();
 		private List<IGameObject> enemies = new List<IGameObject>();
 		private List<IGameObject> inventories = new List<IGameObject>();
-
 		public void AddLists()
 		{
 			lists.Add(blocks);
@@ -35,7 +34,7 @@ namespace Sprint5
 			foreach(Item item in itemArr)
 				items.Add(item);
 		}
-
+			
 		public void PopulateBlocks(IBlock[] blockArr)
 		{
 			foreach (IBlock block in blockArr)

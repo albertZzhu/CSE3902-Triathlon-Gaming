@@ -17,5 +17,6 @@ namespace Sprint5
         public IBlock[] GetWaterObj();
         public IBlock[] GetSandObj();
         public Player GetPlayerObj();
+        public void AddItem(Item item);
     }
 }

@@ -288,5 +288,12 @@ namespace Sprint5
         {
             return null;
         }
+
+        public void AddItem(Item item)
+        {
+            List<Item> arr = this.item.ToList();
+            arr.Add(item);
+            this.item = arr.ToArray();
+        }
     }
 }

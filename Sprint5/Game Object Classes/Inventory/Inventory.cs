@@ -20,6 +20,7 @@ namespace Sprint5
 		private bool map;
 		private bool compass;
 		private Item item2 = new Item("mapmarker2");
+		
 
 		private MapMarker marker = new MapMarker();
 
