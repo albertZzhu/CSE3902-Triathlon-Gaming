@@ -52,7 +52,7 @@ namespace Sprint5
         private void loadRoom(String room, Player oldPlayer)
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("..\\LevelData2.xml");
+            xml.Load("Content\\LevelData2.xml");
             XmlNode level1 = xml.SelectSingleNode("Level1");
             XmlNode root = level1.SelectSingleNode(room);
             if (root != null)
