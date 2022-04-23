@@ -127,3 +127,7 @@
 1,1,1,1,rightupperwall
 1,1,1,1,topleftwall
 1,1,1,1,toprightwall
+1,1,1,1,toplongwall
+1,1,1,1,botlongwall
+1,1,1,1,rightlongwall
+1,1,1,1,leftlongwall

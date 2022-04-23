@@ -31,11 +31,11 @@ namespace Sprint5.Collision
 					projectileHandle.Handle(npc, p, SideEnum.right);
 				}
 			}
-			//if (!npc.GetType().Equals(typeof(NPCwithAstar)))
-			//{
+			if (!npc.GetType().Equals(typeof(NPCwithAstar)))
+			{
 				foreach (IBlock b in blockInRangeModified)
 				{
-					if (npc.GetRect().Intersects(b.GetRect()))
+					if (npc.GetRect().Intersects(b.GetRect())&&(b.GetType().Equals(typeof(Block))|| b.GetType().Equals(typeof(MoveableBlock))))
 					{
 						Rectangle result = Rectangle.Intersect(npc.GetRect(), b.GetRect());
 						int playerX = npc.GetRect().X + npc.GetRect().Width / 2;
@@ -68,7 +68,7 @@ namespace Sprint5.Collision
 					}
 				}
 				blockHandle.Handle(npc, handleList);
-			//}
+			}
 		}
 	}
 }

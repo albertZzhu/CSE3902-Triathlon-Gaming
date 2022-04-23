@@ -100,7 +100,7 @@ namespace Sprint5
 			}
 			if (!(this.canMoveRight && this.canMoveLeft && this.canMoveUp && this.canMoveDown))
 			{
-				Move((FacingEnum)((int)state.FacingState() % 2 == 0 ? (int)state.FacingState() + 1 : (int)state.FacingState() - 1));
+				direction=((FacingEnum)((int)state.FacingState() % 2 == 0 ? (int)state.FacingState() + 1 : (int)state.FacingState() - 1));
 			}
 		}
 
@@ -304,7 +304,7 @@ namespace Sprint5
 			{
 				if (!dead)
 				{
-					this.route = this.pathFinder.Start(location, localPlayer.GetLocation(), wall);
+					this.route = this.pathFinder.Start(new Vector2(location.X+npc.getSize().X/2, location.Y+ npc.getSize().Y / 2), localPlayer.GetLocation(), wall);
 					routesCounter = 0;
 					if (System.Math.Abs(Vector2.Distance(this.location, this.nextpos)) == 50)
 					{

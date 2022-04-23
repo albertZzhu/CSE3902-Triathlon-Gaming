@@ -18,8 +18,6 @@ namespace Sprint5.Collision
 			{
 				if (handleList[i] == 0)
 				{
-					enemy.BouncedBack();
-
 					enemy.moveLock((FacingEnum)i);
 					//*player.Move(i % 2 == 0 ? i + 1 : i - 1);
 				}
