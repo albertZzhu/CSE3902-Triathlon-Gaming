@@ -2,7 +2,7 @@
 ### This is the Sprint5 stage for the CSE 3902 project.
 
 #### Description
-Our project emulates the first dungeon from the original Legend of Zelda game. At this point, the player (who is reskinned to a custom sprite) can explore each room of the dungeon, attack enemies, and be damaged by them. Switch rooms by walking through doors. The player can die after 6 hits and they have to choose to restart or continue. If the player is able to find the triforce, the game is won and an ending screen is shown, also with quit and restart options. 
+Our project emulates the first dungeon from the original Legend of Zelda game. At this point, the player (who is reskinned to a custom sprite) can explore each room of the dungeon, attack enemies, and be damaged by them. Switch rooms by walking through doors. The player can die after 6 hits and they have to choose to restart or quit. If the player is able to find the triforce, the game is won and an ending screen is shown, also with quit and restart options. 
 
 #### Motivation
 In this sprint, in addition to polishing some existing features, we are adding our unique features, including a brand new level we call "horde mode", implementing A* pathfinding AI, and more. 
