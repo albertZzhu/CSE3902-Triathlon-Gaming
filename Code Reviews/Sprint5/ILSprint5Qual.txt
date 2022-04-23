@@ -1,18 +1,16 @@
 Isaac Lieber
 
-4/8/22
+4/22/22
 
 Sprint 5
 
-GameButtonManager.cs
+SpriteFactory.cs and spriteList.txt
 
-Boru
+Leigh
 
-The way GameButtonManager uses the MouseState might make it much easier to use the MouseController. This
-could be a case of a God Object, where the manager has too much power, since it knows exactly how the mouse works. 
-The MouseController could simply be passed in like the Game is in the constructor to make the handling of location much simpler.
-The update, draw, and initalize methods are very simple and clean, but I think the refactoring of this class using MouseController will make it better.
+The way SpriteFactory creates the sprites is good. The SpriteFactory method is essentially two lines, with additional lines to read the sprites
+from the txt file. I think this makes the code look much better, and also reduces many of the magic numbers and strings, instead including them in a txt doc.
 
-One other thing I noticed about this code is that the list of buttons could likely be included in the GameObjectManager, 
-and we would not necessarily need a ButtonObjectManager (if it is refactored), which would make this duplicated code.
-Since this code also led to commands being moved, I think the refactoring could help organize our code base as well.
+I think one thing that could have been simplified in SpriteFactory is the use of multiple strings throughout. I understand that this ends up making the method more
+readible, but something that could have had less repeated code is a stringbuilder or something of the sort, and then the same object could have been used and parsed
+in order to get each variable the sprite needs to be created.

@@ -1,15 +1,15 @@
 Isaac Lieber
 
-4/8/22
+4/22/22
 
-Sprint 4
+Sprint 5
 
-GameButtonManager.cs
+SpriteFactory.cs and spriteList.txt
 
-Boru
+Leigh
 
 2 minutes
 
-The code is very readable. It contains simple and short methods, as well as being fairly well data driven. I think, as mentioned in the quality review,
-the Update method could still be simpler by using the MouseController and the GameObjectManager. I'm not sure if there was a reason why the buttonManager was created
-separately, but this is something we will discuss. However, for now, the code functions well and is easy to understand, so it can easily be assimilated later.
+The code is very readable. The cleanup of the SpriteFactory Initilization was very clean and shortened this method by quite a few lines.
+I also think the comments in the code help a lot with understanding, and the parsing of ints is great.
+The txt document has good groups of sprites that go together, with the handling of empty lines included in the Factory.
