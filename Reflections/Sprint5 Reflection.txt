@@ -1,3 +1,5 @@
 Sprint 5 included a lot of hard work from our team and the overall quality of the code we are contributing has grown to a higher standard. 
 The team was, unfortunately, low on manpower again as Leigh was ill for a portion of the sprint but we were still able to accomplish our goals and create 
 a substantial end product.
+At first, it seemed we wouldnt be able to implement as many items as we had hoped in this shorter Sprint window, but we ended up making a good push and getting a lot of work done.
+Our team had a great time creating our unique game.
