@@ -18,7 +18,7 @@ namespace Sprint5
 			blockSprite = SpriteFactory.GetSprite(spriteName);
 			location = newLocation;
 			this.side = side;
-			if(spriteName.Equals("rightgate") || spriteName.Equals("leftgate") || spriteName.Equals("topgate") || spriteName.Equals("bottomgate"))
+			if(spriteName.Equals("rightgate") || spriteName.Equals("leftgate") || spriteName.Equals("topgate") || spriteName.Equals("bottomgate")||spriteName.Equals("bottomarch")||spriteName.Equals("toparch"))
 				locked = false;
 			else
 				locked = true;
@@ -26,7 +26,7 @@ namespace Sprint5
 
 		public void UnlockDoor()
         {
-			if (IsLocked() && Inventory.KeyCount() > 0)
+			if (IsLocked() && Inventory.KeyCount() > 10)
 			{
 				Inventory.SubtractKeys();
 				SetBlock("rightgate");

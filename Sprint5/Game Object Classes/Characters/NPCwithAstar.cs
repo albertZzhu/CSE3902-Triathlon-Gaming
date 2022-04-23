@@ -98,8 +98,11 @@ namespace Sprint5
 
 		public void die()
 		{
-			dead = true;
-			SetNpc(SpriteFactory.GetSprite("EnemyDeath"));
+			if (state.GetHealth() <= 1)
+			{
+				dead = true;
+				SetNpc(SpriteFactory.GetSprite("EnemyDeath"));
+			}
 		}
 
 		public void moveLock(FacingEnum direction)
@@ -259,6 +262,7 @@ namespace Sprint5
 		public void SetNpcList(List<string> npcHolder)
 		{
 			this.npcHolder = npcHolder;
+			state.SetHealth();
 		}
 		//client used
 		public List<string> GetNpcList()

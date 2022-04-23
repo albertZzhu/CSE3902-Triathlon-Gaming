@@ -90,7 +90,7 @@ namespace Sprint5
 
 		public static void SubtractKeys()
 		{
-			uniqueInventory.keys--;
+			uniqueInventory.keys = uniqueInventory.keys-10;
 		}
 		public static int KeyCount()
 		{
@@ -240,7 +240,7 @@ namespace Sprint5
 			return uniqueInventory.compass;
         }
 
-		public static bool getAddfitionalHP()
+		public static bool getAddditionalHP()
         {
 			return uniqueInventory.additionalHealth;
         }

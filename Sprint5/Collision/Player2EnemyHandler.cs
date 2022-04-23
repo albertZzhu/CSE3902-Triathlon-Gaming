@@ -20,6 +20,8 @@ namespace Sprint5.Collision
 				if (player.IfAttacking())
 				{
 					enemy.GoDamaged();
+					Inventory.AddScore();
+					Inventory.AddHiScore();
 					SoundManager.Instance.PlaySound("EnemyHit");
 				}
 				else
