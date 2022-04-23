@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Level1>
   <room1>
     <type>
@@ -386,8 +386,8 @@
 		<enemies num="3">
 			<E move="true">
 				<loc>
-					<x>450</x>
-					<y>90</y>
+					<x>400</x>
+					<y>100</y>
 				</loc>
 				<dir>1</dir>
 				<E_texture>
@@ -401,7 +401,7 @@
 					<R>
 						<loc>
 							<x>300</x>
-							<y>90</y>
+							<y>100</y>
 						</loc>
 						<dir>3</dir>
 					</R>
@@ -414,7 +414,7 @@
 					</R>
 					<R>
 						<loc>
-							<x>450</x>
+							<x>400</x>
 							<y>190</y>
 						</loc>
 						<dir>2</dir>
@@ -425,7 +425,7 @@
 			<E move="true">
 				<loc>
 					<x>450</x>
-					<y>190</y>
+					<y>200</y>
 				</loc>
 				<dir>1</dir>
 				<E_texture>
@@ -439,28 +439,28 @@
 					<R>
 						<loc>
 							<x>200</x>
-							<y>190</y>
+							<y>200</y>
 						</loc>
 						<dir>3</dir>
 					</R>
 					<R>
 						<loc>
 							<x>200</x>
-							<y>290</y>
+							<y>300</y>
 						</loc>
 						<dir>0</dir>
 					</R>
 					<R>
 						<loc>
 							<x>550</x>
-							<y>290</y>
+							<y>300</y>
 						</loc>
 						<dir>2</dir>
 					</R>
 					<R>
 						<loc>
 							<x>550</x>
-							<y>190</y>
+							<y>200</y>
 						</loc>
 						<dir>1</dir>
 					</R>
@@ -470,7 +470,7 @@
 			<E move="true">
 				<loc>
 					<x>500</x>
-					<y>290</y>
+					<y>300</y>
 				</loc>
 				<dir>0</dir>
 				<E_texture>
@@ -484,35 +484,35 @@
 					<R>
 						<loc>
 							<x>550</x>
-							<y>290</y>
+							<y>300</y>
 						</loc>
 						<dir>2</dir>
 					</R>
 					<R>
 						<loc>
 							<x>550</x>
-							<y>190</y>
+							<y>300</y>
 						</loc>
 						<dir>1</dir>
 					</R>
 					<R>
 						<loc>
 							<x>400</x>
-							<y>190</y>
+							<y>200</y>
 						</loc>
 						<dir>0</dir>
 					</R>
 					<R>
 						<loc>
 							<x>550</x>
-							<y>190</y>
+							<y>200</y>
 						</loc>
 						<dir>3</dir>
 					</R>
 					<R>
 						<loc>
 							<x>550</x>
-							<y>290</y>
+							<y>300</y>
 						</loc>
 						<dir>1</dir>
 					</R>
@@ -723,8 +723,8 @@
 		<enemies num="3">
 			<E move="true">
 				<loc>
-					<x>152</x>
-					<y>138</y>
+					<x>150</x>
+					<y>150</y>
 				</loc>
 				<dir>0</dir>
 				<E_texture>
@@ -737,36 +737,36 @@
 				<routes>
 					<R>
 						<loc>
-							<x>245</x>
-							<y>138</y>
+							<x>250</x>
+							<y>150</y>
 						</loc>
 						<dir>3</dir>
 					</R>
 					<R>
 						<loc>
-							<x>245</x>
-							<y>335</y>
+							<x>250</x>
+							<y>350</y>
 						</loc>
 						<dir>0</dir>
 					</R>
 					<R>
 						<loc>
-							<x>395</x>
-							<y>335</y>
+							<x>400</x>
+							<y>350</y>
 						</loc>
 						<dir>1</dir>
 					</R>
 					<R>
 						<loc>
-							<x>245</x>
-							<y>335</y>
+							<x>250</x>
+							<y>350</y>
 						</loc>
 						<dir>2</dir>
 					</R>
 					<R>
 						<loc>
-							<x>245</x>
-							<y>138</y>
+							<x>250</x>
+							<y>150</y>
 						</loc>
 						<dir>1</dir>
 					</R>
@@ -775,7 +775,7 @@
 			</E>
 			<E move="true">
 				<loc>
-					<x>598</x>
+					<x>600</x>
 					<y>173</y>
 				</loc>
 				<dir>3</dir>
@@ -789,7 +789,7 @@
 				<routes>
 					<R>
 						<loc>
-							<x>598</x>
+							<x>600</x>
 							<y>336</y>
 						</loc>
 						<dir>2</dir>
@@ -799,8 +799,8 @@
 			</E>
 			<E move="true">
 				<loc>
-					<x>348</x>
-					<y>136</y>
+					<x>350</x>
+					<y>150</y>
 				</loc>
 				<dir>0</dir>
 				<E_texture>
@@ -813,22 +813,22 @@
 				<routes>
 					<R>
 						<loc>
-							<x>497</x>
-							<y>136</y>
+							<x>500</x>
+							<y>150</y>
 						</loc>
 						<dir>3</dir>
 					</R>
 					<R>
 						<loc>
-							<x>497</x>
-							<y>336</y>
+							<x>500</x>
+							<y>300</y>
 						</loc>
 						<dir>2</dir>
 					</R>
 					<R>
 						<loc>
-							<x>497</x>
-							<y>136</y>
+							<x>500</x>
+							<y>150</y>
 						</loc>
 						<dir>1</dir>
 					</R>
@@ -941,7 +941,7 @@
             <x>700</x>
             <y>225</y>
           </loc>
-          <D_texture>lockeddoor</D_texture>
+          <D_texture>rightgate</D_texture>
           <neighbor>room5</neighbor>
         </D>
         <D>
@@ -1439,8 +1439,8 @@
       <enemies num="5">
         <E move="true">
           <loc>
-            <x>211</x>
-            <y>107</y>
+            <x>200</x>
+            <y>100</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -1453,8 +1453,8 @@
           <routes>
             <R>
               <loc>
-                <x>608</x>
-                <y>107</y>
+                <x>600</x>
+                <y>100</y>
               </loc>
               <dir>1</dir>
             </R>
@@ -1463,8 +1463,8 @@
         </E>
         <E move="true">
           <loc>
-            <x>587</x>
-            <y>107</y>
+            <x>620</x>
+            <y>100</y>
           </loc>
           <dir>1</dir>
           <E_texture>
@@ -1477,8 +1477,8 @@
           <routes>
             <R>
               <loc>
-                <x>148</x>
-                <y>107</y>
+                <x>200</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
@@ -1487,8 +1487,8 @@
         </E>
         <E move="true">
           <loc>
-            <x>309</x>
-            <y>209</y>
+            <x>300</x>
+            <y>200</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -1501,8 +1501,8 @@
           <routes>
             <R>
               <loc>
-                <x>409</x>
-                <y>209</y>
+                <x>400</x>
+                <y>200</y>
               </loc>
               <dir>1</dir>
             </R>
@@ -1511,8 +1511,8 @@
         </E>
         <E move="true">
           <loc>
-            <x>498</x>
-            <y>220</y>
+            <x>500</x>
+            <y>200</y>
           </loc>
           <dir>3</dir>
           <E_texture>
@@ -1525,8 +1525,8 @@
           <routes>
             <R>
               <loc>
-                <x>498</x>
-                <y>313</y>
+                <x>500</x>
+                <y>350</y>
               </loc>
               <dir>2</dir>
             </R>
@@ -1535,8 +1535,8 @@
         </E>
         <E move="true">
           <loc>
-            <x>261</x>
-            <y>358</y>
+            <x>300</x>
+            <y>400</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -1549,8 +1549,8 @@
           <routes>
             <R>
               <loc>
-                <x>501</x>
-                <y>358</y>
+                <x>500</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
@@ -1562,7 +1562,7 @@
   </room7>
   <room8>
     <type>
-      <blocks num="8">
+      <blocks num="10">
         <B>
           <loc>
             <x>100</x>
@@ -1607,6 +1607,20 @@
         </B>
         <B>
           <loc>
+            <x>200</x>
+            <y>200</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>200</x>
+            <y>300</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
             <x>550</x>
             <y>200</y>
           </loc>
@@ -1620,22 +1634,7 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
-	  <movable_block num ="2">
-      <B>
-        <loc>
-          <x>200</x>
-          <y>200</y>
-        </loc>
-        <B_texture>block</B_texture>
-      </B>
-      <B>
-        <loc>
-          <x>200</x>
-          <y>300</y>
-        </loc>
-        <B_texture>block</B_texture>
-      </B>
-    </movable_block>
+	  <movable_block num ="0"/>
       <door num="4">
         <D/>
         <D>
@@ -1677,8 +1676,8 @@
       <enemies num="3">
         <E move="true">
           <loc>
-            <x>551</x>
-            <y>90</y>
+            <x>550</x>
+            <y>100</y>
           </loc>
           <dir>1</dir>
           <E_texture>
@@ -1691,29 +1690,29 @@
           <routes>
             <R>
               <loc>
-                <x>351</x>
-                <y>90</y>
+                <x>350</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>351</x>
-                <y>242</y>
+                <x>350</x>
+                <y>250</y>
               </loc>
               <dir>0</dir>
             </R>
             <R>
               <loc>
-                <x>482</x>
-                <y>242</y>
+                <x>500</x>
+                <y>250</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>482</x>
-                <y>90</y>
+                <x>500</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
@@ -1965,7 +1964,7 @@
         <E move="true">
           <loc>
             <x>299</x>
-            <y>90</y>
+            <y>100</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -1978,29 +1977,29 @@
           <routes>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
@@ -2010,7 +2009,7 @@
         <E move="true">
           <loc>
             <x>317</x>
-            <y>90</y>
+            <y>100</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -2023,29 +2022,29 @@
           <routes>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
@@ -2055,7 +2054,7 @@
         <E move="true">
           <loc>
             <x>581</x>
-            <y>90</y>
+            <y>100</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -2068,29 +2067,29 @@
           <routes>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
@@ -2100,7 +2099,7 @@
         <E move="true">
           <loc>
             <x>621</x>
-            <y>90</y>
+            <y>100</y>
           </loc>
           <dir>0</dir>
           <E_texture>
@@ -2113,29 +2112,29 @@
           <routes>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
@@ -2144,7 +2143,7 @@
         </E>
         <E move="true">
           <loc>
-            <x>90</x>
+            <x>100</x>
             <y>245</y>
           </loc>
           <dir>2</dir>
@@ -2158,29 +2157,29 @@
           <routes>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
@@ -2189,7 +2188,7 @@
         </E>
         <E move="true">
           <loc>
-            <x>90</x>
+            <x>100</x>
             <y>360</y>
           </loc>
           <dir>2</dir>
@@ -2203,29 +2202,29 @@
           <routes>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
@@ -2234,7 +2233,7 @@
         </E>
         <E move="true">
           <loc>
-            <x>665</x>
+            <x>650</x>
             <y>360</y>
           </loc>
           <dir>3</dir>
@@ -2248,29 +2247,29 @@
           <routes>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
@@ -2279,7 +2278,7 @@
         </E>
         <E move="true">
           <loc>
-            <x>665</x>
+            <x>650</x>
             <y>254</y>
           </loc>
           <dir>3</dir>
@@ -2293,29 +2292,29 @@
           <routes>
             <R>
               <loc>
-                <x>665</x>
-                <y>410</y>
+                <x>650</x>
+                <y>400</y>
               </loc>
               <dir>1</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>410</y>
+                <x>100</x>
+                <y>400</y>
               </loc>
               <dir>2</dir>
             </R>
             <R>
               <loc>
-                <x>90</x>
-                <y>90</y>
+                <x>100</x>
+                <y>100</y>
               </loc>
               <dir>0</dir>
             </R>
             <R>
               <loc>
-                <x>665</x>
-                <y>90</y>
+                <x>650</x>
+                <y>100</y>
               </loc>
               <dir>3</dir>
             </R>
@@ -2977,7 +2976,7 @@
           <I_texture>compass</I_texture>
         </I>
       </items>
-      <enemies num="8">
+    <enemies num="8">
         <E move="true">
             <loc>
               <x>250</x>
@@ -3124,7 +3123,7 @@
                   <x>400</x>
                   <y>300</y>
                 </loc>
-                <dir>0000</dir>
+                <dir>0</dir>
               </R>
             </routes>
             <timer/>
@@ -3169,7 +3168,7 @@
         </E>
         <E move="true">
           <loc>
-              <x>700</x>
+              <x>600</x>
               <y>100</y>
           </loc>
             <dir>3</dir>
@@ -3183,7 +3182,7 @@
             <routes>
               <R>
                 <loc>
-                  <x>700</x>
+                  <x>600</x>
                   <y>400</y>
                 </loc>
                 <dir>2</dir>
@@ -3193,7 +3192,7 @@
         </E>
         <E move="true">
           <loc>
-              <x>700</x>
+              <x>600</x>
               <y>400</y>
           </loc>
             <dir>2</dir>
@@ -3207,7 +3206,7 @@
             <routes>
               <R>
                 <loc>
-                  <x>700</x>
+                  <x>600</x>
                   <y>100</y>
                 </loc>
                 <dir>3</dir>
@@ -3217,7 +3216,7 @@
         </E>
         <E move="false">
           <loc>
-              <x>710</x>
+              <x>600</x>
               <y>250</y>
           </loc>
             <dir>2</dir>
@@ -3231,7 +3230,7 @@
             <routes/>
             <timer/>
         </E>
-      </enemies>
+    </enemies>
     </type>
   </room12>
   <room13>

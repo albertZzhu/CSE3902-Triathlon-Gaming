@@ -36,7 +36,7 @@
             <x>100</x>
             <y>1000</y>
           </loc>
-          <B_texture>bottomlongwall</B_texture>
+          <B_texture>botlongwall</B_texture>
         </B>
         <B>
           <loc>
@@ -249,7 +249,7 @@
           <B_texture>block</B_texture>
         </B>
       </blocks>
-      <movable_block num ="1">
+      <movable_block num ="12">
         <B>
           <loc>
             <x>450</x>
@@ -257,11 +257,88 @@
           </loc>
           <B_texture>block</B_texture>
         </B>
+        <B>
+          <loc>
+            <x>250</x>
+            <y>950</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>300</x>
+            <y>750</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>350</x>
+            <y>950</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>250</x>
+            <y>700</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>250</x>
+            <y>750</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>600</x>
+            <y>800</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>400</x>
+            <y>800</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>400</x>
+            <y>850</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>350</x>
+            <y>850</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>140</x>
+            <y>800</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
+        <B>
+          <loc>
+            <x>100</x>
+            <y>700</y>
+          </loc>
+          <B_texture>block</B_texture>
+        </B>
       </movable_block>
       <water num="0"/>
       <sand num="0"/>
       <items num="0" />
-      <enemies num="2">
+      <enemies num="17">
         <E move="true">
           <loc>
             <x>100</x>
@@ -286,6 +363,201 @@
             <down>bladetrap</down>
             <right>bladetrap</right>
             <left>bladetrap</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>166</x>
+            <y>173</y>
+          </loc>
+          <dir>3</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>781</x>
+            <y>293</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>1139</x>
+            <y>669</y>
+          </loc>
+          <dir>1</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>687</x>
+            <y>313</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>687</x>
+            <y>510</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>687</x>
+            <y>609</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>890</x>
+            <y>317</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>890</x>
+            <y>427</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>890</x>
+            <y>539</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>stalfos</up>
+            <down>stalfos</down>
+            <right>stalfos</right>
+            <left>stalfos</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>357</x>
+            <y>159</y>
+          </loc>
+          <dir>0</dir>
+          <E_texture>
+            <up>blueGem</up>
+            <down>blueGem</down>
+            <right>blueGem</right>
+            <left>blueGem</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>1260</x>
+            <y>359</y>
+          </loc>
+          <dir>0</dir>
+          <E_texture>
+            <up>blueGem</up>
+            <down>blueGem</down>
+            <right>blueGem</right>
+            <left>blueGem</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>978</x>
+            <y>395</y>
+          </loc>
+          <dir>0</dir>
+          <E_texture>
+            <up>blueGem</up>
+            <down>blueGem</down>
+            <right>blueGem</right>
+            <left>blueGem</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>876</x>
+            <y>700</y>
+          </loc>
+          <dir>2</dir>
+          <E_texture>
+            <up>blueGem</up>
+            <down>blueGem</down>
+            <right>blueGem</right>
+            <left>blueGem</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>876</x>
+            <y>931</y>
+          </loc>
+          <dir>3</dir>
+          <E_texture>
+            <up>blueGem</up>
+            <down>blueGem</down>
+            <right>blueGem</right>
+            <left>blueGem</left>
+          </E_texture>
+        </E>
+        <E move="true">
+          <loc>
+            <x>1000</x>
+            <y>282</y>
+          </loc>
+          <dir>1</dir>
+          <E_texture>
+            <up>blueGem</up>
+            <down>blueGem</down>
+            <right>blueGem</right>
+            <left>blueGem</left>
           </E_texture>
         </E>
       </enemies>

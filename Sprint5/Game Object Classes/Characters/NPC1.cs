@@ -323,7 +323,6 @@ namespace Sprint5
 					break;
 			}
 			next();
-
         }
 		internal List<IProjectile> GetSeqList()
 		{

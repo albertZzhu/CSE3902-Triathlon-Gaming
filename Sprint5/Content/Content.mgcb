@@ -13,9 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../../../Downloads/Level2Data2.xml
-/copy:../../../../../../Downloads/Level2Data2.xml;Level2Data2.xml
-
 #begin animatedDamage.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -982,6 +979,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:leftwall11.png
+
+#begin Level2Data2.xml
+/copy:Level2Data2.xml
 
 #begin Level2Data2.xml
 /copy:Level2Data2.xml
