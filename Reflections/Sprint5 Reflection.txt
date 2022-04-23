@@ -1,5 +1,3 @@
-Sprint 4 was a weird one for our team, since we lost a member. Less manpower, combined with not having class for a week led us to be slightly behind in our plans, leading to a backlog for this sprint.
-
-Even though last sprint we talked about doing better with merging code, that is something we will still need to work on as we finish the semester. I believe our team needs to think of every file created or changed as a task, just so that we can have more consistent merges, even if the “task” itself is not fully fleshed out.
-
-This sprint, we used a different planning feature, Microsoft Planner, which worked better for us, since there are obvious options for dates, members assigned, and if the task is in progress/finished.
+Sprint 5 included a lot of hard work from our team and the overall quality of the code we are contributing has grown to a higher standard. 
+The team was, unfortunately, low on manpower again as Leigh was ill for a portion of the sprint but we were still able to accomplish our goals and create 
+a substantial end product.
