@@ -247,7 +247,7 @@
 /processorParam:TextureFormat=Color
 /build:BoomerangFlying.png
 
-#begin BoomerangFlying.png
+#begin botlongwall.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -257,7 +257,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:BoomerangFlying.png
+/build:botlongwall.png
 
 #begin bottomarch.png
 /importer:TextureImporter
@@ -908,6 +908,30 @@
 /processorParam:TextureFormat=Color
 /build:leftgate.png
 
+#begin leftlongwall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:leftlongwall.png
+
+#begin leftlongwall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:leftlongwall.png
+
 #begin leftlowerwall.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -967,6 +991,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:leftwall11.png
+
+#begin Level2Data2.xml
+/copy:Level2Data2.xml
 
 #begin levelData2.xml
 /copy:levelData2.xml
@@ -1252,6 +1279,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:rightgate.png
+
+#begin rightlongwall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:rightlongwall.png
+
+#begin rightlongwall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:rightlongwall.png
 
 #begin rightStatue.png
 /importer:TextureImporter
@@ -1651,6 +1702,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:topleftwall.png
+
+#begin toplongwall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:toplongwall.png
 
 #begin toprightwall.png
 /importer:TextureImporter

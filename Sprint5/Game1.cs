@@ -29,6 +29,8 @@ namespace Sprint5
 		public Level level1;
 		private Win WinState;
 		private Lose LoseState;
+		//remove later
+		//private int x, y;
 
 		public Game1()
 		{
@@ -164,7 +166,7 @@ namespace Sprint5
         {
 			_graphics.PreferredBackBufferWidth = 1600;
 			_graphics.PreferredBackBufferHeight = 1100;
-			this._graphics.IsFullScreen = true;
+			//this._graphics.IsFullScreen = true;
 			_graphics.ApplyChanges();
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
