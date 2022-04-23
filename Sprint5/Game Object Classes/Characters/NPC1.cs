@@ -31,14 +31,19 @@ namespace Sprint5
 		private bool dead;
 		private double deadClock = 0.0;
         private int spawneffectframecount;
+		private Item[] itemdropped;
+		private IRoom room;
+        private int dropornot;
+        private int whichone;
 		private bool canMoveUp = true;
 		private bool canMoveDown = true;
 		private bool canMoveRight = true;
 		private bool canMoveLeft = true;
 
-		//constructor
-		public NPC1(int boundWidth, int boundHeight)
+        //constructor
+        public NPC1(int boundWidth, int boundHeight, IRoom room)
 		{
+			this.room = room;
 			state = new NpcStatementMachine(this);
 			proj = new NpcProjectileSeq();
 			this.boundWidth = boundWidth;
@@ -47,8 +52,18 @@ namespace Sprint5
 			dead = false;
 			spawn = SpriteFactory.GetSprite("animatedDamage");
 			this.spawneffectframecount = 0;
+			this.initializeItemDropped();
 		}
 
+		private void initializeItemDropped()
+        {
+			this.itemdropped = new Item[2];
+			this.itemdropped[0] = new Item("key");
+			this.itemdropped[1] = new Item("itemHeart");
+			Random rand = new Random();
+			dropornot = rand.Next(0, 2);
+			whichone = rand.Next(0, 2);
+		}
 		public bool isDead()
 		{
 			return dead;
@@ -347,6 +362,16 @@ namespace Sprint5
 				{
 					deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					npc.Update();
+				} else if(dead)
+                {
+					if (dropornot == 1) {
+						this.room.AddItem(this.itemdropped[whichone]);
+						this.itemdropped[whichone].SetLocation(this.location);
+						if (!this.itemdropped[whichone].isDisappear())
+						{
+							this.itemdropped[whichone].Update(gameTime);
+						}
+					}
 				}
 			} else
             {
@@ -368,6 +393,15 @@ namespace Sprint5
 				else if (deadClock < 1f)
 				{
 					npc.Draw(spriteBatch, location);
+				} else if(dead)
+                {	
+					if (this.dropornot == 1) {
+						if (!this.itemdropped[whichone].isDisappear())
+						{
+							this.itemdropped[whichone].Draw(spriteBatch);
+						}
+					}
+
 				}
 			} else
             {

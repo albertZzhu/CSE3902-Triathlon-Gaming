@@ -47,7 +47,7 @@ namespace Sprint5
 			foreach(Item item in itemArr)
 				items.Add(item);
 		}
-
+			
 		public void PopulateBlocks(IBlock[] blockArr)
 		{
 			foreach (IBlock block in blockArr)

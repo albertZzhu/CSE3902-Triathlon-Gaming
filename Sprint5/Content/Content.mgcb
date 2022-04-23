@@ -983,6 +983,9 @@
 /processorParam:TextureFormat=Color
 /build:leftwall11.png
 
+#begin Level2Data2.xml
+/copy:Level2Data2.xml
+
 #begin levelData2.xml
 /copy:levelData2.xml
 

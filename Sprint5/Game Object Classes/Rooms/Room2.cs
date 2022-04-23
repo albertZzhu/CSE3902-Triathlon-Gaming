@@ -320,9 +320,11 @@ namespace Sprint5
             return null;
         }
 
-		public IProjectile[] GetNPCProjObj()
-		{
-            return new IProjectile[0];
-		}
-	}
+        public void AddItem(Item item)
+        {
+            List<Item> arr = this.item.ToList();
+            arr.Add(item);
+            this.item = arr.ToArray();
+        }
+    }
 }

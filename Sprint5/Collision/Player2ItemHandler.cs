@@ -21,7 +21,10 @@ namespace Sprint5.Collision
 					Inventory.AddKeys();
 					
 				else if (type.Equals("itemHeart"))
+				{
 					Inventory.AddHealth();
+					player.GetState().addHealth();
+				}
 				else if (type.Equals("boomerang"))
 					Inventory.AddBoomerang();
 				else if (type.Equals("map"))
@@ -29,10 +32,10 @@ namespace Sprint5.Collision
 				else if (type.Equals("compass"))
 					Inventory.AddCompass();
 				else if (type.Equals("triforce"))
-                {
+				{
 					Win.SetWinCondition(true);
 					SoundManager.Instance.WinMusic();
-                }
+				}
 			}
 		}
 	}

@@ -21,6 +21,8 @@ namespace Sprint5
 
 		void Reset();
 
+		PlayerStateMachine GetState();
+
 		void moveLock(FacingEnum direction);
 
 		void moveunLock(FacingEnum direction);

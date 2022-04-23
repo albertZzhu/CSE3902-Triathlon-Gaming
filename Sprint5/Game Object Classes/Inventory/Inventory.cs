@@ -24,6 +24,7 @@ namespace Sprint5
 		private bool additionalHealth;
 		private bool getKey;
 		private Item item2 = new Item("mapmarker2");
+		
 
 		private MapMarker marker = new MapMarker();
 
@@ -101,8 +102,10 @@ namespace Sprint5
 		}
 		public static void AddHealth()
 		{
-			uniqueInventory.health++;
-			uniqueInventory.additionalHealth = true;
+			if (uniqueInventory.health < 5)
+			{
+				uniqueInventory.health++;
+			}
 		}
 
 		public static void SubtractHealth()

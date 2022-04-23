@@ -29,6 +29,8 @@ namespace Sprint5
 		public Level level1;
 		private Win WinState;
 		private Lose LoseState;
+		//remove later
+		//private int x, y;
 
 		public Game1()
 		{

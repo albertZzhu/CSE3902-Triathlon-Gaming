@@ -65,7 +65,10 @@ namespace Sprint5
 
 		public void addHealth()
 		{
-			health++;
+			if (health < 5)
+			{
+				health++;
+			}
 		}
 
 		public bool IfDie()
