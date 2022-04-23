@@ -32,5 +32,9 @@ namespace Sprint5
         {
             WinSprite.Draw(spriteBatch, new Vector2(0,0));
         }
+        public void Setsprite(String winpic)
+        {
+            this.WinSprite = SpriteFactory.GetSprite(winpic);
+        }
     }
 }

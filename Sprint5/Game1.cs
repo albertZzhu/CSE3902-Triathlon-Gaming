@@ -29,6 +29,7 @@ namespace Sprint5
 		public Level level1;
 		private Win WinState;
 		private Lose LoseState;
+		private bool alllevelpass = false;
 		//remove later
 		//private int x, y;
 
@@ -122,11 +123,23 @@ namespace Sprint5
 						}
 					}
 				} else
-                {	
-					if(Win.GetWinCondition())
-                    {
+                {
+					if (Win.GetWinCondition())
+					{	
+						if(this.alllevelpass)
+                        {
+							WinState.Setsprite("winresized");
+                        }
 						WinState.Update(gameTime);
-					} else LoseState.Update(gameTime);
+					}
+					else
+					{
+						if(level1.futureroom() == "level1")
+                        {
+							LoseState.Setsprite("loseresized");
+						}
+						LoseState.Update(gameTime);
+					}
 					_keyboardCon.CompareStates(level1.GetRoom().GetPlayerObj());
 				}
 			}
@@ -181,9 +194,10 @@ namespace Sprint5
 		private Level renewToLevel1(GraphicsDeviceManager _graphics, GameObjectManager gameObjectManager, int boundWidth, int boundHeight)
 		{
 			_graphics.PreferredBackBufferWidth = 800;
-			_graphics.PreferredBackBufferHeight = 800;
+			_graphics.PreferredBackBufferHeight = 550;
 			this._graphics.IsFullScreen = false;
 			_graphics.ApplyChanges();
+			this.alllevelpass = true;
 			boundWidth = Window.ClientBounds.Width;
 			boundHeight = Window.ClientBounds.Height;
 			Level level = new Level1(gameObjectManager, boundWidth, boundHeight);

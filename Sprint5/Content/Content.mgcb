@@ -1034,6 +1034,18 @@
 /processorParam:TextureFormat=Color
 /build:lose.png
 
+#begin loseresized.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:loseresized.png
+
 #begin magic_portion.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1894,6 +1906,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:win.png
+
+#begin winresized.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:winresized.png
 
 #begin zelda_theme_snes-cut-mp3.mp3
 /importer:Mp3Importer

@@ -32,5 +32,9 @@ namespace Sprint5
         {
             LoseSprite.Draw(spriteBatch, new Vector2(0, 0));
         }
+        public void Setsprite(String winpic)
+        {
+            this.LoseSprite = SpriteFactory.GetSprite(winpic);
+        }
     }
 }

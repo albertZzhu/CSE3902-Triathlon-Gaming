@@ -134,3 +134,5 @@
 1,1,1,1,botlockdoor
 1,1,1,1,rightlockdoor
 1,1,1,1,hole
+1,1,1,1,winresized
+1,1,1,1,loseresized
