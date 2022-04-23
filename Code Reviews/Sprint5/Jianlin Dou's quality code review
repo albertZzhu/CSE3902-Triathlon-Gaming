@@ -1,0 +1,13 @@
+Jianlin Dou
+
+4/22/22
+
+Sprint 5
+
+room.cs, inventory.cs and xml files
+
+Keyi Lu
+
+the code quality is well organized, the idea behind it is to lock the boolean value to those locks,
+which control the whether or not let the inventory updated once the charachter step in the room again.
+the form of xml structure has been refined, made it readable and easy to understand. it helps lower the code coupling.
