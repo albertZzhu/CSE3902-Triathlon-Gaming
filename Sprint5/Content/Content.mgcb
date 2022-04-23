@@ -247,6 +247,18 @@
 /processorParam:TextureFormat=Color
 /build:BoomerangFlying.png
 
+#begin botlockdoor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:botlockdoor.png
+
 #begin botlongwall.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -668,6 +680,18 @@
 /processorParam:TextureFormat=Color
 /build:heart.png
 
+#begin hole.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hole.png
+
 #begin ironBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -983,9 +1007,6 @@
 #begin Level2Data2.xml
 /copy:Level2Data2.xml
 
-#begin Level2Data2.xml
-/copy:Level2Data2.xml
-
 #begin levelData2.xml
 /copy:levelData2.xml
 
@@ -1282,6 +1303,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:rightgate.png
+
+#begin rightlockdoor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:rightlockdoor.png
 
 #begin rightlongwall.png
 /importer:TextureImporter

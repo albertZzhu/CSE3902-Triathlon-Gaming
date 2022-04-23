@@ -35,9 +35,10 @@ namespace Sprint5
         private List<IProjectile> list;
         private GameObjectManager gom;
 		private List<string> Textureholder;
-
-		public Room2(String room, GameObjectManager gom, int boundWidth, int boundHeight, Player player = null)
+        private Level level;
+		public Room2(String room, GameObjectManager gom, int boundWidth, int boundHeight, Level level, Player player = null)
         {
+            this.level = level;
             this.boundWidth = boundWidth;
             this.boundHeight = boundHeight;
             this.gom = gom;
@@ -228,7 +229,7 @@ namespace Sprint5
                                 if (!element.IsEmpty)
                                 {
                                     XmlNodeList Einfo = element.ChildNodes;
-                                    npc[i] = new NPCwithAstar(boundWidth, boundHeight, this.GetPlayerObj(), this.GetBlockObj());
+                                    npc[i] = new NPCwithAstar(boundWidth, boundHeight, this.GetPlayerObj(), this.GetBlockObj(), this, this.level);
                                     npc[i].SetMoveBool(Convert.ToBoolean(element.Attributes["move"].Value));
                                     npc[i].SetLocation(new Vector2(int.Parse((Einfo[0].FirstChild).InnerText), int.Parse((Einfo[0].LastChild).InnerText)));
                                     //cast here......
@@ -314,17 +315,16 @@ namespace Sprint5
             return player;
         }
 
-        //not used
-        public KeyValuePair<IBlock, String>[] GetDoorPair()
-        {
-            return null;
-        }
-
         public void AddItem(Item item)
         {
             List<Item> arr = this.item.ToList();
             arr.Add(item);
             this.item = arr.ToArray();
+        }
+        //not used
+        public KeyValuePair<IBlock, String>[] GetDoorPair()
+        {
+            return null;
         }
 
         public IProjectile[] GetNPCProjObj()

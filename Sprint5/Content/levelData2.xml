@@ -116,15 +116,15 @@
           <B_texture>stairs</B_texture>
         </B>
       </blocks>
-	  <movable_block num ="1">
-		  <MB>
-			  <loc>
-				  <x>300</x>
-				  <y>250</y>
-			  </loc>
-			  <MB_texture>block</MB_texture>
-		  </MB>
-	  </movable_block>
+      <movable_block num ="1">
+        <MB>
+          <loc>
+            <x>300</x>
+            <y>250</y>
+          </loc>
+          <MB_texture>block</MB_texture>
+        </MB>
+      </movable_block>
       <door num="4">
         <D/>
         <D>
@@ -138,9 +138,9 @@
         <D/>
         <D/>
       </door>
-      <water num="0"/>
-      <sand num="0"/>
-      <items num="0" />
+    <water num="0"/>
+    <sand num="0"/>
+    <items num="0"/>
 		<enemies num="4">
 			<E move="true">
 				<loc>
@@ -491,7 +491,7 @@
 					<R>
 						<loc>
 							<x>550</x>
-							<y>300</y>
+							<y>200</y>
 						</loc>
 						<dir>1</dir>
 					</R>
@@ -941,7 +941,7 @@
             <x>700</x>
             <y>225</y>
           </loc>
-          <D_texture>rightgate</D_texture>
+          <D_texture>rightlockdoor</D_texture>
           <neighbor>room5</neighbor>
         </D>
         <D>

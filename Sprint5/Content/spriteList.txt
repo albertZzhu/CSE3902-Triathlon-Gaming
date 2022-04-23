@@ -131,3 +131,6 @@
 1,1,1,1,rightlongwall
 1,1,1,1,toplongwall
 1,1,1,1,botlongwall
+1,1,1,1,botlockdoor
+1,1,1,1,rightlockdoor
+1,1,1,1,hole

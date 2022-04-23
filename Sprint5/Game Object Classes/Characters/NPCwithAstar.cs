@@ -39,9 +39,16 @@ namespace Sprint5
 		private IBlock[] wall;
 		private Iplayer localPlayer;
 		private PathFinder pathFinder;
+		private Item[] itemdropped;
+		private Item portal;
+		private IRoom room;
+		private Level level;
+		private int dropornot;
+		private int whichone;
 		//constructor
-		public NPCwithAstar(int boundWidth, int boundHeight, Iplayer player,IBlock[] block)
+		public NPCwithAstar(int boundWidth, int boundHeight, Iplayer player,IBlock[] block, IRoom room, Level level)
 		{
+			this.level = level;
 			state = new NpcStatementMachine(this);
 			proj = new NpcProjectileSeq();
 			this.boundWidth = boundWidth;
@@ -54,6 +61,20 @@ namespace Sprint5
 			this.wall = Removewalls(block.Skip(5).ToArray());
 			this.localPlayer = player;
 			this.pathFinder = new PathFinder();
+			this.room = room;
+			this.level = level;
+			this.initializeItemDropped();
+		}
+
+		private void initializeItemDropped()
+		{
+			this.portal = new Item("hole");
+			this.itemdropped = new Item[2];
+			this.itemdropped[0] = new Item("key");
+			this.itemdropped[1] = new Item("itemHeart");
+			Random rand = new Random();
+			dropornot = rand.Next(0, 2);
+			whichone = rand.Next(0, 2);
 		}
 
 		private IBlock[] Removewalls(IBlock[] block)
@@ -328,6 +349,31 @@ namespace Sprint5
 				{
 					deadClock += (float)gameTime.ElapsedGameTime.TotalSeconds;
 					npc.Update();
+				} else if(dead)
+                {
+					if (this.GetNPCHolder()[0] == "dragon")
+					{
+						this.room.AddItem(this.portal);
+						this.portal.SetLocation(this.location);
+						if (!this.portal.isDisappear())
+						{
+							this.portal.Update(gameTime);
+						}else
+                        {
+							this.level.setCheckLock(true);
+                        }
+					}
+					else {
+						if (dropornot == 1)
+						{
+							this.room.AddItem(this.itemdropped[whichone]);
+							this.itemdropped[whichone].SetLocation(this.location);
+							if (!this.itemdropped[whichone].isDisappear())
+							{
+								this.itemdropped[whichone].Update(gameTime);
+							}
+						}
+					}
 				}
 			}
 			else
@@ -350,6 +396,24 @@ namespace Sprint5
 				else if (deadClock < 1f)
 				{
 					npc.Draw(spriteBatch, location);
+				}
+				else if (dead)
+				{
+					if (this.GetNPCHolder()[0] == "dragon" && !this.portal.isDisappear())
+					{
+						this.portal.Draw(spriteBatch);
+					}
+					else
+					{
+						if (this.dropornot == 1)
+						{
+							if (!this.itemdropped[whichone].isDisappear())
+							{
+								this.itemdropped[whichone].Draw(spriteBatch);
+							}
+						}
+					}
+
 				}
 			}
 			else

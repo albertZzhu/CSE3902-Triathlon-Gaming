@@ -338,7 +338,20 @@
       <water num="0"/>
       <sand num="0"/>
       <items num="0" />
-      <enemies num="17">
+      <enemies num="18">
+        <E move="true">
+          <loc>
+            <x>1201</x>
+            <y>923</y>
+          </loc>
+          <dir>1</dir>
+          <E_texture>
+            <up>dragon</up>
+            <down>dragon</down>
+            <right>dragon</right>
+            <left>dragon</left>
+          </E_texture>
+        </E>
         <E move="true">
           <loc>
             <x>100</x>

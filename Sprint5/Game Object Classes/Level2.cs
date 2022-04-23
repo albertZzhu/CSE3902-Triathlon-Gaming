@@ -42,14 +42,14 @@ namespace Sprint5
 
         public void InitializeRoom()
         {
-            room = new Room2("room", gom, boundWidth, boundHeight);
+            room = new Room2("room", gom, boundWidth, boundHeight, this);
             this.currentRoom = "room";
             setCheckLock(false);
         }
 
         public void loadRoom()
         {
-            room = new Room2("room", gom, boundWidth, boundHeight, room.GetPlayerObj());
+            room = new Room2("room", gom, boundWidth, boundHeight, this, room.GetPlayerObj());
             this.currentRoom = "room";
         }
 
