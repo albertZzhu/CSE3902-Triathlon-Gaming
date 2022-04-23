@@ -36,4 +36,6 @@ In this sprint, in addition to polishing some existing features, we are adding o
 
 ##### KNOWN ISSUES:
 * After the player is teleported from level2 to level1, this disables many game interactions. The only thing that the player can do is pick up the triforce and win the game. However, the issue will not disappear when the player immediately resets the game after picking up the triforce. 
+* If the player is hit while using the boomerang, it will suddenly become unavailable to use until the player goes to another room.
+* After a player death, the player can spawn outside of the bounds of the spawn room.
 
