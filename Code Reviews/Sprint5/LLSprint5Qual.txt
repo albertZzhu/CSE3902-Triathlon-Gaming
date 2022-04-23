@@ -1,0 +1,17 @@
+Leigh Lynch
+4/23/22
+Sprint5
+PathFinder.cs
+Boru Zhu
+8 minutes
+
+There are a few magic numbers in calculating positions, i.e. in Position2Node and isValid. 
+The purpose of them is not made clear by the code around them. A variable would have been
+for these numbers additionally, as it would allow for modification from one point of entry 
+(changing the variable instead of changing each instance of the number.)
+
+If you wanted to make NPCs with variations on this AI, there is not immediately a template to follow.
+Perhaps adding an interface or more general PathFinder class would allow for future variations to occur.
+
+
+

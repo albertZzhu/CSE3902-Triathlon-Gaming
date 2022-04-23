@@ -1,0 +1,10 @@
+Leigh Lynch
+4/23/22
+Sprint5
+PathFinder.cs
+Boru Zhu
+10 minutes
+
+My first impression is that the code is neat but some comments would make it more readable. 
+Variables are named clearly enough, but the overall process of what the code does 
+could've been explained in comments to the reader, allowing for quicker comprehension.
