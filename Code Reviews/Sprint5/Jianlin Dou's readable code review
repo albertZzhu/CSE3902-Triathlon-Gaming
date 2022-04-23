@@ -1,0 +1,14 @@
+Jianlin Dou
+
+4/22/22
+
+Sprint 5
+
+room.cs, inventory.cs and xml file
+
+Keyi Lu
+
+26 minutes
+
+The code is readable and understandable. the form of xml structure has been refined. and like i mentioned in quality text, the idea is to set
+the boolean controled itemlock function to true or false to let the xml reader know whether or not jump over these cooresponding commands. it's logicaly clear.
